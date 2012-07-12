@@ -16,7 +16,7 @@ module.exports = function (cwd, opts) {
         return path.normalize(ps.join(isWindows ? '\\' : '/'));
     };
     
-    return path.normalize(cwd)
+    var res = path.normalize(cwd)
         .split(sep)
         .reduce(function (acc,dir,ix) {
             return acc.concat(join(acc[ix], dir))
@@ -24,4 +24,6 @@ module.exports = function (cwd, opts) {
         .slice(1)
         .reverse()
     ;
+    if (res[0] === '/') return ['/'];
+    return res;
 }
