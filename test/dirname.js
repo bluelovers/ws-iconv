@@ -12,3 +12,9 @@ test('dirname', function (t) {
     ]);
     t.end();
 });
+
+test('root', function (t) {
+    var dirs = parents('/');
+    t.same(dirs, [ '/' ]);
+    t.end();
+});
