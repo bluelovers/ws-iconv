@@ -13,3 +13,9 @@ test('win32', function (t) {
     ]);
     t.end();
 });
+
+test('win32 c:', function (t) {
+    var dirs = parents('C:\\', { platform : 'win32' });
+    t.same(dirs, [ 'C:' ]);
+    t.end();
+});
