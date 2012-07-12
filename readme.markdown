@@ -2,6 +2,8 @@
 
 Return all the parent directories of a directory, inclusive of that directory.
 
+[![build status](https://secure.travis-ci.org/substack/node-parents.png)](http://travis-ci.org/substack/node-parents)
+
 # example
 
 ## dirname
