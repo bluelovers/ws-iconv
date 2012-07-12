@@ -24,6 +24,6 @@ module.exports = function (cwd, opts) {
         .slice(1)
         .reverse()
     ;
-    if (res[0] === '/') return ['/'];
+    if (res[0] === res[1]) return [ res[0] ];
     return res;
 }

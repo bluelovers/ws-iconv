@@ -1,6 +1,6 @@
 {
     "name" : "parents",
-    "version" : "0.0.0",
+    "version" : "0.0.1",
     "description" : "return all the parent directories for a directory",
     "main" : "index.js",
     "bin" : {},
