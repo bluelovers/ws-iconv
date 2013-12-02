@@ -21,10 +21,13 @@ test('win32 c:', function (t) {
 });
 
 test('win32 network drive', function (t) {
-    var dirs = parents('\\storageserver01\Active Projects\ProjectA', { platform : 'win32' });
+    var dirs = parents(
+        '\\storageserver01\\Active Projects\\ProjectA',
+        { platform : 'win32' }
+    );
     t.same(dirs, [
-        '\\storageserver01\Active Projects\ProjectA',
-        '\\storageserver01\Active Projects',
+        '\\storageserver01\\Active Projects\\ProjectA',
+        '\\storageserver01\\Active Projects',
         '\\storageserver01'
     ]);
     t.end();
