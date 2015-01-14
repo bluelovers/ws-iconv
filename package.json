@@ -9,7 +9,7 @@
         "test" : "test"
     },
     "dependencies" : {
-        "path-platform": "^0.0.1"
+        "path-platform": "~0.11.15"
     },
     "devDependencies" : {
         "tap" : "~0.2.5"
