@@ -36,3 +36,6 @@ node_modules
 *.iml
 out
 gen
+/test/
+/node_modules/
+/.idea/
