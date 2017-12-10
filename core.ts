@@ -25,6 +25,8 @@ export interface IPathNode
 	win32?: IPathNode;
 	posix?: IPathNode;
 
+	delimiter?: string;
+
 	join<T = string, U = string>(path: T, ...paths: U[]): string;
 	normalize<T = string>(path: T): string;
 	relative<T = string, U = string>(from: T, to: U): string;
@@ -41,28 +43,52 @@ export interface IPathNode
 
 export interface IPath extends IPathNode
 {
+	name?: string;
+
 	win32?: IPath;
 	posix?: IPath;
 	upath?: IPath;
 
+	sep: string;
+	delimiter?: string;
+
+	join<T = string, U = string>(path: T, ...paths: U[]): string;
+	normalize<T = string>(path: T): string;
+	relative<T = string, U = string>(from: T, to: U): string;
+	resolve<T = string, U = string>(path: T, ...paths: U[]): string;
+	parse<T = string>(path: T): IParse;
+	format<T = IParse>(pathObject: T): string;
+	basename<T = string, U = string>(path: T, ext?: U): string;
+	dirname<T = string>(path: T): string;
+	extname<T = string>(path: T): string;
+	isAbsolute<T = string>(path: T): boolean;
+
+	fn?: IPath;
+
 	default?: IPath;
+
+	[index: string]: any;
 }
 
 export class PathWrap implements IPath
 {
 	public sep = '/';
-	protected _origin;
-	public name;
-	public delimiter;
-	public __proto__;
+	protected _origin: IPath;
+	public name: string;
+	public delimiter: string;
+	protected __proto__: IPath;
 
-	public win32;
-	public posix;
-	public upath;
-	public default;
+	public win32: IPath;
+	public posix: IPath;
+	public upath: IPath;
+	public default: IPath;
+
+	public fn: IPath;
 
 	constructor(path, id)
 	{
+		let _static = getStatic(this);
+
 		this._origin = path;
 
 		this.name = id;
@@ -75,12 +101,12 @@ export class PathWrap implements IPath
 		let __proto__ = {};
 
 		// get prototype from class
-		for (let i in Object.getOwnPropertyDescriptors(this.__proto__.constructor.prototype))
+		for (let i in Object.getOwnPropertyDescriptors(_static.prototype))
 		{
-			__proto__[i] = this.__proto__.constructor.prototype[i];
+			//__proto__[i] = _static.prototype[i];
 		}
 
-		Object.assign(this.__proto__, path, __proto__, this.__proto__);
+		this.fn = Object.assign(this.__proto__, path, _static.fn);
 	}
 
 	public join<T = string, U = string>(path: T, ...paths: U[]): string
@@ -138,15 +164,47 @@ export class PathWrap implements IPath
 	}
 }
 
-export const posix = new PathWrap(_path.posix, 'posix');
-export const win32 = new PathWrap(_path.win32, 'win32');
-export const upath = new PathWrap(_path, 'upath');
+export namespace PathWrap
+{
+	let __proto__ = {};
 
-upath.win32 = win32;
-upath.posix = posix;
-upath.upath = upath;
+	// get prototype from class
+	for (let i in Object.getOwnPropertyDescriptors(PathWrap.prototype))
+	{
+		__proto__[i] = PathWrap.prototype[i];
+	}
 
-upath.default = upath;
+	export let fn = __proto__ as IPath;
+
+	fn['fn'] = fn;
+	fn.sep = '/';
+
+	PathWrap.prototype.fn = fn;
+}
+
+function getStatic(who)
+{
+	return who.__proto__.constructor;
+}
+
+export const posix = new PathWrap(_path.posix, 'posix') as IPath;
+export const win32 = new PathWrap(_path.win32, 'win32') as IPath;
+export const upath = new PathWrap(_path, 'upath') as IPath;
+
+//upath.win32 = win32;
+//upath.posix = posix;
+//upath.upath = upath;
+
+//PathWrap.fn = upath.fn;
+
+upath.fn.win32 = win32;
+upath.fn.posix = posix;
+upath.fn.upath = upath;
+upath.fn.default = upath;
+
+export const fn = PathWrap.fn = upath.fn;
+
+_path.upath = upath;
 
 for (let key of [
 	'win32',
@@ -154,7 +212,7 @@ for (let key of [
 	'upath',
 ])
 {
-	win32[key] = posix[key] = upath[key]
+	win32.fn[key] = posix.fn[key] = upath.fn[key] = upath[key];
 }
 
 //console.log(upath, upath.sep);
