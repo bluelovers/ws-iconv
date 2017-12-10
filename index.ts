@@ -2,6 +2,8 @@
  * Created by user on 2017/12/10/010.
  */
 
-import { upath, PathWrap } from './core';
+import { upath, PathWrap, fn, IPath } from './core';
 
-export = upath as PathWrap;
+import './lib/fs';
+
+export = upath as IPath;
