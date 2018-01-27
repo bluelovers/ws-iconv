@@ -7,9 +7,10 @@ import iconv, { vEncoding } from './iconv';
 import { WriteStream } from "fs";
 import * as fs from 'fs-extra';
 export * from 'fs-extra';
-import * as path from 'path';
 import * as Promise from 'bluebird';
 import * as stream from 'stream';
+import * as sanitize from 'sanitize-filename';
+import * as path from 'path';
 
 export { iconv }
 
@@ -53,6 +54,20 @@ export function outputStream(file: string, readStream: stream.Readable): WriteSt
 	let writeStream = fs.createWriteStream(file);
 	readStream.pipe(writeStream);
 	return writeStream;
+}
+
+export function trimFilename(name): string
+{
+	let ret = name.toString()
+		.replace(/\r\n|\r|\n|　/g, ' ')
+		.replace(/[\s\r\n\t  \xA0　]+/g, ' ')
+	;
+
+	return sanitize(ret, '')
+		.trim()
+		.replace(/^[　\s_]+/g, '')
+		.replace(/[　\s_]+$/g, '')
+		;
 }
 
 import * as self from './index';

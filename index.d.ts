@@ -11,5 +11,6 @@ export interface IOptions {
 export declare function saveFile(file: string, data: any, options?: IOptions): Promise<any>;
 export declare function createStreamPassThrough(data: any): stream.Readable;
 export declare function outputStream(file: string, readStream: stream.Readable): WriteStream;
+export declare function trimFilename(name: any): string;
 import * as self from './index';
 export default self;

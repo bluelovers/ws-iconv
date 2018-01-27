@@ -1,6 +1,6 @@
 {
   "name": "fs-iconv",
-  "version": "1.1.0",
+  "version": "1.1.2",
   "description": "save file with charset/encoding/iconv",
   "keywords": [
     "charset",
@@ -52,7 +52,8 @@
     "bluebird": "^3.5.1",
     "fs-extra": "^5.0.0",
     "iconv-lite": "^0.4.19",
-    "jschardet": "^1.6.0"
+    "jschardet": "^1.6.0",
+    "sanitize-filename": "^1.6.1"
   },
   "devDependencies": {
     "@types/fs-extra": "^5.0.0",

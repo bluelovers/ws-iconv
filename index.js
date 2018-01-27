@@ -9,6 +9,7 @@ const fs = require("fs-extra");
 __export(require("fs-extra"));
 const Promise = require("bluebird");
 const stream = require("stream");
+const sanitize = require("sanitize-filename");
 function saveFile(file, data, options = {}) {
     return Promise
         .resolve(fs.ensureFile(file))
@@ -37,5 +38,15 @@ function outputStream(file, readStream) {
     return writeStream;
 }
 exports.outputStream = outputStream;
+function trimFilename(name) {
+    let ret = name.toString()
+        .replace(/\r\n|\r|\n|　/g, ' ')
+        .replace(/[\s\r\n\t  \xA0　]+/g, ' ');
+    return sanitize(ret, '')
+        .trim()
+        .replace(/^[　\s_]+/g, '')
+        .replace(/[　\s_]+$/g, '');
+}
+exports.trimFilename = trimFilename;
 const self = require("./index");
 exports.default = self;
