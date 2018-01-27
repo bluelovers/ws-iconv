@@ -1,7 +1,11 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const iconvLite = require("iconv-lite");
+const iconv_lite_1 = require("iconv-lite");
+exports.encodingExists = iconv_lite_1.encodingExists;
 const jschardet = require("jschardet");
+const encoding_1 = require("./encoding");
+exports.codec_data = encoding_1.codec_data;
 function skipDecodeWarning(bool = true) {
     return iconvLite.skipDecodeWarning = bool;
 }
@@ -19,22 +23,46 @@ function BufferFrom(str, encoding, from) {
     return buf;
 }
 exports.BufferFrom = BufferFrom;
-function detect(str) {
+function detect(str, plus) {
     let ret = jschardet.detect(str);
-    ret.encoding_lc = ret.encoding.toLowerCase();
+    if (plus) {
+        let cd = encoding_1.codec_data(ret.encoding);
+        if (cd) {
+            if (cd.name) {
+                ret.name = cd.name;
+            }
+            ret.id = cd.id;
+        }
+    }
+    if (!ret.name) {
+        ret.name = ret.encoding;
+    }
     return ret;
 }
 exports.detect = detect;
 function decode(str, from = null) {
-    let c = detect(str);
+    let c;
     if (!from) {
+        c = detect(str);
         from = c.encoding;
     }
     let data;
-    switch (from.toUpperCase()) {
+    let cd = encoding_1.codec_data(from);
+    let key;
+    if (cd && cd.name && !cd.not) {
+        key = cd.name;
+    }
+    else {
+        key = from;
+    }
+    switch (key.toUpperCase()) {
         case 'BIG5':
         case 'GBK':
+        case 'GB2312':
         case 'UTF-16LE':
+        case 'UTF-16BE':
+        case 'UC-JP':
+        case 'SHIFT_JIS':
             data = iconvLite.decode(str, from);
             break;
         case 'ASCII':
@@ -42,6 +70,7 @@ function decode(str, from = null) {
             data = str;
             break;
         default:
+            c = c || detect(str);
             console.warn('decode', from, c);
             data = iconvLite.decode(str, from);
             break;

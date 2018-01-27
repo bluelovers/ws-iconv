@@ -1,6 +1,6 @@
 {
   "name": "fs-iconv",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "description": "save file with charset/encoding/iconv",
   "keywords": [
     "charset",
@@ -55,6 +55,7 @@
     "jschardet": "^1.6.0"
   },
   "devDependencies": {
+    "@types/fs-extra": "^5.0.0",
     "@types/node": "^9.4.0"
   }
 }

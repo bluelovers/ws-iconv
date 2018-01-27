@@ -1,5 +1,12 @@
 import * as iconvLite from 'iconv-lite';
+import { encodingExists } from 'iconv-lite';
 import * as jschardet from 'jschardet';
+import { codec_data } from './encoding';
+
+export {
+	encodingExists,
+	codec_data,
+}
 
 export type vEncoding = 'Big5' | 'UTF-8' | 'Gbk' | string | null;
 
@@ -28,36 +35,72 @@ export function BufferFrom(str, encoding: vEncoding, from?: vEncoding): Buffer
 	return buf;
 }
 
-export function detect(str): {
+export function detect(str, plus?: boolean): {
 	encoding: string,
 	confidence: number,
 
-	encoding_lc: string,
+	name?: string,
+	id?: string,
 }
 {
 	let ret = jschardet.detect(str);
 
-	ret.encoding_lc = ret.encoding.toLowerCase();
+	if (plus)
+	{
+		let cd = codec_data(ret.encoding);
+		if (cd)
+		{
+			if (cd.name)
+			{
+				ret.name = cd.name;
+			}
+
+			ret.id = cd.id;
+		}
+	}
+
+	if (!ret.name)
+	{
+		ret.name = ret.encoding;
+	}
 
 	return ret;
 }
 
 export function decode(str, from: vEncoding = null): string
 {
-	let c = detect(str);
+	let c;
 
 	if (!from)
 	{
+		c = detect(str);
 		from = c.encoding;
 	}
 
 	let data;
 
-	switch (from.toUpperCase())
+	let cd = codec_data(from);
+
+	let key: string;
+
+	if (cd && cd.name && !cd.not)
+	{
+		key = cd.name;
+	}
+	else
+	{
+		key = from;
+	}
+
+	switch (key.toUpperCase())
 	{
 		case 'BIG5':
 		case 'GBK':
+		case 'GB2312':
 		case 'UTF-16LE':
+		case 'UTF-16BE':
+		case 'UC-JP':
+		case 'SHIFT_JIS':
 			data = iconvLite.decode(str, from);
 			break;
 		case 'ASCII':
@@ -65,6 +108,7 @@ export function decode(str, from: vEncoding = null): string
 			data = str;
 			break;
 		default:
+			c = c || detect(str);
 			console.warn('decode', from, c);
 
 			//data = str;

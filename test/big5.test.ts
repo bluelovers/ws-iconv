@@ -36,7 +36,7 @@ describe(relative(__filename), () =>
 		{
 			let c = self.iconv.detect(BIG5_STR);
 
-			expect(c.encoding_lc).to.be.equal('big5');
+			expect(c.name).to.be.equal('Big5');
 			expect(c.encoding).to.be.equal('Big5');
 
 			done();
@@ -46,7 +46,7 @@ describe(relative(__filename), () =>
 		{
 			let c = self.iconv.detect(BIG5_BUF);
 
-			expect(c.encoding_lc).to.be.equal('big5');
+			expect(c.name).to.be.equal('Big5');
 			expect(c.encoding).to.be.equal('Big5');
 
 			done();
@@ -67,7 +67,7 @@ describe(relative(__filename), () =>
 
 			let c = self.iconv.detect(data);
 
-			expect(c.encoding_lc).to.be.equal('big5');
+			expect(c.name).to.be.equal('Big5');
 			expect(c.encoding).to.be.equal('Big5');
 
 			done();
@@ -82,9 +82,9 @@ describe(relative(__filename), () =>
 
 			let data = self.iconv.encode(BIG5_BUF, 'big5');
 
-			let c = self.iconv.detect(data);
+			let c = self.iconv.detect(data, true);
 
-			expect(c.encoding_lc).to.be.equal('big5');
+			expect(c.name).to.be.equal('Big5');
 			expect(c.encoding).to.be.equal('Big5');
 
 			done();
@@ -96,7 +96,7 @@ describe(relative(__filename), () =>
 
 			let c = self.iconv.detect(data);
 
-			expect(c.encoding_lc).to.be.equal('utf-8');
+			expect(c.name).to.be.equal('UTF-8');
 			expect(c.encoding).to.be.equal('UTF-8');
 
 			expect(data).to.be.deep.equal(BIG5_UTF8_BUF);
@@ -116,7 +116,7 @@ describe(relative(__filename), () =>
 
 			let c = self.iconv.detect(data);
 
-			expect(c.encoding_lc).to.be.equal('utf-8');
+			expect(c.name).to.be.equal('UTF-8');
 			expect(c.encoding).to.be.equal('UTF-8');
 
 			expect(data).to.be.deep.equal(BIG5_UTF8_BUF);
