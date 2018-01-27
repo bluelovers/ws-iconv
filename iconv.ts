@@ -1,13 +1,15 @@
 import * as iconvLite from 'iconv-lite';
 import * as jschardet from 'jschardet';
 
+export type vEncoding = 'Big5' | 'UTF-8' | 'Gbk' | string | null;
+
 export function skipDecodeWarning(bool: boolean = true)
 {
 	// @ts-ignore
-	iconvLite.skipDecodeWarning = bool;
+	return iconvLite.skipDecodeWarning = bool;
 }
 
-export function BufferFrom(str, encoding, from?)
+export function BufferFrom(str, encoding: vEncoding, from?: vEncoding): Buffer
 {
 	let data;
 
@@ -40,7 +42,7 @@ export function detect(str): {
 	return ret;
 }
 
-export function decode(str, from: string = null): string
+export function decode(str, from: vEncoding = null): string
 {
 	let c = detect(str);
 
@@ -73,7 +75,7 @@ export function decode(str, from: string = null): string
 	return data;
 }
 
-export function encode(str, to: string = 'utf8', from: string = null)
+export function encode(str, to: vEncoding = 'utf8', from: vEncoding = null): Buffer
 {
 	let buf = BufferFrom(str, 'utf8');
 

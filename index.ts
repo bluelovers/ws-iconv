@@ -2,7 +2,7 @@
  * Created by user on 2018/1/27/027.
  */
 
-import iconv from './iconv';
+import iconv, { vEncoding } from './iconv';
 
 import { WriteStream } from "fs";
 import * as fs from 'fs-extra';
@@ -13,14 +13,12 @@ import * as stream from 'stream';
 
 export { iconv }
 
-export type vEncoding = 'Big5' | 'UTF-8' | 'Gbk' | string | null;
-
 export interface IOptions
 {
 	encoding?: vEncoding;
 }
 
-export function saveFile(file, data, options: IOptions = {})
+export function saveFile(file: string, data, options: IOptions = {}): Promise<any>
 {
 	return Promise
 		.resolve(fs.ensureFile(file))
@@ -50,7 +48,7 @@ export function createStreamPassThrough(data): stream.Readable
 	return readStream;
 }
 
-export function outputStream(file, readStream: stream.Readable): WriteStream
+export function outputStream(file: string, readStream: stream.Readable): WriteStream
 {
 	let writeStream = fs.createWriteStream(file);
 	readStream.pipe(writeStream);

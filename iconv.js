@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const iconvLite = require("iconv-lite");
 const jschardet = require("jschardet");
 function skipDecodeWarning(bool = true) {
-    iconvLite.skipDecodeWarning = bool;
+    return iconvLite.skipDecodeWarning = bool;
 }
 exports.skipDecodeWarning = skipDecodeWarning;
 function BufferFrom(str, encoding, from) {
