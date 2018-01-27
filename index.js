@@ -9,7 +9,7 @@ const fs = require("fs-extra");
 __export(require("fs-extra"));
 const Promise = require("bluebird");
 const stream = require("stream");
-function outputFile(file, data, options = {}) {
+function saveFile(file, data, options = {}) {
     return Promise
         .resolve(fs.ensureFile(file))
         .then(function () {
@@ -24,7 +24,7 @@ function outputFile(file, data, options = {}) {
         });
     });
 }
-exports.outputFile = outputFile;
+exports.saveFile = saveFile;
 function createStreamPassThrough(data) {
     let readStream = new stream.PassThrough();
     readStream.end(data);
@@ -37,3 +37,5 @@ function outputStream(file, readStream) {
     return writeStream;
 }
 exports.outputStream = outputStream;
+const self = require("./index");
+exports.default = self;

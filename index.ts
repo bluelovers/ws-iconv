@@ -13,12 +13,14 @@ import * as stream from 'stream';
 
 export { iconv }
 
+export type vEncoding = 'Big5' | 'UTF-8' | 'Gbk' | string | null;
+
 export interface IOptions
 {
-	encoding?: string | null;
+	encoding?: vEncoding;
 }
 
-export function outputFile(file, data, options: IOptions = {})
+export function saveFile(file, data, options: IOptions = {})
 {
 	return Promise
 		.resolve(fs.ensureFile(file))
@@ -45,7 +47,6 @@ export function createStreamPassThrough(data): stream.Readable
 {
 	let readStream = new stream.PassThrough();
 	readStream.end(data);
-
 	return readStream;
 }
 
@@ -55,3 +56,6 @@ export function outputStream(file, readStream: stream.Readable): WriteStream
 	readStream.pipe(writeStream);
 	return writeStream;
 }
+
+import * as self from './index';
+export default self;
