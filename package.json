@@ -1,13 +1,53 @@
 {
   "name": "fs-iconv",
-  "version": "1.0.0",
-  "description": "save file with charset/encoding",
+  "version": "1.0.1",
+  "description": "save file with charset/encoding/iconv",
+  "keywords": [
+    "charset",
+    "charset",
+    "convert",
+    "copy",
+    "create",
+    "delete",
+    "directory",
+    "encoding",
+    "extra",
+    "extra",
+    "file",
+    "file system",
+    "fs",
+    "iconv",
+    "icu",
+    "json",
+    "mkdir",
+    "mkdirp",
+    "mkdirs",
+    "move",
+    "output",
+    "read",
+    "recursive",
+    "remove",
+    "text",
+    "touch",
+    "write"
+  ],
+  "homepage": "https://github.com/bluelovers/node-fs-iconv#readme",
+  "bugs": {
+    "url": "https://github.com/bluelovers/node-fs-iconv/issues"
+  },
+  "license": "ISC",
+  "author": "",
   "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bluelovers/node-fs-iconv.git"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
-  "license": "ISC",
   "dependencies": {
     "bluebird": "^3.5.1",
     "fs-extra": "^5.0.0",
