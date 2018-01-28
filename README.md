@@ -1,6 +1,6 @@
 # fs-iconv
 
-> save file with charset/encoding
+> save file with charset/encoding/iconv
 
 `npm install fs-iconv`
 
