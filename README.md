@@ -6,11 +6,15 @@
 
 ## demo
 
-fs sama as fs-extra
+fs same as [fs-extra](https://www.npmjs.com/package/fs-extra)
 
 ```ts
 import * as fs from 'fs-iconv';
+```
 
+### fs.saveFile
+
+```ts
 (async ()=>
 {
 
@@ -31,53 +35,74 @@ import * as fs from 'fs-iconv';
 })();
 ```
 
-### BufferFrom
+### fs.loadFile
 
 ```ts
-import * as iconv from 'fs-iconv/iconv';
+fs.loadFile('./res/big5.txt', {
+	autoDecode: true,
+})
+	.then(function (buf)
+	{
+		// autoDecode, so will try decode/encode to utf8 buffer
 
-import * as fs from 'fs-iconv';
-const iconv = fs.iconv
+		console.log('[autoDecode]');
+		console.log(Buffer.isBuffer(buf), buf);
+		console.log(fs.iconv.detect(buf));
+		console.log(buf.toString());
+	})
+;
+
+fs.loadFile('./res/big5.txt', {
+		encoding: 'big5',
+	})
+	.then(function (buf)
+	{
+		// encoding is set, so will return string
+
+		console.log('[encoding:big5]');
+		console.log(Buffer.isBuffer(buf), buf);
+		console.log(fs.iconv.detect(buf));
+		console.log(buf.toString());
+	})
+;
+
+fs.loadFile('./res/big5.txt', {
+		autoDecode: ['gbk'],
+	})
+	.then(function (buf)
+	{
+		// buf is big5, but only allow decode gbk, so skip decode/encode
+
+		console.log('[autoDecode:gbk]');
+		console.log(Buffer.isBuffer(buf), buf);
+		console.log(fs.iconv.detect(buf));
+		console.log(buf.toString());
+	})
+;
 ```
 
-```js
-const BIG5_HEX = 'a6b8b160a5ceb0eaa672bcd0b7c7a672c5e9aaed';
-
-// utf8 buffer
-iconv.BufferFrom(Buffer.from(BIG5_HEX, 'hex'), 'utf8')
-iconv.BufferFrom(BIG5_HEX, 'utf8', 'hex')
-
-// big5 buffer
-iconv.BufferFrom(Buffer.from(BIG5_HEX, 'hex'), 'big5')
-iconv.BufferFrom(BIG5_HEX, 'big5', 'hex')
+```
+[autoDecode]
+true <Buffer e6 ac a1 e5 b8 b8 e7 94 a8 e5 9c 8b e5 ad 97 e6 a8 99 e6 ba 96 e5 ad 97 e9 ab 94 e8 a1 a8>
+{ encoding: 'UTF-8', confidence: 0.99, name: 'UTF-8' }
+次常用國字標準字體表
+[encoding:big5]
+false '次常用國字標準字體表'
+{ encoding: 'ascii', confidence: 1, name: 'ascii' }
+次常用國字標準字體表
+[autoDecode:gbk]
+true <Buffer a6 b8 b1 60 a5 ce b0 ea a6 72 bc d0 b7 c7 a6 72 c5 e9 aa ed>
+{ encoding: 'Big5', confidence: 0.99, name: 'Big5' }
+���`�ΰ�r�зǦr���
 ```
 
 ### iconv
 
-```js
-const BIG5_STR = "\xa6\xb8\xb1\x60\xa5\xce\xb0\xea\xa6\x72\xbc\xd0\xb7\xc7\xa6\x72\xc5\xe9\xaa\xed";
-const BIG5_BUF = Buffer.from('a6b8b160a5ceb0eaa672bcd0b7c7a672c5e9aaed', 'hex');
-
-const BIG5_UTF8_BUF = Buffer.from('e6 ac a1 e5 b8 b8 e7 94 a8 e5 9c 8b e5 ad 97 e6 a8 99 e6 ba 96 e5 ad 97 e9 ab 94 e8 a1 a8'.replace(/\s/g, ''), 'hex');
-```
-
 ```ts
-// same as jschardet.detect
-iconv.detect(BIG5_STR);
-iconv.detect(BIG5_BUF);
+import { iconv } from 'fs-iconv';
 
-// big5 buffer
-iconv.encode(BIG5_STR, 'big5');
-iconv.encode(BIG5_BUF, 'big5');
-// utf8 buffer
-iconv.encode(BIG5_STR, 'utf8');
-iconv.encode(BIG5_BUF, 'utf8');
-
-// utf8 string
-iconv.decode(BIG5_STR);
-iconv.decode(BIG5_BUF);
+import * as fs from 'fs-iconv';
+const iconv = fs.iconv;
 ```
 
-```ts
-iconv.skipDecodeWarning(bool: boolean = true)
-```
+see [iconv-jschardet](https://github.com/bluelovers/node-iconv-jschardet#readme)
