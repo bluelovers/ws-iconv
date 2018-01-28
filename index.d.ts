@@ -1,5 +1,5 @@
 /// <reference types="node" />
-import iconv, { vEncoding } from './iconv';
+import iconv, { vEncoding } from 'iconv-jschardet';
 import { WriteStream } from "fs";
 export * from 'fs-extra';
 import * as Promise from 'bluebird';

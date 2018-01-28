@@ -2,7 +2,7 @@
  * Created by user on 2018/1/27/027.
  */
 
-import iconv, { vEncoding } from './iconv';
+import iconv, { vEncoding } from 'iconv-jschardet';
 
 import { WriteStream } from "fs";
 import * as fs from 'fs-extra';
