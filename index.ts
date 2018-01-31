@@ -151,7 +151,7 @@ export function trimFilename(name): string
 {
 	let ret = name.toString()
 		.replace(/\r\n|\r|\n/g, ' ')
-		.replace(/[\s\r\n\t  \xA0]+/g, ' ')
+		.replace(/[\r\n\t  \xA0]+/g, ' ')
 	;
 
 	return sanitize(ret, '')
