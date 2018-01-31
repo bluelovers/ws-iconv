@@ -89,8 +89,8 @@ function _outputStream(file, readStream) {
 exports._outputStream = _outputStream;
 function trimFilename(name) {
     let ret = name.toString()
-        .replace(/\r\n|\r|\n|　/g, ' ')
-        .replace(/[\s\r\n\t  \xA0　]+/g, ' ');
+        .replace(/\r\n|\r|\n/g, ' ')
+        .replace(/[\s\r\n\t  \xA0]+/g, ' ');
     return sanitize(ret, '')
         .trim()
         .replace(/^[　\s_]+/g, '')
