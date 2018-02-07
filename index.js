@@ -75,6 +75,11 @@ function saveFile(file, data, options = {}) {
     });
 }
 exports.saveFile = saveFile;
+function ensureWriteStream(file) {
+    fs.ensureFileSync(file);
+    return fs.createWriteStream(file);
+}
+exports.ensureWriteStream = ensureWriteStream;
 function _createStreamPassThrough(data) {
     let readStream = new stream.PassThrough();
     readStream.end(data);

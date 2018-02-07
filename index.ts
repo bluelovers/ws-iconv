@@ -133,6 +133,12 @@ export function saveFile(file: string, data, options: IOptions = {}): Promise<an
 		;
 }
 
+export function ensureWriteStream(file: string)
+{
+	fs.ensureFileSync(file);
+	return fs.createWriteStream(file);
+}
+
 export function _createStreamPassThrough(data): stream.Readable
 {
 	let readStream = new stream.PassThrough();
