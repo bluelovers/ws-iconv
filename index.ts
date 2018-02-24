@@ -28,14 +28,13 @@ export interface IOptionsLoadFile
 	autoDecode?: boolean | string[],
 }
 
-export interface IOptionsLoadFile2 extends IOptionsLoadFile
-{
+export type IOptionsLoadFile2 = IOptionsLoadFile & {
 	encoding: string;
-}
+};
 
-export function loadFile(file: string, options?: IOptionsLoadFile): Promise<Buffer>
 export function loadFile(file: string, options: IOptionsLoadFile2): Promise<string>
-export function loadFile(file: string, options: IOptionsLoadFile = {}): Promise<Buffer>
+export function loadFile(file: string, options?: IOptionsLoadFile): Promise<Buffer>
+export function loadFile(file: string, options: IOptionsLoadFile = {}): Promise<Buffer | string>
 {
 	let ps: Promise;
 
@@ -65,40 +64,7 @@ export function loadFile(file: string, options: IOptionsLoadFile = {}): Promise<
 		ps = fs.readFile(file, options)
 			.then(function (buf)
 			{
-				if (Array.isArray(options.autoDecode))
-				{
-					let _do: string
-					let c = iconv._enc(iconv.detect(buf, true).name);
-
-					for (let from of (options.autoDecode as string[]))
-					{
-						let cd = iconv.codec_data(from);
-						let key: string;
-
-						if (cd && cd.name)
-						{
-							key = iconv._enc(cd.name);
-
-							if (c === key)
-							{
-								_do = key;
-
-								break;
-							}
-						}
-					}
-
-					if (_do)
-					{
-						return iconv.encode(buf, null, options.encoding);
-					}
-					else
-					{
-						return buf;
-					}
-				}
-
-				return iconv.encode(buf);
+				return _autoDecode(buf, options);
 			})
 		;
 	}
@@ -108,6 +74,78 @@ export function loadFile(file: string, options: IOptionsLoadFile = {}): Promise<
 	}
 
 	return Promise.resolve(ps);
+}
+
+export function loadFileSync(file: string, options: IOptionsLoadFile2): string
+export function loadFileSync(file: string, options?: IOptionsLoadFile): Buffer
+export function loadFileSync(file: string, options: IOptionsLoadFile = {}): Buffer | string
+{
+	let ps: Promise;
+
+	if (options.encoding)
+	{
+		let enc = iconv.isNodeEncoding(options.encoding);
+
+		if (enc)
+		{
+			ps = fs.readFileSync(file, options);
+		}
+		else
+		{
+			let ops: IOptionsLoadFile = Object.assign({}, options);
+			delete ops.encoding;
+
+			ps = iconv.decode(fs.readFileSync(file, ops), options.encoding);
+		}
+	}
+	else if (options.autoDecode)
+	{
+		ps = _autoDecode(fs.readFileSync(file, options), options);
+	}
+	else
+	{
+		ps = fs.readFileSync(file, options);
+	}
+
+	return ps;
+}
+
+export function _autoDecode(buf, options: IOptionsLoadFile)
+{
+	if (Array.isArray(options.autoDecode))
+	{
+		let _do: string
+		let c = iconv._enc(iconv.detect(buf, true).name);
+
+		for (let from of (options.autoDecode as string[]))
+		{
+			let cd = iconv.codec_data(from);
+			let key: string;
+
+			if (cd && cd.name)
+			{
+				key = iconv._enc(cd.name);
+
+				if (c === key)
+				{
+					_do = key;
+
+					break;
+				}
+			}
+		}
+
+		if (_do)
+		{
+			return iconv.encode(buf, null, options.encoding);
+		}
+		else
+		{
+			return buf;
+		}
+	}
+
+	return iconv.encode(buf);
 }
 
 export function saveFile(file: string, data, options: IOptions = {}): Promise<any>

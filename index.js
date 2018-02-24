@@ -29,28 +29,7 @@ function loadFile(file, options = {}) {
     else if (options.autoDecode) {
         ps = fs.readFile(file, options)
             .then(function (buf) {
-            if (Array.isArray(options.autoDecode)) {
-                let _do;
-                let c = iconv_jschardet_1.default._enc(iconv_jschardet_1.default.detect(buf, true).name);
-                for (let from of options.autoDecode) {
-                    let cd = iconv_jschardet_1.default.codec_data(from);
-                    let key;
-                    if (cd && cd.name) {
-                        key = iconv_jschardet_1.default._enc(cd.name);
-                        if (c === key) {
-                            _do = key;
-                            break;
-                        }
-                    }
-                }
-                if (_do) {
-                    return iconv_jschardet_1.default.encode(buf, null, options.encoding);
-                }
-                else {
-                    return buf;
-                }
-            }
-            return iconv_jschardet_1.default.encode(buf);
+            return _autoDecode(buf, options);
         });
     }
     else {
@@ -59,6 +38,53 @@ function loadFile(file, options = {}) {
     return Promise.resolve(ps);
 }
 exports.loadFile = loadFile;
+function loadFileSync(file, options = {}) {
+    let ps;
+    if (options.encoding) {
+        let enc = iconv_jschardet_1.default.isNodeEncoding(options.encoding);
+        if (enc) {
+            ps = fs.readFileSync(file, options);
+        }
+        else {
+            let ops = Object.assign({}, options);
+            delete ops.encoding;
+            ps = iconv_jschardet_1.default.decode(fs.readFileSync(file, ops), options.encoding);
+        }
+    }
+    else if (options.autoDecode) {
+        ps = _autoDecode(fs.readFileSync(file, options), options);
+    }
+    else {
+        ps = fs.readFileSync(file, options);
+    }
+    return ps;
+}
+exports.loadFileSync = loadFileSync;
+function _autoDecode(buf, options) {
+    if (Array.isArray(options.autoDecode)) {
+        let _do;
+        let c = iconv_jschardet_1.default._enc(iconv_jschardet_1.default.detect(buf, true).name);
+        for (let from of options.autoDecode) {
+            let cd = iconv_jschardet_1.default.codec_data(from);
+            let key;
+            if (cd && cd.name) {
+                key = iconv_jschardet_1.default._enc(cd.name);
+                if (c === key) {
+                    _do = key;
+                    break;
+                }
+            }
+        }
+        if (_do) {
+            return iconv_jschardet_1.default.encode(buf, null, options.encoding);
+        }
+        else {
+            return buf;
+        }
+    }
+    return iconv_jschardet_1.default.encode(buf);
+}
+exports._autoDecode = _autoDecode;
 function saveFile(file, data, options = {}) {
     return Promise
         .resolve(fs.ensureFile(file))
