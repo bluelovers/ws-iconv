@@ -22,5 +22,5 @@ fn.filterNameEntry = filterNameEntry;
 // @ts-ignore
 //console.log(upath.vaildNameEntry('a/b.test'), upath.filterNameEntry('a/b.test'));
 
-// @ts-ignore
-export default exports;
+import * as self from './fs';
+export default self;

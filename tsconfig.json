@@ -22,24 +22,12 @@
     "locale": "zh-TW",
     "pretty": true,
 
-    //"removeComments": true,
+    "removeComments": true,
 
-    "baseUrl": ".",
-    "sourceRoot": ".",
-    "rootDir": ".",
-    "outDir": ".",
-
-    "paths": {
-      "root/src/*": [
-        "./src/*"
-      ],
-      "root/*": [
-        "./*"
-      ],
-      "~/*": [
-        "./*"
-      ]
-    },
+//    "baseUrl": ".",
+//    "sourceRoot": ".",
+//    "rootDir": ".",
+//    "outDir": ".",
 
     "traceResolution": true,
     "newLine": "lf"

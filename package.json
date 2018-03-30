@@ -1,34 +1,56 @@
 {
   "name": "upath2",
-  "version": "2.1.0",
+  "version": "2.1.2",
   "description": "A proxy to `path`, replacing `\\` with `/` for all results",
-  "main": "index.js",
-  "scripts": {
-    "test": "npx mocha"
+  "keywords": [
+    "absolute",
+    "backslash",
+    "check",
+    "core",
+    "detect",
+    "dir",
+    "file",
+    "filepath",
+    "fix",
+    "forward",
+    "fp",
+    "fs",
+    "is",
+    "is-absolute",
+    "isabsolute",
+    "normalize",
+    "path",
+    "paths",
+    "sep",
+    "shim",
+    "slash",
+    "slashes",
+    "trailing",
+    "unix",
+    "urix",
+    "util",
+    "utils",
+    "win32",
+    "windows"
+  ],
+  "homepage": "https://github.com/bluelovers/node-upath2#readme",
+  "bugs": {
+    "url": "https://github.com/bluelovers/node-upath2/issues"
   },
-  "author": "",
-  "license": "ISC",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/bluelovers/node-upath2.git"
   },
-  "keywords": [
-    "windows",
-    "unix",
-    "path"
-  ],
-  "dependencies": {
-    "bind-decorator": "^1.0.11"
-  },
-  "devDependencies": {
-    "mocha": "*",
-    "chai": "*"
-  },
-  "bugs": {
-    "url": "https://github.com/bluelovers/node-upath2/issues"
-  },
-  "homepage": "https://github.com/bluelovers/node-upath2#readme",
+  "license": "ISC",
+  "author": "",
+  "main": "index.js",
   "directories": {
+    "lib": "lib",
     "test": "test"
-  }
+  },
+  "scripts": {
+    "test": "npx mocha"
+  },
+  "dependencies": {},
+  "devDependencies": {}
 }

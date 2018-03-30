@@ -4,108 +4,47 @@
 
 // @ts-ignore
 import * as _path from 'path';
-import bind from 'bind-decorator';
 
 //export const upath = Object.assign({}, path.win32, {
 //	sep: '/',
 //});
 
-export interface IParse
-{
-	root?: string,
-	dir?: string,
-	base?: string,
-	ext?: string,
-	name?: string
-}
+import types, { IPathNode, IPath, IParse } from './lib/type';
+export { types, IPathNode, IPath, IParse }
 
-export interface IPathNode
-{
-	sep: string;
-	win32?: IPathNode;
-	posix?: IPathNode;
-
-	delimiter?: string;
-
-	join<T = string, U = string>(path: T, ...paths: U[]): string;
-	normalize<T = string>(path: T): string;
-	relative<T = string, U = string>(from: T, to: U): string;
-	resolve<T = string, U = string>(path: T, ...paths: U[]): string;
-	parse<T = string>(path: T): IParse;
-	format<T = IParse>(pathObject: T): string;
-	basename<T = string, U = string>(path: T, ext?: U): string;
-	dirname<T = string>(path: T): string;
-	extname<T = string>(path: T): string;
-	isAbsolute<T = string>(path: T): boolean;
-
-	toNamespacedPath?: Function;
-}
-
-export interface IPath extends IPathNode
-{
-	name?: string;
-
-	win32?: IPath;
-	posix?: IPath;
-	upath?: IPath;
-
-	sep: string;
-	delimiter?: string;
-
-	join<T = string, U = string>(path: T, ...paths: U[]): string;
-	normalize<T = string>(path: T): string;
-	relative<T = string, U = string>(from: T, to: U): string;
-	resolve<T = string, U = string>(path: T, ...paths: U[]): string;
-	parse<T = string>(path: T): IParse;
-	format<T = IParse>(pathObject: T): string;
-	basename<T = string, U = string>(path: T, ext?: U): string;
-	dirname<T = string>(path: T): string;
-	extname<T = string>(path: T): string;
-	isAbsolute<T = string>(path: T): boolean;
-
-	fn?: IPath;
-
-	default?: IPath;
-
-	[index: string]: any;
-}
+const ORIGIN_KEY = Symbol.for('_origin');
 
 export class PathWrap implements IPath
 {
 	public sep = '/';
-	protected _origin: IPath;
+	//protected _origin: IPath;
 	public name: string;
 	public delimiter: string;
-	protected __proto__: IPath;
+	//protected __proto__: IPath;
 
 	public win32: IPath;
 	public posix: IPath;
-	public upath: IPath;
-	public default: IPath;
+	public upath: PathWrap;
+	public default: PathWrap;
 
 	public fn: IPath;
 
-	constructor(path, id)
+	constructor(path, id: string)
 	{
 		let _static = getStatic(this);
 
-		this._origin = path;
+		//this._origin = path;
+		this[ORIGIN_KEY] = path;
 
 		this.name = id;
 
 		delete this[id];
 		this[id] = this;
 
-		Object.defineProperty(this, '_origin', { enumerable: false, });
+		//Object.defineProperty(this, '_origin', { enumerable: false, });
+		Object.defineProperty(this, ORIGIN_KEY, { enumerable: false, });
 
-		let __proto__ = {};
-
-		// get prototype from class
-		for (let i in Object.getOwnPropertyDescriptors(_static.prototype))
-		{
-			//__proto__[i] = _static.prototype[i];
-		}
-
+		// @ts-ignore
 		this.fn = Object.assign(this.__proto__, path, _static.fn);
 	}
 
@@ -113,54 +52,59 @@ export class PathWrap implements IPath
 	{
 		//console.log(this.name, this.sep);
 
-		return this._origin.join(path.toString(), ...paths).replace(/\\/g, this.sep);
+		return _this_origin(this).join(path, ...paths).replace(/\\/g, this.sep);
 	}
 
 	public normalize<T = string>(path: T): string
 	{
-		return this._origin.normalize(path.toString()).replace(/\\/g, this.sep);
+		return _this_origin(this).normalize(path).replace(/\\/g, this.sep);
 	}
 
 	public relative<T = string, U = string>(from: T, to: U): string
 	{
-		return this._origin.relative(from.toString(), to.toString()).replace(/\\/g, this.sep);
+		return _this_origin(this).relative(from.toString(), to.toString()).replace(/\\/g, this.sep);
 	}
 
 	public resolve<T = string, U = string>(path: T, ...paths: U[]): string
 	{
-		return this._origin.resolve(path.toString(), ...paths).replace(/\\/g, this.sep);
+		return _this_origin(this).resolve(path, ...paths).replace(/\\/g, this.sep);
 	}
-
-	// ---------
 
 	public parse<T = string>(path: T): IParse
 	{
-		return this._origin.parse(path.toString());
+		let ret = _this_origin(this).parse(path);
+
+		ret.root = ret.root.replace(/\\/g, this.sep);
+		ret.dir = ret.dir.replace(/\\/g, this.sep);
+
+		return ret;
 	}
 
 	public format<T = IParse>(pathObject: T): string
 	{
-		return this._origin.format(pathObject);
+		return _replace_sep(this, _this_origin(this).format(pathObject));
 	}
+
+	// ---------
 
 	public basename<T = string, U = string>(path: T, ext?: U): string
 	{
-		return this._origin.basename(path.toString(), ext);
+		return _this_origin(this).basename(path, ext);
 	}
 
 	public dirname<T = string>(path: T): string
 	{
-		return this._origin.dirname(path.toString());
+		return _this_origin(this).dirname(path);
 	}
 
 	public extname<T = string>(path: T): string
 	{
-		return this._origin.extname(path.toString());
+		return _this_origin(this).extname(path);
 	}
 
 	public isAbsolute<T = string>(path: T): boolean
 	{
-		return this._origin.isAbsolute(path.toString());
+		return _this_origin(this).isAbsolute(path);
 	}
 }
 
@@ -180,16 +124,30 @@ export namespace PathWrap
 	fn.sep = '/';
 
 	PathWrap.prototype.fn = fn;
+
+	export type IPath = types.IPath;
+	export type IPathNode = types.IPathNode;
+	export type IParse = types.IParse;
 }
 
-function getStatic(who)
+function getStatic(who): PathWrap
 {
 	return who.__proto__.constructor;
 }
 
 export const posix = new PathWrap(_path.posix, 'posix') as IPath;
 export const win32 = new PathWrap(_path.win32, 'win32') as IPath;
-export const upath = new PathWrap(_path, 'upath') as IPath;
+const _upath = new PathWrap(_path, 'upath');
+
+export type IUPath = PathWrap & {
+	default: IUPath,
+	upath: IUPath,
+	PathWrap: typeof PathWrap,
+};
+
+export const upath = _upath as IUPath;
+
+upath.PathWrap = PathWrap;
 
 //upath.win32 = win32;
 //upath.posix = posix;
@@ -200,6 +158,7 @@ export const upath = new PathWrap(_path, 'upath') as IPath;
 upath.fn.win32 = win32;
 upath.fn.posix = posix;
 upath.fn.upath = upath;
+// @ts-ignore
 upath.fn.default = upath;
 
 export const fn = PathWrap.fn = upath.fn;
@@ -215,9 +174,35 @@ for (let key of [
 	win32.fn[key] = posix.fn[key] = upath.fn[key] = upath[key];
 }
 
-//console.log(upath, upath.sep);
-//console.log(upath.join('/foo', 'bar', 'baz/asdf', 'quux', '..'));
-//console.log(upath.parse('/home/user/dir/file.txt'));
+win32.default = posix.default = upath.default = upath;
 
 // @ts-ignore
-export default upath as PathWrap;
+//export default upath as PathWrap & IPath & IPathNode;
+export default upath;
+
+function _this_origin(who: IPath): IPathNode
+{
+	if (who[ORIGIN_KEY])
+	{
+		return who[ORIGIN_KEY];
+	}
+	else if (who === upath)
+	{
+		return _path;
+	}
+	else if (who === win32)
+	{
+		return _path.win32;
+	}
+	else if (who === posix)
+	{
+		return _path.posix;
+	}
+
+	throw new TypeError(`this not PathWrap`);
+}
+
+function _replace_sep(who: IPath, input: string): string
+{
+	return input.replace(/\\/g, who.sep);
+}

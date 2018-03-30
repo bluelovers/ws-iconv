@@ -2,15 +2,20 @@
  * Created by user on 2017/12/9/009.
  */
 
-import { relative, expect, path, assert } from './_local-dev';
+import localDev, { relative, expect, path, assert } from './_local-dev';
 
 describe(relative(__filename), () =>
 {
 	let nodePath;
+	let currentTest;
 
-	beforeEach(() =>
+	beforeEach(function ()
 	{
 		nodePath = path.win32;
+		currentTest = this.currentTest;
+
+		console.log(currentTest.title);
+		console.log(currentTest.fullTitle());
 	});
 
 	let methods = [
@@ -26,6 +31,8 @@ describe(relative(__filename), () =>
 
 		it(`join`, function ()
 		{
+			//console.log(Object.assign({}, this.test));
+
 			let r = slash(nodePath.join(dir, file));
 
 			console.log(r);
@@ -76,6 +83,12 @@ describe(relative(__filename), () =>
 
 			assert.isOk(b, r);
 		});
+
+		setTimeout(function ()
+		{
+			console.log(777, currentTest);
+		}, 1000)
+
 	});
 });
 
