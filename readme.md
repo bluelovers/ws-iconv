@@ -13,3 +13,9 @@ mimemap.extraStat('package.json', (err, stat) => {
     // stat.pathname: whole original path
 })
 ```
+
+You can edit mimemap.json to your heart's content.
+
+I simply perform the regex `\.([a-z0-9]+)(?=\?|$)` to grab the file extension and then pull the mimetype from the mimemap.json file. Since it treats this object as a hash map it should do this very quickly.
+
+No like that other MIME detection library, which iterates through an array of arrays...
