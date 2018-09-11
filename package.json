@@ -1,6 +1,6 @@
 {
   "name": "@mixint/mimemap",
-  "version": "1.2.0",
+  "version": "2.0.0",
   "description": "Load MIME type alongside other file statistics with a single callback",
   "main": "mimemap.js",
   "scripts": {
