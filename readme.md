@@ -1,5 +1,5 @@
 # mimemap
-## A simple JSON to Content-Type header for NodeJS Servers
+### A simple lookup table to add MIME types to your file stat calls.
 
 I wrote this because I wanted a lightweight callback to add Content-Type headers to my font files and css files.
 
@@ -12,6 +12,7 @@ Use mimemap.extrastat in place of fs.stat:
 ```js
 mimemap.extraStat('package.json', (err, stat) => {
     // stat.filestat: original fs.Stat object
+    // stat.filemode:
     // stat.mimetype: determined from fs.isdir or file extension
     // stat.filename: convenient reference to filename without path
     // stat.pathname: whole original path

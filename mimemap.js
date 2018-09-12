@@ -40,7 +40,7 @@ function extraStat(pathname, callback){
         else callback(null, {
             filestat: stat,
             pathname: pathname,
-            filemode: octal2symbol(stat.mode)
+            filemode: octal2symbol(stat.mode),
             filename: pathparts.pop() || pathparts.pop(), // OR triggers on an empty string and pops one more time, get a directory name instead of empty filename.
             mimetype: stat.isFile()      ?  fromFilePath(pathname) :
                       stat.isDirectory() ? 'application/directory' :
