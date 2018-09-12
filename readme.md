@@ -12,10 +12,10 @@ Use mimemap.extrastat in place of fs.stat:
 ```js
 mimemap.extraStat('package.json', (err, stat) => {
     // stat.filestat: original fs.Stat object
-    // stat.filemode:
+    // stat.filemode: string representing rwx permissions
     // stat.mimetype: determined from fs.isdir or file extension
     // stat.filename: convenient reference to filename without path
-    // stat.pathname: whole original path
+    // stat.pathname: original pathname
 })
 ```
 
@@ -23,7 +23,7 @@ You can edit mimemap.json to your heart's content.
 
 I simply perform the regex `\.([a-z0-9]+)(?=\?|$)` to grab the file extension and then pull the mimetype from the mimemap.json file. Since it treats this object as a hash map it should do this very quickly. Full list shown below. Pull requests accepted of course.
 
-No like that other MIME detection library, which iterates through an array of arrays...
+Not like that other MIME detection library, which iterates through an array of arrays...
 
 ```json
 {
