@@ -7,8 +7,8 @@ function fromFilePath(pathname){
     // this handles a url passed in full, ending in a ? or eol
     var extension = /\.([a-z0-9]+)(?=\?|$)/i.exec(pathname)
     // turns out you can pop the result off a regex. if null, use 'default' instead
-    var extensionMatch = extension && extension.pop()
-    return fromExtension(extensionMatch) || fromExtension('default')
+    var extensionMatch = extension ? extension.pop() : 'default'
+    return fromExtension(extensionMatch)
 }
 
 // set aside as separate function in case you already have an extension to lookup
