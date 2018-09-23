@@ -2,8 +2,8 @@
 import iconv, { vEncoding } from 'iconv-jschardet';
 import { WriteStream } from "fs";
 export * from 'fs-extra';
-import * as Promise from 'bluebird';
-import * as stream from 'stream';
+import bluebird = require('bluebird');
+import stream = require('stream');
 export { iconv };
 export interface IOptions {
     encoding?: vEncoding;
@@ -16,12 +16,23 @@ export interface IOptionsLoadFile {
 export declare type IOptionsLoadFile2 = IOptionsLoadFile & {
     encoding: string;
 };
-export declare function loadFile(file: string, options: IOptionsLoadFile2): Promise<string>;
-export declare function loadFile(file: string, options?: IOptionsLoadFile): Promise<Buffer>;
-export declare function loadFileSync(file: string, options: IOptionsLoadFile2): string;
-export declare function loadFileSync(file: string, options?: IOptionsLoadFile): Buffer;
-export declare function _autoDecode(buf: any, options: IOptionsLoadFile): any;
-export declare function saveFile(file: string, data: any, options?: IOptions): Promise<any>;
+export declare function loadFile<T = string>(file: string, options: IOptionsLoadFile2 & ({
+    encoding: string;
+} | {
+    autoDecode: true | string[];
+})): bluebird<T>;
+export declare function loadFile<T = Buffer>(file: string, options?: IOptionsLoadFile): bluebird<T>;
+export declare function loadFileSync<T = string>(file: string, options: IOptionsLoadFile2 & ({
+    encoding: string;
+} | {
+    autoDecode: true | string[];
+})): T;
+export declare function loadFileSync<T = Buffer>(file: string, options?: IOptionsLoadFile): T;
+export declare function _autoDecode<T>(buf: T, options: IOptionsLoadFile & {
+    autoDecode: true | string[];
+}): T | string | Buffer;
+export declare function _autoDecode(buf: any, options: IOptionsLoadFile): Buffer;
+export declare function saveFile(file: string, data: any, options?: IOptions): bluebird<boolean>;
 export declare function ensureWriteStream(file: string): WriteStream;
 export declare function _createStreamPassThrough(data: any): stream.Readable;
 export declare function _outputStream(file: string, readStream: stream.Readable): WriteStream;

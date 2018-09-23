@@ -5,13 +5,13 @@
 import iconv, { vEncoding } from 'iconv-jschardet';
 
 import { WriteStream } from "fs";
-import * as fs from 'fs-extra';
+import fs = require('fs-extra');
 
 export * from 'fs-extra';
-import * as Promise from 'bluebird';
-import * as stream from 'stream';
-import * as sanitize from 'sanitize-filename';
-import * as path from 'path';
+import bluebird = require('bluebird');
+import stream = require('stream');
+import sanitize = require('sanitize-filename');
+import path = require('path');
 
 export { iconv }
 
@@ -32,11 +32,15 @@ export type IOptionsLoadFile2 = IOptionsLoadFile & {
 	encoding: string;
 };
 
-export function loadFile(file: string, options: IOptionsLoadFile2): Promise<string>
-export function loadFile(file: string, options?: IOptionsLoadFile): Promise<Buffer>
-export function loadFile(file: string, options: IOptionsLoadFile = {}): Promise<Buffer | string>
+export function loadFile<T = string>(file: string, options: IOptionsLoadFile2 & ({
+	encoding: string,
+} | {
+	autoDecode: true | string[],
+})): bluebird<T>
+export function loadFile<T = Buffer>(file: string, options?: IOptionsLoadFile): bluebird<T>
+export function loadFile(file: string, options: IOptionsLoadFile = {}): bluebird<Buffer | string>
 {
-	let ps: Promise;
+	let ps: Promise<any>;
 
 	if (options.encoding)
 	{
@@ -73,14 +77,18 @@ export function loadFile(file: string, options: IOptionsLoadFile = {}): Promise<
 		ps = fs.readFile(file, options);
 	}
 
-	return Promise.resolve(ps);
+	return bluebird.resolve(ps);
 }
 
-export function loadFileSync(file: string, options: IOptionsLoadFile2): string
-export function loadFileSync(file: string, options?: IOptionsLoadFile): Buffer
+export function loadFileSync<T = string>(file: string, options: IOptionsLoadFile2 & ({
+	encoding: string,
+} | {
+	autoDecode: true | string[],
+})): T
+export function loadFileSync<T = Buffer>(file: string, options?: IOptionsLoadFile): T
 export function loadFileSync(file: string, options: IOptionsLoadFile = {}): Buffer | string
 {
-	let ps: Promise;
+	let ps;
 
 	if (options.encoding)
 	{
@@ -110,11 +118,15 @@ export function loadFileSync(file: string, options: IOptionsLoadFile = {}): Buff
 	return ps;
 }
 
-export function _autoDecode(buf, options: IOptionsLoadFile)
+export function _autoDecode<T>(buf: T, options: IOptionsLoadFile & {
+	autoDecode: true | string[],
+}): T | string | Buffer
+export function _autoDecode(buf, options: IOptionsLoadFile): Buffer
+export function _autoDecode(buf, options: IOptionsLoadFile): string | Buffer
 {
 	if (Array.isArray(options.autoDecode))
 	{
-		let _do: string
+		let _do: string;
 		let c = iconv._enc(iconv.detect(buf, true).name);
 
 		for (let from of (options.autoDecode as string[]))
@@ -148,13 +160,13 @@ export function _autoDecode(buf, options: IOptionsLoadFile)
 	return iconv.encode(buf);
 }
 
-export function saveFile(file: string, data, options: IOptions = {}): Promise<any>
+export function saveFile(file: string, data, options: IOptions = {})
 {
-	return Promise
+	return bluebird
 		.resolve(fs.ensureFile(file))
-		.then(function ()
+		.tap(function ()
 		{
-			return new Promise(function (resolve, reject)
+			return new bluebird(function (resolve, reject)
 			{
 				if (options.encoding)
 				{
@@ -168,6 +180,7 @@ export function saveFile(file: string, data, options: IOptions = {}): Promise<an
 				writeStream.on('finish', resolve);
 			})
 		})
+		.thenReturn(true)
 		;
 }
 

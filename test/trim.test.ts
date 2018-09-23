@@ -19,6 +19,7 @@ describe(relative(__filename), () =>
 		]
 	];
 
+	// @ts-ignore
 	beforeEach(function ()
 	{
 		currentTest = this.currentTest;
@@ -27,10 +28,12 @@ describe(relative(__filename), () =>
 		//console.log('it:before', currentTest.fullTitle());
 	});
 
+	// @ts-ignore
 	describe(`init`, () =>
 	{
 		tests.forEach(function (value, index, array)
 		{
+			// @ts-ignore
 			it(`${value[0]}`, function (done)
 			{
 				let c = self.trimFilename(value[0]);

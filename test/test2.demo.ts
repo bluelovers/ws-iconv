@@ -15,6 +15,7 @@ console.log(Buffer.from(big5));
 console.log(self.iconv.encode(big5, 'big5'));
 
 //big5 = self.iconv.decode(big5);
+// @ts-ignore
 big5 = self.iconv.encode(big5, 'big5');
 
 (async ()=>

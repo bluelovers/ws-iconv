@@ -7,7 +7,7 @@ const iconv_jschardet_1 = require("iconv-jschardet");
 exports.iconv = iconv_jschardet_1.default;
 const fs = require("fs-extra");
 __export(require("fs-extra"));
-const Promise = require("bluebird");
+const bluebird = require("bluebird");
 const stream = require("stream");
 const sanitize = require("sanitize-filename");
 function loadFile(file, options = {}) {
@@ -35,7 +35,7 @@ function loadFile(file, options = {}) {
     else {
         ps = fs.readFile(file, options);
     }
-    return Promise.resolve(ps);
+    return bluebird.resolve(ps);
 }
 exports.loadFile = loadFile;
 function loadFileSync(file, options = {}) {
@@ -86,10 +86,10 @@ function _autoDecode(buf, options) {
 }
 exports._autoDecode = _autoDecode;
 function saveFile(file, data, options = {}) {
-    return Promise
+    return bluebird
         .resolve(fs.ensureFile(file))
-        .then(function () {
-        return new Promise(function (resolve, reject) {
+        .tap(function () {
+        return new bluebird(function (resolve, reject) {
             if (options.encoding) {
                 data = iconv_jschardet_1.default.encode(data, options.encoding);
             }
@@ -98,7 +98,8 @@ function saveFile(file, data, options = {}) {
             writeStream.on('error', reject);
             writeStream.on('finish', resolve);
         });
-    });
+    })
+        .thenReturn(true);
 }
 exports.saveFile = saveFile;
 function ensureWriteStream(file) {
