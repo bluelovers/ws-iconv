@@ -1,7 +1,14 @@
 const fs = require('fs')
 const MIMEtypes = require("./mimemap.json")
 
-module.exports = function extraStat(pathname, callback){
+module.exports = extraStat
+
+/**
+ * @param {string} pathname - a file path to return information about
+ * @param {function} callback - should expect (err, stat) to be returned
+ * Note: 'filename: pathparts.pop() || pathparts.pop()' grabs the directory name if the filename is blank.
+ */
+function extraStat(pathname, callback){
     var pathparts = pathname.split('/')
     fs.stat(pathname, (error, stat) => {
         if (error) callback(error, null)
@@ -9,7 +16,7 @@ module.exports = function extraStat(pathname, callback){
             filestat: stat,
             pathname: pathname,
             filemode: octal2symbol(stat.mode),
-            filename: pathparts.pop() || pathparts.pop(), // OR triggers on an empty string and pops one more time, get a directory name instead of empty filename.
+            filename: pathparts.pop() || pathparts.pop(), 
             mimetype: stat.isFile()      ?  fromFilePath(pathname) :
                       stat.isDirectory() ? 'application/directory' :
                       stat.isFIFO()      ? 'application/FIFO'      :
@@ -17,6 +24,23 @@ module.exports = function extraStat(pathname, callback){
                       /* otherwise...   */ 'application/unknown',
         })
     })
+}
+
+/**
+ * @param {string} pathname - the pathname to REGEX out an extension. Can be a URL with querystring etc.
+ * @return {string} - returns the MIME type after extracting extension and calling fromExtension
+ */
+function fromFilePath(pathname){
+    var extension = /\.([a-z0-9]+)(?=\?|$)/i.exec(pathname)
+    return fromExtension(extension ? extension.pop() : 'default')
+}
+
+/**
+ * @param {string} extension
+ * @return {string} - returns the MIME type by accessing mimemap.json 
+ */
+function fromExtension(extension){
+    return MIMEtypes[extension.toLowerCase()] || MIMEtypes['default']
 }
 
 /**
@@ -40,18 +64,3 @@ function octal2symbol(mode){
     ].join('')
 }
 
-function fromFilePath(pathname){
-    // this handles a url passed in full, ending in a ? or eol
-    var extension = /\.([a-z0-9]+)(?=\?|$)/i.exec(pathname)
-    // turns out you can pop the result off a regex. if null, use 'default' instead
-    var extensionMatch = extension ? extension.pop() : 'default'
-    return fromExtension(extensionMatch)
-}
-
-/**
- * @param {string} extension
- * set aside as separate function in case you already have an extension to lookup
- */
-function fromExtension(extension){
-    return MIMEtypes[extension.toLowerCase()] || MIMEtypes['default']
-}
