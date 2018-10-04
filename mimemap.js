@@ -19,10 +19,14 @@ module.exports = function extraStat(pathname, callback){
     })
 }
 
+/**
+ * @param {number} mode - The octal form of permission mode returned by fs.stat
+ * @return {string} The human-readable representation of permission mode.
+ */
 function octal2symbol(mode){
     // bit shifting magic to extract read write execute permission for owner, group, and world
     // adapted from https://github.com/mmalecki/mode-to-permissions/blob/master/lib/mode-to-permissions.js
-    if(!mode) return ['.........']
+    if(!mode) return '.........'
     else return [
         mode >> 6 & 4      ? 'r' : '-',
         mode >> 6 & 2      ? 'w' : '-',
