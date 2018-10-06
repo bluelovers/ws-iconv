@@ -1,4 +1,9 @@
 const fs = require('fs')
+
+/**
+ * You can require a JSON file to convert it to an object. Neat!
+ */
+
 const MIMEtypes = require("./mimemap.json")
 
 module.exports = extraStat

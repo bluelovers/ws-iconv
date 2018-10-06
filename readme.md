@@ -1,16 +1,19 @@
-# mimemap
+# mixint/extraStat
 ### A simple lookup table to add MIME types to your file stat calls.
 
 I wrote this because I wanted a lightweight callback to add Content-Type headers to my font files and css files.
 
-Uses nodejs filesystem builtins to determine if a file is a directory. Returns the fs.Stat object as well, so you can grab byte length for Content-Length, and the permissions mode, if that's important to you ;)
+Uses nodejs filesystem builtins to determine if a file is a directory. Returns the fs.Stat object as well, so you can grab byte length for Content-Length, and 
 
 ### Usage
+`yarn add @mixint/extrastat`
 
-Use mimemap.extrastat in place of fs.stat:
+Use extrastat in place of fs.stat:
 
 ```js
-mimemap.extraStat('package.json', (err, stat) => {
+const extraStat = require('@mixint/extrastat')
+
+extraStat('package.json', (err, stat) => {
     // stat.filestat: original fs.Stat object
     // stat.filemode: string representing rwx permissions
     // stat.mimetype: determined from fs.isdir or file extension
@@ -18,11 +21,14 @@ mimemap.extraStat('package.json', (err, stat) => {
     // stat.pathname: original pathname
 })
 ```
+
+The octal filemode available at `stat.filestat.mode` is converted to human readable `rwxrwxrwx` format at `stat.filemode`.
+
 You can edit mimemap.json to your heart's content.
 
-I simply perform the regex `\.([a-z0-9]+)(?=\?|$)` to grab the file extension and then pull the mimetype from the mimemap.json file. Since it treats this object as a hash map it should do this very quickly. Full list shown below. Pull requests accepted of course.
+I simply perform the regex `\.([a-z0-9]+)(?=\?|$)` to grab the file extension (stopping at ? or EOL means you can pass URLs with query attached and the query is ignored).
 
-Not like that other MIME detection library, which iterates through an array of arrays...
+Once I have the extension I pull the mimetype from the mimemap.json file. Since it treats this object as a hash map it should do this very quickly. Full list shown below. I wanted to keep this small to minimize the size and memory footprint of my dependencies, as well as make it obvious how to customize your MIME types, say, if you have your own application/* in mind.
 
 ```json
 {
