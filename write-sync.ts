@@ -47,10 +47,16 @@ export class SyncWriteStream extends fs.WriteStream
 
 	open(): void
 	{
-		if (!getFsStreamData(this).opened)
+		if (typeof getFsStreamData(this) !== 'boolean')
 		{
 			this[SYM_FS_STREAM_DATA].opened = true
 			internal.open(this)
+		}
+		else if (this[SYM_FS_STREAM_DATA].opened === true)
+		{
+			this[SYM_FS_STREAM_DATA].opened = false
+			this.emit('open', this.fd);
+			this.emit('ready');
 		}
 	}
 

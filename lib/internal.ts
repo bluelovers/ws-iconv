@@ -1,29 +1,34 @@
 import * as fs from "fs";
+import { ReadStream } from '../read';
+import { WriteStream } from '../write';
 import { SyncReadStream } from '../read-sync';
 import { SyncWriteStream } from '../write-sync';
 import { IFsStreamData } from './interface';
 
 export const SYM_FS_STREAM_DATA = Symbol('FsStreamData')
 
-export type IThisFsStream = fs.WriteStream | fs.ReadStream | SyncWriteStream | SyncReadStream
+export type IThisFsStream = WriteStream | ReadStream | SyncWriteStream | SyncReadStream
 
 export function open(thisArgv: IThisFsStream, argv?: any[])
 {
-	let fd: number
-	try
+	if (typeof thisArgv.fd !== 'number')
 	{
-		// @ts-ignore
-		fd = fs.openSync(thisArgv.path, thisArgv.flags, thisArgv.mode)
-	}
-	catch (er)
-	{
-		_error_emit(thisArgv, er)
-		return;
+		let fd: number
+		try
+		{
+			// @ts-ignore
+			fd = fs.openSync(thisArgv.path, thisArgv.flags, thisArgv.mode)
+		}
+		catch (er)
+		{
+			_error_emit(thisArgv, er)
+			return;
+		}
+
+		thisArgv.fd = fd;
 	}
 
-	// @ts-ignore
-	thisArgv.fd = fd;
-	thisArgv.emit('open', fd);
+	thisArgv.emit('open', thisArgv.fd);
 	thisArgv.emit('ready');
 }
 

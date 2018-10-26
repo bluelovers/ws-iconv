@@ -1,7 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const fs = require("fs");
+const internal_1 = require("./lib/internal");
 const internal = require("./lib/internal");
+const read_1 = require("./read");
 exports.kMinPoolSpace = 128;
 let pool;
 const poolFragments = [];
@@ -14,7 +16,7 @@ function allocNewPool(poolSize) {
     }
     pool.used = 0;
 }
-class SyncReadStream extends fs.ReadStream {
+class SyncReadStream extends read_1.ReadStream {
     constructor(path, options) {
         // @ts-ignore
         super(path, options);
@@ -23,8 +25,16 @@ class SyncReadStream extends fs.ReadStream {
         return createSyncReadStream;
     }
     open() {
-        internal.open(this);
-        this.read();
+        if (typeof internal_1.getFsStreamData(this) !== 'boolean') {
+            this[internal_1.SYM_FS_STREAM_DATA].opened = true;
+            internal.open(this);
+            this.read();
+        }
+        else if (this[internal_1.SYM_FS_STREAM_DATA].opened === true) {
+            this[internal_1.SYM_FS_STREAM_DATA].opened = false;
+            this.emit('open', this.fd);
+            this.emit('ready');
+        }
     }
     _read(n) {
         if (typeof this.fd !== 'number') {

@@ -2,9 +2,10 @@ import fs = require('fs');
 import { createReadStream, PathLike } from "fs";
 import { EnumFsStreamErrorCode, NodeLikeError } from './lib/errors';
 import { IFsStream, IFsStreamState, IFsStreamOptions, IFsReadStreamOptions } from './lib/interface';
-import { closeFsStreamSync } from './lib/internal';
+import { closeFsStreamSync, getFsStreamData, SYM_FS_STREAM_DATA } from './lib/internal';
 import { Writable } from 'stream'
 import * as internal from './lib/internal';
+import { ReadStream } from './read'
 
 export const kMinPoolSpace = 128;
 let pool;
@@ -23,21 +24,8 @@ function allocNewPool(poolSize: number)
 	pool.used = 0;
 }
 
-export class SyncReadStream extends fs.ReadStream
+export class SyncReadStream extends ReadStream
 {
-	protected autoClose: boolean
-	protected flags: string
-	fd: number
-	protected mode: number
-	protected pos: number
-	protected closed: boolean
-	protected destroyed: boolean
-
-	protected _writableState: IFsStreamState
-	protected _readableState: IFsStreamState
-
-	protected end: number
-
 	constructor(path: PathLike, options?: string | IFsReadStreamOptions)
 	{
 		// @ts-ignore
@@ -51,8 +39,18 @@ export class SyncReadStream extends fs.ReadStream
 
 	open(): void
 	{
-		internal.open(this)
-		this.read();
+		if (typeof getFsStreamData(this) !== 'boolean')
+		{
+			this[SYM_FS_STREAM_DATA].opened = true
+			internal.open(this)
+			this.read();
+		}
+		else if (this[SYM_FS_STREAM_DATA].opened === true)
+		{
+			this[SYM_FS_STREAM_DATA].opened = false
+			this.emit('open', this.fd);
+			this.emit('ready');
+		}
 	}
 
 	_read(n: number)

@@ -47,9 +47,19 @@ export class WriteStream extends fs.WriteStream
 	{
 		if (!getFsStreamData(this).opened)
 		{
+			const self = this
+
 			this[SYM_FS_STREAM_DATA].opened = true
+
+			this.once('open', function ()
+			{
+				process.nextTick(function ()
+				{
+					self.emit('ready')
+				})
+			})
 			// @ts-ignore
-			super.open()
+			fs.WriteStream.prototype.open.call(this)
 		}
 	}
 
@@ -61,3 +71,5 @@ export function createWriteStream(path: PathLike, options?: string | IFsWriteStr
 }
 
 export default WriteStream
+// @ts-ignore
+Object.freeze(exports)

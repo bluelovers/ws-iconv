@@ -13,9 +13,14 @@ class SyncWriteStream extends fs.WriteStream {
         return createSyncWriteStream;
     }
     open() {
-        if (!internal_1.getFsStreamData(this).opened) {
+        if (typeof internal_1.getFsStreamData(this) !== 'boolean') {
             this[internal_1.SYM_FS_STREAM_DATA].opened = true;
             internal.open(this);
+        }
+        else if (this[internal_1.SYM_FS_STREAM_DATA].opened === true) {
+            this[internal_1.SYM_FS_STREAM_DATA].opened = false;
+            this.emit('open', this.fd);
+            this.emit('ready');
         }
     }
     write(chunk, ...argv) {

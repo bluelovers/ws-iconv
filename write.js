@@ -14,9 +14,15 @@ class WriteStream extends fs.WriteStream {
     }
     open() {
         if (!internal_1.getFsStreamData(this).opened) {
+            const self = this;
             this[internal_1.SYM_FS_STREAM_DATA].opened = true;
+            this.once('open', function () {
+                process.nextTick(function () {
+                    self.emit('ready');
+                });
+            });
             // @ts-ignore
-            super.open();
+            fs.WriteStream.prototype.open.call(this);
         }
     }
 }
@@ -26,3 +32,5 @@ function createWriteStream(path, options) {
 }
 exports.createWriteStream = createWriteStream;
 exports.default = WriteStream;
+// @ts-ignore
+Object.freeze(exports);
