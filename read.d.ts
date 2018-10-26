@@ -3,7 +3,6 @@ import { PathLike } from "fs";
 import * as fs from "fs";
 import { IFsReadStreamOptions, IFsStreamData, IFsStreamState, IFsWriteStreamOptions } from './lib/interface';
 import { SYM_FS_STREAM_DATA } from './lib/internal';
-import SyncReadStream from './read-sync';
 export declare class ReadStream extends fs.ReadStream {
     protected autoClose: boolean;
     protected flags: string;
@@ -21,4 +20,4 @@ export declare class ReadStream extends fs.ReadStream {
     open(): void;
 }
 export declare function createReadStream(path: PathLike, options?: string | IFsReadStreamOptions): ReadStream;
-export default SyncReadStream;
+export default ReadStream;

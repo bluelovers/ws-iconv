@@ -27,6 +27,9 @@ export declare class SyncWriteStream extends fs.WriteStream {
     open(): void;
     write(chunk: any, cb?: (error: Error | null | undefined) => void): boolean;
     write(chunk: any, encoding?: string, cb?: (error: Error | null | undefined) => void): boolean;
+    /**
+     * @fixme a unknow bug make stream.write only run once
+     */
     _write(chunk: Buffer, encoding: string, callback: Function): boolean | this;
     close(cb?: Function): void;
     _destroy(error: Error | null, callback: (error: Error | null) => void): void;

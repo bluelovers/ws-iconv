@@ -35,13 +35,17 @@ class SyncWriteStream extends fs.WriteStream {
         }
         return super.write(chunk, ...argv);
     }
+    /**
+     * @fixme a unknow bug make stream.write only run once
+     */
     _write(chunk, encoding, callback) {
+        let self = this;
         if (!(chunk instanceof Buffer)) {
             return this.emit('error', new Error('Invalid data'));
         }
         if (typeof this.fd !== 'number') {
             return this.once('open', function () {
-                this._write(chunk, encoding, callback);
+                self._write(chunk, encoding, callback);
             });
         }
         try {
@@ -53,6 +57,9 @@ class SyncWriteStream extends fs.WriteStream {
         }
         if (this.pos !== undefined) {
             this.pos += chunk.length;
+        }
+        else if (typeof this.pos === 'undefined') {
+            //this.pos = chunk.length;
         }
     }
     close(cb) {
