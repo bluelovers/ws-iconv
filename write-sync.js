@@ -4,7 +4,8 @@ const fs = require("fs");
 const errors_1 = require("./lib/errors");
 const internal_1 = require("./lib/internal");
 const internal = require("./lib/internal");
-class SyncWriteStream extends fs.WriteStream {
+const write_1 = require("./write");
+class SyncWriteStream extends write_1.WriteStream {
     constructor(path, options) {
         // @ts-ignore
         super(path, options);
@@ -33,6 +34,7 @@ class SyncWriteStream extends fs.WriteStream {
         if (this._writableState.destroyed) {
             throw new errors_1.NodeLikeError(errors_1.EnumFsStreamErrorCode.ERR_STREAM_DESTROYED, `Cannot call write after a stream was destroyed`);
         }
+        //console.dir({chunk,argv} );
         return super.write(chunk, ...argv);
     }
     /**
@@ -40,6 +42,7 @@ class SyncWriteStream extends fs.WriteStream {
      */
     _write(chunk, encoding, callback) {
         let self = this;
+        //console.dir({chunk, encoding, callback} );
         if (!(chunk instanceof Buffer)) {
             return this.emit('error', new Error('Invalid data'));
         }
@@ -57,9 +60,6 @@ class SyncWriteStream extends fs.WriteStream {
         }
         if (this.pos !== undefined) {
             this.pos += chunk.length;
-        }
-        else if (typeof this.pos === 'undefined') {
-            //this.pos = chunk.length;
         }
     }
     close(cb) {

@@ -7,9 +7,9 @@ import { IFsStream, IFsStreamState, IFsStreamOptions, IFsWriteStreamOptions, IFs
 import { getFsStreamData, SYM_FS_STREAM_DATA } from './lib/internal';
 import * as internal from './lib/internal';
 import { closeFsStreamSync } from './lib/internal';
-import { Writable } from 'stream'
+import { WriteStream } from './write'
 
-export class SyncWriteStream extends fs.WriteStream
+export class SyncWriteStream extends WriteStream
 {
 	protected autoClose: boolean
 	protected flags: string
@@ -75,6 +75,8 @@ export class SyncWriteStream extends fs.WriteStream
 			throw new NodeLikeError(EnumFsStreamErrorCode.ERR_STREAM_DESTROYED, `Cannot call write after a stream was destroyed`)
 		}
 
+		//console.dir({chunk,argv} );
+
 		return super.write(chunk, ...argv)
 	}
 
@@ -84,6 +86,8 @@ export class SyncWriteStream extends fs.WriteStream
 	_write(chunk: Buffer, encoding: string, callback: Function)
 	{
 		let self = this
+
+		//console.dir({chunk, encoding, callback} );
 
 		if (!(chunk instanceof Buffer))
 		{
@@ -112,10 +116,6 @@ export class SyncWriteStream extends fs.WriteStream
 		if (this.pos !== undefined)
 		{
 			this.pos += chunk.length;
-		}
-		else if (typeof this.pos === 'undefined')
-		{
-			//this.pos = chunk.length;
 		}
 	}
 

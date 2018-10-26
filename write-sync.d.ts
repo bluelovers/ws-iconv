@@ -1,9 +1,9 @@
 /// <reference types="node" />
-import * as fs from 'fs';
 import { PathLike } from "fs";
 import { IFsStreamState, IFsWriteStreamOptions, IFsStreamData } from './lib/interface';
 import { SYM_FS_STREAM_DATA } from './lib/internal';
-export declare class SyncWriteStream extends fs.WriteStream {
+import { WriteStream } from './write';
+export declare class SyncWriteStream extends WriteStream {
     protected autoClose: boolean;
     protected flags: string;
     fd: number;
