@@ -1,3 +1,6 @@
+/// <reference types="node" />
+import * as fs from "fs";
+export import PathLike = fs.PathLike;
 export interface IFsStreamOptions {
     flags?: string;
     /**
@@ -43,4 +46,7 @@ export interface IFsStream {
     destroyed: boolean;
     _writableState: IFsStreamState;
     _readableState: IFsStreamState;
+}
+export interface IFsStreamData {
+    opened?: boolean;
 }

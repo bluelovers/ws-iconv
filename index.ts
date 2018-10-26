@@ -1,8 +1,9 @@
 /// <reference types="node" />
 
-import { ReadStream, WriteStream, createWriteStream, createReadStream } from 'fs';
-import { SyncReadStream, createSyncReadStream } from './read';
-import { SyncWriteStream, createSyncWriteStream } from './write';
+import { ReadStream, createReadStream } from 'fs';
+import { SyncReadStream, createSyncReadStream } from './read-sync';
+import { SyncWriteStream, createSyncWriteStream } from './write-sync';
+import { WriteStream, createWriteStream } from './write';
 
 export { IFsReadStreamOptions, IFsWriteStreamOptions } from './lib/interface';
 

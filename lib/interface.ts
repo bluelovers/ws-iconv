@@ -1,3 +1,8 @@
+import * as fs from "fs";
+import { URL } from "url";
+
+export import PathLike = fs.PathLike
+
 export interface IFsStreamOptions
 {
 	flags?: string;
@@ -53,5 +58,11 @@ export interface IFsStream
 	_writableState: IFsStreamState
 	_readableState: IFsStreamState
 }
+
+export interface IFsStreamData
+{
+	opened?: boolean
+}
+
 // @ts-ignore
 Object.freeze(exports)

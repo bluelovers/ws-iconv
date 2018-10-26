@@ -1,10 +1,9 @@
 /// <reference types="node" />
-import * as fs from "fs";
-import { PathLike } from 'fs';
-import { IFsStreamData, IFsStreamState, IFsWriteStreamOptions } from './lib/interface';
+import * as fs from 'fs';
+import { PathLike } from "fs";
+import { IFsStreamState, IFsWriteStreamOptions, IFsStreamData } from './lib/interface';
 import { SYM_FS_STREAM_DATA } from './lib/internal';
-import { createSyncWriteStream } from './write-sync';
-export declare class WriteStream extends fs.WriteStream {
+export declare class SyncWriteStream extends fs.WriteStream {
     protected autoClose: boolean;
     protected flags: string;
     fd: number;
@@ -26,6 +25,11 @@ export declare class WriteStream extends fs.WriteStream {
     constructor(path: PathLike, options?: string | IFsWriteStreamOptions);
     static readonly create: typeof createSyncWriteStream;
     open(): void;
+    write(chunk: any, cb?: (error: Error | null | undefined) => void): boolean;
+    write(chunk: any, encoding?: string, cb?: (error: Error | null | undefined) => void): boolean;
+    _write(chunk: Buffer, encoding: string, callback: Function): boolean | this;
+    close(cb?: Function): void;
+    _destroy(error: Error | null, callback: (error: Error | null) => void): void;
 }
-export declare function createWriteStream(path: PathLike, options?: string | IFsWriteStreamOptions): WriteStream;
-export default WriteStream;
+export declare function createSyncWriteStream(path: PathLike, options?: string | IFsWriteStreamOptions): SyncWriteStream;
+export default SyncWriteStream;

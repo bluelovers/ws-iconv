@@ -1,8 +1,11 @@
 import * as fs from "fs";
-import { SyncReadStream } from '../read';
-import { SyncWriteStream } from '../write';
+import { SyncReadStream } from '../read-sync';
+import { SyncWriteStream } from '../write-sync';
+import { IFsStreamData } from './interface';
 
-type IThisFsStream = fs.WriteStream | fs.ReadStream | SyncWriteStream | SyncReadStream
+export const SYM_FS_STREAM_DATA = Symbol('FsStreamData')
+
+export type IThisFsStream = fs.WriteStream | fs.ReadStream | SyncWriteStream | SyncReadStream
 
 export function open(thisArgv: IThisFsStream, argv?: any[])
 {
@@ -108,6 +111,11 @@ function emitCloseNT(self)
 function emitErrorNT(self, err)
 {
 	self.emit('error', err);
+}
+
+export function getFsStreamData(thisArgv: IThisFsStream): IFsStreamData
+{
+	return thisArgv[SYM_FS_STREAM_DATA] = thisArgv[SYM_FS_STREAM_DATA] || {}
 }
 
 // @ts-ignore
