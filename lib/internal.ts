@@ -86,6 +86,29 @@ export function _destroy(thisArgv: IThisFsStream, error: Error | null, callback:
 	thisArgv.fd = null;
 }
 
+function emitErrorAndCloseNT(self, err)
+{
+	emitErrorNT(self, err);
+	emitCloseNT(self);
+}
+
+function emitCloseNT(self)
+{
+	if (self._writableState && !self._writableState.emitClose)
+	{
+		return;
+	}
+	if (self._readableState && !self._readableState.emitClose)
+	{
+		return;
+	}
+	self.emit('close');
+}
+
+function emitErrorNT(self, err)
+{
+	self.emit('error', err);
+}
 
 // @ts-ignore
 Object.freeze(exports)

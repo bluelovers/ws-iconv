@@ -1,6 +1,6 @@
 {
   "name": "fs-stream-sync",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "File System SyncWriteStream/SyncReadStream implementation from Node.js Core",
   "keywords": [
     "File System",
@@ -35,5 +35,7 @@
   "dependencies": {
     "@types/node": "^10"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "fs-extra": "^7.0.0"
+  }
 }
