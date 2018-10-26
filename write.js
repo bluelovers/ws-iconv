@@ -1,0 +1,80 @@
+'use strict';
+Object.defineProperty(exports, "__esModule", { value: true });
+const fs = require("fs");
+const errors_1 = require("./lib/errors");
+const internal = require("./lib/internal");
+class SyncWriteStream extends fs.WriteStream {
+    constructor(path, options) {
+        // @ts-ignore
+        super(path, options);
+    }
+    static get create() {
+        return createSyncWriteStream;
+    }
+    open() {
+        internal.open(this);
+    }
+    write(chunk, ...argv) {
+        /*
+        if (this.closed)
+        {
+            throw new NodeLikeError(EnumFsStreamErrorCode.ERR_STREAM_WRITE_AFTER_END, `write after end`)
+        }
+        */
+        if (this._writableState.destroyed) {
+            throw new errors_1.NodeLikeError(errors_1.EnumFsStreamErrorCode.ERR_STREAM_DESTROYED, `Cannot call write after a stream was destroyed`);
+        }
+        return super.write(chunk, ...argv);
+    }
+    _write(chunk, encoding, callback) {
+        if (!(chunk instanceof Buffer)) {
+            return this.emit('error', new Error('Invalid data'));
+        }
+        if (typeof this.fd !== 'number') {
+            return this.once('open', function () {
+                this._write(chunk, encoding, callback);
+            });
+        }
+        try {
+            let bytes = fs.writeSync(this.fd, chunk, 0, chunk.length, this.pos);
+            this.bytesWritten += bytes;
+        }
+        catch (e) {
+            internal._error_callback(this, e, callback);
+        }
+        if (this.pos !== undefined) {
+            this.pos += chunk.length;
+        }
+    }
+    close(cb) {
+        if (cb) {
+            if (this.closed) {
+                cb();
+                return;
+            }
+            else {
+                // @ts-ignore
+                this.on('close', cb);
+            }
+        }
+        // If we are not autoClosing, we should call
+        // destroy on 'finish'.
+        if (!this.autoClose) {
+            this.on('finish', this.destroy.bind(this));
+        }
+        // we use end() instead of destroy() because of
+        // https://github.com/nodejs/node/issues/2006
+        this.end();
+    }
+    _destroy(error, callback) {
+        internal._destroy(this, error, callback);
+    }
+}
+exports.SyncWriteStream = SyncWriteStream;
+function createSyncWriteStream(path, options) {
+    return new SyncWriteStream(path, options);
+}
+exports.createSyncWriteStream = createSyncWriteStream;
+exports.default = SyncWriteStream;
+// @ts-ignore
+Object.freeze(exports);
