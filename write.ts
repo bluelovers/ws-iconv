@@ -1,9 +1,7 @@
 import * as fs from "fs";
 import { PathLike } from 'fs';
-import { IFsStreamData, IFsStreamState, IFsWriteStreamOptions } from './lib/interface';
+import { IFsPath, IFsStreamData, IFsStreamState, IFsWriteStreamOptions } from './lib/interface';
 import { getFsStreamData, SYM_FS_STREAM_DATA } from './lib/internal';
-import SyncWriteStream from './write-sync';
-import { createSyncWriteStream } from './write-sync';
 
 export class WriteStream extends fs.WriteStream
 {
@@ -28,7 +26,7 @@ export class WriteStream extends fs.WriteStream
 	/**
 	 * The path to the file the stream is writing to as specified in the first argument to fs.createWriteStream(). If path is passed as a string, then writeStream.path will be a string. If path is passed as a Buffer, then writeStream.path will be a Buffer.
 	 */
-	public readonly path: string | Buffer
+	public readonly path: IFsPath
 
 	constructor(path: PathLike, options?: string | IFsWriteStreamOptions)
 	{
@@ -40,7 +38,7 @@ export class WriteStream extends fs.WriteStream
 
 	static get create()
 	{
-		return createSyncWriteStream
+		return createWriteStream
 	}
 
 	open()

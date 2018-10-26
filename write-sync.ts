@@ -3,37 +3,20 @@
 import * as fs from 'fs';
 import { PathLike } from "fs";
 import { EnumFsStreamErrorCode, NodeLikeError } from './lib/errors';
-import { IFsStream, IFsStreamState, IFsStreamOptions, IFsWriteStreamOptions, IFsStreamData } from './lib/interface';
+import {
+	IFsStream,
+	IFsStreamState,
+	IFsStreamOptions,
+	IFsWriteStreamOptions,
+	IFsStreamData,
+	IFsPath,
+} from './lib/interface';
 import { getFsStreamData, SYM_FS_STREAM_DATA } from './lib/internal';
 import * as internal from './lib/internal';
-import { closeFsStreamSync } from './lib/internal';
 import { WriteStream } from './write'
 
 export class SyncWriteStream extends WriteStream
 {
-	protected autoClose: boolean
-	protected flags: string
-	fd: number
-	protected mode: number
-	protected pos: number
-	protected closed: boolean
-	protected destroyed: boolean
-
-	protected _writableState: IFsStreamState
-	protected _readableState: IFsStreamState
-
-	protected [SYM_FS_STREAM_DATA]: IFsStreamData
-
-	/**
-	 * The number of bytes written so far. Does not include data that is still queued for writing.
-	 */
-	public bytesWritten: number
-
-	/**
-	 * The path to the file the stream is writing to as specified in the first argument to fs.createWriteStream(). If path is passed as a string, then writeStream.path will be a string. If path is passed as a Buffer, then writeStream.path will be a Buffer.
-	 */
-	public readonly path: string | Buffer
-
 	constructor(path: PathLike, options?: string | IFsWriteStreamOptions)
 	{
 		// @ts-ignore

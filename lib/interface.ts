@@ -2,6 +2,7 @@ import * as fs from "fs";
 import { URL } from "url";
 
 export import PathLike = fs.PathLike
+export type IFsPath = string | Buffer
 
 export interface IFsStreamOptions
 {

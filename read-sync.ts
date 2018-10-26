@@ -1,9 +1,7 @@
 import fs = require('fs');
-import { createReadStream, PathLike } from "fs";
-import { EnumFsStreamErrorCode, NodeLikeError } from './lib/errors';
-import { IFsStream, IFsStreamState, IFsStreamOptions, IFsReadStreamOptions } from './lib/interface';
-import { closeFsStreamSync, getFsStreamData, SYM_FS_STREAM_DATA } from './lib/internal';
-import { Writable } from 'stream'
+import { PathLike } from "fs";
+import { IFsReadStreamOptions } from './lib/interface';
+import { getFsStreamData, SYM_FS_STREAM_DATA } from './lib/internal';
 import * as internal from './lib/internal';
 import { ReadStream } from './read'
 

@@ -2,7 +2,6 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const fs = require("fs");
 const internal_1 = require("./lib/internal");
-const write_sync_1 = require("./write-sync");
 class WriteStream extends fs.WriteStream {
     constructor(path, options) {
         // @ts-ignore
@@ -10,7 +9,7 @@ class WriteStream extends fs.WriteStream {
         internal_1.getFsStreamData(this);
     }
     static get create() {
-        return write_sync_1.createSyncWriteStream;
+        return createWriteStream;
     }
     open() {
         if (!internal_1.getFsStreamData(this).opened) {

@@ -1,6 +1,7 @@
 /// <reference types="node" />
 import * as fs from "fs";
 export import PathLike = fs.PathLike;
+export declare type IFsPath = string | Buffer;
 export interface IFsStreamOptions {
     flags?: string;
     /**
