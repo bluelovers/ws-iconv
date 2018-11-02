@@ -2,17 +2,16 @@
  * Created by user on 2017/12/9/009.
  */
 
-// @ts-ignore
-import * as _path from 'path';
+import _path = require('path');
 
 //export const upath = Object.assign({}, path.win32, {
 //	sep: '/',
 //});
 
-import types, { IPathNode, IPath, IParse } from './lib/type';
-export { types, IPathNode, IPath, IParse }
+import types, { IPathNode, IPath, IParse, ORIGIN_KEY, IPathType } from './lib/type';
+export { types, IPathNode, IPath, IParse, IPathType }
 
-const ORIGIN_KEY = Symbol.for('_origin');
+//const ORIGIN_KEY = Symbol.for('_origin');
 
 export class PathWrap implements IPath
 {
@@ -28,6 +27,8 @@ export class PathWrap implements IPath
 	public default: PathWrap;
 
 	public fn: IPath;
+
+	[ORIGIN_KEY]?: IPathType
 
 	constructor(path, id: string)
 	{
@@ -163,6 +164,7 @@ upath.fn.default = upath;
 
 export const fn = PathWrap.fn = upath.fn;
 
+// @ts-ignore
 _path.upath = upath;
 
 for (let key of [
@@ -184,18 +186,22 @@ function _this_origin(who: IPath): IPathNode
 {
 	if (who[ORIGIN_KEY])
 	{
+		// @ts-ignore
 		return who[ORIGIN_KEY];
 	}
 	else if (who === upath)
 	{
+		// @ts-ignore
 		return _path;
 	}
 	else if (who === win32)
 	{
+		// @ts-ignore
 		return _path.win32;
 	}
 	else if (who === posix)
 	{
+		// @ts-ignore
 		return _path.posix;
 	}
 
@@ -206,3 +212,6 @@ function _replace_sep(who: IPath, input: string): string
 {
 	return input.replace(/\\/g, who.sep);
 }
+
+// @ts-ignore
+Object.freeze(exports)

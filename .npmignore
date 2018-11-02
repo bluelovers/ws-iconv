@@ -39,3 +39,41 @@ gen
 /test/
 /node_modules/
 /.idea/
+### jsonly template
+*.ts
+!*.d.ts
+### jsonly_bin template
+bin/*.ts
+bin/*.d.ts
+/yarn.lock
+/tsconfig.json
+### npm2 template
+
+~ci.list.txt
+~ci.log.txt
+~ci.errors.txt
+
+*.stackdump
+*.bak
+*.old
+
+tsconfig.json
+package-lock.json
+
+test
+
+.github
+.gitkeep
+
+/.*
+
+tests
+
+
+
+/~*
+
+__test__
+__tests__
+
+**/node_modules/

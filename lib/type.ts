@@ -1,6 +1,8 @@
 /**
  * Created by user on 2018/3/30/030.
  */
+import _path = require('path');
+export const ORIGIN_KEY = Symbol.for('_origin');
 
 export interface IParse
 {
@@ -10,6 +12,8 @@ export interface IParse
 	ext?: string,
 	name?: string
 }
+
+export type IPathType = typeof _path | typeof _path.posix | typeof _path.win32 | IPath | IPathNode
 
 export interface IPathNode
 {
@@ -58,8 +62,12 @@ export type IPath = IPathNode & {
 
 	default?: IPath;
 
+	[ORIGIN_KEY]?: IPathType;
+
 	[index: string]: any;
 }
 
 import * as self from './type';
 export default self;
+// @ts-ignore
+Object.freeze(exports)

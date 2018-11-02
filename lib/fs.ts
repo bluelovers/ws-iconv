@@ -24,3 +24,6 @@ fn.filterNameEntry = filterNameEntry;
 
 import * as self from './fs';
 export default self;
+
+// @ts-ignore
+Object.freeze(exports)

@@ -29,7 +29,12 @@ build/Release
 node_modules
 
 # Created by .ignore support plugin (hsz.mobi)
-*.d.ts
-*.js
+
 /.idea/
 /node_modules/
+### test template
+*.spec.js
+*.spec.js.map
+*.test.js
+*.test.js.map
+/yarn.lock
