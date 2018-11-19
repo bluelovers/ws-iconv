@@ -19,7 +19,7 @@ function extraStat(pathname, callback){
         if (error) callback(error, null)
         else callback(null, {
             filestat: stat,
-            pathname: pathname + (stat.isDirectory() ? '/' : ''),
+            pathname: pathname + (stat.isDirectory() && pathname != '/' ? '/' : ''),
             filemode: octal2symbol(stat.mode),
             filename: pathparts.pop() || pathparts.pop(), 
             mimetype: stat.isFile()      ?  fromFilePath(pathname) :
