@@ -14,10 +14,19 @@ let identitymap = {
 	gids: {}
 }
 
+
+// ^		   Only match at the beginning of line
+// ([\w\.]+)   (Capture) at least one+ word character \w [and] dots \.
+// [^-\d]*     Skip any number* of everything thats not^ a hyphen - [or] a digit \d
+// (-?\d+)     Capture any number of digits, optionally? with a hyphen
+// gm          flags: global, multiline
+
+let idmatch = /^([\w\.]+)[^-\d]*(-?\d+)/gm
+
 try {
 	fs.readFileSync('/etc/group')
 	.toString()
-	.replace(/^([\w\.]+)\D*(\d+).*$/gm, (match, groupname, gid) => {
+	.replace(idmatch, (match, groupname, gid) => {
 		identitymap.gids[gid] = groupname
 	})
 } catch(e){
@@ -29,7 +38,7 @@ switch(process.platform){
 	case 'darwin': 
 		child_process.execSync('dscl . -list /Users UniqueID')
 		.toString()
-		.replace(/^([\w\.]+)\D*(\d+).*$/gm, (match, username, uid) => {
+		.replace(idmatch, (match, username, uid) => {
 			identitymap.ids[uid] = username
 		})
 	// case 'linux':
@@ -40,4 +49,5 @@ switch(process.platform){
 		// 	identitymap.ids[uid] = username
 		// })
 }
+console.log(identitymap)
 module.exports = identitymap
