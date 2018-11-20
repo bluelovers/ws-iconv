@@ -1,0 +1,9 @@
+{
+  "name": "identitymap",
+  "version": "1.0.0",
+  "description": "Maps every uid / gid on the system to username and groupname",
+  "main": "identitymap.js",
+  "repository": "https://github.com/jazzyjackson/identifymap",
+  "author": "Colten Jackson",
+  "license": "MIT"
+}
