@@ -5,6 +5,7 @@ const fs = require('fs')
  */
 
 const MIMEtypes = require("./mimemap.json")
+const {ids, gids} = require('identitymap')
 
 module.exports = extraStat
 
@@ -20,6 +21,11 @@ function extraStat(pathname, callback){
         else callback(null, {
             filestat: stat,
             pathname: pathname + (stat.isDirectory() && pathname != '/' ? '/' : ''),
+            ownername: ids[stat.uid],
+            groupname: gids[stat.gid],
+            role: process.getuid() == stat.uid           ? 'user'  : 
+                  process.getgroups().includes(stat.gid) ? 'group' : 
+                                                           'other' ,
             filemode: octal2symbol(stat.mode),
             filename: pathparts.pop() || pathparts.pop(), 
             mimetype: stat.isFile()      ?  fromFilePath(pathname) :
@@ -31,7 +37,7 @@ function extraStat(pathname, callback){
     })
 }
 
-/**
+/*
  * @param {string} pathname - the pathname to REGEX out an extension. Can be a URL with querystring etc.
  * @return {string} - returns the MIME type after extracting extension and calling fromExtension
  */

@@ -22,5 +22,8 @@
   "bugs": {
     "url": "https://github.com/mixint/mimemap/issues"
   },
-  "homepage": "https://github.com/mixint/mimemap#readme"
+  "homepage": "https://github.com/mixint/mimemap#readme",
+  "dependencies": {
+    "identitymap": "^1.0.0"
+  }
 }
