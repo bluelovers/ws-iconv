@@ -1,6 +1,6 @@
 {
   "name": "@mixint/extrastat",
-  "version": "3.0.1",
+  "version": "3.0.2",
   "description": "A simple lookup table to add MIME types to your file stat calls",
   "main": "extrastat.js",
   "scripts": {
