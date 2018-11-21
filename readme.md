@@ -25,6 +25,40 @@ extraStat('package.json', (err, stat) => {
 })
 ```
 
+Here's a real example if you console.log the output:
+```js
+{
+  pathname: '/Users/coltenjackson/Code/extrastat/',
+  ownername: 'coltenjackson',
+  groupname: 'staff',
+  role: 'user',
+  filemode: 'rwxr-xr-x',
+  filename: 'extrastat',
+  mimetype: 'application/directory'
+  filestat: {
+    dev: 16777220,
+    mode: 16877,
+    nlink: 11,
+    uid: 501,
+    gid: 20,
+    rdev: 0,
+    blksize: 4096,
+    ino: 2542542,
+    size: 352,
+    blocks: 0,
+    atimeMs: 1542786390696.0022,
+    mtimeMs: 1542785421061.7803,
+    ctimeMs: 1542785421061.7803,
+    birthtimeMs: 1538694875923.41,
+    atime: 2018-11-21T07:46:30.696Z,
+    mtime: 2018-11-21T07:30:21.062Z,
+    ctime: 2018-11-21T07:30:21.062Z,
+    birthtime: 2018-10-04T23:14:35.923Z
+  }
+}
+
+```
+
 The octal filemode available at `stat.filestat.mode` is converted to human readable `rwxrwxrwx` format at `stat.filemode`.
 
 [IdentityMap](https://github.com/jazzyjackson/identifymap) pulls up the ids and gids of all accounts on a system, this is referenced to convert each stat calls 'uid' and 'gid' properties to a username and groupname.
