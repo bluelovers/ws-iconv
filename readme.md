@@ -19,12 +19,21 @@ extraStat('package.json', (err, stat) => {
     // stat.mimetype: determined from fs.isdir or file extension
     // stat.filename: convenient reference to filename without path
     // stat.pathname: original pathname
+    // stat.ownername: the resolved name of stat.uid
+    // stat.groupname: the resolved name of stat.gid
+    // stat.role: whether you are 'user', 'group', or 'other' to each file
 })
 ```
 
 The octal filemode available at `stat.filestat.mode` is converted to human readable `rwxrwxrwx` format at `stat.filemode`.
 
+[IdentityMap](https://github.com/jazzyjackson/identifymap) pulls up the ids and gids of all accounts on a system, this is referenced to convert each stat calls 'uid' and 'gid' properties to a username and groupname.
+
+Sometimes the most difficult part about reading the system's 'rwxrw-r--' permission model is thinking about whether you're in a group that has ownership of a file, or whether you're signed on as the owner of a file. extraStat performs this task for you and returns the 'role' of your identity as it relates to each file: are you 'user'/owner ? 'group' ? or 'other' ?
+
 You can edit mimemap.json to your heart's content.
+
+A future version will include '[dotenv-alive](https://github.com/jazzyjackson/dotenv-alive)' to keep the user/group table and the mimetypes mapping up to date with the file on disk.
 
 I simply perform the regex `\.([a-z0-9]+)(?=\?|$)` to grab the file extension (stopping at ? or EOL means you can pass URLs with query attached and the query is ignored).
 
