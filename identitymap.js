@@ -49,5 +49,4 @@ switch(process.platform){
 		// 	identitymap.ids[uid] = username
 		// })
 }
-console.log(identitymap)
 module.exports = identitymap
