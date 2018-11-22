@@ -24,6 +24,6 @@
   },
   "homepage": "https://github.com/mixint/mimemap#readme",
   "dependencies": {
-    "identitymap": "^1.0.0"
+    "identitymap": "^1.1.0"
   }
 }

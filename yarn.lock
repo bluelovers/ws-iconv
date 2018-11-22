@@ -2,7 +2,7 @@
 # yarn lockfile v1
 
 
-identitymap@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/identitymap/-/identitymap-1.0.0.tgz#d35aa8700b8b87b2394b55be5431fbc71f3ec016"
-  integrity sha512-PuFF0OmWSeOdbozGlOYfTdDIR2WVrrZTjGzLGNvMYlWqSfXOJkonV0xZzhx2vAga0FA4tPpO8G36Wa21XBD5BA==
+identitymap@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/identitymap/-/identitymap-1.1.0.tgz#2af67a0c3242f38582a6141034d77e90d486caf0"
+  integrity sha512-L25A9ewDoW1DkRXxg8Mr2gpANCWI8Vo59uhZUg5kZ1V5fURTdyvbzlCscED/KFELRlvMeARifRyeHUi1pf9ZSg==
