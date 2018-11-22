@@ -23,7 +23,7 @@ let identitymap = {
 
 let idmatch = /^([\w\.]+)[^-\d]*(-?\d+)/gm
 
-try {
+try [{
 	fs.readFileSync('/etc/group')
 	.toString()
 	.replace(idmatch, (match, groupname, gid) => {
@@ -41,12 +41,12 @@ switch(process.platform){
 		.replace(idmatch, (match, username, uid) => {
 			identitymap.ids[uid] = username
 		})
-	// case 'linux':
-		// need to make sure this looks good on linux
-		// fs.readFileSync('/etc/passwd')
-		// .toString()
-		// .replace(/(\w+).*(\d+)/g, (match, username, uid) => {
-		// 	identitymap.ids[uid] = username
-		// })
+	case 'linux':
+	case 'freebsd':
+		fs.readFileSync('/etc/passwd')
+		.toString()
+		.replace(idmatch, (match, username, uid) => {
+			identitymap.ids[uid] = username
+		})
 }
 module.exports = identitymap
