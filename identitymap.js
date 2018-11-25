@@ -23,7 +23,7 @@ let identitymap = {
 
 let idmatch = /^([\w\.]+)[^-\d]*(-?\d+)/gm
 
-try [{
+try {
 	fs.readFileSync('/etc/group')
 	.toString()
 	.replace(idmatch, (match, groupname, gid) => {
