@@ -8,6 +8,7 @@ import clone = require("lodash/clone");
 import iconv from 'iconv-jschardet';
 import Bluebird = require('bluebird');
 import stream = require('stream');
+import { trimFilename } from './util';
 
 export const SymFSLib = Symbol('fsLib');
 
@@ -38,6 +39,8 @@ export function WrapFSIconv<F extends typeof fsExtra = typeof fsExtra>(fsLib: F)
 	fs._createStreamPassThrough = _createStreamPassThrough.bind(fs);
 	fs._outputStream = _outputStream.bind(fs);
 	fs._autoDecode = _autoDecode.bind(fs);
+
+	fs.trimFilename = trimFilename;
 
 	Object.defineProperty(exports, "__esModule", { value: true });
 
@@ -138,6 +141,10 @@ export declare namespace WrapFSIconv
 			autoDecode: true | string[];
 		}): T | string | Buffer;
 		_autoDecode(buf: unknown, options: WrapFSIconv.IWrapFSIconvOptionsLoadFile): Buffer;
+
+		// ----------
+
+		trimFilename(name: unknown): string
 	}
 
 	export interface IWrapFSIconvOptions

@@ -37,6 +37,7 @@ export declare namespace WrapFSIconv {
             autoDecode: true | string[];
         }): T | string | Buffer;
         _autoDecode(buf: unknown, options: WrapFSIconv.IWrapFSIconvOptionsLoadFile): Buffer;
+        trimFilename(name: unknown): string;
     };
     interface IWrapFSIconvOptions {
         encoding?: vEncoding;
