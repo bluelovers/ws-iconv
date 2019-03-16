@@ -39,6 +39,11 @@ export function WrapFSIconv<F extends typeof fsExtra = typeof fsExtra>(fsLib: F)
 	fs._outputStream = _outputStream.bind(fs);
 	fs._autoDecode = _autoDecode.bind(fs);
 
+	Object.defineProperty(exports, "__esModule", { value: true });
+
+	// @ts-ignore
+	fs.default = fs;
+
 	return fs;
 }
 
@@ -68,7 +73,8 @@ export function saveFileSync(file: string, data, options: WrapFSIconv.IWrapFSIco
 
 export function saveFile(file: string, data, options: WrapFSIconv.IWrapFSIconvOptions = {})
 {
-	let fs = (this as any as WrapFSIconv.IWrapFS)[SymFSLib] as typeof fsExtra;
+	let self: WrapFSIconv.IWrapFS<typeof fsExtra> = this;
+	let fs = self[SymFSLib] as typeof fsExtra;
 
 	return Bluebird
 		.resolve(fs.ensureFile(file))
@@ -81,8 +87,8 @@ export function saveFile(file: string, data, options: WrapFSIconv.IWrapFSIconvOp
 					data = iconv.encode(data, options.encoding);
 				}
 
-				let readStream = _createStreamPassThrough(data);
-				let writeStream = _outputStream(file, readStream);
+				let readStream = self._createStreamPassThrough(data);
+				let writeStream = self._outputStream(file, readStream);
 
 				writeStream.on('error', reject);
 				writeStream.on('finish', resolve);
@@ -96,7 +102,7 @@ export declare namespace WrapFSIconv
 {
 	export type IWrapFS<F extends typeof fsExtra = typeof fsExtra> = F &
 	{
-		[SymFSLib]: F;
+		[SymFSLib]: F | typeof fsExtra;
 
 		iconv: typeof iconv;
 		ensureWriteStream(file: string): fsExtra.WriteStream;
@@ -163,7 +169,7 @@ export function _createStreamPassThrough(data): stream.Readable
 
 export function _outputStream(file: string, readStream: stream.Readable): fsExtra.WriteStream
 {
-	let fs = this as WrapFSIconv.IWrapFS;
+	let fs = (this as any as WrapFSIconv.IWrapFS)[SymFSLib] as typeof fsExtra;
 
 	let writeStream = fs.createWriteStream(file);
 	readStream.pipe(writeStream);
@@ -220,7 +226,8 @@ export function loadFile<T = string>(file: string, options: WrapFSIconv.IWrapFSI
 export function loadFile<T = Buffer>(file: string, options?: WrapFSIconv.IWrapFSIconvOptionsLoadFile): Bluebird<T>
 export function loadFile(file: string, options: WrapFSIconv.IWrapFSIconvOptionsLoadFile = {}): Bluebird<Buffer | string>
 {
-	let fs = (this as any as WrapFSIconv.IWrapFS)[SymFSLib] as typeof fsExtra;
+	let self: WrapFSIconv.IWrapFS<typeof fsExtra> = this;
+	let fs = self[SymFSLib] as typeof fsExtra;
 
 	let ps: Promise<any>;
 
@@ -250,7 +257,7 @@ export function loadFile(file: string, options: WrapFSIconv.IWrapFSIconvOptionsL
 		ps = fs.readFile(file, options)
 			.then(function (buf)
 			{
-				return _autoDecode(buf, options);
+				return self._autoDecode(buf, options);
 			})
 		;
 	}
@@ -270,7 +277,8 @@ export function loadFileSync<T = string>(file: string, options: WrapFSIconv.IWra
 export function loadFileSync<T = Buffer>(file: string, options?: WrapFSIconv.IWrapFSIconvOptionsLoadFile): T
 export function loadFileSync(file: string, options: WrapFSIconv.IWrapFSIconvOptionsLoadFile = {}): Buffer | string
 {
-	let fs = (this as any as WrapFSIconv.IWrapFS)[SymFSLib] as typeof fsExtra;
+	let self: WrapFSIconv.IWrapFS<typeof fsExtra> = this;
+	let fs = self[SymFSLib] as typeof fsExtra;
 
 	let ps;
 
@@ -292,7 +300,7 @@ export function loadFileSync(file: string, options: WrapFSIconv.IWrapFSIconvOpti
 	}
 	else if (options.autoDecode)
 	{
-		ps = _autoDecode(fs.readFileSync(file, options), options);
+		ps = self._autoDecode(fs.readFileSync(file, options), options);
 	}
 	else
 	{

@@ -14,7 +14,7 @@ export declare function saveFileSync(file: string, data: any, options?: WrapFSIc
 export declare function saveFile(file: string, data: any, options?: WrapFSIconv.IWrapFSIconvOptions): Bluebird<boolean>;
 export declare namespace WrapFSIconv {
     type IWrapFS<F extends typeof fsExtra = typeof fsExtra> = F & {
-        [SymFSLib]: F;
+        [SymFSLib]: F | typeof fsExtra;
         iconv: typeof iconv;
         ensureWriteStream(file: string): fsExtra.WriteStream;
         saveFile(file: string, data: any, options?: WrapFSIconv.IWrapFSIconvOptions): Bluebird<boolean>;

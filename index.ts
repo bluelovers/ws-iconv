@@ -11,5 +11,9 @@ import stream = require('stream');
 
 export * from './fs';
 import fs = require('./fs');
+import { SymFSLib } from './core';
 
 export default fs;
+
+// @ts-ignore
+exports = module.exports = fs;

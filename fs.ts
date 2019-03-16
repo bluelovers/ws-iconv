@@ -1,7 +1,7 @@
 /**
  * Created by user on 2019/3/17.
  */
-import { WrapFSIconv } from './core';
+import { WrapFSIconv, SymFSLib } from './core';
 import { ensureWriteStream, saveFileSync, _autoDecode, _createStreamPassThrough, _outputStream, loadFile, loadFileSync, saveFile } from './core';
 import { vEncoding } from 'iconv-jschardet';
 import fsExtra = require('fs-extra');
@@ -19,6 +19,10 @@ export import IWrapFSIconvOptionsLoadFile = WrapFSIconv.IWrapFSIconvOptionsLoadF
 export import IWrapFSIconvOptionsLoadFile2 = WrapFSIconv.IWrapFSIconvOptionsLoadFile2;
 export import IEncoding = WrapFSIconv.IEncoding;
 
+
 export { iconv }
 
-exports = WrapFSIconv(require('fs-extra') as typeof import('fs-extra'));
+const fs = WrapFSIconv(require('fs-extra') as typeof import('fs-extra'));
+
+// @ts-ignore
+exports = module.exports = fs;
