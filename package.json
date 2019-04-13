@@ -1,6 +1,6 @@
 {
   "name": "fs-iconv",
-  "version": "2.0.3",
+  "version": "2.0.4",
   "description": "save file with charset/encoding/iconv",
   "keywords": [
     "async",
@@ -64,7 +64,7 @@
     "test": "npx -r chai -r mocha -r ts-node mocha --require ts-node/register \"!(node_modules)/**/*.{test,spec}.{ts,tsx}\""
   },
   "dependencies": {
-    "bluebird": "^3.5.3",
+    "bluebird": "^3.5.4",
     "fs-extra": "^7.0.1",
     "iconv-jschardet": "^1.0.8",
     "lodash": "^4.17.11",

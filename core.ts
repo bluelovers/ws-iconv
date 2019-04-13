@@ -14,13 +14,13 @@ export const SymFSLib = Symbol('fsLib');
 
 export function WrapFSIconv<F extends typeof fsExtra = typeof fsExtra>(fsLib: F): WrapFSIconv.IWrapFS<F>
 {
-	let fs = clone(fsLib) as WrapFSIconv.IWrapFS<F>;
+	let fs = clone(fsLib) as any as WrapFSIconv.IWrapFS<F>;
 
 	Object.keys(fs)
 		.forEach(k => {
 			if (typeof fsLib[k] === 'function')
 			{
-				fs[k] = fsLib[k].bind(fsLib[k], fsLib);
+				fs[k] = fsLib[k].bind(fsLib);
 			}
 		})
 	;
