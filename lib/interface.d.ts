@@ -1,5 +1,5 @@
 /// <reference types="node" />
-import * as fs from "fs";
+import fs = require('fs');
 export import PathLike = fs.PathLike;
 export declare type IFsPath = string | Buffer;
 export interface IFsStreamOptions {

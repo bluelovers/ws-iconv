@@ -1,6 +1,6 @@
 /// <reference types="node" />
 import { PathLike } from "fs";
-import * as fs from "fs";
+import fs = require('fs');
 import { IFsReadStreamOptions, IFsStreamData, IFsStreamState, IFsWriteStreamOptions } from './lib/interface';
 import { SYM_FS_STREAM_DATA } from './lib/internal';
 export declare class ReadStream extends fs.ReadStream {

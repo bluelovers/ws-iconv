@@ -15,5 +15,4 @@ export {
 	createSyncReadStream, createSyncWriteStream
 }
 
-import * as SyncStream from './index'
-export default SyncStream
+export default exports as typeof import('./index');

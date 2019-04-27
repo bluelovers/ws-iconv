@@ -1,5 +1,5 @@
 /// <reference types="node" />
-import * as fs from "fs";
+import fs = require('fs');
 import { ReadStream } from '../read';
 import { WriteStream } from '../write';
 import { SyncReadStream } from '../read-sync';

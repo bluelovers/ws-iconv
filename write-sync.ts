@@ -1,6 +1,6 @@
 'use strict';
 
-import * as fs from 'fs';
+import fs = require("fs");
 import { PathLike } from "fs";
 import { EnumFsStreamErrorCode, NodeLikeError } from './lib/errors';
 import {
@@ -12,7 +12,7 @@ import {
 	IFsPath,
 } from './lib/interface';
 import { getFsStreamData, SYM_FS_STREAM_DATA } from './lib/internal';
-import * as internal from './lib/internal';
+import internal = require("./lib/internal");
 import { WriteStream } from './write'
 
 export class SyncWriteStream extends WriteStream

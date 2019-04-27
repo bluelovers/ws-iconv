@@ -1,5 +1,5 @@
 /// <reference types="node" />
-import * as fs from "fs";
+import fs = require("fs");
 import { PathLike } from 'fs';
 import { IFsPath, IFsStreamData, IFsStreamState, IFsWriteStreamOptions } from './lib/interface';
 import { SYM_FS_STREAM_DATA } from './lib/internal';

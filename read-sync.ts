@@ -2,7 +2,7 @@ import fs = require('fs');
 import { PathLike } from "fs";
 import { IFsReadStreamOptions } from './lib/interface';
 import { getFsStreamData, SYM_FS_STREAM_DATA } from './lib/internal';
-import * as internal from './lib/internal';
+import internal = require("./lib/internal");
 import { ReadStream } from './read'
 
 export const kMinPoolSpace = 128;

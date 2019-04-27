@@ -4,5 +4,5 @@ import { SyncWriteStream, createSyncWriteStream } from './write-sync';
 import { WriteStream, createWriteStream } from './write';
 export { IFsReadStreamOptions, IFsWriteStreamOptions, PathLike } from './lib/interface';
 export { ReadStream, WriteStream, SyncReadStream, SyncWriteStream, createReadStream, createWriteStream, createSyncReadStream, createSyncWriteStream };
-import * as SyncStream from './index';
-export default SyncStream;
+declare const _default: typeof import(".");
+export default _default;
