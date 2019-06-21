@@ -23,6 +23,9 @@ const iconv = fs.iconv;
 //	})
 //;
 
-fs.loadFile('./res/empty.txt', {
+fs.loadFile('G:\\Users\\The Project\\nodejs-test\\node-novel2\\dist_novel\\ts\\葉隠桜は嘆かない\\00000_一章\\00030_003　黯然靠近的黑影.txt', {
 	autoDecode: true,
-});
+})
+	.then(v => console.dir(v))
+
+;
