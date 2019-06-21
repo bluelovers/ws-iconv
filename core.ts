@@ -53,6 +53,7 @@ export function WrapFSIconv<F extends typeof fsExtra = typeof fsExtra>(fsLib: F)
 
 export function ensureWriteStream(file: string)
 {
+	// @ts-ignore
 	let fs = (this as any as WrapFSIconv.IWrapFS)[SymFSLib] as typeof fsExtra;
 
 	fs.ensureFileSync(file);
@@ -61,6 +62,7 @@ export function ensureWriteStream(file: string)
 
 export function saveFileSync(file: string, data, options: WrapFSIconv.IWrapFSIconvOptions = {})
 {
+	// @ts-ignore
 	let fs = (this as any as WrapFSIconv.IWrapFS)[SymFSLib] as typeof fsExtra;
 
 	fs.ensureFileSync(file);
@@ -77,6 +79,7 @@ export function saveFileSync(file: string, data, options: WrapFSIconv.IWrapFSIco
 
 export function saveFile(file: string, data, options: WrapFSIconv.IWrapFSIconvOptions = {})
 {
+	// @ts-ignore
 	let self: WrapFSIconv.IWrapFS<typeof fsExtra> = this;
 	let fs = self[SymFSLib] as typeof fsExtra;
 
@@ -167,6 +170,7 @@ export function _createStreamPassThrough(data): stream.Readable
 
 export function _outputStream(file: string, readStream: stream.Readable): fsExtra.WriteStream
 {
+	// @ts-ignore
 	let fs = (this as any as WrapFSIconv.IWrapFS)[SymFSLib] as typeof fsExtra;
 
 	let writeStream = fs.createWriteStream(file);
@@ -220,6 +224,7 @@ export function loadFile<T = string>(file: string, options: WrapFSIconv.IWrapFSI
 export function loadFile<T = Buffer>(file: string, options?: WrapFSIconv.IWrapFSIconvOptionsLoadFile): Bluebird<T>
 export function loadFile(file: string, options: WrapFSIconv.IWrapFSIconvOptionsLoadFile = {}): Bluebird<Buffer | string>
 {
+	// @ts-ignore
 	let self: WrapFSIconv.IWrapFS<typeof fsExtra> = this;
 	let fs = self[SymFSLib] as typeof fsExtra;
 
@@ -267,6 +272,7 @@ export function loadFileSync<T = string>(file: string, options: WrapFSIconv.IWra
 export function loadFileSync<T = Buffer>(file: string, options?: WrapFSIconv.IWrapFSIconvOptionsLoadFile): T
 export function loadFileSync(file: string, options: WrapFSIconv.IWrapFSIconvOptionsLoadFile = {}): Buffer | string
 {
+	// @ts-ignore
 	let self: WrapFSIconv.IWrapFS<typeof fsExtra> = this;
 	let fs = self[SymFSLib] as typeof fsExtra;
 
