@@ -1,6 +1,6 @@
 {
   "name": "fs-iconv",
-  "version": "2.0.7",
+  "version": "2.0.8",
   "description": "save file with charset/encoding/iconv",
   "keywords": [
     "async",
@@ -61,25 +61,27 @@
     "test": "test"
   },
   "scripts": {
-    "coverage": "npx nyc npm run test",
+    "coverage": "npx nyc yarn run test",
     "lint": "eslint .",
     "ncu": "npx npm-check-updates -u",
-    "prepublishOnly": "npm run test && ncu -u",
+    "prepublishOnly": "yarn run test && yarn run ncu",
+    "postpublish": "git commit -m \"publish new version\" .",
     "sort-package-json": "npx sort-package-json ./package.json",
     "test": "npx -r chai -r mocha -r ts-node mocha --require ts-node/register \"!(node_modules)/**/*.{test,spec}.{ts,tsx}\""
   },
   "dependencies": {
-    "bluebird": "^3.5.4",
+    "bluebird": "^3.5.5",
     "fs-extra": "^8.0.1",
-    "iconv-jschardet": "^1.1.1",
+    "iconv-jschardet": "^1.1.2",
     "lodash": "^4.17.11",
-    "sanitize-filename": "^1.6.1"
+    "sanitize-filename": "^1.6.1",
+    "ts-type": "^1.2.9"
   },
   "devDependencies": {
-    "@bluelovers/tsconfig": "^1.0.3",
+    "@bluelovers/tsconfig": "^1.0.11",
     "@types/bluebird": "^3",
     "@types/fs-extra": "^7",
-    "@types/lodash": "^4.14.129",
+    "@types/lodash": "^4.14.134",
     "@types/node": "^12"
   }
 }

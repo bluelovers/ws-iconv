@@ -9,6 +9,7 @@ import iconv from 'iconv-jschardet';
 import Bluebird = require('bluebird');
 import stream = require('stream');
 import { trimFilename } from './util';
+import { ITSRequiredWith, ITSRequireAtLeastOne } from 'ts-type';
 
 export const SymFSLib = Symbol('fsLib');
 
@@ -118,18 +119,10 @@ export declare namespace WrapFSIconv
 
 		// --------------------
 
-		loadFile<T = string>(file: string, options: WrapFSIconv.IWrapFSIconvOptionsLoadFile2 & ({
-			encoding: string;
-		} | {
-			autoDecode: true | string[];
-		})): Bluebird<T>;
+		loadFile<T = string>(file: string, options: WrapFSIconv.IWrapFSIconvOptionsLoadFile2): Bluebird<T>;
 		loadFile<T = Buffer>(file: string, options?: WrapFSIconv.IWrapFSIconvOptionsLoadFile): Bluebird<T>;
 
-		loadFileSync<T = string>(file: string, options: WrapFSIconv.IWrapFSIconvOptionsLoadFile2 & ({
-			encoding: string;
-		} | {
-			autoDecode: true | string[];
-		})): T;
+		loadFileSync<T = string>(file: string, options: WrapFSIconv.IWrapFSIconvOptionsLoadFile2): T;
 		loadFileSync<T = Buffer>(file: string, options?: WrapFSIconv.IWrapFSIconvOptionsLoadFile): T;
 
 		// --------------------
@@ -160,9 +153,7 @@ export declare namespace WrapFSIconv
 		autoDecode?: boolean | string[],
 	}
 
-	export type IWrapFSIconvOptionsLoadFile2 = IWrapFSIconvOptionsLoadFile & {
-		encoding: string;
-	};
+	export type IWrapFSIconvOptionsLoadFile2 = ITSRequireAtLeastOne<IWrapFSIconvOptionsLoadFile, 'encoding' | 'autoDecode'>
 
 	export type IEncoding = vEncoding
 }
@@ -225,11 +216,7 @@ export function _autoDecode(buf, options: WrapFSIconv.IWrapFSIconvOptionsLoadFil
 	return iconv.encode(buf);
 }
 
-export function loadFile<T = string>(file: string, options: WrapFSIconv.IWrapFSIconvOptionsLoadFile2 & ({
-	encoding: string,
-} | {
-	autoDecode: true | string[],
-})): Bluebird<T>
+export function loadFile<T = string>(file: string, options: WrapFSIconv.IWrapFSIconvOptionsLoadFile2): Bluebird<T>
 export function loadFile<T = Buffer>(file: string, options?: WrapFSIconv.IWrapFSIconvOptionsLoadFile): Bluebird<T>
 export function loadFile(file: string, options: WrapFSIconv.IWrapFSIconvOptionsLoadFile = {}): Bluebird<Buffer | string>
 {
@@ -276,11 +263,7 @@ export function loadFile(file: string, options: WrapFSIconv.IWrapFSIconvOptionsL
 	return Bluebird.resolve(ps);
 }
 
-export function loadFileSync<T = string>(file: string, options: WrapFSIconv.IWrapFSIconvOptionsLoadFile2 & ({
-	encoding: string,
-} | {
-	autoDecode: true | string[],
-})): T
+export function loadFileSync<T = string>(file: string, options: WrapFSIconv.IWrapFSIconvOptionsLoadFile2): T
 export function loadFileSync<T = Buffer>(file: string, options?: WrapFSIconv.IWrapFSIconvOptionsLoadFile): T
 export function loadFileSync(file: string, options: WrapFSIconv.IWrapFSIconvOptionsLoadFile = {}): Buffer | string
 {
