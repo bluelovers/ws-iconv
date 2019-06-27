@@ -1,6 +1,6 @@
 {
   "name": "extrastat",
-  "version": "3.1.0",
+  "version": "3.2.0",
   "description": "A simple lookup table to add MIME types to your file stat calls",
   "main": "extrastat.js",
   "scripts": {
