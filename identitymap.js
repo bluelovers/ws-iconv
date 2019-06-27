@@ -9,44 +9,47 @@ const fs = require('fs')
 const os = require('os')
 const child_process = require('child_process')
 
-let identitymap = {
-	ids: {}, 
-	gids: {}
+let matchKeyValue = (new RegExp).compile(
+		'^'           +// Only match at the beginning of line
+	 	'([\\w\\.]+)' +// (Capture) at least one+ word character \w [and] dots \.
+	  '[^-\\d]*'    +// Skip any number* of everything thats not^ a hyphen - [or] a digit \d
+		'(-?\\d+)'    +// Capture any number of digits, optionally? with a hyphen for '-1' and '-2'
+    '[^-\\d]*'    +// Skip any number* of everything thats not^ a hyphen - [or] a digit \d
+		'$'            // end of line
+)
+
+function splitKeyValue(line){
+	return line.replace(matchKeyValue, (match, groupname, gid) => [gid, groupname]).split(',')
 }
 
-
-// ^		   Only match at the beginning of line
-// ([\w\.]+)   (Capture) at least one+ word character \w [and] dots \.
-// [^-\d]*     Skip any number* of everything thats not^ a hyphen - [or] a digit \d
-// (-?\d+)     Capture any number of digits, optionally? with a hyphen
-// gm          flags: global, multiline
-
-let idmatch = /^([\w\.]+)[^-\d]*(-?\d+)/gm
-
-try {
-	fs.readFileSync('/etc/group')
-	.toString()
-	.replace(idmatch, (match, groupname, gid) => {
-		identitymap.gids[gid] = groupname
-	})
-} catch(e){
-	/* do nothing, export empty object*/
-	console.warn('identitymap was executed without permission to read /etc/group or /etc/group does not exist')
+function neitherCommentNorBlank(line){
+	return line && line[0] != '#'
 }
 
-switch(process.platform){
-	case 'darwin': 
-		child_process.execSync('dscl . -list /Users UniqueID')
+function rollup(accumulator, current){
+	return Object.assign(accumulator, {[current.shift()]: current.shift()})
+}
+
+function parse(bufferinput){
+	return bufferinput
 		.toString()
-		.replace(idmatch, (match, username, uid) => {
-			identitymap.ids[uid] = username
-		})
-	case 'linux':
-	case 'freebsd':
-		fs.readFileSync('/etc/passwd')
-		.toString()
-		.replace(idmatch, (match, username, uid) => {
-			identitymap.ids[uid] = username
-		})
+		.split(os.EOL)
+		.filter(neitherCommentNorBlank)
+		.map(splitKeyValue)
+		.reduce(rollup, new Object)
 }
-module.exports = identitymap
+
+function gids(){
+	return parse(fs.readFileSync('/etc/group'))
+}
+
+function ids(){
+	switch(process.platform){
+		case 'darwin': 
+			return parse(child_process.execSync('dscl . -list /Users UniqueID'))
+		case 'linux':
+		case 'freebsd': 
+			return parse(fs.readFileSync('/etc/passwd'))
+	}
+}
+module.exports = {gid: gids(), id: ids()}
