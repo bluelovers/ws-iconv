@@ -1,6 +1,6 @@
 {
   "name": "extrastat",
-  "version": "4.0.1",
+  "version": "4.0.2",
   "description": "Resolve fs.Stat to mimetype, ownername, groupname, and human-readable permissions.",
   "main": "extrastat.js",
   "scripts": {
