@@ -25,39 +25,70 @@ extraStat('package.json', (err, stat) => {
 })
 ```
 
-Here's a real example if you console.log the output:
+Here's a real example with default config if you console.log the output:
 ```js
-{
-  pathname: '/Users/coltenjackson/Code/extrastat/',
+extrastat = util.promisify(extrastat)
+
+extrastat('/').then(console.log)
+// waits for callback and prints result
+
+{ 
+  filename: '',
+  pathname: './',
+  mimetype: 'application/directory',
+  ownername: 'root',
+  groupname: 'wheel',
+  role: 'other',
+  filemode: 'rwxr-xr-x',
+}
+
+extrastat('.', {children: true}).then(console.log)
+
+{ 
+  filename: 'extrastat',
+  filemode: 'rwxr-xr-x',
+  pathname: 'Users/coltenjackson/Code/extrastat/',
+  mimetype: 'application/directory',
   ownername: 'coltenjackson',
   groupname: 'staff',
   role: 'user',
-  filemode: 'rwxr-xr-x',
-  filename: 'extrastat',
-  mimetype: 'application/directory'
-  filestat: {
-    dev: 16777220,
-    mode: 16877,
-    nlink: 11,
-    uid: 501,
-    gid: 20,
-    rdev: 0,
-    blksize: 4096,
-    ino: 2542542,
-    size: 352,
-    blocks: 0,
-    atimeMs: 1542786390696.0022,
-    mtimeMs: 1542785421061.7803,
-    ctimeMs: 1542785421061.7803,
-    birthtimeMs: 1538694875923.41,
-    atime: 2018-11-21T07:46:30.696Z,
-    mtime: 2018-11-21T07:30:21.062Z,
-    ctime: 2018-11-21T07:30:21.062Z,
-    birthtime: 2018-10-04T23:14:35.923Z
-  }
-}
+  children:
+   [ { filename: '.config.json',
+       pathname: '/Users/coltenjackson/Code/extrastat/.config.json',
+       mimetype: 'application/json' },
+     { filename: '.git',
+       pathname: '/Users/coltenjackson/Code/extrastat/.git',
+       mimetype: 'application/directory' },
+     { filename: '.gitignore',
+       pathname: '/Users/coltenjackson/Code/extrastat/.gitignore',
+       mimetype: 'text/plain' },
+     { filename: 'extrastat.js',
+       pathname: '/Users/coltenjackson/Code/extrastat/extrastat.js',
+       mimetype: 'text/plain' },
+     { filename: 'mimemap.json',
+       pathname: '/Users/coltenjackson/Code/extrastat/mimemap.json',
+       mimetype: 'application/json' },
+     { filename: 'node_modules',
+       pathname: '/Users/coltenjackson/Code/extrastat/node_modules',
+       mimetype: 'application/directory' },
+     { filename: 'package.json',
+       pathname: '/Users/coltenjackson/Code/extrastat/package.json',
+       mimetype: 'application/json' },
+     { filename: 'readme.md',
+       pathname: '/Users/coltenjackson/Code/extrastat/readme.md',
+       mimetype: 'text/markdown' },
+     { filename: 'test',
+       pathname: '/Users/coltenjackson/Code/extrastat/test',
+       mimetype: 'application/directory' },
+     { filename: 'yarn.lock',
+       pathname: '/Users/coltenjackson/Code/extrastat/yarn.lock',
+       mimetype: 'text/plain' } 
+   ]
+ }
 
 ```
+
+Try out `extrastat('.', {siblings: true, parents: true, children: true})`
 
 The octal filemode available at `stat.filestat.mode` is converted to human readable `rwxrwxrwx` format at `stat.filemode`.
 
