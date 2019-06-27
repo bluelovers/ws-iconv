@@ -1,11 +1,11 @@
 {
-	"filemode": true,
-	"pathname": true,
-	"filestat": true,
-	"mimetype": true,
-	"ownership": false,
-	"siblings": false,
-	"siblingStat": false,
-	"extendedFamily": false,
-	"extendedFamilyStat": false
+	"filestat":  true,
+	"filemode":  true,
+	"pathname":  true,
+	"mimetype":  true,
+	"ownername": true,
+	"groupname": true,
+	"parents":   false,
+	"siblings":  false,
+	"children":  false
 }

@@ -1,7 +1,7 @@
-# mixint/extraStat
-### A simple lookup table to add MIME types to your file stat calls.
+# extrastat
+### Resolve mimetype, ownername and groupname, and human-readable permissions.
 
-I wrote this because I wanted a lightweight callback to add Content-Type headers to my font files and css files.
+I wrote this because I wanted a lightweight callback to add Content-Type headers to my font files and css files. Then I started added more features to mimic the utility of `ls -la`, printing the names of the owner, group owner, and the permissions as 'rwxr-xr-w' as opposted to fs.stat's representation of an octal mode, `16877`
 
 Uses nodejs filesystem builtins to determine if a file is a directory. Returns the fs.Stat object as well, so you can grab byte length for Content-Length, and 
 
