@@ -1,13 +1,15 @@
-const fs = require('fs')
-
+const fs   = require('fs')
+const path = require('path')
 /**
  * You can require a JSON file to convert it to an object. Neat!
  */
 
 const MIMEtypes = require("./mimemap.json")
-const {ids, gids} = require('identitymap')
+const defaults = require('./.config.json')
+const {id, gid} = require('identitymap')
 
-module.exports = extraStat
+
+// recursion could be... until path.dir == path.root
 
 /**
  * @param {string} pathname - a file path to return information about
@@ -15,14 +17,15 @@ module.exports = extraStat
  * Note: 'filename: pathparts.pop() || pathparts.pop()' grabs the directory name if the filename is blank.
  */
 function extraStat(pathname, callback){
-    var pathparts = pathname.split('/')
-    fs.stat(pathname, (error, stat) => {
+    var resolvedpath = path.resolve(pathname)
+    var pathparts    = resolvedpath.split('/')
+    fs.stat(resolvedpath, (error, stat) => {
         if (error) callback(error, null)
         else callback(null, {
             filestat: stat,
-            pathname: pathname + (stat.isDirectory() && pathname != '/' ? '/' : ''),
-            ownername: ids[stat.uid],
-            groupname: gids[stat.gid],
+            pathname: resolvedpath + (stat.isDirectory() && resolvedpath != '/' ? '/' : ''),
+            ownername: id[stat.uid],
+            groupname: gid[stat.gid],
             role: process.getuid() == stat.uid           ? 'user'  : 
                   process.getgroups().includes(stat.gid) ? 'group' : 
                                                            'other' ,
@@ -40,18 +43,13 @@ function extraStat(pathname, callback){
 /*
  * @param {string} pathname - the pathname to REGEX out an extension. Can be a URL with querystring etc.
  * @return {string} - returns the MIME type after extracting extension and calling fromExtension
+
+   MIMEtypes will return undefined if no mode is set, undefined falls over to || MIMEtypes['default'],
+   which is probably text/plain so you can inspect the text unknown files.
  */
 function fromFilePath(pathname){
-    var extension = /\.([a-z0-9]+)(?=\?|$)/i.exec(pathname)
-    return fromExtension(extension ? extension.pop() : 'default')
-}
-
-/**
- * @param {string} extension
- * @return {string} - returns the MIME type by accessing mimemap.json 
- */
-function fromExtension(extension){
-    return MIMEtypes[extension.toLowerCase()] || MIMEtypes['default']
+    var {ext} = path.parse(pathname)
+    return MIMEtypes[ext.toLowerCase()] || MIMEtypes['default']
 }
 
 /**
@@ -75,3 +73,4 @@ function octal2symbol(mode){
     ].join('')
 }
 
+module.exports = extraStat

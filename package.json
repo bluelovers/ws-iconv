@@ -1,10 +1,10 @@
 {
-  "name": "@mixint/extrastat",
-  "version": "3.0.3",
+  "name": "extrastat",
+  "version": "3.1.0",
   "description": "A simple lookup table to add MIME types to your file stat calls",
   "main": "extrastat.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha"
   },
   "repository": {
     "type": "git",
@@ -24,6 +24,10 @@
   },
   "homepage": "https://github.com/mixint/mimemap#readme",
   "dependencies": {
-    "identitymap": "^1.1.0"
+    "identitymap": "^1.2.0"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^6.0.2"
   }
 }
