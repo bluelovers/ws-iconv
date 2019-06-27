@@ -4,9 +4,10 @@
 	"filemode":  true,
 	"pathname":  true,
 	"mimetype":  true,
-	"ownername": true,
-	"groupname": true,
+	"ownername": false,
+	"groupname": false,
 	"parents":   false,
 	"siblings":  false,
-	"children":  false
+	"children":  false,
+	"role":      false
 }
