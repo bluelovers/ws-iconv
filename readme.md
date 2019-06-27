@@ -6,12 +6,12 @@ I wrote this because I wanted a lightweight callback to add Content-Type headers
 Uses nodejs filesystem builtins to determine if a file is a directory. Returns the fs.Stat object as well, so you can grab byte length for Content-Length, and 
 
 ### Usage
-`yarn add @mixint/extrastat`
+`yarn add extrastat`
 
 Use extrastat in place of fs.stat:
 
 ```js
-const extraStat = require('@mixint/extrastat')
+const extraStat = require('extrastat')
 
 extraStat('package.json', (err, stat) => {
     // stat.filestat: original fs.Stat object

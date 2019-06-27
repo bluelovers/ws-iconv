@@ -1,13 +1,13 @@
 {
-	"filestat":  true,
+	"filestat":  false,
 	"filename":  true,
 	"filemode":  true,
 	"pathname":  true,
 	"mimetype":  true,
 	"ownername": false,
 	"groupname": false,
+	"role":      false,
 	"parents":   false,
 	"siblings":  false,
-	"children":  false,
-	"role":      false
+	"children":  false
 }
