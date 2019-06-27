@@ -1,5 +1,6 @@
 {
 	"filestat":  true,
+	"filename":  true,
 	"filemode":  true,
 	"pathname":  true,
 	"mimetype":  true,

@@ -27,6 +27,10 @@ The array of these results and promises get Object.assign'd into a single 'extra
 passed to the callback.
 If any of the functions rejects, that error will be returned to the callback
 (note that errors thrown during sync functions will be unhandled by Promise.all - make sure you handle it !)
+
+Fixed an issue where I was handed off pathparts to every subfunction,
+if a function modified the array by popping it, everyone else got the same modified array.
+Now use Array.from(pathparts) to make a copy of the array before handing it to a resolver.
 **/
 function extrastat(pathname, options, callback){
     // handle 2 or 3 arguments, assume 2nd argument is callback if there's no third arg.
@@ -37,12 +41,11 @@ function extrastat(pathname, options, callback){
 
     var resolvedpath = path.resolve(pathname)
     var pathparts    = resolvedpath.split('/')
-
     fs.stat(resolvedpath, (error, stat) => {
       if (error) callback(error, null)
       else Promise
         .all(getOptionResolvers(options).map(
-          each => each(pathparts, stat)
+          each => each(Array.from(pathparts), stat)
         ))
         .then(resolvedOptions => {
           callback(null, Object.assign(...resolvedOptions))
@@ -99,14 +102,12 @@ let resolvers = {
 
   **/
   mimetype: (pathparts, stat) => {
-    let fromFilePath = pathname => {
-      let {ext} = path.parse(pathname)
-      return MIMEtypes[ext.toLowerCase()] || MIMEtypes['default']
-    }
+    let {ext} = path.parse(pathparts.pop() || '')
+    let fromExtension = ext => MIMEtypes[ext.slice(1).toLowerCase()] || MIMEtypes['default']
 
     return {
       "mimetype":
-        stat.isFile()      ?  fromFilePath(pathname) :
+        stat.isFile()      ?  fromExtension(ext)     :
         stat.isDirectory() ? 'application/directory' :
         stat.isFIFO()      ? 'application/FIFO'      :
         stat.isSocket()    ? 'application/socket'    :
@@ -142,8 +143,40 @@ let resolvers = {
         }
       })
     }
+  },
+
+  /**
+  **/
+  children: (pathparts, stat) => new Promise((resolve, reject) => {
+    let resolvedpath = reassemble(pathparts)
+    if(stat.isDirectory() == false) resolve(null) // null is different than empty array !
+    else fs.readdir(resolvedpath, {withFileTypes: true}, (err, dirents) => {
+      if(err) return reject(err)
+      resolve({"children": dirents.map(dirent => ({
+          filename: dirent.name,
+          pathname: path.resolve(resolvedpath, dirent.name),
+          mimetype: resolvers.mimetype([dirent.name], dirent).mimetype
+        }))
+      })
+
+    })
+  }),
+
+  siblings: (pathparts, stat) => {
+    let pathpartsOfParent = pathparts.slice(0,-1)
+    return resolvers
+      .children(pathpartsOfParent, stat)
+      .then(childrenOfParent => ({
+        "siblings": childrenOfParent.children
+      }))         
   }
 }
+
+
+function reassemble(pathparts){
+  return path.join('/', ...pathparts)
+}
+
 
 /**
 @param {extrastat.options} [options]
@@ -187,7 +220,8 @@ module.exports = {
   role,
   mimetype
   **/
-  resolvers
+  resolvers,
+  defaults
 }
 
 

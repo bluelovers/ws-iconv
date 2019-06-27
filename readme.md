@@ -121,3 +121,12 @@ Once I have the extension I pull the mimetype from the mimemap.json file. Since 
   "yam": "application/yam"
 }
 ```
+
+TODO:
+  there's going to be a cache object that extrastat can return values from via resovledpath
+  `{[resolvedPath]: 'cached extrastat object'}`
+  A bit of a memory explosion occurs when you look up the parents and siblings of every element in an array, even when all the siblings have the same set of siblings (self-inclusive), the array would store these all as extra strings
+
+  so there may have to be some creative thinking around the cache of parent, children, and sibling objects. Can I just keep one array of each per directory ? and all the sibling and children in that directory will have the same list of parents, just point to that object in memory. 'siblings of x','parents of x','children of x', well children at least will normally be unique.
+
+  Maybe if its done by inode it will be more effecient... parents of inode x. 

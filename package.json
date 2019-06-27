@@ -1,20 +1,27 @@
 {
   "name": "extrastat",
   "version": "3.2.0",
-  "description": "A simple lookup table to add MIME types to your file stat calls",
+  "description": "Resolve fs.Stat to mimetype, ownername, groupname, and human-readable permissions.",
   "main": "extrastat.js",
   "scripts": {
     "test": "mocha"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mixint/extrastat.git"
+    "url": "git+https://github.com/jazzyjackson/extrastat.git"
   },
   "keywords": [
     "MIME",
+    "mimetype",
+    "Content-Type",
+    "/etc/group",
+    "/etc/passwd",
     "stat",
     "permissions",
-    "fsstat",
+    "uid",
+    "gid",
+    "groups",
+    "fs.stat",
     "fs"
   ],
   "author": "Colten Jackson",
