@@ -163,7 +163,6 @@ let resolvers = {
 
   siblings: (pathparts, stat) => new Promise((resolve, reject) => {
     let resolvedpath = reassemble(pathparts.slice(0, -1))
-    console.log('siblings', resolvedpath)
     fs.readdir(resolvedpath, {withFileTypes: true}, (err, dirents) => {
       if(err) return reject(err)
       resolve({"siblings": dirents.map(dirent => ({
