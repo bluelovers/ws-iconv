@@ -93,7 +93,7 @@ let resolvers = {
       process.getgroups().includes(stat.gid) ? 'group' : 
                                                'other' 
   }),
-    /**
+  /**
   @param {array} pathparts
   @param {fs.Stat | fs.Dirent}
   @returns {'mimetype':'string'} The mimetype derived from the file extension,
@@ -151,8 +151,8 @@ let resolvers = {
     let resolvedpath = reassemble(pathparts)
     if(stat.isDirectory() == false) resolve({"children": null}) // null is different than empty array !
     else fs.readdir(resolvedpath, {withFileTypes: true}, (err, dirents) => {
-      if(err) return reject(err)
-      resolve({"children": dirents.map(dirent => ({
+      if(err) reject(err)
+      else resolve({"children": dirents.map(dirent => ({
           filename: dirent.name,
           pathname: path.resolve(resolvedpath, dirent.name),
           mimetype: resolvers.mimetype([dirent.name], dirent).mimetype
@@ -187,8 +187,8 @@ function reassemble(pathparts){
 
 `Object.entries`  if options is undefined, no problem, Object.entries() will just be the entries of config.json.
 `Object.assign`   if options is an object, its values override those in config.json
-`.filter`.        For each of these Object.entries, the first .pop() tells us 'true or false',
-                  Only those values that are 'true' pass the filter to be executed.
+`.filter`.        Object.entries returns an array with members ['resolverName', true|false],
+                  Only those values returned by the first .pop() as 'true' pass the filter to be executed.
 `.map`            The second .pop() gives us the name of the function to fetch from the resolvers object.
 `.filter`         filter Boolean for keys that are not found in resolvers, will return undefined
                   This value gets returned assuming its an array of functions, each element is called right away
