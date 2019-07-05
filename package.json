@@ -1,6 +1,6 @@
 {
   "name": "extrastat",
-  "version": "4.0.2",
+  "version": "4.0.3",
   "description": "Resolve fs.Stat to mimetype, ownername, groupname, and human-readable permissions.",
   "main": "extrastat.js",
   "scripts": {
@@ -25,11 +25,11 @@
     "fs"
   ],
   "author": "Colten Jackson",
-  "license": "SEE LICENSE IN CONTINUITY.LICENSE",
+  "license": "BSD-3-Clause",
   "bugs": {
-    "url": "https://github.com/mixint/mimemap/issues"
+    "url": "https://github.com/jazzyjackson/extrastat/issues"
   },
-  "homepage": "https://github.com/mixint/mimemap#readme",
+  "homepage": "https://github.com/jazzyjackson/extrastat#readme",
   "dependencies": {
     "identitymap": "^1.2.0"
   },
