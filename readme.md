@@ -29,8 +29,7 @@ Here's a real example with default config if you console.log the output:
 ```js
 extrastat = util.promisify(extrastat)
 
-extrastat('/').then(console.log)
-// waits for callback and prints result
+console.log(await extrastat('/'))
 
 { 
   filename: '',
@@ -42,7 +41,7 @@ extrastat('/').then(console.log)
   filemode: 'rwxr-xr-x',
 }
 
-extrastat('.', {children: true}).then(console.log)
+console.log(await extrastat('.', {children: true})
 
 { 
   filename: 'extrastat',
@@ -100,8 +99,6 @@ You can edit mimemap.json to your heart's content.
 
 A future version will include '[dotenv-alive](https://github.com/jazzyjackson/dotenv-alive)' to keep the user/group table and the mimetypes mapping up to date with the file on disk.
 
-I simply perform the regex `\.([a-z0-9]+)(?=\?|$)` to grab the file extension (stopping at ? or EOL means you can pass URLs with query attached and the query is ignored).
-
 Once I have the extension I pull the mimetype from the mimemap.json file. Since it treats this object as a hash map it should do this very quickly. Full list shown below. I wanted to keep this small to minimize the size and memory footprint of my dependencies, as well as make it obvious how to customize your MIME types, say, if you have your own application/* in mind.
 
 ```json
@@ -136,7 +133,6 @@ Once I have the extension I pull the mimetype from the mimemap.json file. Since 
   "mp4": "video/mp4",
   "avi": "video/avi",
   "json": "application/json",
-  "log": "application/x-ndjson",
   "stl": "application/geometry",
   "fbx": "application/geometry",
   "obj": "application/geometry",
