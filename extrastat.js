@@ -32,7 +32,8 @@ Fixed an issue where I was handed off pathparts to every subfunction,
 if a function modified the array by popping it, everyone else got the same modified array.
 Now use Array.from(pathparts) to make a copy of the array before handing it to a resolver.
 **/
-function extrastat(pathname = '', options, callback){
+
+module.exports = function extrastat(pathname = '', options, callback){
     // handle 2 or 3 arguments, assume 2nd argument is callback if there's no third arg.
     if(!callback){
       callback = options
@@ -207,41 +208,12 @@ function getOptionResolvers(options){
 }
 
 
-module.exports = {
-  /**
-  @param {string}   pathname
-  @param {function} callback :: callback(err, extrastatObject)
-  **/
-  extrastat,
-  /**
-  filename,
-  filestat,
-  pathname,
-  ownername,
-  groupname,
-  filemode,
-  role,
-  mimetype
-  **/
-  resolvers,
-  defaults
-}
-
-
-
-
-
-// maybe I read defaults, get an array of functions to use.
-// for(option in defaults){
-//   if(defaults[option]){
-//     keys.push(option)
-//   }
-// }
 /**
   extraResolvers:
 
 
-later options might be, fileContents, fileHandle, open a file and just return its fd file descriptor, can create a readstream somewhere else from this fd if you want.
+later options might be, fileContents, fileHandle, open a file and just return its fd file descriptor,
+can create a readstream somewhere else from this fd if you want.
 or fileContents can just read the buffer into memory, maybe provide .toString() methods by mimetype. base64 anything from here too.
 extrastat('favicon.ino', {fileContents: 'base64'})
 }
