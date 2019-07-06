@@ -4,7 +4,7 @@
   "description": "Resolve fs.Stat to mimetype, ownername, groupname, and human-readable permissions.",
   "main": "extrastat.js",
   "scripts": {
-    "test": "mkdir exampleEmpty && mocha && rm -r exampleEmpty"
+    "test": "mkdir -p exampleEmpty && mocha && rm -r exampleEmpty"
   },
   "repository": {
     "type": "git",
