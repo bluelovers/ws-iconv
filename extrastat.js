@@ -10,6 +10,11 @@ const MIMEtypes = require("./mimemap.json")
 const defaults  = require('./.config.json')
 const {id, gid} = require('identitymap')
 
+let getRole = stat =>
+  process.getuid() == stat.uid           ? 'user'  : 
+  process.getgroups().includes(stat.gid) ? 'group' : 
+                                           'other' 
+
 /**
 @param {string} pathname
 @param {extrastat.options} [options]    optional object to overwrite default config
@@ -33,7 +38,9 @@ if a function modified the array by popping it, everyone else got the same modif
 Now use Array.from(pathparts) to make a copy of the array before handing it to a resolver.
 **/
 
-module.exports = function extrastat(pathname = '', options, callback){
+module.exports = extrastat
+
+function extrastat(pathname = '', options, callback){
     // handle 2 or 3 arguments, assume 2nd argument is callback if there's no third arg.
     if(!callback){
       callback = options
@@ -73,27 +80,23 @@ let resolvers = {
   groupname: (pathparts, stat) => ({"groupname": gid[stat.gid]}),
   filemode: (pathparts, stat) => {
     let {mode} = stat
+    let  role  = getRole(stat)
+
     if(!mode)
       return {'filemode': '.........'}
     else
       return {'filemode': [
-        mode >> 6 & 4      ? 'r' : '-',
-        mode >> 6 & 2      ? 'w' : '-',
-        mode >> 6 & 1      ? 'x' : '-',
-        mode << 3 >> 6 & 4 ? 'r' : '-',
-        mode << 3 >> 6 & 2 ? 'w' : '-',
-        mode << 3 >> 6 & 1 ? 'x' : '-',
-        mode << 6 >> 6 & 4 ? 'r' : '-',
-        mode << 6 >> 6 & 2 ? 'w' : '-',
-        mode << 6 >> 6 & 1 ? 'x' : '-',
+        mode >> 6 & 4      ? role == 'user'  ? 'R' : 'r' : '-',
+        mode >> 6 & 2      ? role == 'user'  ? 'W' : 'w' : '-',
+        mode >> 6 & 1      ? role == 'user'  ? 'X' : 'x' : '-',
+        mode << 3 >> 6 & 4 ? role == 'group' ? 'R' : 'r' : '-',
+        mode << 3 >> 6 & 2 ? role == 'group' ? 'W' : 'w' : '-',
+        mode << 3 >> 6 & 1 ? role == 'group' ? 'X' : 'x' : '-',
+        mode << 6 >> 6 & 4 ? role == 'other' ? 'R' : 'r' : '-',
+        mode << 6 >> 6 & 2 ? role == 'other' ? 'W' : 'w' : '-',
+        mode << 6 >> 6 & 1 ? role == 'other' ? 'X' : 'x' : '-',
       ].join('')}
   },
-  role: (pathparts, stat) => ({
-    "role":
-      process.getuid() == stat.uid           ? 'user'  : 
-      process.getgroups().includes(stat.gid) ? 'group' : 
-                                               'other' 
-  }),
   /**
   @param {array} pathparts
   @param {fs.Stat | fs.Dirent}

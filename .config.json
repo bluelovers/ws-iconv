@@ -6,7 +6,6 @@
 	"mimetype":  true,
 	"ownername": false,
 	"groupname": false,
-	"role":      false,
 	"parents":   false,
 	"siblings":  false,
 	"children":  false
