@@ -28,5 +28,12 @@
     "sort-package-json": "npx yarn-tool sort",
     "tsc:default": "tsc -p tsconfig.json",
     "tsc:esm": "tsc -p tsconfig.esm.json"
+  },
+  "dependencies": {
+    "html-encoding-sniffer": "^2.0.1",
+    "iconv-jschardet": "^2.0.3"
+  },
+  "devDependencies": {
+    "@types/html-encoding-sniffer": "^2.0.0"
   }
 }

@@ -19,7 +19,7 @@ export function createIconvDecode(defaultEncodingBase?: string, sniffHTMLEncodin
 export function createSniffHTMLEncoding(defaultEncodingBase: string): ICreateFnDecode<string>
 {
 	return (buf: unknown | ArrayLike<number>, defaultEncoding = defaultEncodingBase) => {
-		return _sniffHTMLEncoding(buf, {
+		return _sniffHTMLEncoding(buf as Buffer, {
 			defaultEncoding,
 		})
 	}
