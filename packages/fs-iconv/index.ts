@@ -17,6 +17,3 @@ import { trimFilename } from './util';
 export { trimFilename }
 
 export default fs;
-
-// @ts-ignore
-exports = module.exports = fs;

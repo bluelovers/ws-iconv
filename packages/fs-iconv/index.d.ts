@@ -3,5 +3,6 @@
  */
 export * from './fs';
 import fs = require('./fs');
-export { trimFilename } from './util';
+import { trimFilename } from './util';
+export { trimFilename };
 export default fs;

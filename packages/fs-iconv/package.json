@@ -70,18 +70,16 @@
     "test": "npx -r chai -r mocha -r ts-node mocha --require ts-node/register \"!(node_modules)/**/*.{test,spec}.{ts,tsx}\""
   },
   "dependencies": {
-    "bluebird": "^3.5.5",
-    "fs-extra": "^8.0.1",
+    "bluebird": "^3.7.2",
+    "fs-extra": "^9.0.0",
     "iconv-jschardet": "^1.1.3",
-    "lodash": "^4.17.11",
-    "sanitize-filename": "^1.6.1",
-    "ts-type": "^1.2.9"
+    "lodash": "^4.17.15",
+    "sanitize-filename": "^1.6.3",
+    "ts-type": "^1.2.15"
   },
   "devDependencies": {
-    "@bluelovers/tsconfig": "^1.0.11",
     "@types/bluebird": "^3",
-    "@types/fs-extra": "^7",
-    "@types/lodash": "^4.14.134",
-    "@types/node": "^12"
+    "@types/fs-extra": "^8",
+    "@types/lodash": "^4.14.150"
   }
 }

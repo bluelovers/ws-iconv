@@ -11,7 +11,7 @@ export function trimFilename(name): string
 		.replace(/[\r\n\t  \xA0]+/g, ' ')
 	;
 
-	return sanitize(ret, '')
+	return sanitize(ret)
 		.trim()
 		.replace(/^[　\s_]+/g, '')
 		.replace(/[　\s_]+$/g, '')

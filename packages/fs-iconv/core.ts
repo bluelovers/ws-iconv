@@ -10,6 +10,7 @@ import Bluebird = require('bluebird');
 import stream = require('stream');
 import { trimFilename } from './util';
 import { ITSRequiredWith, ITSRequireAtLeastOne } from 'ts-type';
+import { PassThrough } from 'stream';
 
 export const SymFSLib = Symbol('fsLib');
 
@@ -163,7 +164,7 @@ export declare namespace WrapFSIconv
 
 export function _createStreamPassThrough(data): stream.Readable
 {
-	let readStream = new stream.PassThrough();
+	let readStream = new PassThrough();
 	readStream.end(data);
 	return readStream;
 }

@@ -1,25 +1,33 @@
 "use strict";
-function __export(m) {
-    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __exportStar = (this && this.__exportStar) || function(m, exports) {
+    for (var p in m) if (p !== "default" && !exports.hasOwnProperty(p)) __createBinding(exports, m, p);
 }
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.iconv = exports.saveFile = exports.loadFileSync = exports.loadFile = exports._outputStream = exports._createStreamPassThrough = exports._autoDecode = exports.saveFileSync = exports.ensureWriteStream = void 0;
 /**
  * Created by user on 2019/3/17.
  */
 const core_1 = require("./core");
 const core_2 = require("./core");
-exports.ensureWriteStream = core_2.ensureWriteStream;
-exports.saveFileSync = core_2.saveFileSync;
-exports._autoDecode = core_2._autoDecode;
-exports._createStreamPassThrough = core_2._createStreamPassThrough;
-exports._outputStream = core_2._outputStream;
-exports.loadFile = core_2.loadFile;
-exports.loadFileSync = core_2.loadFileSync;
-exports.saveFile = core_2.saveFile;
+Object.defineProperty(exports, "ensureWriteStream", { enumerable: true, get: function () { return core_2.ensureWriteStream; } });
+Object.defineProperty(exports, "saveFileSync", { enumerable: true, get: function () { return core_2.saveFileSync; } });
+Object.defineProperty(exports, "_autoDecode", { enumerable: true, get: function () { return core_2._autoDecode; } });
+Object.defineProperty(exports, "_createStreamPassThrough", { enumerable: true, get: function () { return core_2._createStreamPassThrough; } });
+Object.defineProperty(exports, "_outputStream", { enumerable: true, get: function () { return core_2._outputStream; } });
+Object.defineProperty(exports, "loadFile", { enumerable: true, get: function () { return core_2.loadFile; } });
+Object.defineProperty(exports, "loadFileSync", { enumerable: true, get: function () { return core_2.loadFileSync; } });
+Object.defineProperty(exports, "saveFile", { enumerable: true, get: function () { return core_2.saveFile; } });
 const iconv_jschardet_1 = require("iconv-jschardet");
 exports.iconv = iconv_jschardet_1.default;
-__export(require("fs-extra"));
+__exportStar(require("fs-extra"), exports);
 const fs = core_1.WrapFSIconv(require('fs-extra'));
 // @ts-ignore
 exports = module.exports = fs;
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiZnMuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJmcy50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7OztBQUFBOztHQUVHO0FBQ0gsaUNBQStDO0FBQy9DLGlDQUFpSjtBQVV4SSw0QkFWQSx3QkFBaUIsQ0FVQTtBQUFFLHVCQVZBLG1CQUFZLENBVUE7QUFBRSxzQkFWQSxrQkFBVyxDQVVBO0FBQUUsbUNBVkEsK0JBQXdCLENBVUE7QUFBRSx3QkFWQSxvQkFBYSxDQVVBO0FBQUUsbUJBVkEsZUFBUSxDQVVBO0FBQUUsdUJBVkEsbUJBQVksQ0FVQTtBQUFFLG1CQVZBLGVBQVEsQ0FVQTtBQU5oSSxxREFBb0M7QUFjM0IsZ0JBZEYseUJBQUssQ0FjRTtBQVZkLDhCQUF5QjtBQVl6QixNQUFNLEVBQUUsR0FBRyxrQkFBVyxDQUFDLE9BQU8sQ0FBQyxVQUFVLENBQThCLENBQUMsQ0FBQztBQUV6RSxhQUFhO0FBQ2IsT0FBTyxHQUFHLE1BQU0sQ0FBQyxPQUFPLEdBQUcsRUFBRSxDQUFDIiwic291cmNlc0NvbnRlbnQiOlsiLyoqXG4gKiBDcmVhdGVkIGJ5IHVzZXIgb24gMjAxOS8zLzE3LlxuICovXG5pbXBvcnQgeyBXcmFwRlNJY29udiwgU3ltRlNMaWIgfSBmcm9tICcuL2NvcmUnO1xuaW1wb3J0IHsgZW5zdXJlV3JpdGVTdHJlYW0sIHNhdmVGaWxlU3luYywgX2F1dG9EZWNvZGUsIF9jcmVhdGVTdHJlYW1QYXNzVGhyb3VnaCwgX291dHB1dFN0cmVhbSwgbG9hZEZpbGUsIGxvYWRGaWxlU3luYywgc2F2ZUZpbGUgfSBmcm9tICcuL2NvcmUnO1xuaW1wb3J0IHsgdkVuY29kaW5nIH0gZnJvbSAnaWNvbnYtanNjaGFyZGV0JztcbmltcG9ydCBmc0V4dHJhID0gcmVxdWlyZSgnZnMtZXh0cmEnKTtcbmltcG9ydCBjbG9uZSA9IHJlcXVpcmUoXCJsb2Rhc2gvY2xvbmVcIik7XG5pbXBvcnQgaWNvbnYgZnJvbSAnaWNvbnYtanNjaGFyZGV0JztcbmltcG9ydCBCbHVlYmlyZCA9IHJlcXVpcmUoJ2JsdWViaXJkJyk7XG5pbXBvcnQgc3RyZWFtID0gcmVxdWlyZSgnc3RyZWFtJyk7XG5cbmV4cG9ydCAqIGZyb20gJ2ZzLWV4dHJhJztcblxuZXhwb3J0IHsgZW5zdXJlV3JpdGVTdHJlYW0sIHNhdmVGaWxlU3luYywgX2F1dG9EZWNvZGUsIF9jcmVhdGVTdHJlYW1QYXNzVGhyb3VnaCwgX291dHB1dFN0cmVhbSwgbG9hZEZpbGUsIGxvYWRGaWxlU3luYywgc2F2ZUZpbGUgfVxuXG5leHBvcnQgaW1wb3J0IElXcmFwRlNJY29udk9wdGlvbnMgPSBXcmFwRlNJY29udi5JV3JhcEZTSWNvbnZPcHRpb25zO1xuZXhwb3J0IGltcG9ydCBJV3JhcEZTSWNvbnZPcHRpb25zTG9hZEZpbGUgPSBXcmFwRlNJY29udi5JV3JhcEZTSWNvbnZPcHRpb25zTG9hZEZpbGU7XG5leHBvcnQgaW1wb3J0IElXcmFwRlNJY29udk9wdGlvbnNMb2FkRmlsZTIgPSBXcmFwRlNJY29udi5JV3JhcEZTSWNvbnZPcHRpb25zTG9hZEZpbGUyO1xuZXhwb3J0IGltcG9ydCBJRW5jb2RpbmcgPSBXcmFwRlNJY29udi5JRW5jb2Rpbmc7XG5cblxuZXhwb3J0IHsgaWNvbnYgfVxuXG5jb25zdCBmcyA9IFdyYXBGU0ljb252KHJlcXVpcmUoJ2ZzLWV4dHJhJykgYXMgdHlwZW9mIGltcG9ydCgnZnMtZXh0cmEnKSk7XG5cbi8vIEB0cy1pZ25vcmVcbmV4cG9ydHMgPSBtb2R1bGUuZXhwb3J0cyA9IGZzO1xuIl19
+//# sourceMappingURL=fs.js.map
