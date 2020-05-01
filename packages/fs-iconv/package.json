@@ -1,0 +1,87 @@
+{
+  "name": "fs-iconv",
+  "version": "2.0.10",
+  "description": "save file with charset/encoding/iconv",
+  "keywords": [
+    "async",
+    "big-5",
+    "big5",
+    "buffer",
+    "charset",
+    "chinese",
+    "convert",
+    "copy",
+    "create",
+    "decode",
+    "delete",
+    "directory",
+    "encode",
+    "encoding",
+    "euc-jp",
+    "extra",
+    "file",
+    "file system",
+    "fs",
+    "gb2312",
+    "gbk",
+    "iconv",
+    "iconv-lite",
+    "icu",
+    "json",
+    "mkdir",
+    "mkdirp",
+    "mkdirs",
+    "move",
+    "output",
+    "read",
+    "recursive",
+    "remove",
+    "shift_jis",
+    "stream",
+    "string",
+    "sync",
+    "text",
+    "touch",
+    "unicode",
+    "utf-8",
+    "write"
+  ],
+  "homepage": "https://github.com/bluelovers/node-fs-iconv#readme",
+  "bugs": {
+    "url": "https://github.com/bluelovers/node-fs-iconv/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bluelovers/node-fs-iconv.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "coverage": "npx nyc yarn run test",
+    "lint": "eslint .",
+    "ncu": "npx npm-check-updates -u",
+    "prepublishOnly": "yarn run test && yarn run ncu",
+    "postpublish": "git commit -m \"publish new version\" .",
+    "sort-package-json": "npx sort-package-json ./package.json",
+    "test": "npx -r chai -r mocha -r ts-node mocha --require ts-node/register \"!(node_modules)/**/*.{test,spec}.{ts,tsx}\""
+  },
+  "dependencies": {
+    "bluebird": "^3.5.5",
+    "fs-extra": "^8.0.1",
+    "iconv-jschardet": "^1.1.3",
+    "lodash": "^4.17.11",
+    "sanitize-filename": "^1.6.1",
+    "ts-type": "^1.2.9"
+  },
+  "devDependencies": {
+    "@bluelovers/tsconfig": "^1.0.11",
+    "@types/bluebird": "^3",
+    "@types/fs-extra": "^7",
+    "@types/lodash": "^4.14.134",
+    "@types/node": "^12"
+  }
+}
