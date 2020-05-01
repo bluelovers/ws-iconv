@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.3](https://github.com/bluelovers/ws-iconv/compare/iconv-html-sniffer@1.0.2...iconv-html-sniffer@1.0.3) (2020-05-01)
+
+
+### Features
+
+* add preset ([77289ff](https://github.com/bluelovers/ws-iconv/commit/77289ffef57619c91fa05b55a78755d893f620e4))
+
+
+
+
+
 ## [1.0.2](https://github.com/bluelovers/ws-iconv/compare/iconv-html-sniffer@1.0.1...iconv-html-sniffer@1.0.2) (2020-05-01)
 
 
