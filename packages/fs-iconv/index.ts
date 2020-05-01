@@ -13,7 +13,8 @@ export * from './fs';
 import fs = require('./fs');
 import { SymFSLib } from './core';
 
-export { trimFilename } from './util';
+import { trimFilename } from './util';
+export { trimFilename }
 
 export default fs;
 
