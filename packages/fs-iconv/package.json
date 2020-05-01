@@ -61,13 +61,10 @@
     "test": "test"
   },
   "scripts": {
-    "coverage": "npx nyc yarn run test",
-    "lint": "eslint .",
-    "ncu": "npx npm-check-updates -u",
+    "test": "jest",
     "prepublishOnly": "yarn run test && yarn run ncu",
-    "postpublish": "git commit -m \"publish new version\" .",
-    "sort-package-json": "npx sort-package-json ./package.json",
-    "test": "npx -r chai -r mocha -r ts-node mocha --require ts-node/register \"!(node_modules)/**/*.{test,spec}.{ts,tsx}\""
+    "ncu": "npx yarn-tool ncu -u",
+    "sort-package-json": "npx yarn-tool sort"
   },
   "dependencies": {
     "bluebird": "^3.7.2",
@@ -81,5 +78,6 @@
     "@types/bluebird": "^3",
     "@types/fs-extra": "^8",
     "@types/lodash": "^4.14.150"
-  }
+  },
+  "gitHead": "92d2b636609ad9019e88bfa81b83c3db45968bb3"
 }
