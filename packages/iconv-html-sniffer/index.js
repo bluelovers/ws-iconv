@@ -20,8 +20,5 @@ function createSniffHTMLEncoding(defaultEncodingBase) {
     };
 }
 exports.createSniffHTMLEncoding = createSniffHTMLEncoding;
-exports.default = {
-    createIconvDecode,
-    createSniffHTMLEncoding,
-};
+exports.default = createIconvDecode;
 //# sourceMappingURL=index.js.map

@@ -24,7 +24,4 @@ export function createSniffHTMLEncoding(defaultEncodingBase: string | NonNullabl
 	}
 }
 
-export default {
-	createIconvDecode,
-	createSniffHTMLEncoding,
-}
+export default createIconvDecode
