@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.2](https://github.com/bluelovers/ws-iconv/compare/iconv-html-sniffer@1.0.1...iconv-html-sniffer@1.0.2) (2020-05-01)
+
+
+### Bug Fixes
+
+* add deps ([fafe32f](https://github.com/bluelovers/ws-iconv/commit/fafe32f0cccc3e8246de4deb4736194d8e86f580))
+
+
+### Features
+
+* add BufferFrom default encoding ([1c6b39c](https://github.com/bluelovers/ws-iconv/commit/1c6b39cfdd27e6161bac3cf75361e6fb21122ddb))
+
+
+### BREAKING CHANGES
+
+* add BufferFrom default encoding
+
+
+
+
+
 ## 1.0.1 (2020-05-01)
 
 
