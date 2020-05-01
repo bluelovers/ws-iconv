@@ -1,6 +1,7 @@
 {
   "name": "@bluelovers/array-buffer-to-string",
   "version": "1.0.2",
+  "private": false,
   "description": "",
   "homepage": "https://github.com/bluelovers/ws-iconv/tree/master/packages/array-buffer-to-string#readme",
   "bugs": {
@@ -28,5 +29,8 @@
     "sort-package-json": "npx yarn-tool sort",
     "tsc:default": "tsc -p tsconfig.json",
     "tsc:esm": "tsc -p tsconfig.esm.json"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
