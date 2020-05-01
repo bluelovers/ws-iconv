@@ -3,6 +3,11 @@
   "version": "1.0.3",
   "private": false,
   "description": "",
+  "keywords": [
+    "iconv",
+    "jschardet",
+    "iconv-jschardet"
+  ],
   "homepage": "https://github.com/bluelovers/ws-iconv/tree/master/packages/array-buffer-to-string#readme",
   "bugs": {
     "url": "https://github.com/bluelovers/ws-iconv/issues"
@@ -29,6 +34,9 @@
     "sort-package-json": "npx yarn-tool sort",
     "tsc:default": "tsc -p tsconfig.json",
     "tsc:esm": "tsc -p tsconfig.esm.json"
+  },
+  "dependencies": {
+    "iconv-jschardet": "^2.0.3"
   },
   "publishConfig": {
     "access": "public"

@@ -2,7 +2,6 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.createSniffHTMLEncoding = exports.createIconvDecode = void 0;
 const iconv_jschardet_1 = require("iconv-jschardet");
-// @ts-ignore
 const html_encoding_sniffer_1 = require("html-encoding-sniffer");
 function createIconvDecode(defaultEncodingBase, sniffHTMLEncoding) {
     if (!sniffHTMLEncoding) {

@@ -4,10 +4,10 @@
  */
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.arrayBufferToString = void 0;
-const buffer_1 = require("buffer");
+const iconv_jschardet_1 = require("iconv-jschardet");
 function arrayBufferToString(buf, encoding, from) {
-    return buffer_1.Buffer.from(buf, from).toString(encoding);
+    return iconv_jschardet_1.BufferFrom(buf, encoding, from).toString(encoding);
 }
 exports.arrayBufferToString = arrayBufferToString;
 exports.default = arrayBufferToString;
-//# sourceMappingURL=index.js.map
+//# sourceMappingURL=iconv.js.map
