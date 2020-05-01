@@ -10,7 +10,7 @@
     "lerna:publish": "npx lerna publish",
     "lerna:publish:yes": "npx lerna publish --yes --cd-version patch",
     "prepublish:lockfile": "npx sync-lockfile .",
-    "postpublish": "git subtree push --prefix=packages/fs-iconv && git subtree push --prefix=packages/iconv-jschardet",
+    "postpublish": "git subtree push --prefix=packages/fs-iconv https://github.com/bluelovers/node-fs-iconv.git master && git subtree push --prefix=packages/iconv-jschardet https://github.com/bluelovers/node-iconv-jschardet.git master",
     "ncu": "npx yarn-tool ncu -u",
     "sort-package-json": "npx yarn-tool sort"
   },
