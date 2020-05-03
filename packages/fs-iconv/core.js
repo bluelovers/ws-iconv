@@ -2,10 +2,13 @@
 /**
  * Created by user on 2019/3/17.
  */
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.loadFileSync = exports.loadFile = exports._autoDecode = exports._outputStream = exports._createStreamPassThrough = exports.saveFile = exports.saveFileSync = exports.ensureWriteStream = exports.WrapFSIconv = exports.SymFSLib = void 0;
 const clone = require("lodash/clone");
-const iconv_jschardet_1 = require("iconv-jschardet");
+const iconv_jschardet_1 = __importDefault(require("iconv-jschardet"));
 const Bluebird = require("bluebird");
 const util_1 = require("./util");
 const stream_1 = require("stream");
