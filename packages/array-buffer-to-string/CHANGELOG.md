@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.6](https://github.com/bluelovers/ws-iconv/compare/@bluelovers/array-buffer-to-string@1.0.5...@bluelovers/array-buffer-to-string@1.0.6) (2020-05-08)
+
+
+### Features
+
+* arrayBufferToBuffer ([faada3e](https://github.com/bluelovers/ws-iconv/commit/faada3e0b42539cfd13fda4bfbd9e9a57c856c00))
+
+
+
+
+
 ## [1.0.5](https://github.com/bluelovers/ws-iconv/compare/@bluelovers/array-buffer-to-string@1.0.4...@bluelovers/array-buffer-to-string@1.0.5) (2020-05-03)
 
 **Note:** Version bump only for package @bluelovers/array-buffer-to-string
