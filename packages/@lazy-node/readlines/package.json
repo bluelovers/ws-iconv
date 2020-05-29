@@ -1,13 +1,9 @@
 {
-  "name": "n-readlines",
+  "name": "@lazy-node/readlines",
   "version": "1.0.3",
   "description": "Read file line by line without buffering the whole file in memory.",
   "main": "./readlines.js",
   "dependencies": {},
-  "repository": {
-    "type": "git",
-    "url": "http://github.com/nacholibre/node-readlines.git"
-  },
   "keywords": [
     "read",
     "line",

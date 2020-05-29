@@ -1,19 +1,35 @@
 'use strict';
 
-const fs = require('fs');
+import { PathLike } from "fs";
+
+import fs = require('fs');
+
+interface Options {
+    readChunk?: number;
+    newLineCharacter?: string;
+}
 
 /**
  * @class
  */
 class LineByLine {
-    constructor(file, options) {
+    fd: number;
+    options: Options;
+    newLineCharacter: number;
+    eofReached: boolean;
+    linesCache: Buffer[];
+    fdPosition: number;
+
+    constructor(file: PathLike | number, options?: Options) {
         options = options || {};
 
         if (!options.readChunk) options.readChunk = 1024;
 
         if (!options.newLineCharacter) {
+            // @ts-ignore
             options.newLineCharacter = 0x0a; //linux line ending
         } else {
+            // @ts-ignore
             options.newLineCharacter = options.newLineCharacter.charCodeAt(0);
         }
 
@@ -25,7 +41,7 @@ class LineByLine {
 
         this.options = options;
 
-        this.newLineCharacter = options.newLineCharacter;
+        this.newLineCharacter = options.newLineCharacter as any;
 
         this.reset();
     }
@@ -56,8 +72,8 @@ class LineByLine {
     }
 
     _extractLines(buffer) {
-        let line;
-        const lines = [];
+        let line: Buffer;
+        const lines: Buffer[] = [];
         let bufferPosition = 0;
 
         let lastNewLineBufferPosition = 0;
@@ -81,7 +97,7 @@ class LineByLine {
         return lines;
     };
 
-    _readChunk(lineLeftovers) {
+    _readChunk(lineLeftovers?) {
         let totalBytesRead = 0;
 
         let bytesRead;
@@ -118,7 +134,7 @@ class LineByLine {
     next() {
         if (!this.fd) return false;
 
-        let line = false;
+        let line: Buffer | false = false;
 
         if (this.eofReached && this.linesCache.length === 0) {
             return line;
@@ -156,4 +172,4 @@ class LineByLine {
     }
 }
 
-module.exports = LineByLine;
+export = LineByLine;
