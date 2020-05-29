@@ -1,9 +1,9 @@
-[![Build Status](https://travis-ci.org/nacholibre/node-readlines.svg)](https://travis-ci.org/nacholibre/node-readlines)
-# node-readlines
+
+# @lazy-node/readlines
 Reading file line by line may seem like a trivial problem, but in node, there is no straightforward way to do it. There are a lot of libraries using Transform Streams to achieve it, but it seems like a overkill, so I've wrote simple version using only the `filesystem` module of node. Note that this is *synchronous* library.
 
 Install with
-`npm install n-readlines`
+`npm install @lazy-node/readlines`
 
 ---------------------------------------
 
@@ -19,12 +19,12 @@ Install with
   * `readChunk` - Integer number of bytes to read at once. Default: 1024
   * `newLineCharacter` - String new line character, only works with one byte characters for now. Default: `\n` which is `0x0a` hex encoded
 
-`node-readlines` can handle files without newLineCharacter after the last line
+`@lazy-node/readlines` can handle files without newLineCharacter after the last line
 
 ---------------------------------------
 
 ### readlines.next()
-Returns `buffer` with the line data without the `newLineCharacter` or `false` if end of file is reached.
+Returns `buffer` with the line data without the `newLineCharacter` or `undefined` if end of file is reached.
 
 ---------------------------------------
 ### readlines.reset()
@@ -38,14 +38,14 @@ Manually close the open file, subsequent `next()` calls will return false. This 
 
 ## Example
 ```javascript
-const lineByLine = require('n-readlines');
+const lineByLine = require('@lazy-node/readlines');
 const liner = new lineByLine('./test/fixtures/normalFile.txt');
 
 let line;
 let lineNumber = 0;
 
 while (line = liner.next()) {
-    console.log('Line ' + lineNumber + ': ' + line.toString('ascii'));
+    console.log('Line ' + lineNumber + ': ' + line.toString());
     lineNumber++;
 }
 

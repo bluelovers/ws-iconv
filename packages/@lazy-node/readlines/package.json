@@ -1,9 +1,7 @@
 {
   "name": "@lazy-node/readlines",
-  "version": "1.0.3",
+  "version": "2.0.0",
   "description": "Read file line by line without buffering the whole file in memory.",
-  "main": "./readlines.js",
-  "dependencies": {},
   "keywords": [
     "read",
     "line",
@@ -16,15 +14,34 @@
     "readline",
     "readlines"
   ],
-  "engines": {
-    "node": ">=6.x.x"
+  "homepage": "https://github.com/bluelovers/ws-iconv/tree/master/packages/@lazy-node/readlines#readme",
+  "bugs": {
+    "url": "https://github.com/bluelovers/ws-iconv/issues"
   },
-  "devDependencies": {
-    "tape": "^4.9.0"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bluelovers/ws-iconv.git"
+  },
+  "license": "MIT",
+  "author": "Yoan Arnaudov <jonidev@gmail.com>",
+  "main": "./index.js",
+  "directories": {
+    "test": "test"
   },
   "scripts": {
-    "test": "tape test/*.test.js"
+    "test": "yarn run test:jest",
+    "test:jest": "jest --coverage",
+    "npm:publish": "npm publish",
+    "npm:publish:lerna": "npx lerna publish --yes --cd-version patch",
+    "prepublish:lockfile": "npx sync-lockfile .",
+    "prepublishOnly": "yarn run test",
+    "postpublish_": "git commit -m \"chore(release): publish\" .",
+    "ncu": "npx yarn-tool ncu -u",
+    "sort-package-json": "npx yarn-tool sort"
   },
-  "author": "Yoan Arnaudov <jonidev@gmail.com>",
-  "license": "MIT"
+  "dependencies": {},
+  "devDependencies": {},
+  "publishConfig": {
+    "access": "public"
+  }
 }

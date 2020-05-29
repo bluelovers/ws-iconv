@@ -1,0 +1,177 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`splitBufferByBuffer 1`] = `
+Array [
+  "0
+",
+  "1
+",
+  "2
+",
+  "3
+",
+  "4
+",
+  "5
+",
+  "6
+",
+  "7
+",
+  "8
+",
+  "9",
+]
+`;
+
+exports[`splitBufferByBuffer 2`] = `
+"0
+1
+2
+3
+4
+5
+6
+7
+8
+9"
+`;
+
+exports[`splitBufferByBuffer 3`] = `
+Array [
+  Object {
+    "data": Array [
+      48,
+      10,
+    ],
+    "type": "Buffer",
+  },
+  Object {
+    "data": Array [
+      49,
+      10,
+    ],
+    "type": "Buffer",
+  },
+  Object {
+    "data": Array [
+      50,
+      10,
+    ],
+    "type": "Buffer",
+  },
+  Object {
+    "data": Array [
+      51,
+      10,
+    ],
+    "type": "Buffer",
+  },
+  Object {
+    "data": Array [
+      52,
+      10,
+    ],
+    "type": "Buffer",
+  },
+  Object {
+    "data": Array [
+      53,
+      10,
+    ],
+    "type": "Buffer",
+  },
+  Object {
+    "data": Array [
+      54,
+      10,
+    ],
+    "type": "Buffer",
+  },
+  Object {
+    "data": Array [
+      55,
+      10,
+    ],
+    "type": "Buffer",
+  },
+  Object {
+    "data": Array [
+      56,
+      10,
+    ],
+    "type": "Buffer",
+  },
+  Object {
+    "data": Array [
+      57,
+    ],
+    "type": "Buffer",
+  },
+]
+`;
+
+exports[`splitBufferByBuffer 4`] = `
+Array [
+  Object {
+    "data": Array [
+      48,
+    ],
+    "type": "Buffer",
+  },
+  Object {
+    "data": Array [
+      49,
+    ],
+    "type": "Buffer",
+  },
+  Object {
+    "data": Array [
+      50,
+    ],
+    "type": "Buffer",
+  },
+  Object {
+    "data": Array [
+      51,
+    ],
+    "type": "Buffer",
+  },
+  Object {
+    "data": Array [
+      52,
+    ],
+    "type": "Buffer",
+  },
+  Object {
+    "data": Array [
+      53,
+    ],
+    "type": "Buffer",
+  },
+  Object {
+    "data": Array [
+      54,
+    ],
+    "type": "Buffer",
+  },
+  Object {
+    "data": Array [
+      55,
+    ],
+    "type": "Buffer",
+  },
+  Object {
+    "data": Array [
+      56,
+    ],
+    "type": "Buffer",
+  },
+  Object {
+    "data": Array [
+      57,
+    ],
+    "type": "Buffer",
+  },
+]
+`;

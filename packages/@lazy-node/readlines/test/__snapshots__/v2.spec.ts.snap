@@ -1,0 +1,118 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`v2 content 1`] = `
+"0
+1
+2
+3
+4
+5
+6
+7
+8
+9"
+`;
+
+exports[`v2 generator 1`] = `"0"`;
+
+exports[`v2 generator 2`] = `"1"`;
+
+exports[`v2 generator 3`] = `"2"`;
+
+exports[`v2 generator 4`] = `"3"`;
+
+exports[`v2 generator 5`] = `"4"`;
+
+exports[`v2 generator 6`] = `"5"`;
+
+exports[`v2 generator 7`] = `"6"`;
+
+exports[`v2 generator 8`] = `"7"`;
+
+exports[`v2 generator 9`] = `"8"`;
+
+exports[`v2 generator 10`] = `"9"`;
+
+exports[`v2 generator static 1`] = `"0"`;
+
+exports[`v2 generator static 2`] = `"1"`;
+
+exports[`v2 generator static 3`] = `"2"`;
+
+exports[`v2 generator static 4`] = `"3"`;
+
+exports[`v2 generator static 5`] = `"4"`;
+
+exports[`v2 generator static 6`] = `"5"`;
+
+exports[`v2 generator static 7`] = `"6"`;
+
+exports[`v2 generator static 8`] = `"7"`;
+
+exports[`v2 generator static 9`] = `"8"`;
+
+exports[`v2 generator static 10`] = `"9"`;
+
+exports[`v2 generator static v2 1`] = `"0"`;
+
+exports[`v2 generator static v2 2`] = `"1"`;
+
+exports[`v2 generator static v2 3`] = `"2"`;
+
+exports[`v2 generator static v2 4`] = `"3"`;
+
+exports[`v2 generator static v2 5`] = `"4"`;
+
+exports[`v2 generator static v2 6`] = `"5"`;
+
+exports[`v2 generator static v2 7`] = `"6"`;
+
+exports[`v2 generator static v2 8`] = `"7"`;
+
+exports[`v2 generator static v2 9`] = `"8"`;
+
+exports[`v2 generator static v2 10`] = `"9"`;
+
+exports[`v2 lineNumber 1`] = `-1`;
+
+exports[`v2 lineNumber 2`] = `0`;
+
+exports[`v2 lineNumber 3`] = `1`;
+
+exports[`v2 lineNumber 4`] = `2`;
+
+exports[`v2 lineNumber 5`] = `3`;
+
+exports[`v2 lineNumber 6`] = `4`;
+
+exports[`v2 lineNumber 7`] = `5`;
+
+exports[`v2 lineNumber 8`] = `6`;
+
+exports[`v2 lineNumber 9`] = `7`;
+
+exports[`v2 lineNumber 10`] = `8`;
+
+exports[`v2 lineNumber 11`] = `9`;
+
+exports[`v2 lineNumber 12`] = `9`;
+
+exports[`v2 string 1`] = `"0"`;
+
+exports[`v2 string 2`] = `"1"`;
+
+exports[`v2 string 3`] = `"2"`;
+
+exports[`v2 string 4`] = `"3"`;
+
+exports[`v2 string 5`] = `"4"`;
+
+exports[`v2 string 6`] = `"5"`;
+
+exports[`v2 string 7`] = `"6"`;
+
+exports[`v2 string 8`] = `"7"`;
+
+exports[`v2 string 9`] = `"8"`;
+
+exports[`v2 string 10`] = `"9"`;
