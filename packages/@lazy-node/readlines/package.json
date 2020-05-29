@@ -1,6 +1,6 @@
 {
   "name": "@lazy-node/readlines",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Read file line by line without buffering the whole file in memory.",
   "keywords": [
     "read",
@@ -39,8 +39,6 @@
     "ncu": "npx yarn-tool ncu -u",
     "sort-package-json": "npx yarn-tool sort"
   },
-  "dependencies": {},
-  "devDependencies": {},
   "publishConfig": {
     "access": "public"
   }

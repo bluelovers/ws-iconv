@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.5](https://github.com/bluelovers/node-fs-iconv/compare/fs-iconv@3.0.4...fs-iconv@3.0.5) (2020-05-29)
+
+**Note:** Version bump only for package fs-iconv
+
+
+
+
+
 ## [3.0.4](https://github.com/bluelovers/node-fs-iconv/compare/fs-iconv@3.0.3...fs-iconv@3.0.4) (2020-05-03)
 
 **Note:** Version bump only for package fs-iconv

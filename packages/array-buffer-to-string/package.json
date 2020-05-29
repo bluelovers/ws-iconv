@@ -1,6 +1,6 @@
 {
   "name": "@bluelovers/array-buffer-to-string",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "private": false,
   "description": "",
   "keywords": [
@@ -36,7 +36,7 @@
     "tsc:esm": "tsc -p tsconfig.esm.json"
   },
   "dependencies": {
-    "iconv-jschardet": "^2.0.5"
+    "iconv-jschardet": "^2.0.6"
   },
   "publishConfig": {
     "access": "public"
