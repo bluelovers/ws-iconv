@@ -69,15 +69,15 @@
   "dependencies": {
     "bluebird": "^3.7.2",
     "fs-extra": "^9.0.0",
-    "iconv-jschardet": "^1.1.3",
+    "iconv-jschardet": "^2.0.5",
     "lodash": "^4.17.15",
     "sanitize-filename": "^1.6.3",
-    "ts-type": "^1.2.15"
+    "ts-type": "^1.2.16"
   },
   "devDependencies": {
     "@types/bluebird": "^3",
-    "@types/fs-extra": "^8",
-    "@types/lodash": "^4.14.150"
+    "@types/fs-extra": "^9",
+    "@types/lodash": "^4.14.153"
   },
   "gitHead": "d296330265216b9826b33ec459c23e4acd6f4e7d"
 }

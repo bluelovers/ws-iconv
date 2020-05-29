@@ -39,6 +39,6 @@
     "iconv-jschardet": "^2.0.5"
   },
   "devDependencies": {
-    "@types/html-encoding-sniffer": "^2.0.0"
+    "@types/html-encoding-sniffer": "^2.0.1"
   }
 }

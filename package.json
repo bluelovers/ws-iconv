@@ -12,16 +12,20 @@
     "lerna:publish:yes": "npx lerna publish --yes --cd-version patch",
     "prepublish:lockfile": "npx sync-lockfile .",
     "postpublish": "git subtree push --prefix=packages/fs-iconv node-fs-iconv master && git subtree push --prefix=packages/iconv-jschardet node-iconv-jschardet master",
-    "ncu": "npx yarn-tool ncu -u",
-    "sort-package-json": "npx yarn-tool sort"
+    "ncu": "yarn run ncu:root && yarn run ncu:ws",
+    "ncu:root": "npx yarn-tool ncu -u",
+    "ncu:ws": "npx yarn-tool ws exec yarn-tool ncu -- -u",
+    "sort-package-json": "yarn run sort-package-json:root && yarn run sort-package-json:ws",
+    "sort-package-json:root": "npx yarn-tool sort",
+    "sort-package-json:ws": "npx yarn-tool ws exec yarn-tool sort"
   },
   "resolutions": {},
   "devDependencies": {
     "@bluelovers/tsconfig": "^1.0.19",
-    "@types/jest": "^25.2.1",
+    "@types/jest": "^25.2.3",
     "@types/node": "*",
-    "jest": "^25.5.3",
-    "ts-jest": "^25.4.0"
+    "jest": "^26.0.1",
+    "ts-jest": "^26.0.0"
   },
   "peerDependencies": {
     "lerna": "^3"
