@@ -11,9 +11,9 @@ export interface IPathLibLike
  */
 export function pathDirNormalize(dir: string, pathLib?: IPathLibLike): string
 {
-	const { normalize = _normalize, sep = _sep } = pathLib ?? {};
+	pathLib = pathLib ?? {};
 
-	return normalize(dir + sep)
+	return (pathLib.normalize ?? _normalize)(dir + (pathLib.sep ?? _sep))
 }
 
 export function createPathDirNormalize(defaultPathLib: {
@@ -31,11 +31,11 @@ export function createPathDirNormalize(defaultPathLib: {
 		throw new TypeError(`sep must be not empty string`)
 	}
 
-	return function pathDirNormalize(dir: string, pathLib: IPathLibLike = defaultPathLib): string
+	return function pathDirNormalize(dir: string, pathLib?: IPathLibLike): string
 	{
-		const { normalize = defaultPathLib.normalize, sep = defaultPathLib.sep } = pathLib ?? {};
+		pathLib = pathLib ?? {};
 
-		return normalize(dir + sep)
+		return (pathLib.normalize ?? defaultPathLib.normalize)(dir + (pathLib.sep ?? defaultPathLib.sep))
 	}
 }
 

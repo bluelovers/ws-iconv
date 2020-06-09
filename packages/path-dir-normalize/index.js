@@ -6,8 +6,9 @@ const path_1 = require("path");
  * dir normalize with end of path.sep
  */
 function pathDirNormalize(dir, pathLib) {
-    const { normalize = path_1.normalize, sep = path_1.sep } = pathLib !== null && pathLib !== void 0 ? pathLib : {};
-    return normalize(dir + sep);
+    var _a, _b;
+    pathLib = pathLib !== null && pathLib !== void 0 ? pathLib : {};
+    return ((_a = pathLib.normalize) !== null && _a !== void 0 ? _a : path_1.normalize)(dir + ((_b = pathLib.sep) !== null && _b !== void 0 ? _b : path_1.sep));
 }
 exports.pathDirNormalize = pathDirNormalize;
 function createPathDirNormalize(defaultPathLib) {
@@ -17,9 +18,10 @@ function createPathDirNormalize(defaultPathLib) {
     if (typeof defaultPathLib.sep !== 'string' || !defaultPathLib.sep.length) {
         throw new TypeError(`sep must be not empty string`);
     }
-    return function pathDirNormalize(dir, pathLib = defaultPathLib) {
-        const { normalize = defaultPathLib.normalize, sep = defaultPathLib.sep } = pathLib !== null && pathLib !== void 0 ? pathLib : {};
-        return normalize(dir + sep);
+    return function pathDirNormalize(dir, pathLib) {
+        var _a, _b;
+        pathLib = pathLib !== null && pathLib !== void 0 ? pathLib : {};
+        return ((_a = pathLib.normalize) !== null && _a !== void 0 ? _a : defaultPathLib.normalize)(dir + ((_b = pathLib.sep) !== null && _b !== void 0 ? _b : defaultPathLib.sep));
     };
 }
 exports.createPathDirNormalize = createPathDirNormalize;
