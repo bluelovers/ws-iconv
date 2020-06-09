@@ -1,6 +1,6 @@
 {
   "name": "upath2",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "A proxy to `path`, replacing `\\` with `/` for all results",
   "keywords": [
     "absolute",
@@ -58,8 +58,6 @@
     "ncu": "npx yarn-tool ncu -u",
     "sort-package-json": "npx yarn-tool sort"
   },
-  "dependencies": {},
-  "devDependencies": {},
   "peerDependencies": {
     "@types/node": "^14.0.12"
   }
