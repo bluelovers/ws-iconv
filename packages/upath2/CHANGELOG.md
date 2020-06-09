@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.5](https://github.com/bluelovers/ws-iconv/compare/upath2@3.0.4...upath2@3.0.5) (2020-06-09)
+
+
+### Bug Fixes
+
+* Error: Cannot find module 'lodash/isFunction' ([00b6a15](https://github.com/bluelovers/ws-iconv/commit/00b6a15b23712c2867dae51a83557b62db7b2b1b))
+
+
+
+
+
 ## [3.0.4](https://github.com/bluelovers/ws-iconv/compare/upath2@3.0.3...upath2@3.0.4) (2020-06-09)
 
 
