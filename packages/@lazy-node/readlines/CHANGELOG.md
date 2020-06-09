@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.5](https://github.com/bluelovers/ws-iconv/compare/@lazy-node/readlines@2.0.4...@lazy-node/readlines@2.0.5) (2020-06-09)
+
+
+### Bug Fixes
+
+* fix lost bind ([0f3a097](https://github.com/bluelovers/ws-iconv/commit/0f3a09739e836f70e7051b87b640bd1b18f17252))
+
+
+
+
+
 ## [2.0.4](https://github.com/bluelovers/ws-iconv/compare/@lazy-node/readlines@2.0.3...@lazy-node/readlines@2.0.4) (2020-06-09)
 
 
