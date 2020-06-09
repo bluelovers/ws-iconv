@@ -29,5 +29,5 @@
     "tsc:default": "tsc -p tsconfig.json",
     "tsc:esm": "tsc -p tsconfig.esm.json"
   },
-  "gitHead": "5cb176735299be02ff67a57bcf2c3501e7e65d84"
+  "gitHead": "127bd9352ea3ed73aed0088913a01c6832f18533"
 }
