@@ -176,33 +176,32 @@ export const upath = _upath as IUPath;
 
 upath.PathWrap = PathWrap;
 
-//upath.win32 = win32;
-//upath.posix = posix;
-//upath.upath = upath;
-
-//PathWrap.fn = upath.fn;
-
-upath.fn.win32 = win32;
-upath.fn.posix = posix;
-upath.fn.upath = upath;
-// @ts-ignore
-upath.fn.default = upath;
-
 export const fn = PathWrap.fn = upath.fn;
 
 // @ts-ignore
 _path.upath = upath;
 
-for (const key of [
-	'win32',
-	'posix',
-	'upath',
+for (const [key, lib] of [
+	['win32', win32],
+	['posix', posix],
+	['upath', upath],
+	['default', upath],
 ] as const)
 {
-	win32.fn[key] = posix.fn[key] = upath.fn[key] = upath[key];
+	delete win32.fn[key];
+	delete posix.fn[key];
+	delete upath.fn[key];
+
+	delete win32[key];
+	delete posix[key];
+	delete upath[key];
+
+	// @ts-ignore
+	win32[key] = posix[key] = upath[key] = lib;
+	//win32.__proto__[key] = posix.__proto__[key] = lib;
 }
 
-win32.default = posix.default = upath.default = upath;
+Object.defineProperty(upath, "__esModule", { value: true });
 
 // @ts-ignore
 //export default upath as PathWrap & IPath & IPathNode;

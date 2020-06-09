@@ -4,9 +4,11 @@ exports[`import check 1`] = `
 Array [
   "sep",
   "name",
-  "upath",
   "fn",
   "PathWrap",
+  "win32",
+  "posix",
+  "upath",
   "default",
 ]
 `;

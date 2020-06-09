@@ -5,6 +5,5 @@
 
 import { upath, fn, IUPath } from './core';
 import './lib/fs';
-import { PathWrap } from './lib/wrap';
 
 export = upath;

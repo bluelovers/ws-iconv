@@ -11,6 +11,7 @@ test(`win32`, () =>
 	expect(actual).toStrictEqual(expected);
 	//expect(actual).toBeInstanceOf(Date);
 	expect(actual).toMatchSnapshot();
+	expect(Object.keys(actual)).toMatchSnapshot();
 
 });
 
@@ -23,6 +24,7 @@ test(`posix`, () =>
 	expect(actual).toStrictEqual(expected);
 	//expect(actual).toBeInstanceOf(Date);
 	expect(actual).toMatchSnapshot();
+	expect(Object.keys(actual)).toMatchSnapshot();
 
 });
 
@@ -45,5 +47,30 @@ describe(`path`, () => {
 
 		})
 	;
+
+})
+
+describe(`hasOwnProperty`, () => {
+
+	[
+		'win32',
+		'posix',
+		'upath',
+		'default',
+	].forEach(key => {
+		test(key, () =>
+		{
+
+			let actual = _m0.hasOwnProperty(key);
+			let expected = _m1.hasOwnProperty(key);
+
+			expect(actual).toStrictEqual(expected);
+			expect(_m0[key]).toStrictEqual(_m1[key]);
+
+			expect(actual).toBeTruthy();
+			expect(actual).toMatchSnapshot();
+
+		});
+	})
 
 })

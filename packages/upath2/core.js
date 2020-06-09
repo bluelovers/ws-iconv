@@ -163,26 +163,26 @@ exports.win32 = new PathWrap(path_1.default.win32, 'win32');
 const _upath = new PathWrap(path_1.default, 'upath');
 exports.upath = _upath;
 exports.upath.PathWrap = PathWrap;
-//upath.win32 = win32;
-//upath.posix = posix;
-//upath.upath = upath;
-//PathWrap.fn = upath.fn;
-exports.upath.fn.win32 = exports.win32;
-exports.upath.fn.posix = exports.posix;
-exports.upath.fn.upath = exports.upath;
-// @ts-ignore
-exports.upath.fn.default = exports.upath;
 exports.fn = PathWrap.fn = exports.upath.fn;
 // @ts-ignore
 path_1.default.upath = exports.upath;
-for (const key of [
-    'win32',
-    'posix',
-    'upath',
+for (const [key, lib] of [
+    ['win32', exports.win32],
+    ['posix', exports.posix],
+    ['upath', exports.upath],
+    ['default', exports.upath],
 ]) {
-    exports.win32.fn[key] = exports.posix.fn[key] = exports.upath.fn[key] = exports.upath[key];
+    delete exports.win32.fn[key];
+    delete exports.posix.fn[key];
+    delete exports.upath.fn[key];
+    delete exports.win32[key];
+    delete exports.posix[key];
+    delete exports.upath[key];
+    // @ts-ignore
+    exports.win32[key] = exports.posix[key] = exports.upath[key] = lib;
+    //win32.__proto__[key] = posix.__proto__[key] = lib;
 }
-exports.win32.default = exports.posix.default = exports.upath.default = exports.upath;
+Object.defineProperty(exports.upath, "__esModule", { value: true });
 // @ts-ignore
 //export default upath as PathWrap & IPath & IPathNode;
 exports.default = exports.upath;
