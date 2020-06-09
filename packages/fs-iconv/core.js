@@ -7,14 +7,14 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.loadFileSync = exports.loadFile = exports._autoDecode = exports._outputStream = exports._createStreamPassThrough = exports.saveFile = exports.saveFileSync = exports.ensureWriteStream = exports.WrapFSIconv = exports.SymFSLib = void 0;
-const clone = require("lodash/clone");
+const lodash_1 = require("lodash");
 const iconv_jschardet_1 = __importDefault(require("iconv-jschardet"));
-const Bluebird = require("bluebird");
+const bluebird_1 = __importDefault(require("bluebird"));
 const util_1 = require("./util");
 const stream_1 = require("stream");
 exports.SymFSLib = Symbol('fsLib');
 function WrapFSIconv(fsLib) {
-    let fs = clone(fsLib);
+    let fs = lodash_1.clone(fsLib);
     Object.keys(fs)
         .forEach(k => {
         if (typeof fsLib[k] === 'function') {
@@ -60,10 +60,10 @@ function saveFile(file, data, options = {}) {
     // @ts-ignore
     let self = this;
     let fs = self[exports.SymFSLib];
-    return Bluebird
+    return bluebird_1.default
         .resolve(fs.ensureFile(file))
         .tap(function () {
-        return new Bluebird(function (resolve, reject) {
+        return new bluebird_1.default(function (resolve, reject) {
             if (options.encoding) {
                 data = iconv_jschardet_1.default.encode(data, options.encoding);
             }
@@ -143,7 +143,7 @@ function loadFile(file, options = {}) {
     else {
         ps = fs.readFile(file, options);
     }
-    return Bluebird.resolve(ps);
+    return bluebird_1.default.resolve(ps);
 }
 exports.loadFile = loadFile;
 function loadFileSync(file, options = {}) {
@@ -154,18 +154,22 @@ function loadFileSync(file, options = {}) {
     if (options.encoding) {
         let enc = iconv_jschardet_1.default.isNodeEncoding(options.encoding);
         if (enc) {
+            // @ts-ignore
             ps = fs.readFileSync(file, options);
         }
         else {
             let ops = Object.assign({}, options);
             delete ops.encoding;
+            // @ts-ignore
             ps = iconv_jschardet_1.default.decode(fs.readFileSync(file, ops), options.encoding);
         }
     }
     else if (options.autoDecode) {
+        // @ts-ignore
         ps = self._autoDecode(fs.readFileSync(file, options), options);
     }
     else {
+        // @ts-ignore
         ps = fs.readFileSync(file, options);
     }
     return ps;

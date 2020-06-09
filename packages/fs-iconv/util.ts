@@ -2,7 +2,7 @@
  * Created by user on 2019/3/17.
  */
 
-import sanitize = require('sanitize-filename');
+import sanitize from 'sanitize-filename';
 
 export function trimFilename(name): string
 {

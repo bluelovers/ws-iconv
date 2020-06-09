@@ -3,10 +3,10 @@
  */
 /// <reference types="node" />
 import { vEncoding } from 'iconv-jschardet';
-import fsExtra = require('fs-extra');
+import fsExtra from 'fs-extra';
 import iconv from 'iconv-jschardet';
-import Bluebird = require('bluebird');
-import stream = require('stream');
+import Bluebird from 'bluebird';
+import stream from 'stream';
 import { ITSRequireAtLeastOne } from 'ts-type';
 export declare const SymFSLib: unique symbol;
 export declare function WrapFSIconv<F extends typeof fsExtra = typeof fsExtra>(fsLib: F): WrapFSIconv.IWrapFS<F>;

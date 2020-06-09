@@ -7,8 +7,8 @@ import { vEncoding } from 'iconv-jschardet';
 import fsExtra = require('fs-extra');
 import clone = require("lodash/clone");
 import iconv from 'iconv-jschardet';
-import Bluebird = require('bluebird');
-import stream = require('stream');
+import Bluebird from 'bluebird';
+import stream from 'stream';
 
 export * from 'fs-extra';
 

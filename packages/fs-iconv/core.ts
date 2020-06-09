@@ -3,11 +3,11 @@
  */
 
 import { vEncoding } from 'iconv-jschardet';
-import fsExtra = require('fs-extra');
-import clone = require("lodash/clone");
+import fsExtra from 'fs-extra';
+import { clone } from "lodash";
 import iconv from 'iconv-jschardet';
-import Bluebird = require('bluebird');
-import stream = require('stream');
+import Bluebird from 'bluebird';
+import stream from 'stream';
 import { trimFilename } from './util';
 import { ITSRequiredWith, ITSRequireAtLeastOne } from 'ts-type';
 import { PassThrough } from 'stream';
@@ -285,6 +285,7 @@ export function loadFileSync(file: string, options: WrapFSIconv.IWrapFSIconvOpti
 
 		if (enc)
 		{
+			// @ts-ignore
 			ps = fs.readFileSync(file, options);
 		}
 		else
@@ -292,15 +293,18 @@ export function loadFileSync(file: string, options: WrapFSIconv.IWrapFSIconvOpti
 			let ops: WrapFSIconv.IWrapFSIconvOptionsLoadFile = Object.assign({}, options);
 			delete ops.encoding;
 
+			// @ts-ignore
 			ps = iconv.decode(fs.readFileSync(file, ops), options.encoding);
 		}
 	}
 	else if (options.autoDecode)
 	{
+		// @ts-ignore
 		ps = self._autoDecode(fs.readFileSync(file, options), options);
 	}
 	else
 	{
+		// @ts-ignore
 		ps = fs.readFileSync(file, options);
 	}
 
