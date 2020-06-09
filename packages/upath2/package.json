@@ -62,9 +62,7 @@
     "@types/node": "^14.0.12"
   },
   "gitHead": "5cb176735299be02ff67a57bcf2c3501e7e65d84",
-  "dependencies": {
-    "lodash-decorators": "^6.0.1"
-  },
+  "dependencies": {},
   "devDependencies": {
     "upath": "^1.2.0"
   }

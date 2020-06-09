@@ -7,7 +7,6 @@ import _path from 'path';
 import { IPathNode, IPath, IParse, IPathType, ORIGIN_KEY } from './lib/type';
 
 import { getStatic, _replace_sep } from './lib/util';
-import { bindAll, bind } from 'lodash-decorators';
 import * as types from './lib/type';
 
 export type { IPathNode, IPath, IParse, IPathType }
@@ -68,7 +67,6 @@ export class PathWrap implements IPath
 		;
 	}
 
-	@bind
 	public join<T = string, U = string>(path: T, ...paths: U[]): string
 	{
 		//console.log(this.name, this.sep);
@@ -76,25 +74,21 @@ export class PathWrap implements IPath
 		return _this_origin(this).join(path, ...paths).replace(/\\/g, this.sep);
 	}
 
-	@bind
 	public normalize<T = string>(path: T): string
 	{
 		return _this_origin(this).normalize(path).replace(/\\/g, this.sep);
 	}
 
-	@bind
 	public relative<T = string, U = string>(from: T, to: U): string
 	{
 		return _this_origin(this).relative(from.toString(), to.toString()).replace(/\\/g, this.sep);
 	}
 
-	@bind
 	public resolve<T = string, U = string>(path: T, ...paths: U[]): string
 	{
 		return _this_origin(this).resolve(path, ...paths).replace(/\\/g, this.sep);
 	}
 
-	@bind
 	public parse<T = string>(path: T): IParse
 	{
 		let ret = _this_origin(this).parse(path);
@@ -105,7 +99,6 @@ export class PathWrap implements IPath
 		return ret;
 	}
 
-	@bind
 	public format<T = IParse>(pathObject: T): string
 	{
 		return _replace_sep(this, _this_origin(this).format(pathObject));
@@ -113,25 +106,21 @@ export class PathWrap implements IPath
 
 	// ---------
 
-	@bind
 	public basename<T = string, U = string>(path: T, ext?: U): string
 	{
 		return _this_origin(this).basename(path, ext);
 	}
 
-	@bind
 	public dirname<T = string>(path: T): string
 	{
 		return _this_origin(this).dirname(path);
 	}
 
-	@bind
 	public extname<T = string>(path: T): string
 	{
 		return _this_origin(this).extname(path);
 	}
 
-	@bind
 	public isAbsolute<T = string>(path: T): boolean
 	{
 		return _this_origin(this).isAbsolute(path);

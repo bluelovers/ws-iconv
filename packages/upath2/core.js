@@ -2,25 +2,14 @@
 /**
  * Created by user on 2017/12/9/009.
  */
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
-var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o, _p;
 Object.defineProperty(exports, "__esModule", { value: true });
 exports._this_origin = exports.fn = exports.upath = exports.win32 = exports.posix = exports.PathWrap = void 0;
 const path_1 = __importDefault(require("path"));
 const type_1 = require("./lib/type");
 const util_1 = require("./lib/util");
-const lodash_decorators_1 = require("lodash-decorators");
 class PathWrap {
     constructor(path, id) {
         this.sep = '/';
@@ -86,66 +75,6 @@ class PathWrap {
         return _this_origin(this).isAbsolute(path);
     }
 }
-__decorate([
-    lodash_decorators_1.bind,
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", [typeof (_a = typeof T !== "undefined" && T) === "function" ? _a : Object, typeof (_b = typeof U !== "undefined" && U) === "function" ? _b : Object]),
-    __metadata("design:returntype", String)
-], PathWrap.prototype, "join", null);
-__decorate([
-    lodash_decorators_1.bind,
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", [typeof (_c = typeof T !== "undefined" && T) === "function" ? _c : Object]),
-    __metadata("design:returntype", String)
-], PathWrap.prototype, "normalize", null);
-__decorate([
-    lodash_decorators_1.bind,
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", [typeof (_d = typeof T !== "undefined" && T) === "function" ? _d : Object, typeof (_e = typeof U !== "undefined" && U) === "function" ? _e : Object]),
-    __metadata("design:returntype", String)
-], PathWrap.prototype, "relative", null);
-__decorate([
-    lodash_decorators_1.bind,
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", [typeof (_f = typeof T !== "undefined" && T) === "function" ? _f : Object, typeof (_g = typeof U !== "undefined" && U) === "function" ? _g : Object]),
-    __metadata("design:returntype", String)
-], PathWrap.prototype, "resolve", null);
-__decorate([
-    lodash_decorators_1.bind,
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", [typeof (_h = typeof T !== "undefined" && T) === "function" ? _h : Object]),
-    __metadata("design:returntype", Object)
-], PathWrap.prototype, "parse", null);
-__decorate([
-    lodash_decorators_1.bind,
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", [typeof (_j = typeof T !== "undefined" && T) === "function" ? _j : Object]),
-    __metadata("design:returntype", String)
-], PathWrap.prototype, "format", null);
-__decorate([
-    lodash_decorators_1.bind,
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", [typeof (_k = typeof T !== "undefined" && T) === "function" ? _k : Object, typeof (_l = typeof U !== "undefined" && U) === "function" ? _l : Object]),
-    __metadata("design:returntype", String)
-], PathWrap.prototype, "basename", null);
-__decorate([
-    lodash_decorators_1.bind,
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", [typeof (_m = typeof T !== "undefined" && T) === "function" ? _m : Object]),
-    __metadata("design:returntype", String)
-], PathWrap.prototype, "dirname", null);
-__decorate([
-    lodash_decorators_1.bind,
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", [typeof (_o = typeof T !== "undefined" && T) === "function" ? _o : Object]),
-    __metadata("design:returntype", String)
-], PathWrap.prototype, "extname", null);
-__decorate([
-    lodash_decorators_1.bind,
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", [typeof (_p = typeof T !== "undefined" && T) === "function" ? _p : Object]),
-    __metadata("design:returntype", Boolean)
-], PathWrap.prototype, "isAbsolute", null);
 exports.PathWrap = PathWrap;
 (function (PathWrap) {
     let __proto__ = {};
