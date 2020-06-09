@@ -2,27 +2,32 @@
   "name": "path-dir-normalize",
   "version": "1.0.1",
   "description": "dir normalize with end of path.sep",
-  "homepage": "https://github.com/bluelovers/ws-epub#readme",
+  "keywords": [],
+  "homepage": "https://github.com/bluelovers/ws-iconv/tree/master/packages/path-dir-normalize#readme",
   "bugs": {
-    "url": "https://github.com/bluelovers/ws-epub/issues"
+    "url": "https://github.com/bluelovers/ws-iconv/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/bluelovers/ws-epub.git"
+    "url": "git+https://github.com/bluelovers/ws-iconv.git"
   },
   "license": "ISC",
-  "author": "",
+  "author": "bluelovers",
   "main": "index.js",
   "scripts": {
     "coverage": "npx nyc yarn run test",
     "lint": "npx eslint **/*.ts",
-    "ncu": "npx yarn-tool ncu -u",
+    "test": "jest",
     "npm:publish": "npm publish",
-    "prepublishOnly": "yarn run ncu && yarn run sort-package-json",
+    "npm:publish:lerna": "npx lerna publish --yes --cd-version patch",
+    "prepublish:lockfile": "npx sync-lockfile .",
+    "prepublishOnly": "yarn run test",
     "postpublish": "git commit -m \"publish new version\" .",
+    "postpublish_": "git commit -m \"chore(release): publish\" .",
+    "ncu": "npx yarn-tool ncu -u",
     "sort-package-json": "npx sort-package-json ./package.json",
-    "test": "echo \"Error: no test specified\" && exit 1",
     "tsc:default": "tsc -p tsconfig.json",
     "tsc:esm": "tsc -p tsconfig.esm.json"
-  }
+  },
+  "dependencies": {}
 }

@@ -29,32 +29,36 @@
     "unicode",
     "utf-8"
   ],
-  "homepage": "https://github.com/bluelovers/node-iconv-jschardet#readme",
+  "homepage": "https://github.com/bluelovers/ws-iconv/tree/master/packages/iconv-jschardet#readme",
   "bugs": {
-    "url": "https://github.com/bluelovers/node-iconv-jschardet/issues"
+    "url": "https://github.com/bluelovers/ws-iconv/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/bluelovers/node-iconv-jschardet.git"
+    "url": "git+https://github.com/bluelovers/ws-iconv.git"
   },
   "license": "ISC",
-  "author": "",
+  "author": "bluelovers",
   "main": "index.js",
   "directories": {
     "lib": "lib",
     "test": "test"
   },
   "scripts": {
-    "test": "jest --coverage",
-    "prepublishOnly": "yarn run test && yarn run ncu",
+    "test": "jest",
+    "npm:publish": "npm publish",
+    "npm:publish:lerna": "npx lerna publish --yes --cd-version patch",
+    "prepublish:lockfile": "npx sync-lockfile .",
+    "prepublishOnly": "yarn run test",
+    "postpublish_": "git commit -m \"chore(release): publish\" .",
     "ncu": "npx yarn-tool ncu -u",
     "sort-package-json": "npx yarn-tool sort"
   },
   "dependencies": {
     "debug-color2": "^1",
     "env-bool": "^1.0.3",
-    "iconv-lite": "^0.5.1",
+    "iconv-lite": "^0.6.0",
     "jschardet": "^2.1.1"
   },
-  "gitHead": "d296330265216b9826b33ec459c23e4acd6f4e7d"
+  "devDependencies": {}
 }

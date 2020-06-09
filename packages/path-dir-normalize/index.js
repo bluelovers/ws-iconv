@@ -1,12 +1,27 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const path = require("path");
+exports.createPathDirNormalize = exports.pathDirNormalize = void 0;
+const path_1 = require("path");
 /**
  * dir normalize with end of path.sep
  */
-function pathDirNormalize(dir, pathLib = path) {
-    return path.normalize(dir + path.sep);
+function pathDirNormalize(dir, pathLib) {
+    const { normalize = path_1.normalize, sep = path_1.sep } = pathLib !== null && pathLib !== void 0 ? pathLib : {};
+    return normalize(dir + sep);
 }
 exports.pathDirNormalize = pathDirNormalize;
+function createPathDirNormalize(defaultPathLib) {
+    if (typeof defaultPathLib.normalize !== 'function') {
+        throw new TypeError(`normalize must be function`);
+    }
+    if (typeof defaultPathLib.sep !== 'string' || !defaultPathLib.sep.length) {
+        throw new TypeError(`sep must be not empty string`);
+    }
+    return function pathDirNormalize(dir, pathLib = defaultPathLib) {
+        const { normalize = defaultPathLib.normalize, sep = defaultPathLib.sep } = pathLib !== null && pathLib !== void 0 ? pathLib : {};
+        return normalize(dir + sep);
+    };
+}
+exports.createPathDirNormalize = createPathDirNormalize;
 exports.default = pathDirNormalize;
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiaW5kZXguanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJpbmRleC50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOztBQUFBLDZCQUE2QjtBQUU3Qjs7R0FFRztBQUNILFNBQWdCLGdCQUFnQixDQUFDLEdBQVcsRUFBRSxVQUcxQyxJQUFJO0lBRVAsT0FBTyxJQUFJLENBQUMsU0FBUyxDQUFDLEdBQUcsR0FBRyxJQUFJLENBQUMsR0FBRyxDQUFDLENBQUE7QUFDdEMsQ0FBQztBQU5ELDRDQU1DO0FBRUQsa0JBQWUsZ0JBQWdCLENBQUMiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgKiBhcyBwYXRoIGZyb20gJ3BhdGgnO1xuXG4vKipcbiAqIGRpciBub3JtYWxpemUgd2l0aCBlbmQgb2YgcGF0aC5zZXBcbiAqL1xuZXhwb3J0IGZ1bmN0aW9uIHBhdGhEaXJOb3JtYWxpemUoZGlyOiBzdHJpbmcsIHBhdGhMaWI6IHtcblx0bm9ybWFsaXplKHBhdGg6IHN0cmluZyk6IHN0cmluZyxcblx0c2VwOiBzdHJpbmcsXG59ID0gcGF0aCk6IHN0cmluZ1xue1xuXHRyZXR1cm4gcGF0aC5ub3JtYWxpemUoZGlyICsgcGF0aC5zZXApXG59XG5cbmV4cG9ydCBkZWZhdWx0IHBhdGhEaXJOb3JtYWxpemU7XG4iXX0=
+//# sourceMappingURL=index.js.map

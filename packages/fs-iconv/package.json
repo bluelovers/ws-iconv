@@ -46,38 +46,37 @@
     "utf-8",
     "write"
   ],
-  "homepage": "https://github.com/bluelovers/node-fs-iconv#readme",
+  "homepage": "https://github.com/bluelovers/ws-iconv/tree/master/packages/fs-iconv#readme",
   "bugs": {
-    "url": "https://github.com/bluelovers/node-fs-iconv/issues"
+    "url": "https://github.com/bluelovers/ws-iconv/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/bluelovers/node-fs-iconv.git"
+    "url": "git+https://github.com/bluelovers/ws-iconv.git"
   },
   "license": "ISC",
-  "author": "",
+  "author": "bluelovers",
   "main": "index.js",
   "directories": {
     "test": "test"
   },
   "scripts": {
-    "test": "jest --coverage",
-    "prepublishOnly": "yarn run test && yarn run ncu",
+    "test": "jest",
+    "npm:publish": "npm publish",
+    "npm:publish:lerna": "npx lerna publish --yes --cd-version patch",
+    "prepublish:lockfile": "npx sync-lockfile .",
+    "prepublishOnly": "yarn run test",
+    "postpublish_": "git commit -m \"chore(release): publish\" .",
     "ncu": "npx yarn-tool ncu -u",
     "sort-package-json": "npx yarn-tool sort"
   },
   "dependencies": {
     "bluebird": "^3.7.2",
-    "fs-extra": "^9.0.0",
+    "fs-extra": "^9.0.1",
     "iconv-jschardet": "^2.0.6",
     "lodash": "^4.17.15",
     "sanitize-filename": "^1.6.3",
-    "ts-type": "^1.2.16"
+    "ts-type": "^1.2.17"
   },
-  "devDependencies": {
-    "@types/bluebird": "^3",
-    "@types/fs-extra": "^9",
-    "@types/lodash": "^4.14.153"
-  },
-  "gitHead": "d296330265216b9826b33ec459c23e4acd6f4e7d"
+  "devDependencies": {}
 }
