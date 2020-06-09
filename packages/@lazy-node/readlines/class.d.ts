@@ -7,7 +7,7 @@ export declare class LineByLine {
     #private;
     constructor(file: IPathLike, options?: IOptions);
     protected _open(): void;
-    get file(): string | number | Buffer | import("url").URL;
+    get file(): IPathLike;
     get fd(): number;
     get options(): IOptions;
     get fdPosition(): number;

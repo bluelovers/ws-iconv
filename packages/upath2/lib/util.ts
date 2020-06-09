@@ -3,7 +3,7 @@
  */
 
 import { IPath } from './type';
-import { PathWrap } from './wrap';
+import { PathWrap } from '../core';
 
 export function _replace_sep(who: IPath, input: string): string
 {
