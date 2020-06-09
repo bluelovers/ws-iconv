@@ -28,5 +28,6 @@
     "sort-package-json": "npx sort-package-json ./package.json",
     "tsc:default": "tsc -p tsconfig.json",
     "tsc:esm": "tsc -p tsconfig.esm.json"
-  }
+  },
+  "gitHead": "980dc5dbf475245ac510f916015f0999ebd8e3fd"
 }

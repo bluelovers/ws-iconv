@@ -60,5 +60,6 @@
   },
   "peerDependencies": {
     "@types/node": "^14.0.12"
-  }
+  },
+  "gitHead": "980dc5dbf475245ac510f916015f0999ebd8e3fd"
 }
