@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.6](https://github.com/bluelovers/ws-iconv/compare/path-dir-normalize@1.0.5...path-dir-normalize@1.0.6) (2020-06-09)
+
+
+### Bug Fixes
+
+* avoid lost bind ([cc8c818](https://github.com/bluelovers/ws-iconv/commit/cc8c8183354f0c5bf206f12ce1a1574decc826c0))
+
+
+
+
+
 ## [1.0.5](https://github.com/bluelovers/ws-iconv/compare/path-dir-normalize@1.0.4...path-dir-normalize@1.0.5) (2020-06-09)
 
 
