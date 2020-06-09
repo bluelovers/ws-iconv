@@ -1,95 +1,69 @@
 /**
  * Created by user on 2017/12/9/009.
  */
+import { win32 as nodePath } from 'path';
 
-import localDev, { relative, expect, path, assert } from './_local-dev';
-
-describe(relative(__filename), () =>
+describe(`path`, () =>
 {
-	let nodePath;
-	let currentTest;
+	const dir = './a/b';
+	const file = 'c.txt';
+	const full = dir + '/.\\' + file;
 
-	beforeEach(function ()
+	it(`join`, () =>
 	{
-		nodePath = path.win32;
-		currentTest = this.currentTest;
+		//console.log(Object.assign({}, this.test));
 
-		console.log(currentTest.title);
-		console.log(currentTest.fullTitle());
+		let r = slash(nodePath.join(dir, file));
+
+		console.log(r);
+
+		expect(r).toBeTruthy();
 	});
 
-	let methods = [
-		'dirname',
-		'extname',
-	];
-
-	describe(`path`, () =>
+	it(`dirname`, () =>
 	{
-		const dir = './a/b';
-		const file = 'c.txt';
-		const full = dir + '/.\\' + file;
+		let r = nodePath.dirname(full);
 
-		it(`join`, function ()
-		{
-			//console.log(Object.assign({}, this.test));
+		let b = slash(r);
 
-			let r = slash(nodePath.join(dir, file));
+		console.log(r);
 
-			console.log(r);
-
-			assert.isOk(r, r);
-		});
-
-		it(`dirname`, function ()
-		{
-			let r = nodePath.dirname(full);
-
-			let b = slash(r);
-
-			console.log(r);
-
-			assert.isNotOk(b, r);
-		});
-
-		it(`normalize`, function ()
-		{
-			let r = nodePath.normalize(full);
-
-			let b = slash(r);
-
-			console.log(r);
-
-			assert.isOk(b, r);
-		});
-
-		it(`relative`, function ()
-		{
-			let r = nodePath.relative(full, './b');
-
-			let b = slash(r);
-
-			console.log(r);
-
-			assert.isOk(b, r);
-		});
-
-		it(`resolve`, function ()
-		{
-			let r = nodePath.resolve(full, './b');
-
-			let b = slash(r);
-
-			console.log(r);
-
-			assert.isOk(b, r);
-		});
-
-		setTimeout(function ()
-		{
-			console.log(777, currentTest);
-		}, 1000)
-
+		expect(b).toBeFalsy();
 	});
+
+	it(`normalize`, () =>
+	{
+		let r = nodePath.normalize(full);
+
+		let b = slash(r);
+
+		console.log(r);
+
+		expect(b).toBeTruthy();
+	});
+
+	it(`relative`, () =>
+	{
+		let r = nodePath.relative(full, './b');
+
+		let b = slash(r);
+
+		console.log(r);
+
+		expect(b).toBeTruthy();
+	});
+
+	it(`resolve`, () =>
+	{
+		let r = nodePath.resolve(full, './b');
+
+		let b = slash(r);
+
+		console.log(r);
+
+		expect(b).toBeTruthy();
+	});
+
 });
 
 function slash(ret)

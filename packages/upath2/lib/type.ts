@@ -1,7 +1,8 @@
 /**
  * Created by user on 2018/3/30/030.
  */
-import _path = require('path');
+import _path from 'path';
+
 export const ORIGIN_KEY = Symbol.for('_origin');
 
 export interface IParse
@@ -67,7 +68,4 @@ export type IPath = IPathNode & {
 	[index: string]: any;
 }
 
-import * as self from './type';
-export default self;
-// @ts-ignore
-Object.freeze(exports)
+export default exports as typeof import('./type');

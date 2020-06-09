@@ -1,5 +1,8 @@
 /// <reference types="node" />
-import _path = require('path');
+/**
+ * Created by user on 2018/3/30/030.
+ */
+import _path from 'path';
 export declare const ORIGIN_KEY: unique symbol;
 export interface IParse {
     root?: string;
@@ -48,5 +51,5 @@ export declare type IPath = IPathNode & {
     [ORIGIN_KEY]?: IPathType;
     [index: string]: any;
 };
-import * as self from './type';
-export default self;
+declare const _default: typeof import("./type");
+export default _default;

@@ -2,82 +2,65 @@
  * Created by user on 2017/12/9/009.
  */
 
-import { relative, expect, path, assert } from './_local-dev';
+import { win32 as nodePath } from '..';
 
-import * as upath from '..';
-
-describe(relative(__filename), () =>
+describe(`upath`, () =>
 {
-	let nodePath;
+	const dir = './a/b';
+	const file = 'c.txt';
+	const full = dir + '/.\\' + file;
 
-	beforeEach(() =>
+	it(`join`, () =>
 	{
-		nodePath = upath.win32;
+		let r = slash(nodePath.join(dir, file));
+
+		console.log(r);
+
+		expect(r).toBeFalsy();
 	});
 
-	let methods = [
-		'dirname',
-		'extname',
-	];
-
-	describe(`upath`, () =>
+	it(`dirname`, () =>
 	{
-		const dir = './a/b';
-		const file = 'c.txt';
-		const full = dir + '/.\\' + file;
+		let r = nodePath.dirname(full);
 
-		it(`join`, function ()
-		{
-			let r = slash(nodePath.join(dir, file));
+		let b = slash(r);
 
-			console.log(r);
+		console.log(r);
 
-			assert.isNotOk(r, r);
-		});
+		expect(b).toBeFalsy();
+	});
 
-		it(`dirname`, function ()
-		{
-			let r = nodePath.dirname(full);
+	it(`normalize`, () =>
+	{
+		let r = nodePath.normalize(full);
 
-			let b = slash(r);
+		let b = slash(r);
 
-			console.log(r);
+		console.log(r);
 
-			assert.isNotOk(b, r);
-		});
+		expect(b).toBeFalsy();
+	});
 
-		it(`normalize`, function ()
-		{
-			let r = nodePath.normalize(full);
+	it(`relative`, () =>
+	{
+		let r = nodePath.relative(full, './b');
 
-			let b = slash(r);
+		let b = slash(r);
 
-			console.log(r);
+		console.log(r);
 
-			assert.isNotOk(b, r);
-		});
+		expect(b).toBeFalsy();
+	});
 
-		it(`relative`, function ()
-		{
-			let r = nodePath.relative(full, './b');
+	it(`resolve`, () =>
+	{
+		let r = nodePath.resolve(full, './b');
 
-			let b = slash(r);
+		let b = slash(r);
 
-			console.log(r);
+		console.log(r);
 
-			assert.isNotOk(b, r);
-		});
-
-		it(`resolve`, function ()
-		{
-			let r = nodePath.resolve(full, './b');
-
-			let b = slash(r);
-
-			console.log(r);
-
-			assert.isNotOk(b, r);
-		});
+		expect(b).toBeFalsy();
 	});
 });
 

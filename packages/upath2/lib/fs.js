@@ -1,5 +1,9 @@
 "use strict";
+/**
+ * Created by user on 2017/12/10/010.
+ */
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.filterNameEntry = exports.vaildNameEntry = void 0;
 const core_1 = require("../core");
 let r_vaild = /[\\\?\/\!'"\:\<\>\*\|]+/g;
 function vaildNameEntry(name) {
@@ -12,6 +16,6 @@ function filterNameEntry(name) {
 exports.filterNameEntry = filterNameEntry;
 core_1.fn.vaildNameEntry = vaildNameEntry;
 core_1.fn.filterNameEntry = filterNameEntry;
-const self = require("./fs");
-exports.default = self;
-Object.freeze(exports);
+// @ts-ignore
+//console.log(upath.vaildNameEntry('a/b.test'), upath.filterNameEntry('a/b.test'));
+//# sourceMappingURL=fs.js.map

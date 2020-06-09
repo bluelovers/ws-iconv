@@ -3,18 +3,8 @@
  */
 
 
-import { upath, PathWrap, fn, IUPath } from './core';
-import * as _upath from './core';
-
+import { upath, fn, IUPath } from './core';
 import './lib/fs';
-import types, { IPath, IPathNode, IParse } from './lib/type';
+import { PathWrap } from './lib/wrap';
 
-/*
-const path = upath as typeof upath & {
-	default: typeof upath,
-};
-
-path.default = path;
-*/
-const path = upath;
-export = path;
+export = upath;
