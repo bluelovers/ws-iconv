@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.8](https://github.com/bluelovers/ws-iconv/compare/path-dir-normalize@1.0.7...path-dir-normalize@1.0.8) (2020-06-15)
+
+
+### ✨　Features
+
+*  use upath2 as default path lib ([76d2d6f](https://github.com/bluelovers/ws-iconv/commit/76d2d6f0089c7fdf00dc4c17d17c9384d78ab7d1))
+
+
+### Miscellaneous
+
+* publish new version ([e0950f1](https://github.com/bluelovers/ws-iconv/commit/e0950f1b66e125093f62de3d624ec601d15ede8c))
+
+
+### BREAKING CHANGES
+
+* path style changed
+
+
+
+
+
 ## [1.0.7](https://github.com/bluelovers/ws-iconv/compare/path-dir-normalize@1.0.6...path-dir-normalize@1.0.7) (2020-06-09)
 
 **Note:** Version bump only for package path-dir-normalize
