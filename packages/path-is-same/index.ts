@@ -5,7 +5,12 @@ export function pathIsSame(p1: string, ...ps: string[])
 {
 	p1 = normalize(p1);
 
-	return ps.length > 0 && ps.every(p2 => normalize(p2) === p1)
+	if (ps.length <= 0)
+	{
+		throw new TypeError(`p2 must be protected`)
+	}
+
+	return ps.every(p2 => normalize(p2) === p1)
 }
 
 export default pathIsSame
