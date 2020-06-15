@@ -1,4 +1,4 @@
-import { normalize as _normalize, sep as _sep } from 'path';
+import { normalize as _normalize, sep as _sep } from 'upath2';
 
 export interface IPathLibLike
 {
