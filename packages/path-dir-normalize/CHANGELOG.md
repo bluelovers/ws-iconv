@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.10](https://github.com/bluelovers/ws-iconv/compare/path-dir-normalize@1.0.9...path-dir-normalize@1.0.10) (2020-06-15)
+
+
+### ♻️　Chores
+
+*  remove postpublish ([1024125](https://github.com/bluelovers/ws-iconv/commit/1024125c9526eec92e43337392fafde81d5b8f7a))
+
+
+### Miscellaneous
+
+* publish new version ([ac412e3](https://github.com/bluelovers/ws-iconv/commit/ac412e3e7938e4d4bef0534fc1c3ed1997e6e87a))
+
+
+
+
+
 ## [1.0.9](https://github.com/bluelovers/ws-iconv/compare/path-dir-normalize@1.0.8...path-dir-normalize@1.0.9) (2020-06-15)
 
 
