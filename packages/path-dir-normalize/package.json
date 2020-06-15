@@ -29,7 +29,7 @@
     "tsc:default": "tsc -p tsconfig.json",
     "tsc:esm": "tsc -p tsconfig.esm.json"
   },
-  "gitHead": "6ca8480aec628c69acf97930dd0871360ac1e790",
+  "gitHead": "fb6c531abda684ffdb6154cd444f3906f272067b",
   "dependencies": {
     "upath2": "^3.0.5"
   }
