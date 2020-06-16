@@ -58,11 +58,11 @@
     "ncu": "npx yarn-tool ncu -u",
     "sort-package-json": "npx yarn-tool sort"
   },
-  "peerDependencies": {
-    "@types/node": "^14.0.12"
-  },
-  "gitHead": "5cb176735299be02ff67a57bcf2c3501e7e65d84",
   "devDependencies": {
     "upath": "^1.2.0"
-  }
+  },
+  "peerDependencies": {
+    "@types/node": "*"
+  },
+  "gitHead": "5cb176735299be02ff67a57bcf2c3501e7e65d84"
 }

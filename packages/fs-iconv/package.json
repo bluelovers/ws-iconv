@@ -76,7 +76,7 @@
     "iconv-jschardet": "^2.0.8",
     "lodash": "^4.17.15",
     "sanitize-filename": "^1.6.3",
-    "ts-type": "^1.2.17"
+    "ts-type": "^1.2.23"
   },
   "gitHead": "980dc5dbf475245ac510f916015f0999ebd8e3fd"
 }
