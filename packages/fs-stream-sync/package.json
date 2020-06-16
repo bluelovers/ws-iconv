@@ -1,0 +1,41 @@
+{
+  "name": "fs-stream-sync",
+  "version": "1.0.4",
+  "description": "File System SyncWriteStream/SyncReadStream implementation from Node.js Core",
+  "keywords": [
+    "File System",
+    "ReadStream",
+    "SyncReadStream",
+    "SyncWriteStream",
+    "WriteStream",
+    "fs",
+    "fs.stream",
+    "node",
+    "node.js",
+    "stream",
+    "sync"
+  ],
+  "homepage": "https://github.com/bluelovers/node-fs-stream-sync#readme",
+  "bugs": {
+    "url": "https://github.com/bluelovers/node-fs-stream-sync/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bluelovers/node-fs-stream-sync.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "@types/node": "^11"
+  },
+  "devDependencies": {
+    "fs-extra": "^7.0.1"
+  }
+}
