@@ -1,7 +1,7 @@
-import fs = require('fs');
-import { URL } from "url";
 
-export import PathLike = fs.PathLike
+import { URL } from "url";
+export type { PathLike } from 'fs';
+
 export type IFsPath = string | Buffer
 
 export interface IFsStreamOptions
@@ -64,6 +64,3 @@ export interface IFsStreamData
 {
 	opened?: boolean
 }
-
-// @ts-ignore
-Object.freeze(exports)

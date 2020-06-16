@@ -1,9 +1,10 @@
-import fs = require('fs');
+
 import { ReadStream } from '../read';
 import { WriteStream } from '../write';
 import { SyncReadStream } from '../read-sync';
 import { SyncWriteStream } from '../write-sync';
 import { IFsStreamData } from './interface';
+import fs, { openSync, closeSync } from 'fs';
 
 export const SYM_FS_STREAM_DATA = Symbol('FsStreamData')
 
@@ -17,7 +18,7 @@ export function open(thisArgv: IThisFsStream, argv?: any[])
 		try
 		{
 			// @ts-ignore
-			fd = fs.openSync(thisArgv.path, thisArgv.flags, thisArgv.mode)
+			fd = openSync(thisArgv.path, thisArgv.flags, thisArgv.mode)
 		}
 		catch (er)
 		{
@@ -62,7 +63,7 @@ export function closeFsStreamSync(stream: fs.WriteStream | fs.ReadStream | SyncW
 	try
 	{
 		// @ts-ignore
-		fs.closeSync(stream.fd)
+		closeSync(stream.fd)
 	}
 	catch (e)
 	{
@@ -85,11 +86,12 @@ export function _destroy(thisArgv: IThisFsStream, error: Error | null, callback:
 
 	if (isOpen)
 	{
+		// @ts-ignore
 		thisArgv.once('open', closeFsStreamSync.bind(null, thisArgv, callback, error));
 		return;
 	}
 
-	closeFsStreamSync(thisArgv, callback)
+	closeFsStreamSync(thisArgv as any, callback)
 	// @ts-ignore
 	thisArgv.fd = null;
 }
@@ -123,5 +125,4 @@ export function getFsStreamData(thisArgv: IThisFsStream): IFsStreamData
 	return thisArgv[SYM_FS_STREAM_DATA] = thisArgv[SYM_FS_STREAM_DATA] || {}
 }
 
-// @ts-ignore
-Object.freeze(exports)
+export default exports as typeof import('./internal');

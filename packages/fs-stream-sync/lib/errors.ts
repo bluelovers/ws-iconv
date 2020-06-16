@@ -24,5 +24,3 @@ export enum EnumFsStreamErrorCode
 	ERR_STREAM_DESTROYED = 'ERR_STREAM_DESTROYED',
 }
 
-// @ts-ignore
-Object.freeze(exports)

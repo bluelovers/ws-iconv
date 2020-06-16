@@ -1,6 +1,6 @@
 /// <reference types="node" />
 import { PathLike } from "fs";
-import fs = require('fs');
+import fs from 'fs';
 import { IFsReadStreamOptions, IFsStreamData, IFsStreamState, IFsWriteStreamOptions } from './lib/interface';
 import { SYM_FS_STREAM_DATA } from './lib/internal';
 export declare class ReadStream extends fs.ReadStream {
@@ -16,7 +16,7 @@ export declare class ReadStream extends fs.ReadStream {
     protected [SYM_FS_STREAM_DATA]: IFsStreamData;
     protected end: number;
     constructor(path: PathLike, options?: string | IFsWriteStreamOptions);
-    static readonly create: typeof createReadStream;
+    static get create(): typeof createReadStream;
     open(): void;
 }
 export declare function createReadStream(path: PathLike, options?: string | IFsReadStreamOptions): ReadStream;

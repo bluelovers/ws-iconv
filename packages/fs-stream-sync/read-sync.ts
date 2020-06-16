@@ -1,8 +1,8 @@
-import fs = require('fs');
+import fs from 'fs';
 import { PathLike } from "fs";
 import { IFsReadStreamOptions } from './lib/interface';
 import { getFsStreamData, SYM_FS_STREAM_DATA } from './lib/internal';
-import internal = require("./lib/internal");
+import internal from "./lib/internal";
 import { ReadStream } from './read'
 
 export const kMinPoolSpace = 128;
@@ -57,6 +57,7 @@ export class SyncReadStream extends ReadStream
 		{
 			return this.once('open', function ()
 			{
+				// @ts-ignore
 				this._read(n);
 			});
 		}
@@ -147,5 +148,3 @@ export function createSyncReadStream(path: PathLike, options?: string | IFsReadS
 }
 
 export default SyncReadStream
-// @ts-ignore
-Object.freeze(exports)

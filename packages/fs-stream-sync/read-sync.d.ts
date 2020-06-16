@@ -5,7 +5,7 @@ import { ReadStream } from './read';
 export declare const kMinPoolSpace = 128;
 export declare class SyncReadStream extends ReadStream {
     constructor(path: PathLike, options?: string | IFsReadStreamOptions);
-    static readonly create: typeof createSyncReadStream;
+    static get create(): typeof createSyncReadStream;
     open(): void;
     _read(n: number): boolean | this;
     _destroy(error: Error | null, callback: (error: Error | null) => void): void;

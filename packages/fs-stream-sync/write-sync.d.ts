@@ -4,7 +4,7 @@ import { IFsWriteStreamOptions } from './lib/interface';
 import { WriteStream } from './write';
 export declare class SyncWriteStream extends WriteStream {
     constructor(path: PathLike, options?: string | IFsWriteStreamOptions);
-    static readonly create: typeof createSyncWriteStream;
+    static get create(): typeof createSyncWriteStream;
     open(): void;
     write(chunk: any, cb?: (error: Error | null | undefined) => void): boolean;
     write(chunk: any, encoding?: string, cb?: (error: Error | null | undefined) => void): boolean;

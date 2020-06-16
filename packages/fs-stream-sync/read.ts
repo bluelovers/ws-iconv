@@ -1,8 +1,9 @@
 import { PathLike } from "fs";
-import fs = require('fs');
+import fs from 'fs';
 import { IFsReadStreamOptions, IFsStreamData, IFsStreamState, IFsWriteStreamOptions } from './lib/interface';
 import { getFsStreamData, SYM_FS_STREAM_DATA } from './lib/internal';
 
+// @ts-ignore
 export class ReadStream extends fs.ReadStream
 {
 	protected autoClose: boolean
@@ -50,5 +51,3 @@ export function createReadStream(path: PathLike, options?: string | IFsReadStrea
 }
 
 export default ReadStream
-// @ts-ignore
-Object.freeze(exports)

@@ -1,17 +1,18 @@
 "use strict";
 /// <reference types="node" />
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.createSyncWriteStream = exports.createSyncReadStream = exports.createWriteStream = exports.createReadStream = exports.SyncWriteStream = exports.SyncReadStream = exports.WriteStream = exports.ReadStream = void 0;
 const read_1 = require("./read");
-exports.ReadStream = read_1.ReadStream;
-exports.createReadStream = read_1.createReadStream;
+Object.defineProperty(exports, "ReadStream", { enumerable: true, get: function () { return read_1.ReadStream; } });
+Object.defineProperty(exports, "createReadStream", { enumerable: true, get: function () { return read_1.createReadStream; } });
 const read_sync_1 = require("./read-sync");
-exports.SyncReadStream = read_sync_1.SyncReadStream;
-exports.createSyncReadStream = read_sync_1.createSyncReadStream;
+Object.defineProperty(exports, "SyncReadStream", { enumerable: true, get: function () { return read_sync_1.SyncReadStream; } });
+Object.defineProperty(exports, "createSyncReadStream", { enumerable: true, get: function () { return read_sync_1.createSyncReadStream; } });
 const write_sync_1 = require("./write-sync");
-exports.SyncWriteStream = write_sync_1.SyncWriteStream;
-exports.createSyncWriteStream = write_sync_1.createSyncWriteStream;
+Object.defineProperty(exports, "SyncWriteStream", { enumerable: true, get: function () { return write_sync_1.SyncWriteStream; } });
+Object.defineProperty(exports, "createSyncWriteStream", { enumerable: true, get: function () { return write_sync_1.createSyncWriteStream; } });
 const write_1 = require("./write");
-exports.WriteStream = write_1.WriteStream;
-exports.createWriteStream = write_1.createWriteStream;
+Object.defineProperty(exports, "WriteStream", { enumerable: true, get: function () { return write_1.WriteStream; } });
+Object.defineProperty(exports, "createWriteStream", { enumerable: true, get: function () { return write_1.createWriteStream; } });
 exports.default = exports;
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiaW5kZXguanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJpbmRleC50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiO0FBQUEsOEJBQThCOztBQUU5QixpQ0FBc0Q7QUFRckQscUJBUlEsaUJBQVUsQ0FRUjtBQUdWLDJCQVhvQix1QkFBZ0IsQ0FXcEI7QUFWakIsMkNBQW1FO0FBUWxFLHlCQVJRLDBCQUFjLENBUVI7QUFHZCwrQkFYd0IsZ0NBQW9CLENBV3hCO0FBVnJCLDZDQUFzRTtBQU9yRCwwQkFQUiw0QkFBZSxDQU9RO0FBR1QsZ0NBVkcsa0NBQXFCLENBVUg7QUFUNUMsbUNBQXlEO0FBSzVDLHNCQUxKLG1CQUFXLENBS0k7QUFHTCw0QkFSRyx5QkFBaUIsQ0FRSDtBQUlwQyxrQkFBZSxPQUFtQyxDQUFDIiwic291cmNlc0NvbnRlbnQiOlsiLy8vIDxyZWZlcmVuY2UgdHlwZXM9XCJub2RlXCIgLz5cblxuaW1wb3J0IHsgUmVhZFN0cmVhbSwgY3JlYXRlUmVhZFN0cmVhbSB9IGZyb20gJy4vcmVhZCc7XG5pbXBvcnQgeyBTeW5jUmVhZFN0cmVhbSwgY3JlYXRlU3luY1JlYWRTdHJlYW0gfSBmcm9tICcuL3JlYWQtc3luYyc7XG5pbXBvcnQgeyBTeW5jV3JpdGVTdHJlYW0sIGNyZWF0ZVN5bmNXcml0ZVN0cmVhbSB9IGZyb20gJy4vd3JpdGUtc3luYyc7XG5pbXBvcnQgeyBXcml0ZVN0cmVhbSwgY3JlYXRlV3JpdGVTdHJlYW0gfSBmcm9tICcuL3dyaXRlJztcblxuZXhwb3J0IHsgSUZzUmVhZFN0cmVhbU9wdGlvbnMsIElGc1dyaXRlU3RyZWFtT3B0aW9ucywgUGF0aExpa2UgfSBmcm9tICcuL2xpYi9pbnRlcmZhY2UnO1xuXG5leHBvcnQge1xuXHRSZWFkU3RyZWFtLCBXcml0ZVN0cmVhbSxcblx0U3luY1JlYWRTdHJlYW0sIFN5bmNXcml0ZVN0cmVhbSxcblxuXHRjcmVhdGVSZWFkU3RyZWFtLCBjcmVhdGVXcml0ZVN0cmVhbSxcblx0Y3JlYXRlU3luY1JlYWRTdHJlYW0sIGNyZWF0ZVN5bmNXcml0ZVN0cmVhbVxufVxuXG5leHBvcnQgZGVmYXVsdCBleHBvcnRzIGFzIHR5cGVvZiBpbXBvcnQoJy4vaW5kZXgnKTtcbiJdfQ==
+//# sourceMappingURL=index.js.map

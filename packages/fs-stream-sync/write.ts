@@ -1,8 +1,9 @@
-import fs = require("fs");
+import fs from "fs";
 import { PathLike } from 'fs';
 import { IFsPath, IFsStreamData, IFsStreamState, IFsWriteStreamOptions } from './lib/interface';
 import { getFsStreamData, SYM_FS_STREAM_DATA } from './lib/internal';
 
+// @ts-ignore
 export class WriteStream extends fs.WriteStream
 {
 	protected autoClose: boolean
@@ -69,5 +70,3 @@ export function createWriteStream(path: PathLike, options?: string | IFsWriteStr
 }
 
 export default WriteStream
-// @ts-ignore
-Object.freeze(exports)

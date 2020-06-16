@@ -1,5 +1,5 @@
 /// <reference types="node" />
-import fs = require("fs");
+import fs from "fs";
 import { PathLike } from 'fs';
 import { IFsPath, IFsStreamData, IFsStreamState, IFsWriteStreamOptions } from './lib/interface';
 import { SYM_FS_STREAM_DATA } from './lib/internal';
@@ -23,7 +23,7 @@ export declare class WriteStream extends fs.WriteStream {
      */
     readonly path: IFsPath;
     constructor(path: PathLike, options?: string | IFsWriteStreamOptions);
-    static readonly create: typeof createWriteStream;
+    static get create(): typeof createWriteStream;
     open(): void;
 }
 export declare function createWriteStream(path: PathLike, options?: string | IFsWriteStreamOptions): WriteStream;
