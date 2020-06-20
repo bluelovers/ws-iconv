@@ -1,10 +1,11 @@
 /// <reference types="node" />
-import iconvLite = require('iconv-lite');
-import jschardet = require('jschardet');
+import iconvLite from 'iconv-lite';
+import jschardet from 'jschardet';
 import encodingExists = iconvLite.encodingExists;
-export * from './encoding';
 export * from './lib/const';
-import { disableCodecDataWarn, IDetectData, vEncoding } from './encoding';
+export * from './encoding';
+import { disableCodecDataWarn } from './encoding';
+import { IDetectData, vEncoding } from './lib/const';
 export { encodingExists, jschardet, iconvLite, disableCodecDataWarn, };
 /**
  * 停用編碼檢測警告

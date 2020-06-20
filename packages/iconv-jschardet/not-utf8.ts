@@ -1,8 +1,8 @@
 /**
  * Created by user on 2019/3/21.
  */
-import { CODEC_DATA_ENCODING_ID, detect } from './index';
-import { _enc } from './lib/const';
+import { detect } from './index';
+import { CODEC_DATA_ENCODING_ID, _enc } from './lib/const';
 
 /**
  * 檢測 Buffer 並且返回小寫標準化後的編碼 ID

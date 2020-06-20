@@ -1,4 +1,4 @@
-import iconvLite = require('iconv-lite');
+import iconvLite from 'iconv-lite';
 import console from 'debug-color2/logger';
 import { _enc, codec_table, ENUM_NODE_ENCODING, IEncodingCodec, NodeEncoding, vEncoding } from './lib/const';
 

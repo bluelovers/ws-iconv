@@ -14,7 +14,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.codec_data = exports.disableCodecDataWarn = exports.isNodeEncoding = void 0;
-const iconvLite = require("iconv-lite");
+const iconv_lite_1 = __importDefault(require("iconv-lite"));
 const logger_1 = __importDefault(require("debug-color2/logger"));
 const const_1 = require("./lib/const");
 __exportStar(require("./lib/const"), exports);
@@ -39,7 +39,7 @@ function codec_data(encoding) {
     if (!const_1.codec_table[enc = const_1._enc(encoding)]) {
         try {
             // @ts-ignore
-            codec = iconvLite.getCodec(encoding);
+            codec = iconv_lite_1.default.getCodec(encoding);
             enc2 = codec.encodingName || codec.enc;
             if (const_1.codec_table[enc2]) {
                 enc = enc2;

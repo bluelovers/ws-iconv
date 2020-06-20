@@ -14,15 +14,15 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.encode = exports.decode = exports.detect = exports.BufferFrom = exports.skipDecodeWarning = exports.disableCodecDataWarn = exports.iconvLite = exports.jschardet = exports.encodingExists = void 0;
-const iconvLite = require("iconv-lite");
-exports.iconvLite = iconvLite;
-const jschardet = require("jschardet");
-exports.jschardet = jschardet;
+const iconv_lite_1 = __importDefault(require("iconv-lite"));
+exports.iconvLite = iconv_lite_1.default;
+const jschardet_1 = __importDefault(require("jschardet"));
+exports.jschardet = jschardet_1.default;
 const logger_1 = __importDefault(require("debug-color2/logger"));
-var encodingExists = iconvLite.encodingExists;
+var encodingExists = iconv_lite_1.default.encodingExists;
 exports.encodingExists = encodingExists;
-__exportStar(require("./encoding"), exports);
 __exportStar(require("./lib/const"), exports);
+__exportStar(require("./encoding"), exports);
 const encoding_1 = require("./encoding");
 Object.defineProperty(exports, "disableCodecDataWarn", { enumerable: true, get: function () { return encoding_1.disableCodecDataWarn; } });
 const const_1 = require("./lib/const");
@@ -31,7 +31,7 @@ const const_1 = require("./lib/const");
  */
 function skipDecodeWarning(bool = true) {
     // @ts-ignore
-    return iconvLite.skipDecodeWarning = bool;
+    return iconv_lite_1.default.skipDecodeWarning = bool;
 }
 exports.skipDecodeWarning = skipDecodeWarning;
 /**
@@ -46,7 +46,7 @@ function BufferFrom(str, encoding = 'utf8', from) {
         data = str;
     }
     data = decode(data);
-    let buf = iconvLite.encode(data, encoding);
+    let buf = iconv_lite_1.default.encode(data, encoding);
     return buf;
 }
 exports.BufferFrom = BufferFrom;
@@ -54,7 +54,7 @@ exports.BufferFrom = BufferFrom;
  * 檢測輸入內容編碼
  */
 function detect(str, plus) {
-    let ret = jschardet.detect(str);
+    let ret = jschardet_1.default.detect(str);
     if (plus) {
         let cd = encoding_1.codec_data(ret.encoding);
         if (cd) {
@@ -106,7 +106,7 @@ function decode(str, from = null) {
         case "UTF-16BE" /* UTF_16_BE */:
         case "EUC-JP" /* EUC_JP */:
         case "SHIFT_JIS" /* SHIFT_JIS */:
-            data = iconvLite.decode(str, from);
+            data = iconv_lite_1.default.decode(str, from);
             break;
         //case 'ASCII':
         //case 'UTF-8':
@@ -117,11 +117,11 @@ function decode(str, from = null) {
         default:
             c = c || detect(str);
             // @ts-ignore
-            if (!iconvLite.skipDecodeWarning) {
+            if (!iconv_lite_1.default.skipDecodeWarning) {
                 logger_1.default.warn('decode', from, c);
             }
             //data = str;
-            data = iconvLite.decode(str, from);
+            data = iconv_lite_1.default.decode(str, from);
             break;
     }
     return data;
@@ -133,7 +133,7 @@ exports.decode = decode;
 function encode(str, to = "utf8" /* UTF8 */, from = null) {
     let buf = BufferFrom(str, "utf8" /* UTF8 */);
     // @ts-ignore
-    return iconvLite.encode(buf, to);
+    return iconv_lite_1.default.encode(buf, to);
 }
 exports.encode = encode;
 exports.default = exports;

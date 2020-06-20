@@ -1,8 +1,5 @@
 /// <reference types="node" />
-/**
- * Created by user on 2019/3/21.
- */
-import { CODEC_DATA_ENCODING_ID } from './index';
+import { CODEC_DATA_ENCODING_ID } from './lib/const';
 /**
  * 檢測 Buffer 並且返回小寫標準化後的編碼 ID
  */
