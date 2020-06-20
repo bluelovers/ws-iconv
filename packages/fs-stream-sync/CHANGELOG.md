@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.2](https://github.com/bluelovers/ws-iconv/compare/fs-stream-sync@2.0.1...fs-stream-sync@2.0.2) (2020-06-20)
+
+
+### 📦　Code Refactoring
+
+* update source ([c9a1c10](https://github.com/bluelovers/ws-iconv/commit/c9a1c10f7447a6880a8594bc954dd0de8bd26788))
+
+
+
+
+
 ## 2.0.1 (2020-06-16)
 
 

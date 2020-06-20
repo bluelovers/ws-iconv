@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.9](https://github.com/bluelovers/ws-iconv/compare/iconv-jschardet@2.0.8...iconv-jschardet@2.0.9) (2020-06-20)
+
+
+### 📦　Code Refactoring
+
+* code splitting ([0d4014e](https://github.com/bluelovers/ws-iconv/commit/0d4014ea27e9c2fa1d19337c237afb5380f23ad9))
+* update source ([c9a1c10](https://github.com/bluelovers/ws-iconv/commit/c9a1c10f7447a6880a8594bc954dd0de8bd26788))
+
+
+
+
+
 ## [2.0.8](https://github.com/bluelovers/ws-iconv/compare/iconv-jschardet@2.0.7...iconv-jschardet@2.0.8) (2020-06-09)
 
 **Note:** Version bump only for package iconv-jschardet
