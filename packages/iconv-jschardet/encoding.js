@@ -14,9 +14,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.codec_data = exports.disableCodecDataWarn = exports.isNodeEncoding = void 0;
-const iconv_lite_1 = __importDefault(require("iconv-lite"));
 const logger_1 = __importDefault(require("debug-color2/logger"));
 const const_1 = require("./lib/const");
+const util_1 = require("./lib/util");
 __exportStar(require("./lib/const"), exports);
 //export { console }
 function isNodeEncoding(encoding) {
@@ -30,6 +30,7 @@ function disableCodecDataWarn(bool = true) {
 }
 exports.disableCodecDataWarn = disableCodecDataWarn;
 function codec_data(encoding) {
+    var _a, _b, _c;
     if (encoding == null) {
         throw new Error(`encoding '${encoding}' is unknown or broken`);
     }
@@ -37,16 +38,10 @@ function codec_data(encoding) {
     let enc;
     let enc2;
     if (!const_1.codec_table[enc = const_1._enc(encoding)]) {
-        try {
-            // @ts-ignore
-            codec = iconv_lite_1.default.getCodec(encoding);
-            enc2 = codec.encodingName || codec.enc;
-            if (const_1.codec_table[enc2]) {
-                enc = enc2;
-            }
-        }
-        catch (e) {
-        }
+        let data = util_1.getIconvLiteCodec(encoding);
+        codec = (_a = data.codec) !== null && _a !== void 0 ? _a : codec;
+        enc2 = (_b = data.enc2) !== null && _b !== void 0 ? _b : enc2;
+        enc = (_c = data.enc) !== null && _c !== void 0 ? _c : enc;
     }
     if (const_1.codec_table[enc]) {
         const_1.codec_table[enc].key = const_1.codec_table[enc].key || enc;

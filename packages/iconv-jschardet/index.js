@@ -6,6 +6,18 @@ var __createBinding = (this && this.__createBinding) || (Object.create ? (functi
     if (k2 === undefined) k2 = k;
     o[k2] = m[k];
 }));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
 var __exportStar = (this && this.__exportStar) || function(m, exports) {
     for (var p in m) if (p !== "default" && !exports.hasOwnProperty(p)) __createBinding(exports, m, p);
 };
@@ -14,13 +26,13 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.encode = exports.decode = exports.detect = exports.BufferFrom = exports.skipDecodeWarning = exports.disableCodecDataWarn = exports.iconvLite = exports.jschardet = exports.encodingExists = void 0;
-const iconv_lite_1 = __importDefault(require("iconv-lite"));
+const iconv_lite_1 = __importStar(require("iconv-lite"));
 exports.iconvLite = iconv_lite_1.default;
+Object.defineProperty(exports, "encodingExists", { enumerable: true, get: function () { return iconv_lite_1.encodingExists; } });
 const jschardet_1 = __importDefault(require("jschardet"));
 exports.jschardet = jschardet_1.default;
 const logger_1 = __importDefault(require("debug-color2/logger"));
-var encodingExists = iconv_lite_1.default.encodingExists;
-exports.encodingExists = encodingExists;
+//import encodingExists = iconvLite.encodingExists;
 __exportStar(require("./lib/const"), exports);
 __exportStar(require("./encoding"), exports);
 const encoding_1 = require("./encoding");

@@ -1,6 +1,7 @@
 import iconvLite from 'iconv-lite';
 import console from 'debug-color2/logger';
 import { _enc, codec_table, ENUM_NODE_ENCODING, IEncodingCodec, NodeEncoding, vEncoding } from './lib/const';
+import { getIconvLiteCodec } from './lib/util';
 
 export * from './lib/const';
 //export { console }
@@ -34,21 +35,11 @@ export function codec_data(encoding: vEncoding): IEncodingCodec
 
 	if (!codec_table[enc = _enc(encoding)])
 	{
-		try
-		{
-			// @ts-ignore
-			codec = iconvLite.getCodec(encoding);
-			enc2 = codec.encodingName || codec.enc;
+		let data = getIconvLiteCodec(encoding)
 
-			if (codec_table[enc2])
-			{
-				enc = enc2;
-			}
-		}
-		catch (e)
-		{
-
-		}
+		codec = data.codec ?? codec;
+		enc2 = data.enc2 ?? enc2;
+		enc = data.enc ?? enc;
 	}
 
 	if (codec_table[enc])

@@ -1,8 +1,8 @@
-import iconvLite from 'iconv-lite';
+import iconvLite, { encodingExists } from 'iconv-lite';
 import jschardet from 'jschardet';
 import console from 'debug-color2/logger';
 
-import encodingExists = iconvLite.encodingExists;
+//import encodingExists = iconvLite.encodingExists;
 
 export * from './lib/const';
 export * from './encoding';

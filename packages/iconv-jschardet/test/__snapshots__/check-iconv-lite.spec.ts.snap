@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`iconvLite 1`] = `
+Object {
+  "IconvLiteDecoderStream": [Function],
+  "IconvLiteEncoderStream": [Function],
+  "_canonicalizeEncoding": [Function],
+  "_codecDataCache": Object {},
+  "decode": [Function],
+  "decodeStream": [Function],
+  "defaultCharSingleByte": "?",
+  "defaultCharUnicode": "�",
+  "enableStreamingAPI": [Function],
+  "encode": [Function],
+  "encodeStream": [Function],
+  "encodingExists": [Function],
+  "encodings": null,
+  "fromEncoding": [Function],
+  "getCodec": [Function],
+  "getDecoder": [Function],
+  "getEncoder": [Function],
+  "supportsStreams": true,
+  "toEncoding": [Function],
+}
+`;
