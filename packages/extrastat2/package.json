@@ -1,15 +1,7 @@
 {
-  "name": "extrastat",
+  "name": "extrastat2",
   "version": "4.2.0",
   "description": "Resolve fs.Stat to mimetype, ownername, groupname, and human-readable permissions.",
-  "main": "extrastat.js",
-  "scripts": {
-    "test": "mkdir -p exampleEmpty && mocha && rm -r exampleEmpty"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/jazzyjackson/extrastat.git"
-  },
   "keywords": [
     "MIME",
     "mimetype",
@@ -24,17 +16,30 @@
     "fs.stat",
     "fs"
   ],
-  "author": "Colten Jackson",
-  "license": "BSD-3-Clause",
+  "homepage": "https://github.com/bluelovers/ws-iconv/tree/master/packages/extrastat2#readme",
   "bugs": {
-    "url": "https://github.com/jazzyjackson/extrastat/issues"
+    "url": "https://github.com/bluelovers/ws-iconv/issues"
   },
-  "homepage": "https://github.com/jazzyjackson/extrastat#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bluelovers/ws-iconv.git"
+  },
+  "license": "BSD-3-Clause",
+  "author": "Colten Jackson",
+  "main": "extrastat.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mkdir -p exampleEmpty && mocha && rm -r exampleEmpty",
+    "prepublishOnly_": "yarn run prepublishOnly:check-bin && yarn run test",
+    "prepublishOnly:check-bin": "ynpx --quiet @yarn-tool/check-pkg-bin",
+    "prepublishOnly:update": "yarn run ncu && yarn run sort-package-json",
+    "ncu": "ynpx --quiet yarn-tool -- ncu -u",
+    "sort-package-json": "ynpx --quiet yarn-tool -- sort"
+  },
   "dependencies": {
     "identitymap": "^1.2.0"
   },
-  "devDependencies": {
-    "chai": "^4.2.0",
-    "mocha": "^6.0.2"
-  }
+  "devDependencies": {}
 }

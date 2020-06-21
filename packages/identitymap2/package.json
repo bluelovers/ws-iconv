@@ -1,9 +1,25 @@
 {
-  "name": "identitymap",
+  "name": "identitymap2",
   "version": "1.2.0",
   "description": "Maps every uid / gid on the system to username and groupname",
-  "main": "identitymap.js",
-  "repository": "https://github.com/jazzyjackson/identifymap",
+  "keywords": [],
+  "homepage": "https://github.com/bluelovers/ws-iconv/tree/master/packages/identitymap2#readme",
+  "bugs": {
+    "url": "https://github.com/bluelovers/ws-iconv/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bluelovers/ws-iconv.git"
+  },
+  "license": "MIT",
   "author": "Colten Jackson",
-  "license": "MIT"
+  "main": "identitymap.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepublishOnly_": "yarn run prepublishOnly:check-bin && yarn run test",
+    "prepublishOnly:check-bin": "ynpx --quiet @yarn-tool/check-pkg-bin",
+    "prepublishOnly:update": "yarn run ncu && yarn run sort-package-json",
+    "ncu": "ynpx --quiet yarn-tool -- ncu -u",
+    "sort-package-json": "ynpx --quiet yarn-tool -- sort"
+  }
 }
