@@ -3,17 +3,17 @@ const path = require('path')
 /**
  * You can require a JSON file to convert it to an object. Neat!
 
- * Next trick will be handling bash expensions for ~ 
+ * Next trick will be handling bash expensions for ~
  */
 
-const MIMEtypes = require("./mimemap.json")
-const defaults  = require('./.config.json')
+const MIMEtypes = require("../mimemap.json")
+const defaults  = require('../.config.json')
 const {id, gid} = require('identitymap')
 
 let getRole = stat =>
-  process.getuid() == stat.uid           ? 'user'  : 
-  process.getgroups().includes(stat.gid) ? 'group' : 
-                                           'other' 
+  process.getuid() == stat.uid           ? 'user'  :
+  process.getgroups().includes(stat.gid) ? 'group' :
+                                           'other'
 
 /**
 @param {string} pathname
@@ -115,7 +115,7 @@ let resolvers = {
         stat.isDirectory() ? 'application/directory' :
         stat.isFIFO()      ? 'application/FIFO'      :
         stat.isSocket()    ? 'application/socket'    :
-        /* otherwise...   */ 'application/unknown'  
+        /* otherwise...   */ 'application/unknown'
     }
   },
   /**
@@ -175,7 +175,7 @@ let resolvers = {
           mimetype: resolvers.mimetype([dirent.name], dirent).mimetype
         }))
       })
-    })   
+    })
   })
 }
 
@@ -207,7 +207,7 @@ function getOptionResolvers(options){
     )
     .filter(each => each.pop())
     .map(each => resolvers[each.pop()])
-    .filter(Boolean) 
+    .filter(Boolean)
 }
 
 
@@ -223,15 +223,15 @@ extrastat('favicon.ino', {fileContents: 'base64'})
 **/
 
 // later... extrastat-lookalive keeps a cache of objects and inotifys them so that any request for the statistics of an object,
-// or whole reams of objects (detailed stats in directory listings), 
+// or whole reams of objects (detailed stats in directory listings),
 // but at least you have the mimetype without having to poll 'stat' on every object, which is why I did all this in the first place.
 
 // keys
 //  .map(key => {[key]: extensions[key](stat)})
 //  .reduce((a,b) => Object.assign(a,b), {filestat: stat})
 // in this way, I only call functions that are set to true in the options, saving valueble time per call.
-// easier to join pathparts than to resolve and split, 
+// easier to join pathparts than to resolve and split,
 // function extraExtraStat(pathparts, callback, extrastat){
-//   // promise.all -- parallel async processes for performaing 'fs.readdir' on 3 paths at once. 
+//   // promise.all -- parallel async processes for performaing 'fs.readdir' on 3 paths at once.
 //   Promise.all(keymap.map(key => new Promise())
 // }
