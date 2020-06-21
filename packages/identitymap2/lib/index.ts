@@ -5,11 +5,11 @@
 -- in the future, watch for changes of this file and update your map
 -- regex is not compitable with unencrypted password, expects stars
 */
-const fs = require('fs')
-const os = require('os')
-const child_process = require('child_process')
+import child_process from 'child_process';
+import os from 'os';
+import fs from 'fs';
 
-let matchKeyValue = (new RegExp).compile(
+export const matchKeyValue = (new RegExp).compile(
     '^'           +// Only match at the beginning of line
     '([\\w\\.]+)' +// (Capture) at least one+ word character \w [and] dots \.
     '[^-\\d]*'    +// Skip any number* of everything thats not^ a hyphen - [or] a digit \d
@@ -18,19 +18,19 @@ let matchKeyValue = (new RegExp).compile(
     '$'            // end of line
 )
 
-function splitKeyValue(line){
+export function splitKeyValue(line){
   return line.replace(matchKeyValue, (match, groupname, gid) => [gid, groupname]).split(',')
 }
 
-function neitherCommentNorBlank(line){
+export function neitherCommentNorBlank(line){
   return line && line[0] != '#'
 }
 
-function rollup(accumulator, current){
+export function rollup(accumulator, current){
   return Object.assign(accumulator, {[current.shift()]: current.shift()})
 }
 
-function parse(bufferinput){
+export function parse(bufferinput){
   return bufferinput
     .toString()
     .split(os.EOL)
@@ -39,17 +39,16 @@ function parse(bufferinput){
     .reduce(rollup, new Object)
 }
 
-function gids(){
+export function gids(){
   return parse(fs.readFileSync('/etc/group'))
 }
 
-function ids(){
+export function ids(){
   switch(process.platform){
-    case 'darwin': 
+    case 'darwin':
       return parse(child_process.execSync('dscl . -list /Users UniqueID'))
     case 'linux':
-    case 'freebsd': 
+    case 'freebsd':
       return parse(fs.readFileSync('/etc/passwd'))
   }
 }
-module.exports = {gid: gids(), id: ids()}
