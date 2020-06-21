@@ -1,0 +1,12 @@
+{
+	"filestat":  false,
+	"filename":  true,
+	"filemode":  true,
+	"pathname":  true,
+	"mimetype":  true,
+	"ownername": false,
+	"groupname": false,
+	"parents":   false,
+	"siblings":  false,
+	"children":  false
+}
