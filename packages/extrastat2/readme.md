@@ -3,7 +3,7 @@
 
 I wrote this because I wanted a lightweight callback to add Content-Type headers to my font files and css files. Then I started added more features to mimic the utility of `ls -la`, printing the names of the owner, group owner, and the permissions as 'rwxr-xr-w' as opposted to fs.stat's representation of an octal mode, `16877`
 
-Uses nodejs filesystem builtins to determine if a file is a directory. Returns the fs.Stat object as well, so you can grab byte length for Content-Length, and 
+Uses nodejs filesystem builtins to determine if a file is a directory. Returns the fs.Stat object as well, so you can grab byte length for Content-Length, and
 
 ### Usage
 `yarn add extrastat`
@@ -27,13 +27,14 @@ extraStat('package.json', (err, stat) => {
 
 Here's a real example with default config if you console.log the output:
 ```js
+```js
 extrastat = util.promisify(extrastat)
 
 console.log(await extrastat('/'))
 
 { 
   filename: '',
-  pathname: './',
+  fullpath: './',
   mimetype: 'application/directory',
   ownername: 'root',
   groupname: 'wheel',
@@ -156,4 +157,4 @@ TODO:
 
   so there may have to be some creative thinking around the cache of parent, children, and sibling objects. Can I just keep one array of each per directory ? and all the sibling and children in that directory will have the same list of parents, just point to that object in memory. 'siblings of x','parents of x','children of x', well children at least will normally be unique.
 
-  Maybe if its done by inode it will be more effecient... parents of inode x. 
+  Maybe if its done by inode it will be more effecient... parents of inode x.

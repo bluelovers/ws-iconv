@@ -1,61 +1,99 @@
-const {expect} = require('chai')
-const defaults  = require('../.config.json')
-const extrastat = require('../extrastat')
-const path = require('path')
+import extrastatAsync, { IOptions, IList } from '../';
+import path, { join } from 'path';
+import { ensureDirSync } from 'fs-extra';
 
-extrastatAsync = require('util').promisify(extrastat)
+describe('extrastatSync Default Behavoir', () =>
+{
 
-describe('extrastatSync Default Behavoir', () => {
+	it(
+		'Returns an object containing a key for each options set to true',
+		async () =>
+		{
+			let stat = await extrastatAsync(process.cwd());
 
-	it('Returns an object containing a key for each options set to true', async function(){
-		let stat = await extrastatAsync(process.cwd())
-		expect(stat).to.have.all.keys([
-			'filemode',
-			'filename',
-			'pathname',
-			'mimetype',
-		])
+			[
+				'name',
+				'pathname',
+				'mimetype',
+			].forEach(name => expect(stat).toHaveProperty(name))
+			;
 
-		expect(stat).to.not.have.any.keys([
-			'role',
-			'filestat',
-			'ownername',
-			'groupname',
-			'parents',
-			'children',
-			'siblings'
-		])
-	})
+			[
+				'role',
+				'filestat',
+				'ownername',
+				'groupname',
+				'parents',
+				'children',
+				'siblings',
+			].forEach(name => expect(stat).not.toHaveProperty(name))
+			;
+		},
+	)
 })
 
-describe('options for children and siblings', () => {
-	it('lets you get the children of the current working directory', async function(){
-		let stat = await extrastatAsync(process.cwd(), {children: true})
-		expect(stat.children).to.deep.include({
-			filename: 'extrastat.js',
-			pathname: path.resolve('extrastat.js'),
-			mimetype: 'text/plain',
-		})
+describe('options for children and siblings', () =>
+{
+	it(
+		'lets you get the children of the current working directory',
+		async () =>
+		{
+			let stat = await extrastatAsync(process.cwd(), {
+				children: true,
+			} as IOptions)
+
+			checkList(stat.children)
+		},
+	)
+
+	it('gives you the siblings of a file', async () =>
+	{
+		let stat = await extrastatAsync('package.json', { children: true, siblings: true } as IOptions)
+		expect(stat.children).toBe(null)
+
+		checkList(stat.siblings)
 	})
 
-	it('gives you the siblings of a file', async function(){
-		let stat = await extrastatAsync('package.json', {children: true, siblings: true})
-		expect(stat.children).to.equal(null)
-		expect(stat.siblings).to.deep.include({
-			filename: 'extrastat.js',
-			pathname: path.resolve('extrastat.js'),
-			mimetype: 'text/plain',
-		})
-	})
+	it(
+		'lets you request children on a nondirectory, returning null',
+		async () =>
+		{
+			let stat = await extrastatAsync('package.json', { children: true } as IOptions)
+			expect(stat.children).toBe(null)
+		},
+	)
 
-	it('lets you request children on a nondirectory, returning null', async function(){
-		let stat = await extrastatAsync('package.json', {children: true})
-		expect(stat.children).to.equal(null)
-	})
+	it(
+		'returns an empty array as children when it encounters an empty directory',
+		async () =>
+		{
+			let target = join(__dirname, 'exampleEmpty')
+			ensureDirSync(target)
 
-	it('returns an empty array as children when it encounters an empty directory', async function(){
-		let stat = await extrastatAsync('exampleEmpty', {children: true, siblings: true})
-		expect(stat.children).to.be.an("array")
-		expect(stat.children.length).to.equal(0)
-	})
+			let stat = await extrastatAsync(target, {
+				children: true,
+				siblings: true
+			} as IOptions)
+			expect(Array.isArray(stat.children)).toStrictEqual(true)
+			expect(stat.children).toHaveLength(0)
+		},
+	)
 })
+
+export function checkList(list: IList[])
+{
+	expect(list.length).toBeGreaterThanOrEqual(1)
+
+	list
+		.forEach(row => {
+			expect(row).toMatchObject({
+				name: expect.any(String),
+				pathname: expect.any(String),
+			}as IList)
+
+			expect(row).toHaveProperty('mimetype')
+		})
+	;
+
+
+}

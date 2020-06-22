@@ -31,15 +31,19 @@
     "test": "test"
   },
   "scripts": {
-    "test": "mkdir -p exampleEmpty && mocha && rm -r exampleEmpty",
-    "prepublishOnly_": "yarn run prepublishOnly:check-bin && yarn run test",
+    "test": "jest",
+    "prepublishOnly": "yarn run test",
     "prepublishOnly:check-bin": "ynpx --quiet @yarn-tool/check-pkg-bin",
     "prepublishOnly:update": "yarn run ncu && yarn run sort-package-json",
     "ncu": "ynpx --quiet yarn-tool -- ncu -u",
     "sort-package-json": "ynpx --quiet yarn-tool -- sort"
   },
   "dependencies": {
-    "identitymap": "^1.2.0"
+    "fs-extra": "^9.0.1",
+    "lodash": "^4.17.15",
+    "mime-types": "^2.1.27"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "@types/mime-types": "^2.1.0"
+  }
 }
