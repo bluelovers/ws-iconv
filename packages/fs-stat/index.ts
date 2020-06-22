@@ -5,16 +5,17 @@ import { stat, lstat, statSync, lstatSync, Stats } from 'fs-extra';
 
 export { Stats as IStats }
 
-export function fsStat(path: string | Buffer, options?: {
-	allowSymlinks?: boolean,
-})
+export interface IOptions
+{
+	allowSymlinks?: boolean;
+}
+
+export function fsStat(path: string | Buffer, options?: IOptions)
 {
 	return (options?.allowSymlinks ? stat : lstat)(path)
 }
 
-export function fsStatSync(path: string | Buffer, options?: {
-	allowSymlinks?: boolean,
-})
+export function fsStatSync(path: string | Buffer, options?: IOptions)
 {
 	return (options?.allowSymlinks ? statSync : lstatSync)(path)
 }

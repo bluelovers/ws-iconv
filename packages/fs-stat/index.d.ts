@@ -4,10 +4,9 @@
  */
 import { Stats } from 'fs-extra';
 export { Stats as IStats };
-export declare function fsStat(path: string | Buffer, options?: {
+export interface IOptions {
     allowSymlinks?: boolean;
-}): Promise<Stats>;
-export declare function fsStatSync(path: string | Buffer, options?: {
-    allowSymlinks?: boolean;
-}): Stats;
+}
+export declare function fsStat(path: string | Buffer, options?: IOptions): Promise<Stats>;
+export declare function fsStatSync(path: string | Buffer, options?: IOptions): Stats;
 export default fsStat;
