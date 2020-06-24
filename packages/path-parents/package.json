@@ -5,7 +5,7 @@
     "main" : "index.js",
     "bin" : {},
     "directories" : {
-        "example" : "example",
+        "example" : "test/example",
         "test" : "test"
     },
     "dependencies" : {
