@@ -9,10 +9,16 @@ export function statExtra(pathname: string, options?: IOptions)
 	const parsedPath = parse(resolvedpath)
 
 	return stat(resolvedpath)
-		.then(statData => {
+		// @ts-ignore
+		.then((statData: IStatsExtra) => {
+
+			statData.parsed = parsedPath;
+
 			return Promise
 				.all(getOptionResolvers(options).map(fn=> fn(parsedPath, statData)))
-				.then(r => statData as IStatsExtra)
+				.then(() => {
+					return statData
+				})
 		})
 	;
 }

@@ -1,19 +1,25 @@
 /// <reference types="node" />
 import { ParsedPath } from "path";
 import * as resolvers from './resolvers';
-import { Stats } from 'fs-extra';
-export interface IList {
+import { Stats, Dirent } from 'fs-extra';
+import { Mode } from 'stat-mode';
+import { ITSPartialRecord } from 'ts-type';
+export interface IStatsPlus {
     name: string;
     pathname: string;
     mimetype: string;
 }
-export interface IOptions extends Record<(keyof typeof resolvers) | keyof IList, boolean> {
+export interface IList extends Dirent, IStatsPlus {
 }
-export interface IStatsExtra extends Stats, Partial<IList> {
+export interface IOptions extends ITSPartialRecord<(keyof typeof resolvers) | keyof IStatsPlus, boolean> {
+}
+export interface IStatsExtra extends Stats, Partial<IStatsPlus> {
     name?: string;
     pathname?: string;
     children?: IList[];
     siblings?: IList[];
+    rwx?: Mode;
+    parsed: ParsedPath;
 }
 export interface IResolver {
     (parsedPath: ParsedPath, stat: IStatsExtra): IStatsExtra;

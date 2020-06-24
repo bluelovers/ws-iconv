@@ -2,6 +2,7 @@ import { ParsedPath, join, sep } from "path";
 import { _mimetype } from './mime';
 import { list } from './list';
 import { IStatsExtra } from './types';
+export { rwx } from './resolvers/rwx';
 
 /*
 module.exports = {

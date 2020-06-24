@@ -13,8 +13,7 @@ export function list(resolvedpath: string)
 		{
 			if (err) return reject(err)
 
-			resolve(dirents.map(dirent => ({
-				name: dirent.name,
+			resolve(dirents.map(dirent => Object.assign(dirent, {
 				pathname: path.resolve(resolvedpath, dirent.name),
 				mimetype: _mimetype(parse(dirent.name), dirent),
 			})))

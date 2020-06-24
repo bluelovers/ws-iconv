@@ -30,8 +30,7 @@ function list(resolvedpath) {
         }, (err, dirents) => {
             if (err)
                 return reject(err);
-            resolve(dirents.map(dirent => ({
-                name: dirent.name,
+            resolve(dirents.map(dirent => Object.assign(dirent, {
                 pathname: path_1.default.resolve(resolvedpath, dirent.name),
                 mimetype: mime_1._mimetype(path_1.parse(dirent.name), dirent),
             })));

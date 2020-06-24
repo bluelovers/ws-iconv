@@ -1,9 +1,11 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.children = exports.siblings = exports.mimetype = exports.pathname = exports.name = void 0;
+exports.children = exports.siblings = exports.mimetype = exports.pathname = exports.name = exports.rwx = void 0;
 const path_1 = require("path");
 const mime_1 = require("./mime");
 const list_1 = require("./list");
+var rwx_1 = require("./resolvers/rwx");
+Object.defineProperty(exports, "rwx", { enumerable: true, get: function () { return rwx_1.rwx; } });
 /*
 module.exports = {
 filename: filename,

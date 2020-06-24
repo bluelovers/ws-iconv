@@ -8,10 +8,14 @@ function statExtra(pathname, options) {
     const resolvedpath = path_1.resolve(pathname);
     const parsedPath = path_1.parse(resolvedpath);
     return fs_extra_1.stat(resolvedpath)
-        .then(statData => {
+        // @ts-ignore
+        .then((statData) => {
+        statData.parsed = parsedPath;
         return Promise
             .all(options_1.getOptionResolvers(options).map(fn => fn(parsedPath, statData)))
-            .then(r => statData);
+            .then(() => {
+            return statData;
+        });
     });
 }
 exports.statExtra = statExtra;
