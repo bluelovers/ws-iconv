@@ -1,6 +1,6 @@
 import { ParsedPath } from "path";
 import * as resolvers from './resolvers';
-import { Stats, Dirent } from 'fs-extra';
+import { Stats, Dirent } from 'fs';
 import { Mode } from 'stat-mode';
 import { ITSPartialRecord } from 'ts-type';
 

@@ -1,4 +1,4 @@
-import { stat } from 'fs-extra';
+import { stat } from 'fs/promises';
 import { getOptionResolvers} from './options';
 import { resolve, parse } from 'path';
 import { IStatsExtra, IOptions } from './types';
