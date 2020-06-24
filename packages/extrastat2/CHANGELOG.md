@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.2.2](https://github.com/bluelovers/ws-iconv/compare/extrastat2@4.2.1...extrastat2@4.2.2) (2020-06-24)
+
+
+### ✨　Features
+
+* add `rwx` ([227757d](https://github.com/bluelovers/ws-iconv/commit/227757d8bcb51f17cf66a391c4385c80f1e1d415))
+
+
+
+
+
 ## 4.2.1 (2020-06-22)
 
 
