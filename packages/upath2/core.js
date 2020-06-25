@@ -2,27 +2,44 @@
 /**
  * Created by user on 2017/12/9/009.
  */
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports._this_origin = exports.fn = exports.upath = exports.win32 = exports.posix = exports.PathWrap = void 0;
 const path_1 = __importDefault(require("path"));
+const lodash_1 = require("lodash");
 const type_1 = require("./lib/type");
 const util_1 = require("./lib/util");
+const path_is_network_drive_1 = __importStar(require("../path-is-network-drive"));
 class PathWrap {
     constructor(path, id) {
+        var _a;
         this.sep = '/';
+        this.node = path_1.default;
         let _static = util_1.getStatic(this);
-        //this._origin = path;
-        this[type_1.ORIGIN_KEY] = path;
-        this.name = id;
-        delete this[id];
-        this[id] = this;
-        //Object.defineProperty(this, '_origin', { enumerable: false, });
-        Object.defineProperty(this, type_1.ORIGIN_KEY, { enumerable: false });
         // @ts-ignore
-        this.fn = Object.assign(this.__proto__, path, _static.fn);
+        this.fn = lodash_1.defaults(this.__proto__, _static.fn, path);
+        this.delimiter = (_a = path.delimiter) !== null && _a !== void 0 ? _a : _static.fn.delimiter;
         [
             'join',
             'normalize',
@@ -37,8 +54,16 @@ class PathWrap {
             'toNamespacedPath',
         ]
             .forEach(prop => {
-            this.fn[prop] = this.fn[prop].bind(this);
+            //this.fn[prop] = this.fn[prop].bind(this);
+            this[prop] = this[prop].bind(this);
         });
+        delete this[id];
+        Object.defineProperty(this, type_1.ORIGIN_KEY, {
+            enumerable: false,
+            value: path,
+        });
+        this.fn[id] = this[id] = this;
+        this.name = id;
     }
     join(path, ...paths) {
         return util_1._replace_sep(this, _this_origin(this).join(path, ...paths));
@@ -67,7 +92,22 @@ class PathWrap {
         return _this_origin(this).basename(path, ext);
     }
     dirname(path) {
-        return _this_origin(this).dirname(path);
+        let name = this.name;
+        let r;
+        if (path_is_network_drive_1.default(path)) {
+            if (path_is_network_drive_1.matchNetworkDriveRoot(path)) {
+                return util_1._replace_sep(this, path);
+            }
+            let m = path_is_network_drive_1.matchNetworkDrive02(path);
+            if (m === null || m === void 0 ? void 0 : m.length) {
+                return `\\\\${m[1]}`;
+            }
+            r = util_1._replace_sep(this, _this_origin(this).dirname(path));
+        }
+        else {
+            r = util_1._replace_sep(this, _this_origin(this).dirname(path));
+        }
+        return r;
     }
     extname(path) {
         return _this_origin(this).extname(path);
@@ -87,6 +127,7 @@ exports.PathWrap = PathWrap;
         __proto__[i] = PathWrap.prototype[i];
     }
     PathWrap.fn = __proto__;
+    delete PathWrap.fn.name;
     PathWrap.fn['fn'] = PathWrap.fn;
     // @ts-ignore
     PathWrap.fn.sep = '/';
@@ -105,6 +146,7 @@ for (const [key, lib] of [
     ['posix', exports.posix],
     ['upath', exports.upath],
     ['default', exports.upath],
+    ['node', path_1.default],
 ]) {
     delete exports.win32.fn[key];
     delete exports.posix.fn[key];

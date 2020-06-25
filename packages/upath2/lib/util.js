@@ -2,14 +2,29 @@
 /**
  * Created by user on 2020/6/9.
  */
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getStatic = exports._replace_sep = void 0;
+const path_is_network_drive_1 = __importDefault(require("path-is-network-drive"));
 function _replace_sep(who, input) {
     let sep = who.sep;
-    if (who.name === 'win32' && /^\\\\(?![/\\])/.test(input)) {
+    if (who.name !== 'posix' && path_is_network_drive_1.default(input)) {
         sep = '\\';
+        input = sep + sep + input
+            .slice(2)
+            .replace(/[/\\]/g, sep);
     }
-    return input.replace(/(?<![/\\])[/\\](?![/\\])/g, sep);
+    else {
+        input = input
+            .replace(/[/\\]/g, sep);
+    }
+    if (/^\w:[/\\]$/.test(input)) {
+        return input;
+    }
+    return input
+        .replace(/([^/\\])[/\\]$/, '$1');
 }
 exports._replace_sep = _replace_sep;
 function getStatic(who) {

@@ -5,7 +5,7 @@ import { toNamespacedPath, ParsedPath, PlatformPath } from 'path';
 import pathPlatform from "path";
 
 export type IPathPlatformOrigin = 'win32' | 'posix'
-export type IPathPlatform = IPathPlatformOrigin | 'upath'
+export type IPathPlatform = IPathPlatformOrigin | 'upath' | 'node'
 
 export const ORIGIN_KEY = Symbol.for('_origin');
 
@@ -24,7 +24,7 @@ export interface IPathNode extends Pick<PlatformPath, 'toNamespacedPath' | 'deli
 
 export interface IPath extends Omit<IPathNode, 'win32' | 'posix' | 'default'>
 {
-	name?: string;
+	name?: string | IPathPlatform;
 
 	win32?: IPath;
 	posix?: IPath;

@@ -2,12 +2,14 @@
  * Created by user on 2017/12/9/009.
  */
 
-import _path, { ParsedPath } from 'path';
+import _path, { ParsedPath, PlatformPath } from 'path';
+import { defaults } from 'lodash';
 
 import { IPathNode, IPath, IParse, IPathType, ORIGIN_KEY, IPathPlatform } from './lib/type';
 
 import { getStatic, _replace_sep } from './lib/util';
 import * as types from './lib/type';
+import pathIsNetworkDrive, { matchNetworkDriveRoot, matchNetworkDrive02 } from '../path-is-network-drive';
 
 export type { IPathNode, IPath, IParse, IPathType }
 
@@ -21,6 +23,9 @@ export class PathWrap implements IPath
 
 	public win32: IPath;
 	public posix: IPath;
+
+	public node: PlatformPath = _path;
+
 	// @ts-ignore
 	public upath: PathWrap;
 	// @ts-ignore
@@ -34,19 +39,10 @@ export class PathWrap implements IPath
 	{
 		let _static = getStatic(this);
 
-		//this._origin = path;
-		this[ORIGIN_KEY] = path;
-
-		this.name = id;
-
-		delete this[id];
-		this[id] = this;
-
-		//Object.defineProperty(this, '_origin', { enumerable: false, });
-		Object.defineProperty(this, ORIGIN_KEY, { enumerable: false });
-
 		// @ts-ignore
-		this.fn = Object.assign(this.__proto__, path, _static.fn);
+		this.fn = defaults(this.__proto__, _static.fn, path);
+
+		this.delimiter = path.delimiter ?? _static.fn.delimiter;
 
 		[
 			'join',
@@ -66,10 +62,21 @@ export class PathWrap implements IPath
 			.forEach(prop =>
 			{
 
-				this.fn[prop] = this.fn[prop].bind(this);
+				//this.fn[prop] = this.fn[prop].bind(this);
+				this[prop] = this[prop].bind(this);
 
 			})
 		;
+
+		delete this[id];
+
+		Object.defineProperty(this, ORIGIN_KEY, {
+			enumerable: false,
+			value: path,
+		});
+
+		this.fn[id] = this[id] = this;
+		this.name = id;
 	}
 
 	public join<T = string, U = string>(path: T, ...paths: U[]): string
@@ -118,7 +125,31 @@ export class PathWrap implements IPath
 
 	public dirname<T extends string = string>(path: T): string
 	{
-		return _this_origin(this).dirname(path);
+		let name = this.name;
+		let r: string;
+
+		if (pathIsNetworkDrive(path))
+		{
+			if (matchNetworkDriveRoot(path))
+			{
+				return _replace_sep(this, path)
+			}
+
+			let m = matchNetworkDrive02(path);
+
+			if (m?.length)
+			{
+				return `\\\\${m[1]}`
+			}
+
+			r = _replace_sep(this, _this_origin(this).dirname(path))
+		}
+		else
+		{
+			r = _replace_sep(this, _this_origin(this).dirname(path))
+		}
+
+		return r;
 	}
 
 	public extname<T extends string = string>(path: T): string
@@ -149,6 +180,8 @@ export namespace PathWrap
 	}
 
 	export let fn = __proto__ as IPath;
+
+	delete fn.name;
 
 	fn['fn'] = fn;
 	// @ts-ignore
@@ -186,6 +219,7 @@ for (const [key, lib] of [
 	['posix', posix],
 	['upath', upath],
 	['default', upath],
+	['node', _path],
 ] as const)
 {
 	delete win32.fn[key];

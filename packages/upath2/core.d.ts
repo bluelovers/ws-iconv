@@ -2,7 +2,7 @@
  * Created by user on 2017/12/9/009.
  */
 /// <reference types="node" />
-import { ParsedPath } from 'path';
+import { ParsedPath, PlatformPath } from 'path';
 import { IPathNode, IPath, IParse, IPathType, ORIGIN_KEY, IPathPlatform } from './lib/type';
 import * as types from './lib/type';
 export type { IPathNode, IPath, IParse, IPathType };
@@ -12,6 +12,7 @@ export declare class PathWrap implements IPath {
     delimiter: string;
     win32: IPath;
     posix: IPath;
+    node: PlatformPath;
     upath: PathWrap;
     default: PathWrap;
     fn: IPath;

@@ -1,38 +1,37 @@
 {
-    "name" : "parents",
-    "version" : "1.0.1",
-    "description" : "return all the parent directories for a directory",
-    "main" : "index.js",
-    "bin" : {},
-    "directories" : {
-        "example" : "test/example",
-        "test" : "test"
-    },
-    "dependencies" : {
-        "path-platform": "~0.11.15"
-    },
-    "devDependencies" : {
-        "tap" : "~0.2.5"
-    },
-    "scripts" : {
-        "test" : "tap test/*.js"
-    },
-    "repository" : {
-        "type" : "git",
-        "url" : "git://github.com/substack/node-parents.git"
-    },
-    "homepage" : "https://github.com/substack/node-parents",
-    "keywords" : [
-        "directory",
-        "parent",
-        "path",
-        "tree"
-    ],
-    "author" : {
-        "name" : "James Halliday",
-        "email" : "mail@substack.net",
-        "url" : "http://substack.net"
-    },
-    "license" : "MIT",
-    "engine" : { "node" : ">=0.6" }
+  "name": "path-parents",
+  "version": "1.0.1",
+  "description": "return all the parent directories for a directory",
+  "keywords": [
+    "directory",
+    "parent",
+    "path",
+    "tree"
+  ],
+  "homepage": "https://github.com/bluelovers/ws-iconv/tree/master/packages/path-parents#readme",
+  "bugs": {
+    "url": "https://github.com/bluelovers/ws-iconv/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bluelovers/ws-iconv.git"
+  },
+  "license": "MIT",
+  "author": "James Halliday <mail@substack.net> (http://substack.net)",
+  "main": "index.js",
+  "bin": {},
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "jest",
+    "prepublishOnly": "yarn run test",
+    "prepublishOnly:check-bin": "ynpx --quiet @yarn-tool/check-pkg-bin",
+    "prepublishOnly:update": "yarn run ncu && yarn run sort-package-json",
+    "ncu": "yarn-tool ncu -u",
+    "sort-package-json": "yarn-tool sort"
+  },
+  "dependencies": {
+    "upath2": "^3.0.6"
+  }
 }

@@ -4,7 +4,7 @@
  */
 import { ParsedPath, PlatformPath } from 'path';
 export declare type IPathPlatformOrigin = 'win32' | 'posix';
-export declare type IPathPlatform = IPathPlatformOrigin | 'upath';
+export declare type IPathPlatform = IPathPlatformOrigin | 'upath' | 'node';
 export declare const ORIGIN_KEY: unique symbol;
 export interface IParse extends Partial<ParsedPath> {
 }
@@ -14,7 +14,7 @@ export interface IPathNode extends Pick<PlatformPath, 'toNamespacedPath' | 'deli
     posix?: IPathNode;
 }
 export interface IPath extends Omit<IPathNode, 'win32' | 'posix' | 'default'> {
-    name?: string;
+    name?: string | IPathPlatform;
     win32?: IPath;
     posix?: IPath;
     upath?: IPath;

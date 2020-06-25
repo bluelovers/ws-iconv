@@ -24,11 +24,11 @@ export const testCases = {
 			'c:\\windows\\..\\nodejs\\path',
 			"c:/nodejs/path"
 		],
+		/*
 		[
 			'//windows\\unix/mixed',
-			"\\\\windows/unix/mixed"
+			"//windows/unix/mixed"
 		],
-		/*
 		[
 			'\\windows//unix/mixed',
 			"/windows/unix/mixed"
@@ -36,13 +36,22 @@ export const testCases = {
 		 */
 		[
 			'//\\windows\\..\\unix/mixed/',
-			"/unix/mixed/"
+			"/unix/mixed"
 		],
 		[
 			'c:\\Windows\\Directory\\somefile.ext',
 		],
 		[
 			'/root/of/unix/somefile.ext',
+		],
+		[
+			'c:/',
+		],
+		[
+			'c:',
+		],
+		[
+			'c:\\',
 		],
 	],
 	join: [

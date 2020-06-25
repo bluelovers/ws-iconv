@@ -3,12 +3,25 @@
 exports[`import check 1`] = `
 Array [
   "sep",
-  "name",
   "fn",
+  "delimiter",
+  "join",
+  "normalize",
+  "relative",
+  "resolve",
+  "parse",
+  "format",
+  "basename",
+  "dirname",
+  "extname",
+  "isAbsolute",
+  "toNamespacedPath",
+  "name",
   "PathWrap",
   "win32",
   "posix",
   "upath",
   "default",
+  "node",
 ]
 `;

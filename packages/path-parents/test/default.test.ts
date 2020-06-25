@@ -1,7 +1,7 @@
 import pathParents, { IOptions } from '../index';
 
 let options: IOptions = {
-	platform: 'win32'
+	//platform: 'win32'
 }
 
 test('win32', function ()

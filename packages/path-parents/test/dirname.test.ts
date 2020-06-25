@@ -1,20 +1,18 @@
-var test = require('tap').test;
-var parents = require('../');
+import pathParents from '../';
 
-test('dirname', function (t) {
-    var dirs = parents('/foo/bar/baz/quux');
-    t.same(dirs, [
-        '/foo/bar/baz/quux',
-        '/foo/bar/baz',
-        '/foo/bar',
-        '/foo',
-        '/',
-    ]);
-    t.end();
+test('dirname', function ()
+{
+	let dirs = pathParents('/foo/bar/baz/quux');
+	expect(dirs).toStrictEqual([
+		'/foo/bar/baz',
+		'/foo/bar',
+		'/foo',
+		'/',
+	]);
 });
 
-test('root', function (t) {
-    var dirs = parents('/');
-    t.same(dirs, [ '/' ]);
-    t.end();
+test('root', function ()
+{
+	let dirs = pathParents('/');
+	expect(dirs).toStrictEqual([]);
 });

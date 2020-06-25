@@ -13,6 +13,9 @@ test(`win32`, () =>
 	expect(actual).toMatchSnapshot();
 	expect(Object.keys(actual)).toMatchSnapshot();
 
+	expect(actual).toHaveProperty('delimiter', path.win32.delimiter);
+	expect(actual).toHaveProperty('delimiter', ';');
+
 });
 
 test(`posix`, () =>
@@ -25,6 +28,9 @@ test(`posix`, () =>
 	//expect(actual).toBeInstanceOf(Date);
 	expect(actual).toMatchSnapshot();
 	expect(Object.keys(actual)).toMatchSnapshot();
+
+	expect(actual).toHaveProperty('delimiter', path.posix.delimiter);
+	expect(actual).toHaveProperty('delimiter', ':');
 
 });
 
@@ -52,12 +58,12 @@ describe(`path`, () => {
 
 describe(`hasOwnProperty`, () => {
 
-	[
+	([
 		'win32',
 		'posix',
 		'upath',
 		'default',
-	].forEach(key => {
+	] as const).forEach(key => {
 		test(key, () =>
 		{
 
@@ -71,6 +77,20 @@ describe(`hasOwnProperty`, () => {
 			expect(actual).toMatchSnapshot();
 
 		});
+
+		test(`${key}.name`, () =>
+		{
+			let name = key
+
+			if (key === 'default')
+			{
+				name = 'upath'
+			}
+
+			expect(_m0[key]).toHaveProperty('name', name);
+			expect(_m1[key]).toHaveProperty('name', name);
+		})
+
 	})
 
 })

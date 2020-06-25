@@ -6,17 +6,19 @@ exports[`check upath (unbind) join [ 'some/nodejs\\\\windows', '../path' ] 1`] =
 
 exports[`check upath (unbind) join [ 'some\\\\windows\\\\only', '..\\\\path' ] 1`] = `"some/windows/path"`;
 
-exports[`check upath (unbind) normalize '//\\\\windows\\\\..\\\\unix/mixed/' 1`] = `"/unix/mixed/"`;
-
-exports[`check upath (unbind) normalize '//windows\\\\unix/mixed' 1`] = `"\\\\\\\\windows/unix/mixed"`;
+exports[`check upath (unbind) normalize '//\\\\windows\\\\..\\\\unix/mixed/' 1`] = `"/unix/mixed"`;
 
 exports[`check upath (unbind) normalize '/root/of/unix/somefile.ext' 1`] = `"/root/of/unix/somefile.ext"`;
 
-exports[`check upath (unbind) normalize '\\\\windows//unix/mixed' 1`] = `"/windows/unix/mixed"`;
+exports[`check upath (unbind) normalize 'c:' 1`] = `"c:."`;
+
+exports[`check upath (unbind) normalize 'c:/' 1`] = `"c:/"`;
 
 exports[`check upath (unbind) normalize 'c:/windows/../nodejs/path' 1`] = `"c:/nodejs/path"`;
 
 exports[`check upath (unbind) normalize 'c:/windows/nodejs/path' 1`] = `"c:/windows/nodejs/path"`;
+
+exports[`check upath (unbind) normalize 'c:\\\\' 1`] = `"c:/"`;
 
 exports[`check upath (unbind) normalize 'c:\\\\Windows\\\\Directory\\\\somefile.ext' 1`] = `"c:/Windows/Directory/somefile.ext"`;
 
@@ -37,10 +39,10 @@ Object {
 exports[`check upath (unbind) parse '//windows\\\\unix/mixed' 1`] = `
 Object {
   "base": "mixed",
-  "dir": "\\\\\\\\windows/unix/",
+  "dir": "//windows/unix",
   "ext": "",
   "name": "mixed",
-  "root": "\\\\\\\\windows/unix/",
+  "root": "//windows/unix",
 }
 `;
 
@@ -120,17 +122,19 @@ exports[`check upath join [ 'some/nodejs\\\\windows', '../path' ] 1`] = `"some/n
 
 exports[`check upath join [ 'some\\\\windows\\\\only', '..\\\\path' ] 1`] = `"some/windows/path"`;
 
-exports[`check upath normalize '//\\\\windows\\\\..\\\\unix/mixed/' 1`] = `"/unix/mixed/"`;
-
-exports[`check upath normalize '//windows\\\\unix/mixed' 1`] = `"\\\\\\\\windows/unix/mixed"`;
+exports[`check upath normalize '//\\\\windows\\\\..\\\\unix/mixed/' 1`] = `"/unix/mixed"`;
 
 exports[`check upath normalize '/root/of/unix/somefile.ext' 1`] = `"/root/of/unix/somefile.ext"`;
 
-exports[`check upath normalize '\\\\windows//unix/mixed' 1`] = `"/windows/unix/mixed"`;
+exports[`check upath normalize 'c:' 1`] = `"c:."`;
+
+exports[`check upath normalize 'c:/' 1`] = `"c:/"`;
 
 exports[`check upath normalize 'c:/windows/../nodejs/path' 1`] = `"c:/nodejs/path"`;
 
 exports[`check upath normalize 'c:/windows/nodejs/path' 1`] = `"c:/windows/nodejs/path"`;
+
+exports[`check upath normalize 'c:\\\\' 1`] = `"c:/"`;
 
 exports[`check upath normalize 'c:\\\\Windows\\\\Directory\\\\somefile.ext' 1`] = `"c:/Windows/Directory/somefile.ext"`;
 
@@ -151,10 +155,10 @@ Object {
 exports[`check upath parse '//windows\\\\unix/mixed' 1`] = `
 Object {
   "base": "mixed",
-  "dir": "\\\\\\\\windows/unix/",
+  "dir": "//windows/unix",
   "ext": "",
   "name": "mixed",
-  "root": "\\\\\\\\windows/unix/",
+  "root": "//windows/unix",
 }
 `;
 
@@ -234,17 +238,19 @@ exports[`check upath2 (unbind) join [ 'some/nodejs\\\\windows', '../path' ] 1`] 
 
 exports[`check upath2 (unbind) join [ 'some\\\\windows\\\\only', '..\\\\path' ] 1`] = `"some/windows/path"`;
 
-exports[`check upath2 (unbind) normalize '//\\\\windows\\\\..\\\\unix/mixed/' 1`] = `"/unix/mixed/"`;
-
-exports[`check upath2 (unbind) normalize '//windows\\\\unix/mixed' 1`] = `"\\\\\\\\windows/unix/mixed"`;
+exports[`check upath2 (unbind) normalize '//\\\\windows\\\\..\\\\unix/mixed/' 1`] = `"/unix/mixed"`;
 
 exports[`check upath2 (unbind) normalize '/root/of/unix/somefile.ext' 1`] = `"/root/of/unix/somefile.ext"`;
 
-exports[`check upath2 (unbind) normalize '\\\\windows//unix/mixed' 1`] = `"/windows/unix/mixed"`;
+exports[`check upath2 (unbind) normalize 'c:' 1`] = `"c:."`;
+
+exports[`check upath2 (unbind) normalize 'c:/' 1`] = `"c:/"`;
 
 exports[`check upath2 (unbind) normalize 'c:/windows/../nodejs/path' 1`] = `"c:/nodejs/path"`;
 
 exports[`check upath2 (unbind) normalize 'c:/windows/nodejs/path' 1`] = `"c:/windows/nodejs/path"`;
+
+exports[`check upath2 (unbind) normalize 'c:\\\\' 1`] = `"c:/"`;
 
 exports[`check upath2 (unbind) normalize 'c:\\\\Windows\\\\Directory\\\\somefile.ext' 1`] = `"c:/Windows/Directory/somefile.ext"`;
 
@@ -265,10 +271,10 @@ Object {
 exports[`check upath2 (unbind) parse '//windows\\\\unix/mixed' 1`] = `
 Object {
   "base": "mixed",
-  "dir": "\\\\\\\\windows/unix/",
+  "dir": "//windows/unix",
   "ext": "",
   "name": "mixed",
-  "root": "\\\\\\\\windows/unix/",
+  "root": "//windows/unix",
 }
 `;
 
@@ -348,17 +354,19 @@ exports[`check upath2 join [ 'some/nodejs\\\\windows', '../path' ] 1`] = `"some/
 
 exports[`check upath2 join [ 'some\\\\windows\\\\only', '..\\\\path' ] 1`] = `"some/windows/path"`;
 
-exports[`check upath2 normalize '//\\\\windows\\\\..\\\\unix/mixed/' 1`] = `"/unix/mixed/"`;
-
-exports[`check upath2 normalize '//windows\\\\unix/mixed' 1`] = `"\\\\\\\\windows/unix/mixed"`;
+exports[`check upath2 normalize '//\\\\windows\\\\..\\\\unix/mixed/' 1`] = `"/unix/mixed"`;
 
 exports[`check upath2 normalize '/root/of/unix/somefile.ext' 1`] = `"/root/of/unix/somefile.ext"`;
 
-exports[`check upath2 normalize '\\\\windows//unix/mixed' 1`] = `"/windows/unix/mixed"`;
+exports[`check upath2 normalize 'c:' 1`] = `"c:."`;
+
+exports[`check upath2 normalize 'c:/' 1`] = `"c:/"`;
 
 exports[`check upath2 normalize 'c:/windows/../nodejs/path' 1`] = `"c:/nodejs/path"`;
 
 exports[`check upath2 normalize 'c:/windows/nodejs/path' 1`] = `"c:/windows/nodejs/path"`;
+
+exports[`check upath2 normalize 'c:\\\\' 1`] = `"c:/"`;
 
 exports[`check upath2 normalize 'c:\\\\Windows\\\\Directory\\\\somefile.ext' 1`] = `"c:/Windows/Directory/somefile.ext"`;
 
@@ -379,10 +387,10 @@ Object {
 exports[`check upath2 parse '//windows\\\\unix/mixed' 1`] = `
 Object {
   "base": "mixed",
-  "dir": "\\\\\\\\windows/unix/",
+  "dir": "//windows/unix",
   "ext": "",
   "name": "mixed",
-  "root": "\\\\\\\\windows/unix/",
+  "root": "//windows/unix",
 }
 `;
 
@@ -462,17 +470,19 @@ exports[`check win32 (unbind) join [ 'some/nodejs\\\\windows', '../path' ] 1`] =
 
 exports[`check win32 (unbind) join [ 'some\\\\windows\\\\only', '..\\\\path' ] 1`] = `"some/windows/path"`;
 
-exports[`check win32 (unbind) normalize '//\\\\windows\\\\..\\\\unix/mixed/' 1`] = `"/unix/mixed/"`;
-
-exports[`check win32 (unbind) normalize '//windows\\\\unix/mixed' 1`] = `"\\\\\\\\windows/unix/mixed"`;
+exports[`check win32 (unbind) normalize '//\\\\windows\\\\..\\\\unix/mixed/' 1`] = `"/unix/mixed"`;
 
 exports[`check win32 (unbind) normalize '/root/of/unix/somefile.ext' 1`] = `"/root/of/unix/somefile.ext"`;
 
-exports[`check win32 (unbind) normalize '\\\\windows//unix/mixed' 1`] = `"/windows/unix/mixed"`;
+exports[`check win32 (unbind) normalize 'c:' 1`] = `"c:."`;
+
+exports[`check win32 (unbind) normalize 'c:/' 1`] = `"c:/"`;
 
 exports[`check win32 (unbind) normalize 'c:/windows/../nodejs/path' 1`] = `"c:/nodejs/path"`;
 
 exports[`check win32 (unbind) normalize 'c:/windows/nodejs/path' 1`] = `"c:/windows/nodejs/path"`;
+
+exports[`check win32 (unbind) normalize 'c:\\\\' 1`] = `"c:/"`;
 
 exports[`check win32 (unbind) normalize 'c:\\\\Windows\\\\Directory\\\\somefile.ext' 1`] = `"c:/Windows/Directory/somefile.ext"`;
 
@@ -493,10 +503,10 @@ Object {
 exports[`check win32 (unbind) parse '//windows\\\\unix/mixed' 1`] = `
 Object {
   "base": "mixed",
-  "dir": "\\\\\\\\windows/unix/",
+  "dir": "\\\\\\\\windows\\\\unix",
   "ext": "",
   "name": "mixed",
-  "root": "\\\\\\\\windows/unix/",
+  "root": "\\\\\\\\windows\\\\unix",
 }
 `;
 
@@ -576,17 +586,19 @@ exports[`check win32 join [ 'some/nodejs\\\\windows', '../path' ] 1`] = `"some/n
 
 exports[`check win32 join [ 'some\\\\windows\\\\only', '..\\\\path' ] 1`] = `"some/windows/path"`;
 
-exports[`check win32 normalize '//\\\\windows\\\\..\\\\unix/mixed/' 1`] = `"/unix/mixed/"`;
-
-exports[`check win32 normalize '//windows\\\\unix/mixed' 1`] = `"\\\\\\\\windows/unix/mixed"`;
+exports[`check win32 normalize '//\\\\windows\\\\..\\\\unix/mixed/' 1`] = `"/unix/mixed"`;
 
 exports[`check win32 normalize '/root/of/unix/somefile.ext' 1`] = `"/root/of/unix/somefile.ext"`;
 
-exports[`check win32 normalize '\\\\windows//unix/mixed' 1`] = `"/windows/unix/mixed"`;
+exports[`check win32 normalize 'c:' 1`] = `"c:."`;
+
+exports[`check win32 normalize 'c:/' 1`] = `"c:/"`;
 
 exports[`check win32 normalize 'c:/windows/../nodejs/path' 1`] = `"c:/nodejs/path"`;
 
 exports[`check win32 normalize 'c:/windows/nodejs/path' 1`] = `"c:/windows/nodejs/path"`;
+
+exports[`check win32 normalize 'c:\\\\' 1`] = `"c:/"`;
 
 exports[`check win32 normalize 'c:\\\\Windows\\\\Directory\\\\somefile.ext' 1`] = `"c:/Windows/Directory/somefile.ext"`;
 
@@ -607,10 +619,10 @@ Object {
 exports[`check win32 parse '//windows\\\\unix/mixed' 1`] = `
 Object {
   "base": "mixed",
-  "dir": "\\\\\\\\windows/unix/",
+  "dir": "\\\\\\\\windows\\\\unix",
   "ext": "",
   "name": "mixed",
-  "root": "\\\\\\\\windows/unix/",
+  "root": "\\\\\\\\windows\\\\unix",
 }
 `;
 
