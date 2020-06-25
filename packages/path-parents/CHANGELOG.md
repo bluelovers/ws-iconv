@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.5](https://github.com/bluelovers/ws-iconv/compare/path-parents@1.0.4...path-parents@1.0.5) (2020-06-25)
+
+
+### ✨　Features
+
+* use `path-is-same` ([7d16095](https://github.com/bluelovers/ws-iconv/commit/7d16095969e50e306927a8a6ece49924c7478bb5))
+
+
+
+
+
 ## [1.0.4](https://github.com/bluelovers/ws-iconv/compare/path-parents@1.0.3...path-parents@1.0.4) (2020-06-25)
 
 
