@@ -9,6 +9,7 @@ const iconvLite = self.iconv.iconvLite;
 
 let big5 = "\xa6\xb8\xb1\x60\xa5\xce\xb0\xea\xa6\x72\xbc\xd0\xb7\xc7\xa6\x72\xc5\xe9\xaa\xed";
 
+// @ts-ignore
 console.log(big5, jschardet.detect('123'));
 
 console.log(Buffer.from(big5));
