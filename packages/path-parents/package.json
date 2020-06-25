@@ -33,5 +33,6 @@
   },
   "dependencies": {
     "upath2": "^3.1.1"
-  }
+  },
+  "gitHead": "c9932469515c5bde86176714d85fc73e25f11b30"
 }

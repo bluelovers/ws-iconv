@@ -23,5 +23,6 @@
     "prepublishOnly:update": "yarn run ncu && yarn run sort-package-json",
     "ncu": "yarn-tool ncu -u",
     "sort-package-json": "yarn-tool sort"
-  }
+  },
+  "gitHead": "c9932469515c5bde86176714d85fc73e25f11b30"
 }

@@ -47,5 +47,6 @@
   },
   "devDependencies": {
     "@types/mime-types": "^2.1.0"
-  }
+  },
+  "gitHead": "c9932469515c5bde86176714d85fc73e25f11b30"
 }

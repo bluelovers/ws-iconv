@@ -39,10 +39,10 @@ Object {
 exports[`check upath (unbind) parse '//windows\\\\unix/mixed' 1`] = `
 Object {
   "base": "mixed",
-  "dir": "//windows/unix",
+  "dir": "\\\\\\\\windows\\\\unix",
   "ext": "",
   "name": "mixed",
-  "root": "//windows/unix",
+  "root": "\\\\\\\\windows\\\\unix",
 }
 `;
 
@@ -155,10 +155,10 @@ Object {
 exports[`check upath parse '//windows\\\\unix/mixed' 1`] = `
 Object {
   "base": "mixed",
-  "dir": "//windows/unix",
+  "dir": "\\\\\\\\windows\\\\unix",
   "ext": "",
   "name": "mixed",
-  "root": "//windows/unix",
+  "root": "\\\\\\\\windows\\\\unix",
 }
 `;
 
@@ -271,10 +271,10 @@ Object {
 exports[`check upath2 (unbind) parse '//windows\\\\unix/mixed' 1`] = `
 Object {
   "base": "mixed",
-  "dir": "//windows/unix",
+  "dir": "\\\\\\\\windows\\\\unix",
   "ext": "",
   "name": "mixed",
-  "root": "//windows/unix",
+  "root": "\\\\\\\\windows\\\\unix",
 }
 `;
 
@@ -387,10 +387,10 @@ Object {
 exports[`check upath2 parse '//windows\\\\unix/mixed' 1`] = `
 Object {
   "base": "mixed",
-  "dir": "//windows/unix",
+  "dir": "\\\\\\\\windows\\\\unix",
   "ext": "",
   "name": "mixed",
-  "root": "//windows/unix",
+  "root": "\\\\\\\\windows\\\\unix",
 }
 `;
 
