@@ -1,16 +1,14 @@
-import { pathDirNormalize } from 'path-dir-normalize';
+import { relative } from 'path';
 
 export function pathIsSame(p1: string, p2: string, ...ps: string[])
 export function pathIsSame(p1: string, ...ps: string[])
 {
-	p1 = pathDirNormalize(p1);
-
 	if (ps.length <= 0)
 	{
 		throw new TypeError(`p2 must be protected`)
 	}
 
-	return ps.every(p2 => pathDirNormalize(p2) === p1)
+	return ps.every(p2 => relative(p1, p2) === '')
 }
 
 export default pathIsSame

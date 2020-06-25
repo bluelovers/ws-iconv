@@ -29,7 +29,5 @@
     "tsc:default": "tsc -p tsconfig.json",
     "tsc:esm": "tsc -p tsconfig.esm.json"
   },
-  "dependencies": {
-    "path-dir-normalize": "^1.0.14"
-  }
+  "dependencies": {}
 }
