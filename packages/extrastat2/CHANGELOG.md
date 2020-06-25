@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.2.4](https://github.com/bluelovers/ws-iconv/compare/extrastat2@4.2.3...extrastat2@4.2.4) (2020-06-25)
+
+
+### ✨　Features
+
+* support get parents ([83eacf5](https://github.com/bluelovers/ws-iconv/commit/83eacf5871a4cb2e2d62f0ba82eb2f41720e0776))
+
+
+
+
+
 ## [4.2.3](https://github.com/bluelovers/ws-iconv/compare/extrastat2@4.2.2...extrastat2@4.2.3) (2020-06-24)
 
 

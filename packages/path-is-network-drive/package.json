@@ -1,6 +1,6 @@
 {
   "name": "path-is-network-drive",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "homepage": "https://github.com/bluelovers/ws-iconv/tree/master/packages/path-is-network-drive#readme",
   "bugs": {
@@ -23,8 +23,5 @@
     "prepublishOnly:update": "yarn run ncu && yarn run sort-package-json",
     "ncu": "yarn-tool ncu -u",
     "sort-package-json": "yarn-tool sort"
-  },
-  "dependencies": {},
-  "devDependencies": {},
-  "peerDependencies": {}
+  }
 }

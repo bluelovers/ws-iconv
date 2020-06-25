@@ -1,6 +1,6 @@
 {
   "name": "path-parents",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "return all the parent directories for a directory",
   "keywords": [
     "directory",
@@ -32,6 +32,6 @@
     "sort-package-json": "yarn-tool sort"
   },
   "dependencies": {
-    "upath2": "^3.0.6"
+    "upath2": "^3.1.1"
   }
 }
