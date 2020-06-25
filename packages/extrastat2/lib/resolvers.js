@@ -1,9 +1,13 @@
 "use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.children = exports.siblings = exports.mimetype = exports.pathname = exports.name = exports.rwx = void 0;
+exports.children = exports.siblings = exports.mimetype = exports.pathname = exports.name = exports.parents = exports.rwx = void 0;
 const path_1 = require("path");
 const mime_1 = require("./mime");
 const list_1 = require("./list");
+const index_1 = __importDefault(require("path-parents/index"));
 var rwx_1 = require("./resolvers/rwx");
 Object.defineProperty(exports, "rwx", { enumerable: true, get: function () { return rwx_1.rwx; } });
 /*
@@ -77,6 +81,12 @@ export function parents(parsedPath: ParsedPath, stat: IStatsExtra)
     }
 }
 */
+function parents(parsedPath, stat) {
+    let resolvedpath = path_1.join(parsedPath.dir, parsedPath.name);
+    stat.parents = index_1.default(resolvedpath);
+    return stat;
+}
+exports.parents = parents;
 function name(parsedPath, stat) {
     stat.name = parsedPath.name;
     return stat;

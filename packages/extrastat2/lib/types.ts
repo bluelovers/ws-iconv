@@ -31,6 +31,8 @@ export interface IStatsExtra extends Stats, Partial<IStatsPlus>
 	rwx?: Mode
 
 	parsed: ParsedPath,
+
+	parents?: string[],
 }
 
 export interface IResolver

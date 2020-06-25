@@ -2,6 +2,7 @@ import { ParsedPath, join, sep } from "path";
 import { _mimetype } from './mime';
 import { list } from './list';
 import { IStatsExtra } from './types';
+import pathParents from 'path-parents/index';
 export { rwx } from './resolvers/rwx';
 
 /*
@@ -76,6 +77,15 @@ export function parents(parsedPath: ParsedPath, stat: IStatsExtra)
 	}
 }
 */
+
+export function parents(parsedPath: ParsedPath, stat: IStatsExtra)
+{
+	let resolvedpath = join(parsedPath.dir, parsedPath.name)
+
+	stat.parents = pathParents(resolvedpath)
+
+	return stat
+}
 
 export function name(parsedPath: ParsedPath, stat: IStatsExtra)
 {

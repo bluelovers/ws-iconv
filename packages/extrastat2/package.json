@@ -41,6 +41,7 @@
   "dependencies": {
     "lodash": "^4.17.15",
     "mime-types": "^2.1.27",
+    "path-parents": "^1.0.0",
     "stat-mode": "^1.0.0",
     "ts-type": "^1.2.23"
   },

@@ -20,6 +20,7 @@ export interface IStatsExtra extends Stats, Partial<IStatsPlus> {
     siblings?: IList[];
     rwx?: Mode;
     parsed: ParsedPath;
+    parents?: string[];
 }
 export interface IResolver {
     (parsedPath: ParsedPath, stat: IStatsExtra): IStatsExtra;
