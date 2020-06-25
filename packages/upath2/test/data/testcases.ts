@@ -36,7 +36,7 @@ export const testCases = {
 		 */
 		[
 			'//\\windows\\..\\unix/mixed/',
-			"/unix/mixed"
+			"/unix/mixed/"
 		],
 		[
 			'c:\\Windows\\Directory\\somefile.ext',

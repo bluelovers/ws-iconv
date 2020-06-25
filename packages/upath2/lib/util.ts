@@ -26,11 +26,18 @@ export function _replace_sep(who: Pick<IPath, 'sep' | 'name'>, input: string): s
 		;
 	}
 
-	if (/^\w:[/\\]$/.test(input))
-	{
-		return input
-	}
+//	if (/^\w:[/\\]$/.test(input))
+//	{
+//		return input
+//	}
 
+	return input
+		//.replace(/([^/\\])[/\\]$/, '$1')
+		;
+}
+
+export function _strip_sep(input: string)
+{
 	return input
 		.replace(/([^/\\])[/\\]$/, '$1')
 		;

@@ -7,7 +7,7 @@ import { defaults } from 'lodash';
 
 import { IPathNode, IPath, IParse, IPathType, ORIGIN_KEY, IPathPlatform } from './lib/type';
 
-import { getStatic, _replace_sep } from './lib/util';
+import { getStatic, _replace_sep, _strip_sep } from './lib/util';
 import * as types from './lib/type';
 import pathIsNetworkDrive, { matchNetworkDriveRoot, matchNetworkDrive02 } from '../path-is-network-drive';
 
@@ -125,31 +125,37 @@ export class PathWrap implements IPath
 
 	public dirname<T extends string = string>(path: T): string
 	{
-		let name = this.name;
 		let r: string;
 
-		if (pathIsNetworkDrive(path))
+		if (this.name !== 'posix' && pathIsNetworkDrive(path))
 		{
 			if (matchNetworkDriveRoot(path))
 			{
-				return _replace_sep(this, path)
+				r = path
 			}
-
-			let m = matchNetworkDrive02(path);
-
-			if (m?.length)
+			else
 			{
-				return `\\\\${m[1]}`
-			}
+				let m = matchNetworkDrive02(path);
 
-			r = _replace_sep(this, _this_origin(this).dirname(path))
+				if (m?.length)
+				{
+					return `\\\\${m[1]}`
+				}
+
+				r = _this_origin(this).dirname(path)
+			}
 		}
 		else
 		{
-			r = _replace_sep(this, _this_origin(this).dirname(path))
+			r = _this_origin(this).dirname(path)
 		}
 
-		return r;
+		if (r.length > 1 && !/^\w:[/\\]$/.test(r))
+		{
+			r = _strip_sep(r);
+		}
+
+		return _replace_sep(this, r)
 	}
 
 	public extname<T extends string = string>(path: T): string

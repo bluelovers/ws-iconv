@@ -89,3 +89,23 @@ function _setup(name: string, path: typeof upath2)
 		});
 	}
 }
+
+test(`\\`, () => {
+
+	let c = `\\`
+
+	expect(upath2.normalize(c)).toHaveLength(1)
+
+	expect(upath2.dirname(c)).toHaveLength(1)
+
+})
+
+test(`/`, () => {
+
+	let c = `/`
+
+	expect(upath2.normalize(c)).toHaveLength(1)
+
+	expect(upath2.dirname(c)).toHaveLength(1)
+
+})

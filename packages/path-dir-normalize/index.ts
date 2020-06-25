@@ -1,4 +1,5 @@
 import { normalize as _normalize, sep as _sep } from 'upath2';
+import { _strip_sep } from 'upath2/lib/util';
 
 export interface IPathLibLike
 {
@@ -12,8 +13,11 @@ export interface IPathLibLike
 export function pathDirNormalize(dir: string, pathLib?: IPathLibLike): string
 {
 	pathLib = pathLib ?? {};
+	let sep = (pathLib.sep ?? _sep);
 
-	return (pathLib.normalize ?? _normalize)(dir) + (pathLib.sep ?? _sep)
+	let ret = _strip_sep((pathLib.normalize ?? _normalize)(dir));
+
+	return ret + sep
 }
 
 export function createPathDirNormalize(defaultPathLib: {

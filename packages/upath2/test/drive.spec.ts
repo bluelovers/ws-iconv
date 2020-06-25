@@ -63,7 +63,7 @@ test(`dirname`, () =>
 			b,
 		})
 
-		expect(a).toStrictEqual(b)
+		expect(b).toStrictEqual(a)
 
 		return a
 	})

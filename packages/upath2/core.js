@@ -92,22 +92,26 @@ class PathWrap {
         return _this_origin(this).basename(path, ext);
     }
     dirname(path) {
-        let name = this.name;
         let r;
-        if (path_is_network_drive_1.default(path)) {
+        if (this.name !== 'posix' && path_is_network_drive_1.default(path)) {
             if (path_is_network_drive_1.matchNetworkDriveRoot(path)) {
-                return util_1._replace_sep(this, path);
+                r = path;
             }
-            let m = path_is_network_drive_1.matchNetworkDrive02(path);
-            if (m === null || m === void 0 ? void 0 : m.length) {
-                return `\\\\${m[1]}`;
+            else {
+                let m = path_is_network_drive_1.matchNetworkDrive02(path);
+                if (m === null || m === void 0 ? void 0 : m.length) {
+                    return `\\\\${m[1]}`;
+                }
+                r = _this_origin(this).dirname(path);
             }
-            r = util_1._replace_sep(this, _this_origin(this).dirname(path));
         }
         else {
-            r = util_1._replace_sep(this, _this_origin(this).dirname(path));
+            r = _this_origin(this).dirname(path);
         }
-        return r;
+        if (r.length > 1 && !/^\w:[/\\]$/.test(r)) {
+            r = util_1._strip_sep(r);
+        }
+        return util_1._replace_sep(this, r);
     }
     extname(path) {
         return _this_origin(this).extname(path);
