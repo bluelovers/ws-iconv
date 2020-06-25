@@ -13,7 +13,7 @@ export function pathDirNormalize(dir: string, pathLib?: IPathLibLike): string
 {
 	pathLib = pathLib ?? {};
 
-	return (pathLib.normalize ?? _normalize)(dir + (pathLib.sep ?? _sep))
+	return (pathLib.normalize ?? _normalize)(dir) + (pathLib.sep ?? _sep)
 }
 
 export function createPathDirNormalize(defaultPathLib: {

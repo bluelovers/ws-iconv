@@ -8,7 +8,7 @@ const upath2_1 = require("upath2");
 function pathDirNormalize(dir, pathLib) {
     var _a, _b;
     pathLib = pathLib !== null && pathLib !== void 0 ? pathLib : {};
-    return ((_a = pathLib.normalize) !== null && _a !== void 0 ? _a : upath2_1.normalize)(dir + ((_b = pathLib.sep) !== null && _b !== void 0 ? _b : upath2_1.sep));
+    return ((_a = pathLib.normalize) !== null && _a !== void 0 ? _a : upath2_1.normalize)(dir) + ((_b = pathLib.sep) !== null && _b !== void 0 ? _b : upath2_1.sep);
 }
 exports.pathDirNormalize = pathDirNormalize;
 function createPathDirNormalize(defaultPathLib) {
