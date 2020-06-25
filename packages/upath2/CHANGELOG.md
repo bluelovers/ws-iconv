@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.1.2](https://github.com/bluelovers/ws-iconv/compare/upath2@3.1.1...upath2@3.1.2) (2020-06-25)
+
+
+### 🔖　Miscellaneous
+
+* . ([76f76cd](https://github.com/bluelovers/ws-iconv/commit/76f76cd12c3f89390515b1e33e9291b84faf433a))
+
+
+
+
+
 ## [3.1.1](https://github.com/bluelovers/ws-iconv/compare/upath2@3.0.6...upath2@3.1.1) (2020-06-25)
 
 
