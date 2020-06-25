@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.4](https://github.com/bluelovers/ws-iconv/compare/path-is-network-drive@1.0.3...path-is-network-drive@1.0.4) (2020-06-25)
+
+
+### 🔖　Miscellaneous
+
+* . ([acbd26e](https://github.com/bluelovers/ws-iconv/commit/acbd26eccb84cfb7de85317c0383680c1809c530))
+
+
+
+
+
 ## [1.0.3](https://github.com/bluelovers/ws-iconv/compare/path-is-network-drive@1.0.2...path-is-network-drive@1.0.3) (2020-06-25)
 
 
