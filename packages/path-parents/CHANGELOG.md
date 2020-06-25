@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.6](https://github.com/bluelovers/ws-iconv/compare/path-parents@1.0.5...path-parents@1.0.6) (2020-06-25)
+
+
+### 🐛　Bug Fixes
+
+* 修正特殊路徑 `c:.` ([176c60c](https://github.com/bluelovers/ws-iconv/commit/176c60c17bd3f30976bf43366eebf34904e88950))
+
+
+### BREAKING CHANGES
+
+* `c:./` => `c:/`, `c:.` => `c:/`
+
+
+
+
+
 ## [1.0.5](https://github.com/bluelovers/ws-iconv/compare/path-parents@1.0.4...path-parents@1.0.5) (2020-06-25)
 
 

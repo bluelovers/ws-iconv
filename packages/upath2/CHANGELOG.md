@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.1.4](https://github.com/bluelovers/ws-iconv/compare/upath2@3.1.3...upath2@3.1.4) (2020-06-25)
+
+
+### 🐛　Bug Fixes
+
+* 修正特殊路徑 `c:.` ([176c60c](https://github.com/bluelovers/ws-iconv/commit/176c60c17bd3f30976bf43366eebf34904e88950))
+* use `relative` for check ([e5b0b91](https://github.com/bluelovers/ws-iconv/commit/e5b0b9139ee34b48300c5ac8309e8f0e8366209e))
+
+
+### BREAKING CHANGES
+
+* `c:./` => `c:/`, `c:.` => `c:/`
+
+
+
+
+
 ## [3.1.3](https://github.com/bluelovers/ws-iconv/compare/upath2@3.1.2...upath2@3.1.3) (2020-06-25)
 
 
