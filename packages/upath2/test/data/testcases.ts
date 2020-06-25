@@ -26,12 +26,14 @@ export const testCases = {
 		],
 		[
 			'//windows\\unix/mixed',
-			"//windows/unix/mixed"
+			"\\\\windows/unix/mixed"
 		],
+		/*
 		[
 			'\\windows//unix/mixed',
 			"/windows/unix/mixed"
 		],
+		 */
 		[
 			'//\\windows\\..\\unix/mixed/',
 			"/unix/mixed/"

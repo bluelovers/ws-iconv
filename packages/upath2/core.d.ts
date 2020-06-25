@@ -1,12 +1,14 @@
 /**
  * Created by user on 2017/12/9/009.
  */
-import { IPathNode, IPath, IParse, IPathType, ORIGIN_KEY } from './lib/type';
+/// <reference types="node" />
+import { ParsedPath } from 'path';
+import { IPathNode, IPath, IParse, IPathType, ORIGIN_KEY, IPathPlatform } from './lib/type';
 import * as types from './lib/type';
 export type { IPathNode, IPath, IParse, IPathType };
 export declare class PathWrap implements IPath {
     sep: string;
-    name: string;
+    name: string | IPathPlatform;
     delimiter: string;
     win32: IPath;
     posix: IPath;
@@ -16,15 +18,16 @@ export declare class PathWrap implements IPath {
     [ORIGIN_KEY]?: IPathType;
     constructor(path: any, id: string);
     join<T = string, U = string>(path: T, ...paths: U[]): string;
-    normalize<T = string>(path: T): string;
-    relative<T = string, U = string>(from: T, to: U): string;
+    normalize<T extends string = string>(path: T): string;
+    relative<T extends string = string, U extends string = string>(from: T, to: U): string;
     resolve<T = string, U = string>(path: T, ...paths: U[]): string;
-    parse<T = string>(path: T): IParse;
+    parse<T extends string = string>(path: T): ParsedPath;
     format<T = IParse>(pathObject: T): string;
-    basename<T = string, U = string>(path: T, ext?: U): string;
-    dirname<T = string>(path: T): string;
-    extname<T = string>(path: T): string;
-    isAbsolute<T = string>(path: T): boolean;
+    basename<T extends string = string, U extends string = string>(path: T, ext?: U): string;
+    dirname<T extends string = string>(path: T): string;
+    extname<T extends string = string>(path: T): string;
+    isAbsolute<T extends string = string>(path: T): boolean;
+    toNamespacedPath(path: string): any;
 }
 export declare namespace PathWrap {
     let fn: types.IPath;
@@ -42,4 +45,4 @@ export declare type IUPath = PathWrap & {
 export declare const upath: IUPath;
 export declare const fn: IPath;
 export default upath;
-export declare function _this_origin(who: IPath): IPathNode;
+export declare function _this_origin(who: IPath): Pick<PathWrap, keyof IPathNode>;

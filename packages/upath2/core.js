@@ -34,28 +34,29 @@ class PathWrap {
             'dirname',
             'extname',
             'isAbsolute',
+            'toNamespacedPath',
         ]
             .forEach(prop => {
             this.fn[prop] = this.fn[prop].bind(this);
         });
     }
     join(path, ...paths) {
-        //console.log(this.name, this.sep);
-        return _this_origin(this).join(path, ...paths).replace(/\\/g, this.sep);
+        return util_1._replace_sep(this, _this_origin(this).join(path, ...paths));
     }
     normalize(path) {
-        return _this_origin(this).normalize(path).replace(/\\/g, this.sep);
+        return util_1._replace_sep(this, _this_origin(this).normalize(path));
     }
     relative(from, to) {
-        return _this_origin(this).relative(from.toString(), to.toString()).replace(/\\/g, this.sep);
+        return util_1._replace_sep(this, _this_origin(this).relative(from.toString(), to.toString()));
     }
     resolve(path, ...paths) {
-        return _this_origin(this).resolve(path, ...paths).replace(/\\/g, this.sep);
+        return util_1._replace_sep(this, _this_origin(this).resolve(path, ...paths));
     }
     parse(path) {
+        path = this.normalize(path);
         let ret = _this_origin(this).parse(path);
-        ret.root = ret.root.replace(/\\/g, this.sep);
-        ret.dir = ret.dir.replace(/\\/g, this.sep);
+        ret.root = util_1._replace_sep(this, ret.root);
+        ret.dir = util_1._replace_sep(this, ret.dir);
         return ret;
     }
     format(pathObject) {
@@ -74,6 +75,9 @@ class PathWrap {
     isAbsolute(path) {
         return _this_origin(this).isAbsolute(path);
     }
+    toNamespacedPath(path) {
+        return _this_origin(this).toNamespacedPath(path);
+    }
 }
 exports.PathWrap = PathWrap;
 (function (PathWrap) {
@@ -84,6 +88,7 @@ exports.PathWrap = PathWrap;
     }
     PathWrap.fn = __proto__;
     PathWrap.fn['fn'] = PathWrap.fn;
+    // @ts-ignore
     PathWrap.fn.sep = '/';
     PathWrap.prototype.fn = PathWrap.fn;
 })(PathWrap = exports.PathWrap || (exports.PathWrap = {}));
@@ -120,6 +125,7 @@ function _this_origin(who) {
         // @ts-ignore
         return who[type_1.ORIGIN_KEY];
     }
+    // @ts-ignore
     else if (who === exports.upath) {
         // @ts-ignore
         return path_1.default;

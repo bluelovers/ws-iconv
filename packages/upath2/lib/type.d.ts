@@ -2,54 +2,33 @@
 /**
  * Created by user on 2018/3/30/030.
  */
-import _path from 'path';
+import { ParsedPath, PlatformPath } from 'path';
+export declare type IPathPlatformOrigin = 'win32' | 'posix';
+export declare type IPathPlatform = IPathPlatformOrigin | 'upath';
 export declare const ORIGIN_KEY: unique symbol;
-export interface IParse {
-    root?: string;
-    dir?: string;
-    base?: string;
-    ext?: string;
-    name?: string;
+export interface IParse extends Partial<ParsedPath> {
 }
-export declare type IPathType = typeof _path | typeof _path.posix | typeof _path.win32 | IPath | IPathNode;
-export interface IPathNode {
-    sep: string;
+export declare type IPathType = PlatformPath | IPath | IPathNode;
+export interface IPathNode extends Pick<PlatformPath, 'toNamespacedPath' | 'delimiter' | 'sep' | 'isAbsolute' | 'extname' | 'dirname' | 'format' | 'parse' | 'resolve' | 'relative' | 'normalize' | 'join' | 'basename'> {
     win32?: IPathNode;
     posix?: IPathNode;
-    delimiter?: string;
-    join<T = string, U = string>(path: T, ...paths: U[]): string;
-    normalize<T = string>(path: T): string;
-    relative<T = string, U = string>(from: T, to: U): string;
-    resolve<T = string, U = string>(path: T, ...paths: U[]): string;
-    parse<T = string>(path: T): IParse;
-    format<T = IParse>(pathObject: T): string;
-    basename<T = string, U = string>(path: T, ext?: U): string;
-    dirname<T = string>(path: T): string;
-    extname<T = string>(path: T): string;
-    isAbsolute<T = string>(path: T): boolean;
-    toNamespacedPath?: Function;
 }
-export declare type IPath = IPathNode & {
+export interface IPath extends Omit<IPathNode, 'win32' | 'posix' | 'default'> {
     name?: string;
     win32?: IPath;
     posix?: IPath;
     upath?: IPath;
-    sep: string;
-    delimiter?: string;
     join<T = string, U = string>(path: T, ...paths: U[]): string;
-    normalize<T = string>(path: T): string;
-    relative<T = string, U = string>(from: T, to: U): string;
+    normalize<T extends string = string>(path: T): string;
+    relative<T extends string = string, U extends string = string>(from: T, to: U): string;
     resolve<T = string, U = string>(path: T, ...paths: U[]): string;
-    parse<T = string>(path: T): IParse;
+    parse<T extends string = string>(path: T): ParsedPath;
     format<T = IParse>(pathObject: T): string;
-    basename<T = string, U = string>(path: T, ext?: U): string;
-    dirname<T = string>(path: T): string;
-    extname<T = string>(path: T): string;
-    isAbsolute<T = string>(path: T): boolean;
+    basename<T extends string = string, U extends string = string>(path: T, ext?: U): string;
+    dirname<T extends string = string>(path: T): string;
+    extname<T extends string = string>(path: T): string;
+    isAbsolute<T extends string = string>(path: T): boolean;
     fn?: IPath;
     default?: IPath;
     [ORIGIN_KEY]?: IPathType;
-    [index: string]: any;
-};
-declare const _default: typeof import("./type");
-export default _default;
+}

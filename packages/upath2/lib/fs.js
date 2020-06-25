@@ -7,7 +7,7 @@ exports.filterNameEntry = exports.vaildNameEntry = void 0;
 const core_1 = require("../core");
 let r_vaild = /[\\\?\/\!'"\:\<\>\*\|]+/g;
 function vaildNameEntry(name) {
-    return r_vaild.test(name.toString()) ? null : name;
+    return r_vaild.test(name.toString()) ? void 0 : name;
 }
 exports.vaildNameEntry = vaildNameEntry;
 function filterNameEntry(name) {

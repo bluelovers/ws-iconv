@@ -5,9 +5,16 @@
 import { IPath } from './type';
 import { PathWrap } from '../core';
 
-export function _replace_sep(who: IPath, input: string): string
+export function _replace_sep(who: Pick<IPath, 'sep' | 'name'>, input: string): string
 {
-	return input.replace(/\\/g, who.sep);
+	let sep = who.sep;
+
+	if (who.name === 'win32' && /^\\\\(?![/\\])/.test(input))
+	{
+		sep = '\\';
+	}
+
+	return input.replace(/(?<![/\\])[/\\](?![/\\])/g, sep);
 }
 
 export function getStatic(who): PathWrap
