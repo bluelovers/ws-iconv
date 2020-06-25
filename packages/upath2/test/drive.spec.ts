@@ -24,29 +24,6 @@ test(`normalize`, () =>
 
 });
 
-test(`normalize v2`, () =>
-{
-	[
-		'c:.',
-
-		path.normalize('c:').replace(/\\/, '/'),
-		upath.normalize('c:'),
-		upath.normalize('c:'),
-
-	].reduce((a, b, index) =>
-	{
-		console.dir({
-			index,
-			b,
-		})
-
-		expect(a).toStrictEqual(b)
-
-		return a
-	})
-
-});
-
 test(`dirname`, () =>
 {
 	[

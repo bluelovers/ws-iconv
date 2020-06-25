@@ -9,7 +9,8 @@ import { IPathNode, IPath, IParse, IPathType, ORIGIN_KEY, IPathPlatform } from '
 
 import { getStatic, _replace_sep, _strip_sep } from './lib/util';
 import * as types from './lib/type';
-import pathIsNetworkDrive, { matchNetworkDriveRoot, matchNetworkDrive02 } from '../path-is-network-drive';
+import pathIsNetworkDrive, { matchNetworkDriveRoot, matchNetworkDrive02 } from 'path-is-network-drive';
+import { _fix_special } from './lib/fix';
 
 export type { IPathNode, IPath, IParse, IPathType }
 
@@ -81,21 +82,37 @@ export class PathWrap implements IPath
 
 	public join<T = string, U = string>(path: T, ...paths: U[]): string
 	{
+		// @ts-ignore
+		path = _fix_special(this, path, true);
+
 		return _replace_sep(this, _this_origin(this).join(path, ...paths));
 	}
 
 	public normalize<T extends string = string>(path: T): string
 	{
+		let ret = _fix_special(this, path)
+
+		if (ret?.length)
+		{
+			return ret;
+		}
+
 		return _replace_sep(this, _this_origin(this).normalize(path));
 	}
 
 	public relative<T extends string = string, U extends string = string>(from: T, to: U): string
 	{
+		from = _fix_special(this, from, true);
+		to = _fix_special(this, to, true);
+
 		return _replace_sep(this, _this_origin(this).relative(from.toString(), to.toString()));
 	}
 
 	public resolve<T = string, U = string>(path: T, ...paths: U[]): string
 	{
+		// @ts-ignore
+		path = _fix_special(this, path, true);
+
 		return _replace_sep(this, _this_origin(this).resolve(path, ...paths))
 	}
 
@@ -127,7 +144,7 @@ export class PathWrap implements IPath
 	{
 		let r: string;
 
-		if (this.name !== 'posix' && pathIsNetworkDrive(path))
+		if (false && this.name !== 'posix' && pathIsNetworkDrive(path))
 		{
 			if (matchNetworkDriveRoot(path))
 			{

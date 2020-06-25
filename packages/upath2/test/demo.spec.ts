@@ -1,5 +1,5 @@
 import upath2 from '..';
-import * as upath from 'upath';
+import * as upath from 'upath2';
 import testCases, { ITestCaseRow } from './data/testcases';
 import { inspect } from 'util';
 

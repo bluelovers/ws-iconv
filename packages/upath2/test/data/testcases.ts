@@ -44,15 +44,18 @@ export const testCases = {
 		[
 			'/root/of/unix/somefile.ext',
 		],
+		/*
 		[
 			'c:/',
 		],
 		[
 			'c:',
 		],
+
 		[
 			'c:\\',
 		],
+		 */
 	],
 	join: [
 		[

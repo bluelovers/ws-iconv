@@ -1,8 +1,8 @@
 import { inspect } from "util";
-import upath from "upath";
+import upath from "upath2";
 import { win32 as path } from '../index';
 import testCases, { ITestCaseRow } from './data/testcases';
-import { IPath } from '../core';
+import { IPath, win32 } from '../core';
 
 describe(`normalize`, () =>
 {

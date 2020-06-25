@@ -5,6 +5,9 @@
 import { IPath } from './type';
 import { PathWrap } from '../core';
 import pathIsNetworkDrive from 'path-is-network-drive';
+import _strip_sep from 'path-strip-sep';
+
+export { _strip_sep }
 
 export function _replace_sep(who: Pick<IPath, 'sep' | 'name'>, input: string): string
 {
@@ -33,13 +36,6 @@ export function _replace_sep(who: Pick<IPath, 'sep' | 'name'>, input: string): s
 
 	return input
 		//.replace(/([^/\\])[/\\]$/, '$1')
-		;
-}
-
-export function _strip_sep(input: string)
-{
-	return input
-		.replace(/([^/\\])[/\\]$/, '$1')
 		;
 }
 

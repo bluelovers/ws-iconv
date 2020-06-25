@@ -30,7 +30,8 @@ const path_1 = __importDefault(require("path"));
 const lodash_1 = require("lodash");
 const type_1 = require("./lib/type");
 const util_1 = require("./lib/util");
-const path_is_network_drive_1 = __importStar(require("../path-is-network-drive"));
+const path_is_network_drive_1 = __importStar(require("path-is-network-drive"));
+const fix_1 = require("./lib/fix");
 class PathWrap {
     constructor(path, id) {
         var _a;
@@ -66,15 +67,25 @@ class PathWrap {
         this.name = id;
     }
     join(path, ...paths) {
+        // @ts-ignore
+        path = fix_1._fix_special(this, path, true);
         return util_1._replace_sep(this, _this_origin(this).join(path, ...paths));
     }
     normalize(path) {
+        let ret = fix_1._fix_special(this, path);
+        if (ret === null || ret === void 0 ? void 0 : ret.length) {
+            return ret;
+        }
         return util_1._replace_sep(this, _this_origin(this).normalize(path));
     }
     relative(from, to) {
+        from = fix_1._fix_special(this, from, true);
+        to = fix_1._fix_special(this, to, true);
         return util_1._replace_sep(this, _this_origin(this).relative(from.toString(), to.toString()));
     }
     resolve(path, ...paths) {
+        // @ts-ignore
+        path = fix_1._fix_special(this, path, true);
         return util_1._replace_sep(this, _this_origin(this).resolve(path, ...paths));
     }
     parse(path) {
@@ -93,7 +104,7 @@ class PathWrap {
     }
     dirname(path) {
         let r;
-        if (this.name !== 'posix' && path_is_network_drive_1.default(path)) {
+        if (false && this.name !== 'posix' && path_is_network_drive_1.default(path)) {
             if (path_is_network_drive_1.matchNetworkDriveRoot(path)) {
                 r = path;
             }

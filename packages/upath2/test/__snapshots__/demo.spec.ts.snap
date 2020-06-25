@@ -10,15 +10,9 @@ exports[`check upath (unbind) normalize '//\\\\windows\\\\..\\\\unix/mixed/' 1`]
 
 exports[`check upath (unbind) normalize '/root/of/unix/somefile.ext' 1`] = `"/root/of/unix/somefile.ext"`;
 
-exports[`check upath (unbind) normalize 'c:' 1`] = `"c:."`;
-
-exports[`check upath (unbind) normalize 'c:/' 1`] = `"c:/"`;
-
 exports[`check upath (unbind) normalize 'c:/windows/../nodejs/path' 1`] = `"c:/nodejs/path"`;
 
 exports[`check upath (unbind) normalize 'c:/windows/nodejs/path' 1`] = `"c:/windows/nodejs/path"`;
-
-exports[`check upath (unbind) normalize 'c:\\\\' 1`] = `"c:/"`;
 
 exports[`check upath (unbind) normalize 'c:\\\\Windows\\\\Directory\\\\somefile.ext' 1`] = `"c:/Windows/Directory/somefile.ext"`;
 
@@ -126,15 +120,9 @@ exports[`check upath normalize '//\\\\windows\\\\..\\\\unix/mixed/' 1`] = `"/uni
 
 exports[`check upath normalize '/root/of/unix/somefile.ext' 1`] = `"/root/of/unix/somefile.ext"`;
 
-exports[`check upath normalize 'c:' 1`] = `"c:."`;
-
-exports[`check upath normalize 'c:/' 1`] = `"c:/"`;
-
 exports[`check upath normalize 'c:/windows/../nodejs/path' 1`] = `"c:/nodejs/path"`;
 
 exports[`check upath normalize 'c:/windows/nodejs/path' 1`] = `"c:/windows/nodejs/path"`;
-
-exports[`check upath normalize 'c:\\\\' 1`] = `"c:/"`;
 
 exports[`check upath normalize 'c:\\\\Windows\\\\Directory\\\\somefile.ext' 1`] = `"c:/Windows/Directory/somefile.ext"`;
 
@@ -242,15 +230,9 @@ exports[`check upath2 (unbind) normalize '//\\\\windows\\\\..\\\\unix/mixed/' 1`
 
 exports[`check upath2 (unbind) normalize '/root/of/unix/somefile.ext' 1`] = `"/root/of/unix/somefile.ext"`;
 
-exports[`check upath2 (unbind) normalize 'c:' 1`] = `"c:."`;
-
-exports[`check upath2 (unbind) normalize 'c:/' 1`] = `"c:/"`;
-
 exports[`check upath2 (unbind) normalize 'c:/windows/../nodejs/path' 1`] = `"c:/nodejs/path"`;
 
 exports[`check upath2 (unbind) normalize 'c:/windows/nodejs/path' 1`] = `"c:/windows/nodejs/path"`;
-
-exports[`check upath2 (unbind) normalize 'c:\\\\' 1`] = `"c:/"`;
 
 exports[`check upath2 (unbind) normalize 'c:\\\\Windows\\\\Directory\\\\somefile.ext' 1`] = `"c:/Windows/Directory/somefile.ext"`;
 
@@ -358,15 +340,9 @@ exports[`check upath2 normalize '//\\\\windows\\\\..\\\\unix/mixed/' 1`] = `"/un
 
 exports[`check upath2 normalize '/root/of/unix/somefile.ext' 1`] = `"/root/of/unix/somefile.ext"`;
 
-exports[`check upath2 normalize 'c:' 1`] = `"c:."`;
-
-exports[`check upath2 normalize 'c:/' 1`] = `"c:/"`;
-
 exports[`check upath2 normalize 'c:/windows/../nodejs/path' 1`] = `"c:/nodejs/path"`;
 
 exports[`check upath2 normalize 'c:/windows/nodejs/path' 1`] = `"c:/windows/nodejs/path"`;
-
-exports[`check upath2 normalize 'c:\\\\' 1`] = `"c:/"`;
 
 exports[`check upath2 normalize 'c:\\\\Windows\\\\Directory\\\\somefile.ext' 1`] = `"c:/Windows/Directory/somefile.ext"`;
 
@@ -474,15 +450,9 @@ exports[`check win32 (unbind) normalize '//\\\\windows\\\\..\\\\unix/mixed/' 1`]
 
 exports[`check win32 (unbind) normalize '/root/of/unix/somefile.ext' 1`] = `"/root/of/unix/somefile.ext"`;
 
-exports[`check win32 (unbind) normalize 'c:' 1`] = `"c:."`;
-
-exports[`check win32 (unbind) normalize 'c:/' 1`] = `"c:/"`;
-
 exports[`check win32 (unbind) normalize 'c:/windows/../nodejs/path' 1`] = `"c:/nodejs/path"`;
 
 exports[`check win32 (unbind) normalize 'c:/windows/nodejs/path' 1`] = `"c:/windows/nodejs/path"`;
-
-exports[`check win32 (unbind) normalize 'c:\\\\' 1`] = `"c:/"`;
 
 exports[`check win32 (unbind) normalize 'c:\\\\Windows\\\\Directory\\\\somefile.ext' 1`] = `"c:/Windows/Directory/somefile.ext"`;
 
@@ -590,15 +560,9 @@ exports[`check win32 normalize '//\\\\windows\\\\..\\\\unix/mixed/' 1`] = `"/uni
 
 exports[`check win32 normalize '/root/of/unix/somefile.ext' 1`] = `"/root/of/unix/somefile.ext"`;
 
-exports[`check win32 normalize 'c:' 1`] = `"c:."`;
-
-exports[`check win32 normalize 'c:/' 1`] = `"c:/"`;
-
 exports[`check win32 normalize 'c:/windows/../nodejs/path' 1`] = `"c:/nodejs/path"`;
 
 exports[`check win32 normalize 'c:/windows/nodejs/path' 1`] = `"c:/windows/nodejs/path"`;
-
-exports[`check win32 normalize 'c:\\\\' 1`] = `"c:/"`;
 
 exports[`check win32 normalize 'c:\\\\Windows\\\\Directory\\\\somefile.ext' 1`] = `"c:/Windows/Directory/somefile.ext"`;
 

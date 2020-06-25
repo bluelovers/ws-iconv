@@ -30,6 +30,6 @@ test('win32 network drive', function ()
 	);
 	expect(dirs).toStrictEqual([
 		'\\\\storageserver01\\Active Projects',
-		'\\\\storageserver01',
+		//'\\\\storageserver01',
 	]);
 });

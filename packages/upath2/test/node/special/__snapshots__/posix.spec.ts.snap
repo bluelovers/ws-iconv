@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`c: dirname 1`] = `"."`;
+
+exports[`c: dirname 2`] = `"."`;
+
+exports[`c: dirname 3`] = `"."`;
+
+exports[`c: dirname 4`] = `"."`;
+
+exports[`c: dirname 5`] = `"."`;
+
+exports[`c: dirname 6`] = `"."`;
+
+exports[`c: join 1`] = `"c:/kk"`;
+
+exports[`c: join 2`] = `"c:/kk"`;
+
+exports[`c: join 3`] = `"c:\\\\/kk"`;
+
+exports[`c: join 4`] = `"c:./kk"`;
+
+exports[`c: join 5`] = `"c:./kk"`;
+
+exports[`c: join 6`] = `"c:.\\\\/kk"`;
+
+exports[`c: normalize 1`] = `"c:"`;
+
+exports[`c: normalize 2`] = `"c:/"`;
+
+exports[`c: normalize 3`] = `"c:\\\\"`;
+
+exports[`c: normalize 4`] = `"c:."`;
+
+exports[`c: normalize 5`] = `"c:./"`;
+
+exports[`c: normalize 6`] = `"c:.\\\\"`;

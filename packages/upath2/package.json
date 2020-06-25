@@ -58,6 +58,11 @@
     "ncu": "npx yarn-tool ncu -u",
     "sort-package-json": "npx yarn-tool sort"
   },
+  "dependencies": {
+    "lodash": "^4.17.15",
+    "path-is-network-drive": "^1.0.0",
+    "path-strip-sep": "^1.0.0"
+  },
   "devDependencies": {
     "upath": "^1.2.0"
   },
