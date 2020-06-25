@@ -1,6 +1,7 @@
 import upath from 'upath2/core';
 import { IPathPlatform, IPathNode } from 'upath2/lib/type';
 import pathNode from 'path';
+import pathIsSame from 'path-is-same';
 
 export interface IOptions
 {
@@ -60,10 +61,9 @@ export function handleOptions(cwd?: string | IOptions, opts?: IOptions): IRuntim
 
 export function pathParentsCore(cwd: string, runtime: IRuntime)
 {
-
 	let path = runtime.path.dirname(cwd)
 
-	if (path !== cwd)
+	if (!pathIsSame(cwd, path))
 	{
 		return path
 	}
