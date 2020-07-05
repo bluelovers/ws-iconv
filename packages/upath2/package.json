@@ -60,7 +60,7 @@
   },
   "dependencies": {
     "lodash": "^4.17.15",
-    "path-is-network-drive": "^1.0.0",
+    "path-is-network-drive": "^1.0.4",
     "path-strip-sep": "^1.0.1"
   },
   "devDependencies": {
