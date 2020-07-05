@@ -1,2 +1,2 @@
-export declare function pathIsSame(p1: string, p2: string, ...ps: string[]): any;
+export declare function pathIsSame(p1: string, p2: string, ...ps: string[]): boolean;
 export default pathIsSame;

@@ -1,6 +1,6 @@
 import { relative } from 'path';
 
-export function pathIsSame(p1: string, p2: string, ...ps: string[])
+export function pathIsSame(p1: string, p2: string, ...ps: string[]): boolean
 export function pathIsSame(p1: string, ...ps: string[])
 {
 	if (ps.length <= 0)
