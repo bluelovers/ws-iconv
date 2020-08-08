@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.2.10](https://github.com/bluelovers/ws-iconv/compare/extrastat2@4.2.9...extrastat2@4.2.10) (2020-08-08)
+
+
+### 🛠　Build System
+
+* update file ([8038091](https://github.com/bluelovers/ws-iconv/commit/8038091e90359945bc8861d4574e5a1370bdec11))
+
+
+### ♻️　Chores
+
+* update deps ([174ab03](https://github.com/bluelovers/ws-iconv/commit/174ab0300fdaf8a3ba5e130295296733ebdb1886))
+
+
+
+
+
 ## [4.2.9](https://github.com/bluelovers/ws-iconv/compare/extrastat2@4.2.8...extrastat2@4.2.9) (2020-07-05)
 
 **Note:** Version bump only for package extrastat2

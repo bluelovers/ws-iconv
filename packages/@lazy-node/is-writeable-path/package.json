@@ -1,6 +1,6 @@
 {
   "name": "@lazy-node/is-writeable-path",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "detect target path is writeable or not",
   "homepage": "https://github.com/bluelovers/ws-iconv/tree/master/packages/@lazy-node/is-writeable-path#readme",
   "bugs": {
@@ -25,9 +25,6 @@
     "ncu": "yarn-tool ncu -u",
     "sort-package-json": "yarn-tool sort"
   },
-  "dependencies": {},
-  "devDependencies": {},
-  "peerDependencies": {},
   "publishConfig": {
     "access": "public"
   }
