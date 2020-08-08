@@ -21,16 +21,16 @@
   },
   "resolutions": {},
   "devDependencies": {
-    "@bluelovers/tsconfig": "^1.0.19",
+    "@bluelovers/tsconfig": "^1.0.20",
     "@types/bluebird": "^3",
     "@types/fs-extra": "^9",
     "@types/html-encoding-sniffer": "^2.0.1",
-    "@types/jest": "^26.0.3",
-    "@types/lodash": "^4.14.157",
+    "@types/jest": "^26.0.9",
+    "@types/lodash": "^4.14.159",
     "@types/node": "*",
     "fs-extra": "^9.0.1",
-    "jest": "^26.1.0",
-    "ts-jest": "^26.1.1"
+    "jest": "^26.2.2",
+    "ts-jest": "^26.1.4"
   },
   "peerDependencies": {
     "lerna": "^3"

@@ -59,7 +59,7 @@
     "sort-package-json": "npx yarn-tool sort"
   },
   "dependencies": {
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.19",
     "path-is-network-drive": "^1.0.4",
     "path-strip-sep": "^1.0.1"
   },

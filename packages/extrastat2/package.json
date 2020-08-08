@@ -39,11 +39,11 @@
     "sort-package-json": "ynpx --quiet yarn-tool -- sort"
   },
   "dependencies": {
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.19",
     "mime-types": "^2.1.27",
     "path-parents": "^1.0.7",
     "stat-mode": "^1.0.0",
-    "ts-type": "^1.2.23"
+    "ts-type": "^1.2.32"
   },
   "devDependencies": {
     "@types/mime-types": "^2.1.0"
