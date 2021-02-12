@@ -26,5 +26,5 @@ export declare function decode(str: any, from?: vEncoding): string;
  * 檢測輸入內容編碼並且轉換為 Buffer
  */
 export declare function encode(str: any, to?: vEncoding, from?: vEncoding): Buffer;
-declare const _default: typeof import(".");
+declare const _default: typeof import("./index");
 export default _default;
