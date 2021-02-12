@@ -1,6 +1,6 @@
 {
   "name": "extrastat2",
-  "version": "4.2.10",
+  "version": "4.2.11",
   "description": "Resolve fs.Stat to mimetype, ownername, groupname, and human-readable permissions.",
   "keywords": [
     "MIME",
@@ -41,7 +41,7 @@
   "dependencies": {
     "lodash": "^4.17.20",
     "mime-types": "^2.1.28",
-    "path-parents": "^1.0.8",
+    "path-parents": "^1.0.9",
     "stat-mode": "^1.0.0",
     "ts-type": "^1.2.34"
   },

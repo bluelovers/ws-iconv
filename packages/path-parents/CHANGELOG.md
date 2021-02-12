@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.9](https://github.com/bluelovers/ws-iconv/compare/path-parents@1.0.8...path-parents@1.0.9) (2021-02-12)
+
+**Note:** Version bump only for package path-parents
+
+
+
+
+
 ## [1.0.8](https://github.com/bluelovers/ws-iconv/compare/path-parents@1.0.7...path-parents@1.0.8) (2020-08-08)
 
 **Note:** Version bump only for package path-parents

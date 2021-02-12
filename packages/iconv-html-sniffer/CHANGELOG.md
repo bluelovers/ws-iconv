@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.11](https://github.com/bluelovers/ws-iconv/compare/iconv-html-sniffer@1.0.10...iconv-html-sniffer@1.0.11) (2021-02-12)
+
+
+### 🛠　Build System
+
+* update typescript ([a9fb364](https://github.com/bluelovers/ws-iconv/commit/a9fb3646f3686e851056c0c14b0689098cddb5c4))
+
+
+
+
+
 ## [1.0.10](https://github.com/bluelovers/ws-iconv/compare/iconv-html-sniffer@1.0.9...iconv-html-sniffer@1.0.10) (2020-08-08)
 
 **Note:** Version bump only for package iconv-html-sniffer

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.12](https://github.com/bluelovers/ws-iconv/compare/iconv-jschardet@2.0.11...iconv-jschardet@2.0.12) (2021-02-12)
+
+
+### 🛠　Build System
+
+* update typescript ([a9fb364](https://github.com/bluelovers/ws-iconv/commit/a9fb3646f3686e851056c0c14b0689098cddb5c4))
+
+
+
+
+
 ## [2.0.11](https://github.com/bluelovers/ws-iconv/compare/iconv-jschardet@2.0.10...iconv-jschardet@2.0.11) (2020-08-08)
 
 
