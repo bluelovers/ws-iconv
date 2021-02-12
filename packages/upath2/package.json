@@ -59,12 +59,12 @@
     "sort-package-json": "npx yarn-tool sort"
   },
   "dependencies": {
-    "lodash": "^4.17.19",
+    "lodash": "^4.17.20",
     "path-is-network-drive": "^1.0.4",
     "path-strip-sep": "^1.0.1"
   },
   "devDependencies": {
-    "upath": "^1.2.0"
+    "upath": "^2.0.1"
   },
   "peerDependencies": {
     "@types/node": "*"
