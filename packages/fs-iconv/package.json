@@ -64,17 +64,17 @@
     "test": "jest",
     "npm:publish": "npm publish",
     "npm:publish:lerna": "npx lerna publish --yes --cd-version patch",
+    "preversion": "yarn run test",
     "prepublish:lockfile": "npx sync-lockfile .",
-    "prepublishOnly": "yarn run test",
     "postpublish_": "git commit -m \"chore(release): publish\" .",
     "ncu": "npx yarn-tool ncu -u",
     "sort-package-json": "npx yarn-tool sort"
   },
   "dependencies": {
     "bluebird": "^3.7.2",
-    "fs-extra": "^9.1.0",
+    "fs-extra": "^10.0.0",
     "iconv-jschardet": "^2.0.12",
-    "lodash": "^4.17.20",
+    "lodash": "^4.17.21",
     "sanitize-filename": "^1.6.3",
     "ts-type": "^1.2.34"
   },

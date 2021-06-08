@@ -2,92 +2,90 @@
 /**
  * Created by user on 2020/5/29.
  */
-var __classPrivateFieldSet = (this && this.__classPrivateFieldSet) || function (receiver, privateMap, value) {
-    if (!privateMap.has(receiver)) {
-        throw new TypeError("attempted to set private field on non-instance");
-    }
-    privateMap.set(receiver, value);
-    return value;
+var __classPrivateFieldSet = (this && this.__classPrivateFieldSet) || function (receiver, state, value, kind, f) {
+    if (kind === "m") throw new TypeError("Private method is not writable");
+    if (kind === "a" && !f) throw new TypeError("Private accessor was defined without a setter");
+    if (typeof state === "function" ? receiver !== state || !f : !state.has(receiver)) throw new TypeError("Cannot write private member to an object whose class did not declare it");
+    return (kind === "a" ? f.call(receiver, value) : f ? f.value = value : state.set(receiver, value)), value;
 };
-var __classPrivateFieldGet = (this && this.__classPrivateFieldGet) || function (receiver, privateMap) {
-    if (!privateMap.has(receiver)) {
-        throw new TypeError("attempted to get private field on non-instance");
-    }
-    return privateMap.get(receiver);
+var __classPrivateFieldGet = (this && this.__classPrivateFieldGet) || function (receiver, state, kind, f) {
+    if (kind === "a" && !f) throw new TypeError("Private accessor was defined without a getter");
+    if (typeof state === "function" ? receiver !== state || !f : !state.has(receiver)) throw new TypeError("Cannot read private member from an object whose class did not declare it");
+    return kind === "m" ? f : kind === "a" ? f.call(receiver) : f ? f.value : state.get(receiver);
 };
-var _file, _fd, _options, _newLineCharacter, _eofReached, _linesCache, _fdPosition, _readChunk_1, _lineNumber;
+var _LineByLine_file, _LineByLine_fd, _LineByLine_options, _LineByLine_newLineCharacter, _LineByLine_eofReached, _LineByLine_linesCache, _LineByLine_fdPosition, _LineByLine_readChunk, _LineByLine_lineNumber;
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.LineByLine = void 0;
 const fs_1 = require("fs");
 const util_1 = require("./lib/util");
 class LineByLine {
     constructor(file, options) {
-        _file.set(this, void 0);
-        _fd.set(this, void 0);
-        _options.set(this, void 0);
-        _newLineCharacter.set(this, void 0);
-        _eofReached.set(this, void 0);
-        _linesCache.set(this, void 0);
-        _fdPosition.set(this, void 0);
-        _readChunk_1.set(this, void 0);
-        _lineNumber.set(this, -1);
+        _LineByLine_file.set(this, void 0);
+        _LineByLine_fd.set(this, void 0);
+        _LineByLine_options.set(this, void 0);
+        _LineByLine_newLineCharacter.set(this, void 0);
+        _LineByLine_eofReached.set(this, void 0);
+        _LineByLine_linesCache.set(this, void 0);
+        _LineByLine_fdPosition.set(this, void 0);
+        _LineByLine_readChunk.set(this, void 0);
+        _LineByLine_lineNumber.set(this, -1);
         let { readChunk, newLineCharacter } = (options = options || {});
         if (!readChunk)
             readChunk = 1024;
-        __classPrivateFieldSet(this, _file, file);
-        __classPrivateFieldSet(this, _options, options);
-        __classPrivateFieldSet(this, _newLineCharacter, Buffer.from(util_1.handleOptionNewLineCharacter(newLineCharacter)));
-        __classPrivateFieldSet(this, _readChunk_1, readChunk);
-        if (__classPrivateFieldGet(this, _newLineCharacter).length <= 0) {
+        __classPrivateFieldSet(this, _LineByLine_file, file, "f");
+        __classPrivateFieldSet(this, _LineByLine_options, options, "f");
+        __classPrivateFieldSet(this, _LineByLine_newLineCharacter, Buffer.from(util_1.handleOptionNewLineCharacter(newLineCharacter)), "f");
+        __classPrivateFieldSet(this, _LineByLine_readChunk, readChunk, "f");
+        if (__classPrivateFieldGet(this, _LineByLine_newLineCharacter, "f").length <= 0) {
             throw new TypeError(`newLineCharacter should have length > 0`);
         }
         this._open();
         this.reset();
     }
     _open() {
-        if (typeof __classPrivateFieldGet(this, _file) === 'number') {
-            __classPrivateFieldSet(this, _fd, __classPrivateFieldGet(this, _file));
+        if (typeof __classPrivateFieldGet(this, _LineByLine_file, "f") === 'number') {
+            __classPrivateFieldSet(this, _LineByLine_fd, __classPrivateFieldGet(this, _LineByLine_file, "f"), "f");
         }
         else {
-            __classPrivateFieldSet(this, _fd, fs_1.openSync(__classPrivateFieldGet(this, _file), 'r'));
+            __classPrivateFieldSet(this, _LineByLine_fd, fs_1.openSync(__classPrivateFieldGet(this, _LineByLine_file, "f"), 'r'), "f");
         }
     }
     get file() {
-        return __classPrivateFieldGet(this, _file);
+        return __classPrivateFieldGet(this, _LineByLine_file, "f");
     }
     get fd() {
-        return __classPrivateFieldGet(this, _fd);
+        return __classPrivateFieldGet(this, _LineByLine_fd, "f");
     }
     get options() {
-        return __classPrivateFieldGet(this, _options);
+        return __classPrivateFieldGet(this, _LineByLine_options, "f");
     }
     get fdPosition() {
-        return __classPrivateFieldGet(this, _fdPosition);
+        return __classPrivateFieldGet(this, _LineByLine_fdPosition, "f");
     }
     get newLineCharacter() {
-        return __classPrivateFieldGet(this, _newLineCharacter);
+        return __classPrivateFieldGet(this, _LineByLine_newLineCharacter, "f");
     }
     get eofReached() {
-        return __classPrivateFieldGet(this, _eofReached);
+        return __classPrivateFieldGet(this, _LineByLine_eofReached, "f");
     }
     /**
      * get current lineNumber
      */
     get lineNumber() {
-        return __classPrivateFieldGet(this, _lineNumber);
+        return __classPrivateFieldGet(this, _LineByLine_lineNumber, "f");
     }
     reset() {
-        __classPrivateFieldSet(this, _eofReached, false);
-        __classPrivateFieldSet(this, _linesCache, []);
-        __classPrivateFieldSet(this, _fdPosition, 0);
-        __classPrivateFieldSet(this, _lineNumber, -1);
+        __classPrivateFieldSet(this, _LineByLine_eofReached, false, "f");
+        __classPrivateFieldSet(this, _LineByLine_linesCache, [], "f");
+        __classPrivateFieldSet(this, _LineByLine_fdPosition, 0, "f");
+        __classPrivateFieldSet(this, _LineByLine_lineNumber, -1, "f");
     }
     close() {
-        __classPrivateFieldGet(this, _fd) && fs_1.closeSync(__classPrivateFieldGet(this, _fd));
-        __classPrivateFieldSet(this, _fd, null);
+        __classPrivateFieldGet(this, _LineByLine_fd, "f") && fs_1.closeSync(__classPrivateFieldGet(this, _LineByLine_fd, "f"));
+        __classPrivateFieldSet(this, _LineByLine_fd, null, "f");
     }
     _extractLines(buffer) {
-        return util_1.splitBufferByBuffer(buffer, __classPrivateFieldGet(this, _newLineCharacter));
+        return util_1.splitBufferByBuffer(buffer, __classPrivateFieldGet(this, _LineByLine_newLineCharacter, "f"));
     }
     ;
     _readChunk(lineLeftovers) {
@@ -95,51 +93,51 @@ class LineByLine {
         let bytesRead;
         const buffers = [];
         do {
-            const readBuffer = Buffer.alloc(__classPrivateFieldGet(this, _readChunk_1));
-            bytesRead = fs_1.readSync(__classPrivateFieldGet(this, _fd), readBuffer, 0, __classPrivateFieldGet(this, _readChunk_1), __classPrivateFieldGet(this, _fdPosition));
+            const readBuffer = Buffer.alloc(__classPrivateFieldGet(this, _LineByLine_readChunk, "f"));
+            bytesRead = fs_1.readSync(__classPrivateFieldGet(this, _LineByLine_fd, "f"), readBuffer, 0, __classPrivateFieldGet(this, _LineByLine_readChunk, "f"), __classPrivateFieldGet(this, _LineByLine_fdPosition, "f"));
             totalBytesRead = totalBytesRead + bytesRead;
-            __classPrivateFieldSet(this, _fdPosition, __classPrivateFieldGet(this, _fdPosition) + bytesRead);
+            __classPrivateFieldSet(this, _LineByLine_fdPosition, __classPrivateFieldGet(this, _LineByLine_fdPosition, "f") + bytesRead, "f");
             buffers.push(readBuffer);
-        } while (bytesRead && buffers[buffers.length - 1].indexOf(__classPrivateFieldGet(this, _newLineCharacter)) === -1);
+        } while (bytesRead && buffers[buffers.length - 1].indexOf(__classPrivateFieldGet(this, _LineByLine_newLineCharacter, "f")) === -1);
         let bufferData = Buffer.concat(buffers);
-        if (bytesRead < __classPrivateFieldGet(this, _readChunk_1)) {
-            __classPrivateFieldSet(this, _eofReached, true);
+        if (bytesRead < __classPrivateFieldGet(this, _LineByLine_readChunk, "f")) {
+            __classPrivateFieldSet(this, _LineByLine_eofReached, true, "f");
             bufferData = bufferData.slice(0, totalBytesRead);
         }
         if (totalBytesRead) {
-            __classPrivateFieldSet(this, _linesCache, this._extractLines(bufferData));
+            __classPrivateFieldSet(this, _LineByLine_linesCache, this._extractLines(bufferData), "f");
             if (lineLeftovers) {
-                __classPrivateFieldGet(this, _linesCache)[0] = Buffer.concat([lineLeftovers, __classPrivateFieldGet(this, _linesCache)[0]]);
+                __classPrivateFieldGet(this, _LineByLine_linesCache, "f")[0] = Buffer.concat([lineLeftovers, __classPrivateFieldGet(this, _LineByLine_linesCache, "f")[0]]);
             }
         }
         return totalBytesRead;
     }
     next() {
-        if (!__classPrivateFieldGet(this, _fd) || __classPrivateFieldGet(this, _eofReached) && __classPrivateFieldGet(this, _linesCache).length === 0) {
+        if (!__classPrivateFieldGet(this, _LineByLine_fd, "f") || __classPrivateFieldGet(this, _LineByLine_eofReached, "f") && __classPrivateFieldGet(this, _LineByLine_linesCache, "f").length === 0) {
             return;
         }
         let line;
         let bytesRead;
-        if (!__classPrivateFieldGet(this, _linesCache).length) {
+        if (!__classPrivateFieldGet(this, _LineByLine_linesCache, "f").length) {
             bytesRead = this._readChunk();
         }
-        if (__classPrivateFieldGet(this, _linesCache).length) {
-            line = __classPrivateFieldGet(this, _linesCache).shift();
+        if (__classPrivateFieldGet(this, _LineByLine_linesCache, "f").length) {
+            line = __classPrivateFieldGet(this, _LineByLine_linesCache, "f").shift();
             //const lastLineCharacter = line[line.length - 1];
-            if (!util_1.bufferEndWithByBuffer(line, __classPrivateFieldGet(this, _newLineCharacter))) {
+            if (!util_1.bufferEndWithByBuffer(line, __classPrivateFieldGet(this, _LineByLine_newLineCharacter, "f"))) {
                 bytesRead = this._readChunk(line);
                 if (bytesRead) {
-                    line = __classPrivateFieldGet(this, _linesCache).shift();
+                    line = __classPrivateFieldGet(this, _LineByLine_linesCache, "f").shift();
                 }
             }
         }
-        if (__classPrivateFieldGet(this, _eofReached) && __classPrivateFieldGet(this, _linesCache).length === 0) {
+        if (__classPrivateFieldGet(this, _LineByLine_eofReached, "f") && __classPrivateFieldGet(this, _LineByLine_linesCache, "f").length === 0) {
             this.close();
         }
         if (line) {
-            line = util_1.bufferStripEndWithByBuffer(line, __classPrivateFieldGet(this, _newLineCharacter), 0 - __classPrivateFieldGet(this, _newLineCharacter).length);
+            line = util_1.bufferStripEndWithByBuffer(line, __classPrivateFieldGet(this, _LineByLine_newLineCharacter, "f"), 0 - __classPrivateFieldGet(this, _LineByLine_newLineCharacter, "f").length);
         }
-        __classPrivateFieldSet(this, _lineNumber, +__classPrivateFieldGet(this, _lineNumber) + 1);
+        __classPrivateFieldSet(this, _LineByLine_lineNumber, +__classPrivateFieldGet(this, _LineByLine_lineNumber, "f") + 1, "f");
         return line;
     }
     *generator() {
@@ -154,7 +152,7 @@ class LineByLine {
     }
 }
 exports.LineByLine = LineByLine;
-_file = new WeakMap(), _fd = new WeakMap(), _options = new WeakMap(), _newLineCharacter = new WeakMap(), _eofReached = new WeakMap(), _linesCache = new WeakMap(), _fdPosition = new WeakMap(), _readChunk_1 = new WeakMap(), _lineNumber = new WeakMap();
+_LineByLine_file = new WeakMap(), _LineByLine_fd = new WeakMap(), _LineByLine_options = new WeakMap(), _LineByLine_newLineCharacter = new WeakMap(), _LineByLine_eofReached = new WeakMap(), _LineByLine_linesCache = new WeakMap(), _LineByLine_fdPosition = new WeakMap(), _LineByLine_readChunk = new WeakMap(), _LineByLine_lineNumber = new WeakMap();
 LineByLine.LineByLine = LineByLine;
 LineByLine.default = LineByLine;
 exports.default = LineByLine;

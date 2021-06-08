@@ -32,15 +32,15 @@
   },
   "scripts": {
     "test": "jest",
-    "prepublishOnly": "yarn run test",
+    "preversion": "yarn run test",
     "prepublishOnly:check-bin": "ynpx --quiet @yarn-tool/check-pkg-bin",
     "prepublishOnly:update": "yarn run ncu && yarn run sort-package-json",
     "ncu": "ynpx --quiet yarn-tool -- ncu -u",
     "sort-package-json": "ynpx --quiet yarn-tool -- sort"
   },
   "dependencies": {
-    "lodash": "^4.17.20",
-    "mime-types": "^2.1.28",
+    "lodash": "^4.17.21",
+    "mime-types": "^2.1.31",
     "path-parents": "^1.0.9",
     "stat-mode": "^1.0.0",
     "ts-type": "^1.2.34"
