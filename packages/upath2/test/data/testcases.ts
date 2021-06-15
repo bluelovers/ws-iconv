@@ -3,6 +3,7 @@
  */
 
 import path from 'path';
+import { ITSPartialRecord } from 'ts-type';
 
 export type ITestCaseRow = [string | any[], any?]
 
@@ -97,6 +98,6 @@ export const testCases = {
 			'/root/of/unix/somefile.ext',
 		],
 	],
-} as Record<Extract<keyof typeof path, string>, ITestCaseRow[]>
+} as ITSPartialRecord<Extract<keyof typeof path, string>, ITestCaseRow[]>
 
 export default testCases;
