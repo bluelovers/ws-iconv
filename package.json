@@ -21,7 +21,7 @@
   },
   "resolutions": {},
   "devDependencies": {
-    "@bluelovers/tsconfig": "^1.0.21",
+    "@bluelovers/tsconfig": "^1.0.22",
     "@types/bluebird": "^3",
     "@types/fs-extra": "^9",
     "@types/html-encoding-sniffer": "^2.0.1",
