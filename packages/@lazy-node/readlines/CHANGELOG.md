@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.6](https://github.com/bluelovers/ws-iconv/compare/@lazy-node/readlines@2.0.5...@lazy-node/readlines@2.0.6) (2021-06-15)
+
+
+### ♻️　Chores
+
+* update deps ([155e9b0](https://github.com/bluelovers/ws-iconv/commit/155e9b0a1aaf956c9d660dee61c59ef998b77131))
+
+
+
+
+
 ## [2.0.5](https://github.com/bluelovers/ws-iconv/compare/@lazy-node/readlines@2.0.4...@lazy-node/readlines@2.0.5) (2020-06-09)
 
 

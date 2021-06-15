@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.13](https://github.com/bluelovers/ws-iconv/compare/fs-iconv@3.0.12...fs-iconv@3.0.13) (2021-06-15)
+
+
+### ♻️　Chores
+
+* update deps ([6634302](https://github.com/bluelovers/ws-iconv/commit/663430282348853158d48615db0629476a99b19a))
+* update deps ([155e9b0](https://github.com/bluelovers/ws-iconv/commit/155e9b0a1aaf956c9d660dee61c59ef998b77131))
+
+
+
+
+
 ## [3.0.12](https://github.com/bluelovers/ws-iconv/compare/fs-iconv@3.0.11...fs-iconv@3.0.12) (2021-02-12)
 
 

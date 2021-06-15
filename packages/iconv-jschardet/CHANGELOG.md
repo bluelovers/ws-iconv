@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.13](https://github.com/bluelovers/ws-iconv/compare/iconv-jschardet@2.0.12...iconv-jschardet@2.0.13) (2021-06-15)
+
+
+### ♻️　Chores
+
+* update deps ([155e9b0](https://github.com/bluelovers/ws-iconv/commit/155e9b0a1aaf956c9d660dee61c59ef998b77131))
+
+
+
+
+
 ## [2.0.12](https://github.com/bluelovers/ws-iconv/compare/iconv-jschardet@2.0.11...iconv-jschardet@2.0.12) (2021-02-12)
 
 

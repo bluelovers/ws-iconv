@@ -1,6 +1,6 @@
 {
   "name": "fs-target-file",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "homepage": "https://github.com/bluelovers/ws-iconv/tree/master/packages/fs-target-file#readme",
   "bugs": {
@@ -31,6 +31,5 @@
   },
   "devDependencies": {
     "@types/fs-extra": "^9"
-  },
-  "peerDependencies": {}
+  }
 }
