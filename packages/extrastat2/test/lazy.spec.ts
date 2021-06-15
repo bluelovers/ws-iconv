@@ -5,7 +5,7 @@ describe(`resolvers`, () =>
 {
 	Object.keys(resolvers).forEach(name => {
 
-		test(name, async (done) => {
+		test(name, async () => {
 
 			let stat = await extrastatAsync(process.cwd(), {
 				[name]: true,
@@ -14,7 +14,6 @@ describe(`resolvers`, () =>
 			expect(stat).toHaveProperty(name)
 			expect(stat[name]).toBeTruthy()
 
-			done();
 		})
 
 	})
