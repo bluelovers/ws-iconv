@@ -1,6 +1,6 @@
 {
   "name": "@lazy-node/readlines",
-  "version": "2.0.7",
+  "version": "2.0.8",
   "description": "Read file line by line without buffering the whole file in memory.",
   "keywords": [
     "read",

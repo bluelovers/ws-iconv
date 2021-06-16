@@ -1,6 +1,6 @@
 {
   "name": "fs-iconv",
-  "version": "3.0.13",
+  "version": "3.0.14",
   "description": "save file with charset/encoding/iconv",
   "keywords": [
     "async",
@@ -73,7 +73,7 @@
   "dependencies": {
     "bluebird": "^3.7.2",
     "fs-extra": "^10.0.0",
-    "iconv-jschardet": "^2.0.13",
+    "iconv-jschardet": "^2.0.15",
     "lodash": "^4.17.21",
     "sanitize-filename": "^1.6.3",
     "ts-type": "^1.2.35"
