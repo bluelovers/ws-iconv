@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.1.8](https://github.com/bluelovers/ws-iconv/compare/upath2@3.1.7...upath2@3.1.8) (2021-06-16)
+
+
+### 🚨　Tests
+
+* fix test type ([2bec8f9](https://github.com/bluelovers/ws-iconv/commit/2bec8f908462aead3cd66c85ca96c20cba6cb87e))
+
+
+### ♻️　Chores
+
+* update deps ([155e9b0](https://github.com/bluelovers/ws-iconv/commit/155e9b0a1aaf956c9d660dee61c59ef998b77131))
+
+
+
+
+
 ## [3.1.7](https://github.com/bluelovers/ws-iconv/compare/upath2@3.1.6...upath2@3.1.7) (2021-02-12)
 
 
