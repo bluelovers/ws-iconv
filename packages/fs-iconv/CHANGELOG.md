@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.16](https://github.com/bluelovers/ws-iconv/compare/fs-iconv@3.0.15...fs-iconv@3.0.16) (2021-07-08)
+
+
+### 🛠　Build System
+
+* update .js ([a50437a](https://github.com/bluelovers/ws-iconv/commit/a50437a84acedeabe884b56978507ee04ea90d58))
+* use tslib ([897fbd2](https://github.com/bluelovers/ws-iconv/commit/897fbd2808c31f284dd368759f715c450b033e5e))
+
+
+
+
+
 ## [3.0.15](https://github.com/bluelovers/ws-iconv/compare/fs-iconv@3.0.12...fs-iconv@3.0.15) (2021-06-16)
 
 

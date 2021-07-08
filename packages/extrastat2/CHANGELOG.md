@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.2.13](https://github.com/bluelovers/ws-iconv/compare/extrastat2@4.2.12...extrastat2@4.2.13) (2021-07-08)
+
+
+### 🛠　Build System
+
+* update .js ([a50437a](https://github.com/bluelovers/ws-iconv/commit/a50437a84acedeabe884b56978507ee04ea90d58))
+* use tslib ([897fbd2](https://github.com/bluelovers/ws-iconv/commit/897fbd2808c31f284dd368759f715c450b033e5e))
+
+
+
+
+
 ## [4.2.12](https://github.com/bluelovers/ws-iconv/compare/extrastat2@4.2.11...extrastat2@4.2.12) (2021-06-16)
 
 

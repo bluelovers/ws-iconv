@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.20](https://github.com/bluelovers/ws-iconv/compare/path-dir-normalize@1.0.19...path-dir-normalize@1.0.20) (2021-07-08)
+
+
+### 🛠　Build System
+
+* update .js ([a50437a](https://github.com/bluelovers/ws-iconv/commit/a50437a84acedeabe884b56978507ee04ea90d58))
+* use tslib ([897fbd2](https://github.com/bluelovers/ws-iconv/commit/897fbd2808c31f284dd368759f715c450b033e5e))
+
+
+
+
+
 ## [1.0.19](https://github.com/bluelovers/ws-iconv/compare/path-dir-normalize@1.0.18...path-dir-normalize@1.0.19) (2021-06-16)
 
 

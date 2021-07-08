@@ -1,6 +1,6 @@
 {
   "name": "path-parents",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "description": "return all the parent directories for a directory",
   "keywords": [
     "directory",
@@ -32,9 +32,9 @@
     "sort-package-json": "yarn-tool sort"
   },
   "dependencies": {
-    "path-is-same": "^1.0.9",
+    "path-is-same": "^1.0.10",
     "tslib": "^2.3.0",
-    "upath2": "^3.1.8"
+    "upath2": "^3.1.9"
   },
   "gitHead": "cabd8644753e89e8d4bd1f081dc167f87ad9a3f4"
 }
