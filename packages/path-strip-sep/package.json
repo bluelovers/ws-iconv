@@ -24,5 +24,8 @@
     "prepublishOnly:update": "yarn run ncu && yarn run sort-package-json",
     "ncu": "yarn-tool ncu -u",
     "sort-package-json": "yarn-tool sort"
+  },
+  "dependencies": {
+    "tslib": "^2.3.0"
   }
 }

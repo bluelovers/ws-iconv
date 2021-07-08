@@ -24,5 +24,8 @@
     "ncu": "yarn-tool ncu -u",
     "sort-package-json": "yarn-tool sort"
   },
-  "gitHead": "cabd8644753e89e8d4bd1f081dc167f87ad9a3f4"
+  "gitHead": "cabd8644753e89e8d4bd1f081dc167f87ad9a3f4",
+  "dependencies": {
+    "tslib": "^2.3.0"
+  }
 }

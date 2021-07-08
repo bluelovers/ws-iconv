@@ -34,5 +34,8 @@
   },
   "peerDependencies": {
     "lerna": "^4"
+  },
+  "dependencies": {
+    "tslib": "^2.3.0"
   }
 }

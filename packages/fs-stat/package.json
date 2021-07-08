@@ -27,5 +27,8 @@
   "devDependencies": {
     "@bluelovers/tsconfig": "*",
     "@types/node": "*"
+  },
+  "dependencies": {
+    "tslib": "^2.3.0"
   }
 }

@@ -58,7 +58,8 @@
     "debug-color2": "^1",
     "env-bool": "^1.0.3",
     "iconv-lite": "^0.6.3",
-    "jschardet": "^3.0.0"
+    "jschardet": "^3.0.0",
+    "tslib": "^2.3.0"
   },
   "gitHead": "980dc5dbf475245ac510f916015f0999ebd8e3fd"
 }

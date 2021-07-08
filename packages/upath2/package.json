@@ -61,7 +61,8 @@
   "dependencies": {
     "lodash": "^4.17.21",
     "path-is-network-drive": "^1.0.8",
-    "path-strip-sep": "^1.0.5"
+    "path-strip-sep": "^1.0.5",
+    "tslib": "^2.3.0"
   },
   "devDependencies": {
     "upath": "^2.0.1"
