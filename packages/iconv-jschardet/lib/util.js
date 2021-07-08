@@ -10,7 +10,7 @@ function getIconvLiteCodec(encoding) {
     let enc2;
     try {
         // @ts-ignore
-        codec = iconv_lite_1.getCodec(encoding);
+        codec = (0, iconv_lite_1.getCodec)(encoding);
         enc2 = codec.encodingName || codec.enc;
         if (const_1.codec_table[enc2]) {
             enc = enc2;

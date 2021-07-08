@@ -2,19 +2,17 @@
 /**
  * Created by user on 2019/3/17.
  */
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.loadFileSync = exports.loadFile = exports._autoDecode = exports._outputStream = exports._createStreamPassThrough = exports.saveFile = exports.saveFileSync = exports.ensureWriteStream = exports.WrapFSIconv = exports.SymFSLib = void 0;
+const tslib_1 = require("tslib");
 const lodash_1 = require("lodash");
-const iconv_jschardet_1 = __importDefault(require("iconv-jschardet"));
-const bluebird_1 = __importDefault(require("bluebird"));
+const iconv_jschardet_1 = (0, tslib_1.__importDefault)(require("iconv-jschardet"));
+const bluebird_1 = (0, tslib_1.__importDefault)(require("bluebird"));
 const util_1 = require("./util");
 const stream_1 = require("stream");
 exports.SymFSLib = Symbol('fsLib');
 function WrapFSIconv(fsLib) {
-    let fs = lodash_1.clone(fsLib);
+    let fs = (0, lodash_1.clone)(fsLib);
     Object.keys(fs)
         .forEach(k => {
         if (typeof fsLib[k] === 'function') {

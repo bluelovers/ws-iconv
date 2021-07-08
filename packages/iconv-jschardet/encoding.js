@@ -1,27 +1,15 @@
 "use strict";
-var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
-}) : (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    o[k2] = m[k];
-}));
-var __exportStar = (this && this.__exportStar) || function(m, exports) {
-    for (var p in m) if (p !== "default" && !Object.prototype.hasOwnProperty.call(exports, p)) __createBinding(exports, m, p);
-};
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.codec_data = exports.disableCodecDataWarn = exports.isNodeEncoding = void 0;
-const logger_1 = __importDefault(require("debug-color2/logger"));
+const tslib_1 = require("tslib");
+const logger_1 = (0, tslib_1.__importDefault)(require("debug-color2/logger"));
 const const_1 = require("./lib/const");
 const util_1 = require("./lib/util");
-__exportStar(require("./lib/const"), exports);
+(0, tslib_1.__exportStar)(require("./lib/const"), exports);
 //export { console }
 function isNodeEncoding(encoding) {
-    let enc = const_1._enc(encoding);
-    return const_1.NodeEncoding.includes(const_1._enc(encoding)) ? enc : null;
+    let enc = (0, const_1._enc)(encoding);
+    return const_1.NodeEncoding.includes((0, const_1._enc)(encoding)) ? enc : null;
 }
 exports.isNodeEncoding = isNodeEncoding;
 let DISABLE_CODEC_DATA_WARN = false;
@@ -37,8 +25,8 @@ function codec_data(encoding) {
     let codec;
     let enc;
     let enc2;
-    if (!const_1.codec_table[enc = const_1._enc(encoding)]) {
-        let data = util_1.getIconvLiteCodec(encoding);
+    if (!const_1.codec_table[enc = (0, const_1._enc)(encoding)]) {
+        let data = (0, util_1.getIconvLiteCodec)(encoding);
         codec = (_a = data.codec) !== null && _a !== void 0 ? _a : codec;
         enc2 = (_b = data.enc2) !== null && _b !== void 0 ? _b : enc2;
         enc = (_c = data.enc) !== null && _c !== void 0 ? _c : enc;

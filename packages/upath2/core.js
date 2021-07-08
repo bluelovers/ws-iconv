@@ -2,44 +2,23 @@
 /**
  * Created by user on 2017/12/9/009.
  */
-var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
-}) : (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    o[k2] = m[k];
-}));
-var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
-    Object.defineProperty(o, "default", { enumerable: true, value: v });
-}) : function(o, v) {
-    o["default"] = v;
-});
-var __importStar = (this && this.__importStar) || function (mod) {
-    if (mod && mod.__esModule) return mod;
-    var result = {};
-    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
-    __setModuleDefault(result, mod);
-    return result;
-};
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports._this_origin = exports.fn = exports.upath = exports.win32 = exports.posix = exports.PathWrap = void 0;
-const path_1 = __importDefault(require("path"));
+const tslib_1 = require("tslib");
+const path_1 = (0, tslib_1.__importDefault)(require("path"));
 const lodash_1 = require("lodash");
 const type_1 = require("./lib/type");
 const util_1 = require("./lib/util");
-const path_is_network_drive_1 = __importStar(require("path-is-network-drive"));
+const path_is_network_drive_1 = (0, tslib_1.__importStar)(require("path-is-network-drive"));
 const fix_1 = require("./lib/fix");
 class PathWrap {
     constructor(path, id) {
         var _a;
         this.sep = '/';
         this.node = path_1.default;
-        let _static = util_1.getStatic(this);
+        let _static = (0, util_1.getStatic)(this);
         // @ts-ignore
-        this.fn = lodash_1.defaults(this.__proto__, _static.fn, path);
+        this.fn = (0, lodash_1.defaults)(this.__proto__, _static.fn, path);
         this.delimiter = (_a = path.delimiter) !== null && _a !== void 0 ? _a : _static.fn.delimiter;
         [
             'join',
@@ -68,35 +47,35 @@ class PathWrap {
     }
     join(path, ...paths) {
         // @ts-ignore
-        path = fix_1._fix_special(this, path, true);
-        return util_1._replace_sep(this, _this_origin(this).join(path, ...paths));
+        path = (0, fix_1._fix_special)(this, path, true);
+        return (0, util_1._replace_sep)(this, _this_origin(this).join(path, ...paths));
     }
     normalize(path) {
-        let ret = fix_1._fix_special(this, path);
+        let ret = (0, fix_1._fix_special)(this, path);
         if (ret === null || ret === void 0 ? void 0 : ret.length) {
             return ret;
         }
-        return util_1._replace_sep(this, _this_origin(this).normalize(path));
+        return (0, util_1._replace_sep)(this, _this_origin(this).normalize(path));
     }
     relative(from, to) {
-        from = fix_1._fix_special(this, from, true);
-        to = fix_1._fix_special(this, to, true);
-        return util_1._replace_sep(this, _this_origin(this).relative(from.toString(), to.toString()));
+        from = (0, fix_1._fix_special)(this, from, true);
+        to = (0, fix_1._fix_special)(this, to, true);
+        return (0, util_1._replace_sep)(this, _this_origin(this).relative(from.toString(), to.toString()));
     }
     resolve(path, ...paths) {
         // @ts-ignore
-        path = fix_1._fix_special(this, path, true);
-        return util_1._replace_sep(this, _this_origin(this).resolve(path, ...paths));
+        path = (0, fix_1._fix_special)(this, path, true);
+        return (0, util_1._replace_sep)(this, _this_origin(this).resolve(path, ...paths));
     }
     parse(path) {
         path = this.normalize(path);
         let ret = _this_origin(this).parse(path);
-        ret.root = util_1._replace_sep(this, ret.root);
-        ret.dir = util_1._replace_sep(this, ret.dir);
+        ret.root = (0, util_1._replace_sep)(this, ret.root);
+        ret.dir = (0, util_1._replace_sep)(this, ret.dir);
         return ret;
     }
     format(pathObject) {
-        return util_1._replace_sep(this, _this_origin(this).format(pathObject));
+        return (0, util_1._replace_sep)(this, _this_origin(this).format(pathObject));
     }
     // ---------
     basename(path, ext) {
@@ -104,12 +83,12 @@ class PathWrap {
     }
     dirname(path) {
         let r;
-        if (false && this.name !== 'posix' && path_is_network_drive_1.default(path)) {
-            if (path_is_network_drive_1.matchNetworkDriveRoot(path)) {
+        if (false && this.name !== 'posix' && (0, path_is_network_drive_1.default)(path)) {
+            if ((0, path_is_network_drive_1.matchNetworkDriveRoot)(path)) {
                 r = path;
             }
             else {
-                let m = path_is_network_drive_1.matchNetworkDrive02(path);
+                let m = (0, path_is_network_drive_1.matchNetworkDrive02)(path);
                 if (m === null || m === void 0 ? void 0 : m.length) {
                     return `\\\\${m[1]}`;
                 }
@@ -120,9 +99,9 @@ class PathWrap {
             r = _this_origin(this).dirname(path);
         }
         if (r.length > 1 && !/^\w:[/\\]$/.test(r)) {
-            r = util_1._strip_sep(r);
+            r = (0, util_1._strip_sep)(r);
         }
-        return util_1._replace_sep(this, r);
+        return (0, util_1._replace_sep)(this, r);
     }
     extname(path) {
         return _this_origin(this).extname(path);

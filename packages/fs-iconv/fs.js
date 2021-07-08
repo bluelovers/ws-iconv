@@ -1,19 +1,7 @@
 "use strict";
-var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
-}) : (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    o[k2] = m[k];
-}));
-var __exportStar = (this && this.__exportStar) || function(m, exports) {
-    for (var p in m) if (p !== "default" && !Object.prototype.hasOwnProperty.call(exports, p)) __createBinding(exports, m, p);
-};
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.iconv = exports.saveFile = exports.loadFileSync = exports.loadFile = exports._outputStream = exports._createStreamPassThrough = exports._autoDecode = exports.saveFileSync = exports.ensureWriteStream = void 0;
+const tslib_1 = require("tslib");
 /**
  * Created by user on 2019/3/17.
  */
@@ -27,10 +15,10 @@ Object.defineProperty(exports, "_outputStream", { enumerable: true, get: functio
 Object.defineProperty(exports, "loadFile", { enumerable: true, get: function () { return core_2.loadFile; } });
 Object.defineProperty(exports, "loadFileSync", { enumerable: true, get: function () { return core_2.loadFileSync; } });
 Object.defineProperty(exports, "saveFile", { enumerable: true, get: function () { return core_2.saveFile; } });
-const iconv_jschardet_1 = __importDefault(require("iconv-jschardet"));
+const iconv_jschardet_1 = (0, tslib_1.__importDefault)(require("iconv-jschardet"));
 exports.iconv = iconv_jschardet_1.default;
-__exportStar(require("fs-extra"), exports);
-const fs = core_1.WrapFSIconv(require('fs-extra'));
+(0, tslib_1.__exportStar)(require("fs-extra"), exports);
+const fs = (0, core_1.WrapFSIconv)(require('fs-extra'));
 // @ts-ignore
 exports = module.exports = fs;
 //# sourceMappingURL=fs.js.map

@@ -1,13 +1,11 @@
 'use strict';
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.createSyncWriteStream = exports.SyncWriteStream = void 0;
-const fs_1 = __importDefault(require("fs"));
+const tslib_1 = require("tslib");
+const fs_1 = (0, tslib_1.__importDefault)(require("fs"));
 const errors_1 = require("./lib/errors");
 const internal_1 = require("./lib/internal");
-const internal_2 = __importDefault(require("./lib/internal"));
+const internal_2 = (0, tslib_1.__importDefault)(require("./lib/internal"));
 const write_1 = require("./write");
 class SyncWriteStream extends write_1.WriteStream {
     constructor(path, options) {
@@ -18,7 +16,7 @@ class SyncWriteStream extends write_1.WriteStream {
         return createSyncWriteStream;
     }
     open() {
-        if (typeof internal_1.getFsStreamData(this) !== 'boolean') {
+        if (typeof (0, internal_1.getFsStreamData)(this) !== 'boolean') {
             this[internal_1.SYM_FS_STREAM_DATA].opened = true;
             internal_2.default.open(this);
         }

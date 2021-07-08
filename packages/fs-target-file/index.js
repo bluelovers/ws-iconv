@@ -7,10 +7,10 @@ function fsFileMethodAsync(options) {
     const { readOptions, writeOptions = {
         spaces: 2,
     }, } = options;
-    const { read = (file, options) => fs_extra_1.readJSON(file, {
+    const { read = (file, options) => (0, fs_extra_1.readJSON)(file, {
         ...readOptions,
         ...options,
-    }), write = (file, data, options) => fs_extra_1.outputJSON(file, data, {
+    }), write = (file, data, options) => (0, fs_extra_1.outputJSON)(file, data, {
         ...writeOptions,
         ...options,
     }), } = options !== null && options !== void 0 ? options : {};

@@ -1,26 +1,8 @@
 "use strict";
-var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
-}) : (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    o[k2] = m[k];
-}));
-var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
-    Object.defineProperty(o, "default", { enumerable: true, value: v });
-}) : function(o, v) {
-    o["default"] = v;
-});
-var __importStar = (this && this.__importStar) || function (mod) {
-    if (mod && mod.__esModule) return mod;
-    var result = {};
-    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
-    __setModuleDefault(result, mod);
-    return result;
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getOptionResolvers = exports.getOptions = exports.defaultOptions = void 0;
-const resolvers = __importStar(require("./resolvers"));
+const tslib_1 = require("tslib");
+const resolvers = (0, tslib_1.__importStar)(require("./resolvers"));
 const lodash_1 = require("lodash");
 exports.defaultOptions = {
     "name": true,
@@ -30,7 +12,7 @@ exports.defaultOptions = {
     "children": false,
 };
 function getOptions(options, sync) {
-    return lodash_1.defaults(options, exports.defaultOptions);
+    return (0, lodash_1.defaults)(options, exports.defaultOptions);
 }
 exports.getOptions = getOptions;
 function getOptionResolvers(options, sync) {

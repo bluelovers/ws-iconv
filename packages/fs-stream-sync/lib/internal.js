@@ -8,7 +8,7 @@ function open(thisArgv, argv) {
         let fd;
         try {
             // @ts-ignore
-            fd = fs_1.openSync(thisArgv.path, thisArgv.flags, thisArgv.mode);
+            fd = (0, fs_1.openSync)(thisArgv.path, thisArgv.flags, thisArgv.mode);
         }
         catch (er) {
             _error_emit(thisArgv, er);
@@ -41,7 +41,7 @@ function closeFsStreamSync(stream, cb, err) {
     let er;
     try {
         // @ts-ignore
-        fs_1.closeSync(stream.fd);
+        (0, fs_1.closeSync)(stream.fd);
     }
     catch (e) {
         er = e || err;

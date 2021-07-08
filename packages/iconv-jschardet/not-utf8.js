@@ -10,8 +10,8 @@ const const_1 = require("./lib/const");
  * 檢測 Buffer 並且返回小寫標準化後的編碼 ID
  */
 function detectEncoding(buf) {
-    let chk = index_1.detect(buf);
-    return const_1._enc(chk.encoding);
+    let chk = (0, index_1.detect)(buf);
+    return (0, const_1._enc)(chk.encoding);
 }
 exports.detectEncoding = detectEncoding;
 /**
@@ -19,8 +19,8 @@ exports.detectEncoding = detectEncoding;
  * 返回編碼資訊
  */
 function notUTF8Buffer(buf) {
-    let chk = index_1.detect(buf, true);
-    let encoding = const_1._enc(chk.encoding);
+    let chk = (0, index_1.detect)(buf, true);
+    let encoding = (0, const_1._enc)(chk.encoding);
     return (encoding === "utf8" /* utf8 */ || encoding === "ascii" /* ascii */) ? null : chk;
 }
 exports.notUTF8Buffer = notUTF8Buffer;

@@ -10,7 +10,7 @@ function pathDirNormalize(dir, pathLib) {
     var _a, _b;
     pathLib = pathLib !== null && pathLib !== void 0 ? pathLib : {};
     let sep = ((_a = pathLib.sep) !== null && _a !== void 0 ? _a : upath2_1.sep);
-    let ret = util_1._strip_sep(((_b = pathLib.normalize) !== null && _b !== void 0 ? _b : upath2_1.normalize)(dir));
+    let ret = (0, util_1._strip_sep)(((_b = pathLib.normalize) !== null && _b !== void 0 ? _b : upath2_1.normalize)(dir));
     return ret + sep;
 }
 exports.pathDirNormalize = pathDirNormalize;

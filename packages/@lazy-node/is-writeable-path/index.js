@@ -10,7 +10,7 @@ exports.isWritableAsync = isWritableAsync;
 function isWritableSync(target) {
     var _a;
     try {
-        return (_a = fs_1.accessSync(target, fs_1.constants.W_OK | fs_1.constants.R_OK)) !== null && _a !== void 0 ? _a : true;
+        return (_a = (0, fs_1.accessSync)(target, fs_1.constants.W_OK | fs_1.constants.R_OK)) !== null && _a !== void 0 ? _a : true;
     }
     catch (err) { }
 }
@@ -23,7 +23,7 @@ function isWritableFileAsync(target) {
 }
 exports.isWritableFileAsync = isWritableFileAsync;
 function isWritableFileSync(target) {
-    const stat = fs_1.statSync(target);
+    const stat = (0, fs_1.statSync)(target);
     return stat.isFile() && isWritableSync(target);
 }
 exports.isWritableFileSync = isWritableFileSync;
@@ -35,7 +35,7 @@ function isWritableDirectoryAsync(target) {
 }
 exports.isWritableDirectoryAsync = isWritableDirectoryAsync;
 function isWritableDirectorySync(target) {
-    const stat = fs_1.statSync(target);
+    const stat = (0, fs_1.statSync)(target);
     return stat.isDirectory() && isWritableSync(target);
 }
 exports.isWritableDirectorySync = isWritableDirectorySync;

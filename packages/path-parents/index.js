@@ -1,12 +1,10 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.pathParents = exports.pathParentsGenerator = exports.pathParentsCore = exports.handleOptions = void 0;
-const core_1 = __importDefault(require("upath2/core"));
-const path_1 = __importDefault(require("path"));
-const path_is_same_1 = __importDefault(require("path-is-same"));
+const tslib_1 = require("tslib");
+const core_1 = (0, tslib_1.__importDefault)(require("upath2/core"));
+const path_1 = (0, tslib_1.__importDefault)(require("path"));
+const path_is_same_1 = (0, tslib_1.__importDefault)(require("path-is-same"));
 function handleOptions(cwd, opts) {
     if (typeof opts === 'undefined') {
         if (typeof cwd !== 'string') {
@@ -43,7 +41,7 @@ function handleOptions(cwd, opts) {
 exports.handleOptions = handleOptions;
 function pathParentsCore(cwd, runtime) {
     let path = runtime.path.dirname(cwd);
-    if (!path_is_same_1.default(cwd, path)) {
+    if (!(0, path_is_same_1.default)(cwd, path)) {
         return path;
     }
 }

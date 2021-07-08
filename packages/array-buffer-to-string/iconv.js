@@ -6,11 +6,11 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.arrayBufferToBuffer = exports.arrayBufferToString = void 0;
 const iconv_jschardet_1 = require("iconv-jschardet");
 function arrayBufferToString(buf, encoding, from) {
-    return iconv_jschardet_1.BufferFrom(buf, encoding, from).toString(encoding);
+    return (0, iconv_jschardet_1.BufferFrom)(buf, encoding, from).toString(encoding);
 }
 exports.arrayBufferToString = arrayBufferToString;
 function arrayBufferToBuffer(buf, encoding, from) {
-    return iconv_jschardet_1.BufferFrom(buf, encoding, from);
+    return (0, iconv_jschardet_1.BufferFrom)(buf, encoding, from);
 }
 exports.arrayBufferToBuffer = arrayBufferToBuffer;
 exports.default = arrayBufferToString;
