@@ -7,7 +7,7 @@ import { Buffer } from "buffer";
 
 export function arrayBufferToString(buf: number[] | ArrayBuffer, encoding?: vEncoding, from?: vEncoding)
 {
-	return BufferFrom(buf, encoding, from).toString(encoding);
+	return BufferFrom(buf, encoding, from).toString(encoding as any);
 }
 
 export function arrayBufferToBuffer(buf: number[] | ArrayBuffer, encoding?: vEncoding, from?: vEncoding)
