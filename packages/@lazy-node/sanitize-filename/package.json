@@ -1,0 +1,55 @@
+{
+  "name": "@lazy-node/sanitize-filename",
+  "version": "1.0.0",
+  "description": "Convert string to safe filename",
+  "keywords": [
+    "filename",
+    "safe",
+    "sanitize",
+    "file",
+    "name",
+    "string",
+    "path",
+    "filepath",
+    "convert",
+    "valid",
+    "dirname",
+    "validate",
+    "escape",
+    "regex",
+    "regexp",
+    "reserved",
+    "illegal"
+  ],
+  "homepage": "https://github.com/bluelovers/ws-iconv/tree/master/packages/@lazy-node/sanitize-filename#readme",
+  "bugs": {
+    "url": "https://github.com/bluelovers/ws-iconv/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bluelovers/ws-iconv.git"
+  },
+  "license": "ISC",
+  "author": "bluelovers",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --passWithNoTests",
+    "preversion": "yarn run test",
+    "prepublishOnly": "echo prepublishOnly",
+    "ncu": "yarn-tool ncu -u",
+    "sort-package-json": "yarn-tool sort"
+  },
+  "dependencies": {
+    "@lazy-node/windows-unsafe-filename": "^1.0.0",
+    "filenamify": "<5 >=4",
+    "tslib": "^2.3.0",
+    "zero-width": "^1.0.16"
+  },
+  "devDependencies": {
+    "get-random-string": "^1.0.9"
+  },
+  "peerDependencies": {},
+  "publishConfig": {
+    "access": "public"
+  }
+}

@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`describe 'COM1' 1`] = `"!"`;
+
+exports[`describe 'LPT9.asdfasdf' 1`] = `"!.asdfasdf"`;
+
+exports[`describe 'LPT10.txt' 1`] = `"!.txt"`;
+
+exports[`describe 'PRN.' 1`] = `"!"`;
+
+exports[`describe 'aux.txt' 1`] = `"!.txt"`;
+
+exports[`describe 'con' 1`] = `"!"`;

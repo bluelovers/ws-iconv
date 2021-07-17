@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`throw '' 1`] = `"Invalid filename: {'' => ''} length 0 => 0"`;
+
+exports[`throw '' 2`] = `"Invalid filename: {'' => ''} length 0 => 0"`;
+
+exports[`throw '' 3`] = `"Invalid filename: {'' => ''} length 0 => 0"`;
+
+exports[`throw '.' 1`] = `"Invalid filename: {'.' => ''} length 1 => 0"`;
+
+exports[`throw '.' 2`] = `"Invalid filename: {'.' => ''} length 1 => 0"`;
+
+exports[`throw '..' 1`] = `"Invalid filename: {'..' => ''} length 2 => 0"`;
+
+exports[`throw '..' 2`] = `"Invalid filename: {'..' => ''} length 2 => 0"`;
+
+exports[`throw '../' 1`] = `"Invalid filename: {'../' => ''} length 3 => 0"`;
+
+exports[`throw '../' 2`] = `"Invalid filename: {'../' => ''} length 3 => 0"`;
+
+exports[`throw './' 1`] = `"Invalid filename: {'./' => ''} length 2 => 0"`;
+
+exports[`throw './' 2`] = `"Invalid filename: {'./' => ''} length 2 => 0"`;
+
+exports[`throw {} 1`] = `"str.replace is not a function"`;
+
+exports[`throw {} 2`] = `"str.replace is not a function"`;
+
+exports[`throw {} 3`] = `"str.replace is not a function"`;
+
+exports[`throw false 1`] = `"str.replace is not a function"`;
+
+exports[`throw false 2`] = `"str.replace is not a function"`;
+
+exports[`throw false 3`] = `"str.replace is not a function"`;
+
+exports[`throw null 1`] = `"Cannot read property 'replace' of null"`;
+
+exports[`throw null 2`] = `"Cannot read property 'replace' of null"`;
+
+exports[`throw null 3`] = `"Cannot read property 'replace' of null"`;
+
+exports[`throw true 1`] = `"str.replace is not a function"`;
+
+exports[`throw true 2`] = `"str.replace is not a function"`;
+
+exports[`throw true 3`] = `"str.replace is not a function"`;
+
+exports[`throw undefined 1`] = `"Cannot read property 'replace' of undefined"`;
+
+exports[`throw undefined 2`] = `"Cannot read property 'replace' of undefined"`;
+
+exports[`throw undefined 3`] = `"Cannot read property 'replace' of undefined"`;

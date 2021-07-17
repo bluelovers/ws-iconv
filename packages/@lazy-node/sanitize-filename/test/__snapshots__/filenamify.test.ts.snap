@@ -1,0 +1,171 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`filnamify() '' 1`] = `""`;
+
+exports[`filnamify() '' 2`] = `""`;
+
+exports[`filnamify() '' 3`] = `""`;
+
+exports[`filnamify() '' 4`] = `""`;
+
+exports[`filnamify() '' 5`] = `""`;
+
+exports[`filnamify() '.' 1`] = `"!"`;
+
+exports[`filnamify() '.' 2`] = `"🐴🐴"`;
+
+exports[`filnamify() '.' 3`] = `"con"`;
+
+exports[`filnamify() '.' 4`] = `""`;
+
+exports[`filnamify() '.' 5`] = `" "`;
+
+exports[`filnamify() '..' 1`] = `"!"`;
+
+exports[`filnamify() '..' 2`] = `"🐴🐴"`;
+
+exports[`filnamify() '..' 3`] = `"con"`;
+
+exports[`filnamify() '..' 4`] = `""`;
+
+exports[`filnamify() '..' 5`] = `" "`;
+
+exports[`filnamify() '../' 1`] = `"!"`;
+
+exports[`filnamify() '../' 2`] = `"🐴🐴"`;
+
+exports[`filnamify() '../' 3`] = `"con"`;
+
+exports[`filnamify() '../' 4`] = `""`;
+
+exports[`filnamify() '../' 5`] = `" "`;
+
+exports[`filnamify() './' 1`] = `"!"`;
+
+exports[`filnamify() './' 2`] = `"🐴🐴"`;
+
+exports[`filnamify() './' 3`] = `"con"`;
+
+exports[`filnamify() './' 4`] = `""`;
+
+exports[`filnamify() './' 5`] = `" "`;
+
+exports[`filnamify() '////foo////bar////' 1`] = `"foo!bar"`;
+
+exports[`filnamify() '////foo////bar////' 2`] = `"foo🐴🐴bar"`;
+
+exports[`filnamify() '////foo////bar////' 3`] = `"fooconbar"`;
+
+exports[`filnamify() '////foo////bar////' 4`] = `"foobar"`;
+
+exports[`filnamify() '////foo////bar////' 5`] = `"foo bar"`;
+
+exports[`filnamify() '//foo//bar//' 1`] = `"foo!bar"`;
+
+exports[`filnamify() '//foo//bar//' 2`] = `"foo🐴🐴bar"`;
+
+exports[`filnamify() '//foo//bar//' 3`] = `"fooconbar"`;
+
+exports[`filnamify() '//foo//bar//' 4`] = `"foobar"`;
+
+exports[`filnamify() '//foo//bar//' 5`] = `"foo bar"`;
+
+exports[`filnamify() 'c/n' 1`] = `"c!n"`;
+
+exports[`filnamify() 'c/n' 2`] = `"c🐴🐴n"`;
+
+exports[`filnamify() 'c/n' 3`] = `"cconn"`;
+
+exports[`filnamify() 'c/n' 4`] = `"cn"`;
+
+exports[`filnamify() 'c/n' 5`] = `"c n"`;
+
+exports[`filnamify() 'con' 1`] = `"!"`;
+
+exports[`filnamify() 'con' 2`] = `"🐴🐴"`;
+
+exports[`filnamify() 'con' 3`] = `"con"`;
+
+exports[`filnamify() 'con' 4`] = `""`;
+
+exports[`filnamify() 'con' 5`] = `" "`;
+
+exports[`filnamify() 'foo.bar.' 1`] = `"foo.bar"`;
+
+exports[`filnamify() 'foo.bar.' 2`] = `"foo.bar"`;
+
+exports[`filnamify() 'foo.bar.' 3`] = `"foo.bar"`;
+
+exports[`filnamify() 'foo.bar.' 4`] = `"foo.bar"`;
+
+exports[`filnamify() 'foo.bar.' 5`] = `"foo.bar"`;
+
+exports[`filnamify() 'foo.bar..' 1`] = `"foo.bar"`;
+
+exports[`filnamify() 'foo.bar..' 2`] = `"foo.bar"`;
+
+exports[`filnamify() 'foo.bar..' 3`] = `"foo.bar"`;
+
+exports[`filnamify() 'foo.bar..' 4`] = `"foo.bar"`;
+
+exports[`filnamify() 'foo.bar..' 5`] = `"foo.bar"`;
+
+exports[`filnamify() 'foo.bar...' 1`] = `"foo.bar"`;
+
+exports[`filnamify() 'foo.bar...' 2`] = `"foo.bar"`;
+
+exports[`filnamify() 'foo.bar...' 3`] = `"foo.bar"`;
+
+exports[`filnamify() 'foo.bar...' 4`] = `"foo.bar"`;
+
+exports[`filnamify() 'foo.bar...' 5`] = `"foo.bar"`;
+
+exports[`filnamify() 'foo//bar' 1`] = `"foo!bar"`;
+
+exports[`filnamify() 'foo//bar' 2`] = `"foo🐴🐴bar"`;
+
+exports[`filnamify() 'foo//bar' 3`] = `"fooconbar"`;
+
+exports[`filnamify() 'foo//bar' 4`] = `"foobar"`;
+
+exports[`filnamify() 'foo//bar' 5`] = `"foo bar"`;
+
+exports[`filnamify() 'foo/bar' 1`] = `"foo!bar"`;
+
+exports[`filnamify() 'foo/bar' 2`] = `"foo🐴🐴bar"`;
+
+exports[`filnamify() 'foo/bar' 3`] = `"fooconbar"`;
+
+exports[`filnamify() 'foo/bar' 4`] = `"foobar"`;
+
+exports[`filnamify() 'foo/bar' 5`] = `"foo bar"`;
+
+exports[`filnamify() 'foo/bar/nul' 1`] = `"foo!bar!nul"`;
+
+exports[`filnamify() 'foo/bar/nul' 2`] = `"foo🐴🐴bar🐴🐴nul"`;
+
+exports[`filnamify() 'foo/bar/nul' 3`] = `"fooconbarconnul"`;
+
+exports[`filnamify() 'foo/bar/nul' 4`] = `"foobarnul"`;
+
+exports[`filnamify() 'foo/bar/nul' 5`] = `"foo bar nul"`;
+
+exports[`filnamify() 'foo\\\\\\\\\\\\bar' 1`] = `"foo!bar"`;
+
+exports[`filnamify() 'foo\\\\\\\\\\\\bar' 2`] = `"foo🐴🐴bar"`;
+
+exports[`filnamify() 'foo\\\\\\\\\\\\bar' 3`] = `"fooconbar"`;
+
+exports[`filnamify() 'foo\\\\\\\\\\\\bar' 4`] = `"foobar"`;
+
+exports[`filnamify() 'foo\\\\\\\\\\\\bar' 5`] = `"foo bar"`;
+
+exports[`filnamify() 'foo\\x00bar' 1`] = `"foo!bar"`;
+
+exports[`filnamify() 'foo\\x00bar' 2`] = `"foo🐴🐴bar"`;
+
+exports[`filnamify() 'foo\\x00bar' 3`] = `"fooconbar"`;
+
+exports[`filnamify() 'foo\\x00bar' 4`] = `"foobar"`;
+
+exports[`filnamify() 'foo\\x00bar' 5`] = `"foo bar"`;
