@@ -5,7 +5,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.trimFilename = void 0;
 const tslib_1 = require("tslib");
-const sanitize_filename_1 = (0, tslib_1.__importDefault)(require("sanitize-filename"));
+const sanitize_filename_1 = (0, tslib_1.__importDefault)(require("@lazy-node/sanitize-filename"));
 function trimFilename(name) {
     let ret = name.toString()
         .replace(/\r\n|\r|\n/g, ' ')

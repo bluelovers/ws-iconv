@@ -2,7 +2,7 @@
  * Created by user on 2019/3/17.
  */
 
-import sanitize from 'sanitize-filename';
+import sanitize from '@lazy-node/sanitize-filename';
 
 export function trimFilename(name): string
 {
