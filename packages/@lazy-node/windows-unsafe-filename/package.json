@@ -1,6 +1,6 @@
 {
   "name": "@lazy-node/windows-unsafe-filename",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "keywords": [
     "regex",
@@ -35,8 +35,6 @@
   "dependencies": {
     "tslib": "^2.3.0"
   },
-  "devDependencies": {},
-  "peerDependencies": {},
   "publishConfig": {
     "access": "public"
   }

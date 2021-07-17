@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.1.1](https://github.com/bluelovers/ws-iconv/compare/fs-iconv@3.0.16...fs-iconv@3.1.1) (2021-07-17)
+
+
+### 📦　Code Refactoring
+
+* use @lazy-node/sanitize-filename ([93c98c8](https://github.com/bluelovers/ws-iconv/commit/93c98c8b3bf133032aa593043ae48a5c8310c8f1))
+
+
+### BREAKING CHANGE
+
+* `_` => `!`
+
+
+
+
+
 ## [3.0.16](https://github.com/bluelovers/ws-iconv/compare/fs-iconv@3.0.15...fs-iconv@3.0.16) (2021-07-08)
 
 
