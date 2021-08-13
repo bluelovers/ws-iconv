@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.12](https://github.com/bluelovers/ws-iconv/compare/path-is-same@1.0.11...path-is-same@1.0.12) (2021-08-13)
+
+
+### 🔖　Miscellaneous
+
+* fs-symlink ([856d8dc](https://github.com/bluelovers/ws-iconv/commit/856d8dc8d543a71833c92507fb844956623835f3))
+
+
+
+
+
 ## [1.0.11](https://github.com/bluelovers/ws-iconv/compare/path-is-same@1.0.10...path-is-same@1.0.11) (2021-07-23)
 
 
