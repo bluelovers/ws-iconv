@@ -62,7 +62,7 @@
     "lodash": "^4.17.21",
     "path-is-network-drive": "^1.0.9",
     "path-strip-sep": "^1.0.6",
-    "tslib": "^2.3.0"
+    "tslib": "^2.3.1"
   },
   "devDependencies": {
     "upath": "^2.0.1"

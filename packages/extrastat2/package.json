@@ -40,11 +40,11 @@
   },
   "dependencies": {
     "lodash": "^4.17.21",
-    "mime-types": "^2.1.31",
+    "mime-types": "^2.1.32",
     "path-parents": "^1.0.14",
     "stat-mode": "^1.0.0",
     "ts-type": "^1.2.39",
-    "tslib": "^2.3.0"
+    "tslib": "^2.3.1"
   },
   "devDependencies": {
     "@types/mime-types": "^2.1.0"

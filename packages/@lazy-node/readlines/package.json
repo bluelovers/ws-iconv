@@ -41,11 +41,11 @@
     "ncu": "npx yarn-tool ncu -u",
     "sort-package-json": "npx yarn-tool sort"
   },
+  "dependencies": {
+    "tslib": "^2.3.1"
+  },
   "publishConfig": {
     "access": "public"
   },
-  "gitHead": "5cb176735299be02ff67a57bcf2c3501e7e65d84",
-  "dependencies": {
-    "tslib": "^2.3.0"
-  }
+  "gitHead": "5cb176735299be02ff67a57bcf2c3501e7e65d84"
 }

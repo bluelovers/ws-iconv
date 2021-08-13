@@ -9,8 +9,10 @@
   "scripts": {
     "test": "npx yarn-tool ws run prepublishOnly",
     "lerna:publish": "npx lerna publish",
-    "lerna:publish:yes": "npx lerna publish --yes --cd-version patch",
+    "lerna:publish:yes": "npx lerna publish --yes --bump patch",
+    "preversion": "yarn run prepublishOnly:check-bin",
     "prepublish:lockfile": "npx sync-lockfile .",
+    "prepublishOnly:check-bin": "ynpx --quiet @yarn-tool/check-pkg-bin",
     "postpublish_": "git subtree push --prefix=packages/fs-iconv node-fs-iconv master && git subtree push --prefix=packages/iconv-jschardet node-iconv-jschardet master",
     "ncu": "yarn run ncu:root && yarn run ncu:ws",
     "ncu:root": "npx yarn-tool ncu -u",
@@ -20,13 +22,16 @@
     "sort-package-json:ws": "npx yarn-tool ws exec yarn-tool sort"
   },
   "resolutions": {},
+  "dependencies": {
+    "tslib": "^2.3.1"
+  },
   "devDependencies": {
     "@bluelovers/tsconfig": "^1.0.25",
     "@types/bluebird": "^3",
     "@types/fs-extra": "^9",
     "@types/html-encoding-sniffer": "^2.0.2",
-    "@types/jest": "^26.0.24",
-    "@types/lodash": "^4.14.171",
+    "@types/jest": "^27.0.1",
+    "@types/lodash": "^4.14.172",
     "@types/node": "*",
     "fs-extra": "^10.0.0",
     "jest": "^27.0.6",
@@ -34,8 +39,5 @@
   },
   "peerDependencies": {
     "lerna": "^4"
-  },
-  "dependencies": {
-    "tslib": "^2.3.0"
   }
 }

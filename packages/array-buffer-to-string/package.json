@@ -37,7 +37,7 @@
   },
   "dependencies": {
     "iconv-jschardet": "^2.0.17",
-    "tslib": "^2.3.0"
+    "tslib": "^2.3.1"
   },
   "publishConfig": {
     "access": "public"
