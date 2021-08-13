@@ -37,7 +37,7 @@ export function isSymbolicLink(dir0: string, options?: IOptions)
 	return fsStat(dir0, {
 		throwIfNoEntry: false,
 		...options,
-	}).then(stats => stats.isSymbolicLink());
+	}).then(stats => stats?.isSymbolicLink());
 }
 
 export function isSymbolicLinkSync(dir0: string, options?: IOptions)
@@ -46,7 +46,7 @@ export function isSymbolicLinkSync(dir0: string, options?: IOptions)
 		throwIfNoEntry: false,
 		...options,
 	});
-	return stats.isSymbolicLink()
+	return stats?.isSymbolicLink()
 }
 
 export function isSameStat<S extends Stats | BigIntStats>(st1: S, st2: S, ...stats: S[]): boolean

@@ -22,7 +22,7 @@ function isSymbolicLink(dir0, options) {
     return fsStat(dir0, {
         throwIfNoEntry: false,
         ...options,
-    }).then(stats => stats.isSymbolicLink());
+    }).then(stats => stats === null || stats === void 0 ? void 0 : stats.isSymbolicLink());
 }
 exports.isSymbolicLink = isSymbolicLink;
 function isSymbolicLinkSync(dir0, options) {
@@ -30,7 +30,7 @@ function isSymbolicLinkSync(dir0, options) {
         throwIfNoEntry: false,
         ...options,
     });
-    return stats.isSymbolicLink();
+    return stats === null || stats === void 0 ? void 0 : stats.isSymbolicLink();
 }
 exports.isSymbolicLinkSync = isSymbolicLinkSync;
 function isSameStat(st1, ...stats) {
