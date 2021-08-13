@@ -1,6 +1,6 @@
 {
   "name": "upath2",
-  "version": "3.1.9",
+  "version": "3.1.10",
   "description": "A proxy to `path`, replacing `\\` with `/` for all results",
   "keywords": [
     "absolute",
@@ -60,8 +60,8 @@
   },
   "dependencies": {
     "lodash": "^4.17.21",
-    "path-is-network-drive": "^1.0.9",
-    "path-strip-sep": "^1.0.6",
+    "path-is-network-drive": "^1.0.10",
+    "path-strip-sep": "^1.0.7",
     "tslib": "^2.3.1"
   },
   "devDependencies": {

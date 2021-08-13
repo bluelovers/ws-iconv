@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.21](https://github.com/bluelovers/ws-iconv/compare/@bluelovers/array-buffer-to-string@1.0.20...@bluelovers/array-buffer-to-string@1.0.21) (2021-08-13)
+
+
+### ♻️　Chores
+
+* **deps:** update deps ([ffdf75f](https://github.com/bluelovers/ws-iconv/commit/ffdf75f27917b2698690436b66df040f2cc5cebc))
+
+
+
+
+
 ## [1.0.20](https://github.com/bluelovers/ws-iconv/compare/@bluelovers/array-buffer-to-string@1.0.19...@bluelovers/array-buffer-to-string@1.0.20) (2021-07-17)
 
 

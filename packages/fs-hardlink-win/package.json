@@ -1,6 +1,6 @@
 {
   "name": "fs-hardlink-win",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "homepage": "https://github.com/bluelovers/ws-iconv/tree/master/packages/fs-hardlink-win#readme",
   "bugs": {
@@ -29,7 +29,5 @@
     "crlf-normalize": "^1.0.6",
     "cross-spawn-extra": "^2.1.0",
     "tslib": "^2.3.0"
-  },
-  "devDependencies": {},
-  "peerDependencies": {}
+  }
 }

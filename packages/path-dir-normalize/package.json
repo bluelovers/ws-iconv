@@ -1,6 +1,6 @@
 {
   "name": "path-dir-normalize",
-  "version": "1.0.20",
+  "version": "1.0.21",
   "description": "dir normalize with end of path.sep",
   "keywords": [],
   "homepage": "https://github.com/bluelovers/ws-iconv/tree/master/packages/path-dir-normalize#readme",
@@ -30,7 +30,7 @@
   },
   "dependencies": {
     "tslib": "^2.3.1",
-    "upath2": "^3.1.9"
+    "upath2": "^3.1.10"
   },
   "gitHead": "cabd8644753e89e8d4bd1f081dc167f87ad9a3f4"
 }
