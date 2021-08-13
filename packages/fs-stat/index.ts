@@ -25,11 +25,11 @@ export function fsStat(path: string | Buffer, options?: IOptions)
 	return (followSymlinks ? stat : lstat)(path)
 }
 
-export function fsStatSync(path: string | Buffer, options?: IOptions)
+export function fsStatSync<S extends Stats | BigIntStats = Stats>(path: string | Buffer, options?: IOptions): S
 {
 	let followSymlinks = options?.followSymlinks ?? options?.allowSymlinks;
 
-	return (followSymlinks ? statSync : lstatSync)(path, options)
+	return (followSymlinks ? statSync : lstatSync)(path, options) as any
 }
 
 export function isSymbolicLink(dir0: string, options?: IOptions)
