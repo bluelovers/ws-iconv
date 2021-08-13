@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.2.16](https://github.com/bluelovers/ws-iconv/compare/extrastat2@4.2.15...extrastat2@4.2.16) (2021-08-13)
+
+
+### 🐛　Bug Fixes
+
+* You do not have permission to publish "fs-symlink". Are you logged in as the correct user? ([c04219f](https://github.com/bluelovers/ws-iconv/commit/c04219fd4047650db80e3915997dcfacdc7f7700))
+
+
+
+
+
 ## [4.2.15](https://github.com/bluelovers/ws-iconv/compare/extrastat2@4.2.14...extrastat2@4.2.15) (2021-08-13)
 
 **Note:** Version bump only for package extrastat2

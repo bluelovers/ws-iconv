@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.13](https://github.com/bluelovers/ws-iconv/compare/path-is-same@1.0.12...path-is-same@1.0.13) (2021-08-13)
+
+
+### 🐛　Bug Fixes
+
+* You do not have permission to publish "fs-symlink". Are you logged in as the correct user? ([c04219f](https://github.com/bluelovers/ws-iconv/commit/c04219fd4047650db80e3915997dcfacdc7f7700))
+
+
+
+
+
 ## [1.0.12](https://github.com/bluelovers/ws-iconv/compare/path-is-same@1.0.11...path-is-same@1.0.12) (2021-08-13)
 
 

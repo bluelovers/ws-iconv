@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.10](https://github.com/bluelovers/ws-iconv/compare/fs-stat@1.0.9...fs-stat@1.0.10) (2021-08-13)
+
+
+### 🐛　Bug Fixes
+
+* You do not have permission to publish "fs-symlink". Are you logged in as the correct user? ([c04219f](https://github.com/bluelovers/ws-iconv/commit/c04219fd4047650db80e3915997dcfacdc7f7700))
+
+
+
+
+
 ## [1.0.9](https://github.com/bluelovers/ws-iconv/compare/fs-stat@1.0.8...fs-stat@1.0.9) (2021-08-13)
 
 
