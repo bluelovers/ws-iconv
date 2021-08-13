@@ -1,30 +1,57 @@
-import { relative } from 'path';
+import { relative } from 'upath2';
 import { realpathSync } from 'fs';
 
-export function fsSameRealpath(dir0: string, dir1: string)
+export function _pathIsSame(p1: string, p2: string): boolean
 {
-	try
-	{
-		let real01 = realpathSync(dir0);
-		let real02 = realpathSync(dir1);
-
-		return pathIsSame(real01, real02)
-	}
-	catch (e)
-	{
-
-	}
+	return relative(p1, p2) === ''
 }
 
-export function pathIsSame(p1: string, p2: string, ...ps: string[]): boolean
-export function pathIsSame(p1: string, ...ps: string[])
+export function fsSameRealpath(p1: string, p2: string, ...ps: string[]): boolean
+export function fsSameRealpath(p1: string, p2: string, ...ps: string[]): boolean
 {
 	if (ps.length <= 0)
 	{
 		throw new TypeError(`p2 must be protected`)
 	}
 
-	return ps.every(p2 => relative(p1, p2) === '')
+	if (!p1?.length || !ps[0]?.length)
+	{
+		return false
+	}
+
+	p1 = realpathSync(p1);
+
+	return ps.every(p2 =>
+	{
+
+		try
+		{
+			p2 = realpathSync(p2);
+			return _pathIsSame(p1, p2);
+		}
+		catch (e)
+		{
+
+		}
+
+		return false
+	})
+}
+
+export function pathIsSame(p1: string, p2: string, ...ps: string[]): boolean
+export function pathIsSame(p1: string, ...ps: string[]): boolean
+{
+	if (ps.length <= 0)
+	{
+		throw new TypeError(`p2 must be protected`)
+	}
+
+	if (!p1?.length || !ps[0]?.length)
+	{
+		return false
+	}
+
+	return ps.every(p2 => _pathIsSame(p1, p2))
 }
 
 export default pathIsSame
