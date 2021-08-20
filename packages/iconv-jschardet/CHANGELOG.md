@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.20](https://github.com/bluelovers/ws-iconv/compare/iconv-jschardet@2.0.19...iconv-jschardet@2.0.20) (2021-08-20)
+
+
+### ✨　Features
+
+* support `ArrayBuffer` in `BufferFrom` ([3225139](https://github.com/bluelovers/ws-iconv/commit/3225139ff3bad5d13b4739450b553bd15f1047a3))
+
+
+
+
+
 ## [2.0.19](https://github.com/bluelovers/ws-iconv/compare/iconv-jschardet@2.0.18...iconv-jschardet@2.0.19) (2021-08-20)
 
 
