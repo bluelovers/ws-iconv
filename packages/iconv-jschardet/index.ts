@@ -1,4 +1,4 @@
-import iconvLite, { encodingExists } from 'iconv-lite';
+import iconvLite, { encodingExists, Options as IOptionsIconvLite } from 'iconv-lite';
 import jschardet from 'jschardet';
 import console from 'debug-color2/logger';
 
@@ -39,7 +39,7 @@ export function skipDecodeWarning(bool: boolean = true): boolean
 /**
  * 將輸入內容轉換為 Buffer
  */
-export function BufferFrom(str, encoding: vEncoding = 'utf8', from?: vEncoding): Buffer
+export function BufferFrom(str, encoding: vEncoding = 'utf8', from?: vEncoding, options?: IOptionsIconvLite): Buffer
 {
 	let data;
 
@@ -53,7 +53,7 @@ export function BufferFrom(str, encoding: vEncoding = 'utf8', from?: vEncoding):
 	}
 
 	data = decode(data);
-	let buf = iconvLite.encode(data, encoding);
+	let buf = iconvLite.encode(data, encoding, options);
 
 	return buf;
 }
@@ -164,12 +164,12 @@ export function decode(str, from: vEncoding = null): string
 /**
  * 檢測輸入內容編碼並且轉換為 Buffer
  */
-export function encode(str, to: vEncoding = ENUM_NODE_ENCODING.UTF8, from: vEncoding = null): Buffer
+export function encode(str, to: vEncoding = ENUM_NODE_ENCODING.UTF8, from: vEncoding = null, options?: IOptionsIconvLite): Buffer
 {
-	let buf = BufferFrom(str, ENUM_NODE_ENCODING.UTF8);
+	let buf = BufferFrom(str, ENUM_NODE_ENCODING.UTF8, from);
 
 	// @ts-ignore
-	return iconvLite.encode(buf, to);
+	return iconvLite.encode(buf, to, options);
 }
 
 export default exports as typeof import('./index');

@@ -25,7 +25,7 @@ exports.skipDecodeWarning = skipDecodeWarning;
 /**
  * 將輸入內容轉換為 Buffer
  */
-function BufferFrom(str, encoding = 'utf8', from) {
+function BufferFrom(str, encoding = 'utf8', from, options) {
     let data;
     if (from) {
         data = Buffer.from(str, from);
@@ -34,7 +34,7 @@ function BufferFrom(str, encoding = 'utf8', from) {
         data = str;
     }
     data = decode(data);
-    let buf = iconv_lite_1.default.encode(data, encoding);
+    let buf = iconv_lite_1.default.encode(data, encoding, options);
     return buf;
 }
 exports.BufferFrom = BufferFrom;
@@ -118,10 +118,10 @@ exports.decode = decode;
 /**
  * 檢測輸入內容編碼並且轉換為 Buffer
  */
-function encode(str, to = "utf8" /* UTF8 */, from = null) {
-    let buf = BufferFrom(str, "utf8" /* UTF8 */);
+function encode(str, to = "utf8" /* UTF8 */, from = null, options) {
+    let buf = BufferFrom(str, "utf8" /* UTF8 */, from);
     // @ts-ignore
-    return iconv_lite_1.default.encode(buf, to);
+    return iconv_lite_1.default.encode(buf, to, options);
 }
 exports.encode = encode;
 exports.default = exports;
