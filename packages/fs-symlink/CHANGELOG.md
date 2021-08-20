@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.6](https://github.com/bluelovers/ws-iconv/compare/fs-symlink-extra@1.0.5...fs-symlink-extra@1.0.6) (2021-08-20)
+
+
+### 🐛　Bug Fixes
+
+* **stat:** support `throwIfNoEntry` ([1581d92](https://github.com/bluelovers/ws-iconv/commit/1581d92553222f767dc7c9b6c03dc000a595b0a4))
+
+
+
+
+
 ## [1.0.5](https://github.com/bluelovers/ws-iconv/compare/fs-symlink-extra@1.0.4...fs-symlink-extra@1.0.5) (2021-08-20)
 
 **Note:** Version bump only for package fs-symlink-extra
