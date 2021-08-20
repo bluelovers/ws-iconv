@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.2](https://github.com/bluelovers/ws-iconv/compare/fs-hardlink-win@1.0.1...fs-hardlink-win@1.0.2) (2021-08-20)
+
+
+### ♻️　Chores
+
+* **deps:** update deps ([7fe7fea](https://github.com/bluelovers/ws-iconv/commit/7fe7fea53c990502a84ce990eed4a4ad346a0524))
+
+
+
+
+
 ## 1.0.1 (2021-08-13)
 
 

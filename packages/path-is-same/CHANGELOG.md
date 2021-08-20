@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.15](https://github.com/bluelovers/ws-iconv/compare/path-is-same@1.0.14...path-is-same@1.0.15) (2021-08-20)
+
+
+### 🐛　Bug Fixes
+
+* fsSameRealpath ([863fee9](https://github.com/bluelovers/ws-iconv/commit/863fee982a3b4802f6c2d12b22589002e2aab866))
+
+
+
+
+
 ## [1.0.14](https://github.com/bluelovers/ws-iconv/compare/path-is-same@1.0.13...path-is-same@1.0.14) (2021-08-13)
 
 
