@@ -6,13 +6,18 @@ export function _pathIsSame(p1: string, p2: string): boolean
 	return relative(p1, p2) === ''
 }
 
-export function fsSameRealpath(p1: string, p2: string, ...ps: string[]): boolean
-export function fsSameRealpath(p1: string, p2: string, ...ps: string[]): boolean
+export function _assertInputArgv(p1: string, ...ps: string[])
 {
 	if (ps.length <= 0)
 	{
-		throw new TypeError(`p2 must be protected`)
+		throw new TypeError(`p2 must be provide`)
 	}
+}
+
+export function fsSameRealpath(p1: string, p2: string, ...ps: string[]): boolean
+export function fsSameRealpath(p1: string, ...ps: string[]): boolean
+{
+	_assertInputArgv(p1, ...ps);
 
 	if (!p1?.length || !ps[0]?.length)
 	{
@@ -27,24 +32,20 @@ export function fsSameRealpath(p1: string, p2: string, ...ps: string[]): boolean
 		try
 		{
 			p2 = realpathSync(p2);
-			return _pathIsSame(p1, p2);
 		}
 		catch (e)
 		{
-
+			return false
 		}
 
-		return false
+		return _pathIsSame(p1, p2);
 	})
 }
 
 export function pathIsSame(p1: string, p2: string, ...ps: string[]): boolean
 export function pathIsSame(p1: string, ...ps: string[]): boolean
 {
-	if (ps.length <= 0)
-	{
-		throw new TypeError(`p2 must be protected`)
-	}
+	_assertInputArgv(p1, ...ps);
 
 	if (!p1?.length || !ps[0]?.length)
 	{
