@@ -18,8 +18,8 @@
     "ncu:root": "npx yarn-tool ncu -u",
     "ncu:ws": "npx yarn-tool ws exec yarn-tool ncu -- -u",
     "sort-package-json": "yarn run sort-package-json:root && yarn run sort-package-json:ws",
-    "sort-package-json:root": "npx yarn-tool sort",
-    "sort-package-json:ws": "npx yarn-tool ws exec yarn-tool sort"
+    "sort-package-json:root": "yarn-tool sort",
+    "sort-package-json:ws": "yarn-tool ws sort"
   },
   "resolutions": {},
   "dependencies": {
@@ -32,10 +32,11 @@
     "@types/html-encoding-sniffer": "^2.0.2",
     "@types/jest": "^27.0.1",
     "@types/lodash": "^4.14.172",
+    "@types/mime-types": "^2.1.1",
     "@types/node": "*",
     "fs-extra": "^10.0.0",
     "jest": "^27.0.6",
-    "ts-jest": "^27.0.4"
+    "ts-jest": "^27.0.5"
   },
   "peerDependencies": {
     "lerna": "^4"
