@@ -47,6 +47,10 @@ export function BufferFrom(str, encoding: vEncoding = 'utf8', from?: vEncoding, 
 	{
 		data = Buffer.from(str, from as BufferEncoding);
 	}
+	else if (str instanceof ArrayBuffer)
+	{
+		data = Buffer.from(str);
+	}
 	else
 	{
 		data = str;
