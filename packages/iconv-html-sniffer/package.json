@@ -1,6 +1,6 @@
 {
   "name": "iconv-html-sniffer",
-  "version": "1.0.16",
+  "version": "1.0.17",
   "description": "",
   "keywords": [
     "iconv",
@@ -36,7 +36,7 @@
   },
   "dependencies": {
     "html-encoding-sniffer": "^2.0.1",
-    "iconv-jschardet": "^2.0.18",
+    "iconv-jschardet": "^2.0.19",
     "tslib": "^2.3.1"
   },
   "gitHead": "980dc5dbf475245ac510f916015f0999ebd8e3fd"

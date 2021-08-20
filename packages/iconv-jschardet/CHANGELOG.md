@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.19](https://github.com/bluelovers/ws-iconv/compare/iconv-jschardet@2.0.18...iconv-jschardet@2.0.19) (2021-08-20)
+
+
+### ✨　Features
+
+* support `iconv-lite` options ([b099173](https://github.com/bluelovers/ws-iconv/commit/b099173c7a88aa8817a2e1686fa83915a5f6f9ba))
+
+
+
+
+
 ## [2.0.18](https://github.com/bluelovers/ws-iconv/compare/iconv-jschardet@2.0.17...iconv-jschardet@2.0.18) (2021-08-13)
 
 
