@@ -18,34 +18,69 @@ export interface IOptions extends StatOptions
 	allowSymlinks?: boolean;
 }
 
+export function _handleOptions(options: IOptions): IOptions
+{
+	options = {
+		...options,
+	}
+
+	options.followSymlinks ??= options.allowSymlinks;
+	options.throwIfNoEntry ??= false;
+
+	return options
+}
+
 export function fsStat(path: string | Buffer, options?: IOptions)
 {
-	let followSymlinks = options?.followSymlinks ?? options?.allowSymlinks;
+	options = _handleOptions(options);
 
-	return (followSymlinks ? stat : lstat)(path)
+	let p = (options.followSymlinks ? stat : lstat)(path);
+
+	if (!options.throwIfNoEntry)
+	{
+		p = p.catch(e =>
+		{
+			if (e.code === 'ENOENT')
+			{
+				return void 0
+			}
+
+			return Promise.reject(e);
+		})
+	}
+
+	return p
 }
 
 export function fsStatSync<S extends Stats | BigIntStats = Stats>(path: string | Buffer, options?: IOptions): S
 {
-	let followSymlinks = options?.followSymlinks ?? options?.allowSymlinks;
+	options = _handleOptions(options);
 
-	return (followSymlinks ? statSync : lstatSync)(path, options) as any
+	let stat: S;
+
+	try
+	{
+		stat = (options.followSymlinks ? statSync : lstatSync)(path, options) as any
+	}
+	catch (e)
+	{
+		if (options.throwIfNoEntry)
+		{
+			throw e
+		}
+	}
+
+	return stat
 }
 
 export function isSymbolicLink(dir0: string, options?: IOptions)
 {
-	return fsStat(dir0, {
-		throwIfNoEntry: false,
-		...options,
-	}).then(stats => stats?.isSymbolicLink());
+	return fsStat(dir0, options).then(stats => stats?.isSymbolicLink());
 }
 
 export function isSymbolicLinkSync(dir0: string, options?: IOptions)
 {
-	const stats = fsStatSync(dir0, {
-		throwIfNoEntry: false,
-		...options,
-	});
+	const stats = fsStatSync(dir0, options);
 	return stats?.isSymbolicLink()
 }
 

@@ -28,6 +28,7 @@ export function _handleOverwrite(src: string, dest: string, options: IOptions, a
 {
 	const opts: IStatOptions = {
 		followSymlinks: true,
+		throwIfNoEntry: false,
 	};
 
 	if (async)

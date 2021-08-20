@@ -7,6 +7,7 @@ const index_2 = require("path-is-same/index");
 function _handleOverwrite(src, dest, options, async) {
     const opts = {
         followSymlinks: true,
+        throwIfNoEntry: false,
     };
     if (async) {
         return Promise.resolve()

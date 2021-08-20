@@ -15,6 +15,7 @@ export interface IOptions extends StatOptions {
      */
     allowSymlinks?: boolean;
 }
+export declare function _handleOptions(options: IOptions): IOptions;
 export declare function fsStat(path: string | Buffer, options?: IOptions): Promise<Stats>;
 export declare function fsStatSync<S extends Stats | BigIntStats = Stats>(path: string | Buffer, options?: IOptions): S;
 export declare function isSymbolicLink(dir0: string, options?: IOptions): Promise<boolean>;
