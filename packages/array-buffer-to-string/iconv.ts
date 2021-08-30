@@ -3,7 +3,6 @@
  */
 
 import { vEncoding, BufferFrom } from 'iconv-jschardet';
-import { Buffer } from "buffer";
 
 export function arrayBufferToString(buf: number[] | ArrayBuffer, encoding?: vEncoding, from?: vEncoding)
 {

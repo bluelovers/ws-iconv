@@ -35,7 +35,7 @@
     "@types/mime-types": "^2.1.1",
     "@types/node": "*",
     "fs-extra": "^10.0.0",
-    "jest": "^27.0.6",
+    "jest": "^27.1.0",
     "ts-jest": "^27.0.5"
   },
   "peerDependencies": {

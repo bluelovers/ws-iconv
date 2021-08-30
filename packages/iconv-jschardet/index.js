@@ -30,6 +30,9 @@ function BufferFrom(str, encoding = 'utf8', from, options) {
     if (from) {
         data = Buffer.from(str, from);
     }
+    else if (ArrayBuffer.isView(str)) {
+        data = Buffer.from(str.buffer, str.byteOffset, str.byteLength);
+    }
     else if (str instanceof ArrayBuffer) {
         data = Buffer.from(str);
     }

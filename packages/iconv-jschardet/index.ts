@@ -39,13 +39,17 @@ export function skipDecodeWarning(bool: boolean = true): boolean
 /**
  * 將輸入內容轉換為 Buffer
  */
-export function BufferFrom(str, encoding: vEncoding = 'utf8', from?: vEncoding, options?: IOptionsIconvLite): Buffer
+export function BufferFrom(str: unknown, encoding: vEncoding = 'utf8', from?: vEncoding, options?: IOptionsIconvLite): Buffer
 {
 	let data;
 
 	if (from)
 	{
-		data = Buffer.from(str, from as BufferEncoding);
+		data = Buffer.from(str as any, from as BufferEncoding);
+	}
+	else if (ArrayBuffer.isView(str))
+	{
+		data = Buffer.from(str.buffer, str.byteOffset, str.byteLength);
 	}
 	else if (str instanceof ArrayBuffer)
 	{

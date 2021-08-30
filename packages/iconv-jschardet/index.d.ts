@@ -13,7 +13,7 @@ export declare function skipDecodeWarning(bool?: boolean): boolean;
 /**
  * 將輸入內容轉換為 Buffer
  */
-export declare function BufferFrom(str: any, encoding?: vEncoding, from?: vEncoding, options?: IOptionsIconvLite): Buffer;
+export declare function BufferFrom(str: unknown, encoding?: vEncoding, from?: vEncoding, options?: IOptionsIconvLite): Buffer;
 /**
  * 檢測輸入內容編碼
  */

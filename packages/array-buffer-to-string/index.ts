@@ -3,7 +3,7 @@
  */
 
 import { Buffer } from "buffer";
-import { vNodeEncoding, vEncoding } from 'iconv-jschardet';
+import toBuffer from 'typedarray-to-buffer';
 
 export function arrayBufferToString(buf: number[] | ArrayBuffer, encoding?: BufferEncoding, from?: BufferEncoding)
 {
@@ -12,7 +12,7 @@ export function arrayBufferToString(buf: number[] | ArrayBuffer, encoding?: Buff
 
 export function arrayBufferToBuffer(buf: number[] | ArrayBuffer, encoding?: BufferEncoding, from?: BufferEncoding)
 {
-	return Buffer.from(buf as any, from);
+	return Buffer.from(toBuffer(buf), from);
 }
 
 export default arrayBufferToString
