@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.21](https://github.com/bluelovers/ws-iconv/compare/iconv-jschardet@2.0.20...iconv-jschardet@2.0.21) (2021-08-30)
+
+
+### ✨　Features
+
+* `typedarray-to-buffer` ([bcb6ef6](https://github.com/bluelovers/ws-iconv/commit/bcb6ef602c8bd73dc26975fc3237d01b68f59a03))
+
+
+
+
+
 ## [2.0.20](https://github.com/bluelovers/ws-iconv/compare/iconv-jschardet@2.0.19...iconv-jschardet@2.0.20) (2021-08-20)
 
 

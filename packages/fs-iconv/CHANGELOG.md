@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.1.6](https://github.com/bluelovers/ws-iconv/compare/fs-iconv@3.1.5...fs-iconv@3.1.6) (2021-08-30)
+
+**Note:** Version bump only for package fs-iconv
+
+
+
+
+
 ## [3.1.5](https://github.com/bluelovers/ws-iconv/compare/fs-iconv@3.1.4...fs-iconv@3.1.5) (2021-08-20)
 
 **Note:** Version bump only for package fs-iconv
