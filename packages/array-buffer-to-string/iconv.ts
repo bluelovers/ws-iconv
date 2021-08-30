@@ -4,12 +4,12 @@
 
 import { vEncoding, BufferFrom } from 'iconv-jschardet';
 
-export function arrayBufferToString(buf: number[] | ArrayBuffer, encoding?: vEncoding, from?: vEncoding)
+export function arrayBufferToString(buf: number[] | ArrayBuffer | Uint8Array, encoding?: vEncoding, from?: vEncoding)
 {
 	return BufferFrom(buf, encoding, from).toString(encoding as any);
 }
 
-export function arrayBufferToBuffer(buf: number[] | ArrayBuffer, encoding?: vEncoding, from?: vEncoding)
+export function arrayBufferToBuffer(buf: number[] | ArrayBuffer | Uint8Array, encoding?: vEncoding, from?: vEncoding)
 {
 	return BufferFrom(buf, encoding, from);
 }
