@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`detectBOMEncoding should return UTF-8 for a UTF-8 BOM 1`] = `"UTF-8"`;
+
+exports[`detectBOMEncoding should return UTF-16BE for a UTF-16BE BOM 1`] = `"UTF-16BE"`;
+
+exports[`detectBOMEncoding should return UTF-16LE for a UTF-16LE BOM 1`] = `"UTF-16LE"`;
+
+exports[`detectBOMEncoding should return UTF-16LE for a UTF-32LE BOM 1`] = `"UTF-16LE"`;
+
+exports[`detectBOMEncoding should return UTF-16LE for a UTF-32LE BOM 2`] = `"UTF-32LE"`;
+
+exports[`detectBOMEncoding should return null for a GB-18030 BOM 1`] = `"GB-18030"`;
+
+exports[`detectBOMEncoding should return null for a UTF-32BE BOM 1`] = `"UTF-32BE"`;
+
+exports[`detectBOMEncoding should return null for a Unicode BOM 1`] = `"Unicode"`;
+
+exports[`detectBOMEncoding should return null for a one-byte buffer 1`] = `null`;
+
+exports[`detectBOMEncoding should return null for an empty buffer 1`] = `null`;
+
+exports[`detectBOMEncoding should return null for no BOM 1`] = `null`;
