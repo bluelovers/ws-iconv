@@ -76,7 +76,7 @@
     "fs-extra": "^10.0.0",
     "iconv-jschardet": "^2.0.21",
     "lodash": "^4.17.21",
-    "ts-type": "^1.2.39",
+    "ts-type": "^1.2.40",
     "tslib": "^2.3.1"
   },
   "devDependencies": {

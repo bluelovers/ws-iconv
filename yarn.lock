@@ -2576,10 +2576,10 @@ ts-jest@^27.0.5:
     semver "7.x"
     yargs-parser "20.x"
 
-ts-type@^1.2.35, ts-type@^1.2.39:
-  version "1.2.39"
-  resolved "https://registry.npmjs.org/ts-type/-/ts-type-1.2.39.tgz#2a572561613355b38af6526cd372b51d2be18530"
-  integrity sha512-5HEKeeFAcEGaRw0GMQSp2T0vFl53CPadNB3QfUN5Drhw8Ov/7JWGbcOCw2ElWrl6bwdsAUSMqkzMMTRZi7eTiQ==
+ts-type@^1.2.35, ts-type@^1.2.39, ts-type@^1.2.40:
+  version "1.2.40"
+  resolved "https://registry.npmjs.org/ts-type/-/ts-type-1.2.40.tgz#db3ceb95281567fe72591b9a904488e85c5b74fe"
+  integrity sha512-Ux5e7Frys5pX7w8gYchEd0KfhG1H5puXOQC8yOBgMJ1aEwDSypeHLwxIUpKjecni1IGwtLI3JrxCVZaQO9JKmw==
   dependencies:
     tslib "^2.3.0"
     typedarray-dts "^1.0.0"
