@@ -4,6 +4,7 @@
   "private": true,
   "workspaces": [
     "packages/@lazy-node/*",
+    "packages/@lazy-iconv/*",
     "packages/*"
   ],
   "scripts": {

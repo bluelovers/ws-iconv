@@ -1,6 +1,7 @@
 {
   "packages": [
     "packages/@lazy-node/*",
+    "packages/@lazy-iconv/*",
     "packages/*"
   ],
   "command": {
