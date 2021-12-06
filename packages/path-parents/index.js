@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.pathParents = exports.pathParentsGenerator = exports.pathParentsCore = exports.handleOptions = void 0;
+exports.pathSplit = exports.pathSplitGenerator = exports.pathParents = exports.pathParentsGenerator = exports.pathParentsCore = exports.handleOptions = void 0;
 const tslib_1 = require("tslib");
 const core_1 = (0, tslib_1.__importDefault)(require("upath2/core"));
 const path_1 = (0, tslib_1.__importDefault)(require("path"));
@@ -66,5 +66,20 @@ function pathParents(cwd, opts) {
     return [...pathParentsGenerator(cwd, opts)];
 }
 exports.pathParents = pathParents;
+function* pathSplitGenerator(cwd, opts) {
+    const runtime = handleOptions(cwd, opts);
+    for (const p of pathParentsGenerator(cwd, runtime.opts)) {
+        let r = runtime.path.basename(p);
+        if (!(r === null || r === void 0 ? void 0 : r.length)) {
+            r = p;
+        }
+        yield r;
+    }
+}
+exports.pathSplitGenerator = pathSplitGenerator;
+function pathSplit(cwd, opts) {
+    return [...pathSplitGenerator(cwd, opts)];
+}
+exports.pathSplit = pathSplit;
 exports.default = pathParents;
 //# sourceMappingURL=index.js.map

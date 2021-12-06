@@ -1,5 +1,5 @@
 import upath from 'upath2/core';
-import { IPathPlatform, IPathNode } from 'upath2/lib/type';
+import { IPathNode, IPathPlatform } from 'upath2/lib/type';
 import pathNode from 'path';
 import pathIsSame from 'path-is-same';
 
@@ -96,6 +96,28 @@ export function* pathParentsGenerator(cwd?: string | IOptions, opts?: IOptions)
 export function pathParents(cwd?: string | IOptions, opts?: IOptions)
 {
 	return [...pathParentsGenerator(cwd, opts)]
+}
+
+export function* pathSplitGenerator(cwd?: string | IOptions, opts?: IOptions)
+{
+	const runtime = handleOptions(cwd, opts);
+
+	for (const p of pathParentsGenerator(cwd, runtime.opts))
+	{
+		let r = runtime.path.basename(p);
+
+		if (!r?.length)
+		{
+			r = p;
+		}
+
+		yield r
+	}
+}
+
+export function pathSplit(cwd?: string | IOptions, opts?: IOptions)
+{
+	return [...pathSplitGenerator(cwd, opts)]
 }
 
 export default pathParents
