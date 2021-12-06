@@ -35,7 +35,7 @@
     "tsc:esm": "tsc -p tsconfig.esm.json"
   },
   "dependencies": {
-    "html-encoding-sniffer": "^2.0.1",
+    "html-encoding-sniffer": "^3.0.0",
     "iconv-jschardet": "^2.0.21",
     "tslib": "^2.3.1"
   },

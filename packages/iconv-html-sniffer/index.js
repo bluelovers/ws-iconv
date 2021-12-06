@@ -8,15 +8,16 @@ function createIconvDecode(defaultEncodingBase, sniffHTMLEncoding) {
     if (!sniffHTMLEncoding) {
         sniffHTMLEncoding = createSniffHTMLEncoding(defaultEncodingBase);
     }
-    return (buf, defaultEncoding = defaultEncodingBase) => {
-        return (0, iconv_jschardet_1.decode)(buf, sniffHTMLEncoding(buf, defaultEncoding));
+    return (buf, defaultEncoding = defaultEncodingBase, transportLayerEncodingLabel) => {
+        return (0, iconv_jschardet_1.decode)(buf, sniffHTMLEncoding(buf, defaultEncoding, transportLayerEncodingLabel));
     };
 }
 exports.createIconvDecode = createIconvDecode;
 function createSniffHTMLEncoding(defaultEncodingBase) {
-    return (buf, defaultEncoding = defaultEncodingBase) => {
+    return (buf, defaultEncoding = defaultEncodingBase, transportLayerEncodingLabel) => {
         return (0, html_encoding_sniffer_1.default)(buf, {
             defaultEncoding,
+            transportLayerEncodingLabel,
         });
     };
 }
