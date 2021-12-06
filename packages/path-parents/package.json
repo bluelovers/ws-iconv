@@ -1,6 +1,6 @@
 {
   "name": "path-parents",
-  "version": "1.0.16",
+  "version": "1.0.17",
   "description": "return all the parent directories for a directory",
   "keywords": [
     "directory",

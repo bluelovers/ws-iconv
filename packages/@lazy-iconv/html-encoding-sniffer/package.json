@@ -1,6 +1,6 @@
 {
   "name": "@lazy-iconv/html-encoding-sniffer",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "homepage": "https://github.com/bluelovers/ws-iconv/tree/master/packages/@lazy-iconv/html-encoding-sniffer#readme",
   "bugs": {
@@ -31,8 +31,6 @@
     "tslib": "^2.3.1",
     "whatwg-encoding": "^2.0.0"
   },
-  "devDependencies": {},
-  "peerDependencies": {},
   "publishConfig": {
     "access": "public"
   }

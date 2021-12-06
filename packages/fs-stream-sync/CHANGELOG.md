@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.6](https://github.com/bluelovers/ws-iconv/compare/fs-stream-sync@2.0.5...fs-stream-sync@2.0.6) (2021-12-06)
+
+
+### ♻️　Chores
+
+* **deps:** update deps ([64ec271](https://github.com/bluelovers/ws-iconv/commit/64ec2718aaa422a5d8761198824886410200c47f))
+
+
+
+
+
 ## [2.0.5](https://github.com/bluelovers/ws-iconv/compare/fs-stream-sync@2.0.4...fs-stream-sync@2.0.5) (2021-08-13)
 
 

@@ -1,6 +1,6 @@
 {
   "name": "path-in-dir",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "check path inside of directory",
   "keywords": [
     "create-by-yarn-tool"
@@ -43,7 +43,5 @@
     "tslib": "^2.3.1",
     "upath2": "^3.1.10"
   },
-  "devDependencies": {},
-  "peerDependencies": {},
   "packageManager": "yarn@^1.22.11"
 }

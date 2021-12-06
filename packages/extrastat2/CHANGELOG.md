@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.2.19](https://github.com/bluelovers/ws-iconv/compare/extrastat2@4.2.18...extrastat2@4.2.19) (2021-12-06)
+
+
+### ♻️　Chores
+
+* **deps:** update deps ([64ec271](https://github.com/bluelovers/ws-iconv/commit/64ec2718aaa422a5d8761198824886410200c47f))
+* **deps:** update deps ([6f71294](https://github.com/bluelovers/ws-iconv/commit/6f712943603f8e19ac85a365c96dc5f510ada784))
+
+
+
+
+
 ## [4.2.18](https://github.com/bluelovers/ws-iconv/compare/extrastat2@4.2.17...extrastat2@4.2.18) (2021-08-20)
 
 

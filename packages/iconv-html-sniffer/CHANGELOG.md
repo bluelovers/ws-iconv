@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.20](https://github.com/bluelovers/ws-iconv/compare/iconv-html-sniffer@1.0.19...iconv-html-sniffer@1.0.20) (2021-12-06)
+
+
+### 📦　Code Refactoring
+
+* update `html-encoding-sniffer` ([5dca8df](https://github.com/bluelovers/ws-iconv/commit/5dca8dfed1ace9b3147f85ad49f7df979ad37532))
+
+
+
+
+
 ## [1.0.19](https://github.com/bluelovers/ws-iconv/compare/iconv-html-sniffer@1.0.18...iconv-html-sniffer@1.0.19) (2021-08-30)
 
 **Note:** Version bump only for package iconv-html-sniffer

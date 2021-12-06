@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.17](https://github.com/bluelovers/ws-iconv/compare/path-parents@1.0.16...path-parents@1.0.17) (2021-12-06)
+
+
+### ✨　Features
+
+* add `pathSplit` method ([5e616cd](https://github.com/bluelovers/ws-iconv/commit/5e616cdbda04d9e82eb7a94108a972fb63a7015e))
+
+
+
+
+
 ## [1.0.16](https://github.com/bluelovers/ws-iconv/compare/path-parents@1.0.15...path-parents@1.0.16) (2021-08-20)
 
 **Note:** Version bump only for package path-parents
