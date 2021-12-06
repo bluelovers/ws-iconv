@@ -34,11 +34,11 @@ exports[`throw false 2`] = `"str.replace is not a function"`;
 
 exports[`throw false 3`] = `"str.replace is not a function"`;
 
-exports[`throw null 1`] = `"Cannot read property 'replace' of null"`;
+exports[`throw null 1`] = `"Cannot read properties of null (reading 'replace')"`;
 
-exports[`throw null 2`] = `"Cannot read property 'replace' of null"`;
+exports[`throw null 2`] = `"Cannot read properties of null (reading 'replace')"`;
 
-exports[`throw null 3`] = `"Cannot read property 'replace' of null"`;
+exports[`throw null 3`] = `"Cannot read properties of null (reading 'replace')"`;
 
 exports[`throw true 1`] = `"str.replace is not a function"`;
 
@@ -46,8 +46,8 @@ exports[`throw true 2`] = `"str.replace is not a function"`;
 
 exports[`throw true 3`] = `"str.replace is not a function"`;
 
-exports[`throw undefined 1`] = `"Cannot read property 'replace' of undefined"`;
+exports[`throw undefined 1`] = `"Cannot read properties of undefined (reading 'replace')"`;
 
-exports[`throw undefined 2`] = `"Cannot read property 'replace' of undefined"`;
+exports[`throw undefined 2`] = `"Cannot read properties of undefined (reading 'replace')"`;
 
-exports[`throw undefined 3`] = `"Cannot read property 'replace' of undefined"`;
+exports[`throw undefined 3`] = `"Cannot read properties of undefined (reading 'replace')"`;
