@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.8](https://github.com/bluelovers/ws-iconv/compare/fs-symlink-extra@1.0.7...fs-symlink-extra@1.0.8) (2021-12-09)
+
+
+### ✨　Features
+
+* fix error when dest is boken ([b677cfd](https://github.com/bluelovers/ws-iconv/commit/b677cfd66a9b5adc06ea99dbf092d38104c50b51))
+
+
+
+
+
 ## [1.0.7](https://github.com/bluelovers/ws-iconv/compare/fs-symlink-extra@1.0.6...fs-symlink-extra@1.0.7) (2021-12-06)
 
 
