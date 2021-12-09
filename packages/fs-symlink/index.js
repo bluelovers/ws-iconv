@@ -2,9 +2,10 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.fsHardlinkSync = exports.fsHardlink = exports.fsSymlinkSync = exports.fsSymlink = exports._handleOverwrite = void 0;
 const fs_extra_1 = require("fs-extra");
-const index_1 = require("fs-stat/index");
-const index_2 = require("path-is-same/index");
+const fs_stat_1 = require("fs-stat");
+const path_is_same_1 = require("path-is-same");
 function _handleOverwrite(src, dest, options, async) {
+    var _a;
     const opts = {
         followSymlinks: true,
         throwIfNoEntry: false,
@@ -12,15 +13,19 @@ function _handleOverwrite(src, dest, options, async) {
     if (async) {
         return Promise.resolve()
             .then(async () => {
+            var _a;
             if (!(options === null || options === void 0 ? void 0 : options.overwrite)) {
                 return null;
             }
-            else if ((0, index_2.fsSameRealpath)(src, dest)) {
+            else if ((0, path_is_same_1.fsSameRealpath)(src, dest)) {
                 return false;
             }
-            let s1 = await (0, index_1.fsStat)(src, opts);
-            let s2 = await (0, index_1.fsStat)(dest, opts);
-            if (s1 && s2 && !(0, index_1.isSameStat)(s1, s2)) {
+            let s1 = await (0, fs_stat_1.fsStat)(src, opts);
+            let s2 = (_a = await (0, fs_stat_1.fsStat)(dest, opts)) !== null && _a !== void 0 ? _a : await (0, fs_stat_1.fsStat)(dest, {
+                ...opts,
+                followSymlinks: false,
+            });
+            if (s1 && s2 && !(0, fs_stat_1.isSameStat)(s1, s2)) {
                 await (0, fs_extra_1.unlink)(dest);
                 return true;
             }
@@ -31,12 +36,15 @@ function _handleOverwrite(src, dest, options, async) {
         if (!(options === null || options === void 0 ? void 0 : options.overwrite)) {
             return null;
         }
-        else if ((0, index_2.fsSameRealpath)(src, dest)) {
+        else if ((0, path_is_same_1.fsSameRealpath)(src, dest)) {
             return false;
         }
-        let s1 = (0, index_1.fsStatSync)(src, opts);
-        let s2 = (0, index_1.fsStatSync)(dest, opts);
-        if (s1 && s2 && !(0, index_1.isSameStat)(s1, s2)) {
+        let s1 = (0, fs_stat_1.fsStatSync)(src, opts);
+        let s2 = (_a = (0, fs_stat_1.fsStatSync)(dest, opts)) !== null && _a !== void 0 ? _a : (0, fs_stat_1.fsStatSync)(dest, {
+            ...opts,
+            followSymlinks: false,
+        });
+        if (s1 && s2 && !(0, fs_stat_1.isSameStat)(s1, s2)) {
             (0, fs_extra_1.unlinkSync)(dest);
             return true;
         }

@@ -1,16 +1,15 @@
 import {
-	SymlinkType,
-	ensureSymlinkSync,
-	ensureLinkSync,
-	unlinkSync,
-	unlink,
-	ensureSymlink,
 	ensureLink,
+	ensureLinkSync,
+	ensureSymlink,
+	ensureSymlinkSync,
+	SymlinkType,
+	unlink,
+	unlinkSync,
 } from 'fs-extra';
-import { fsStat, fsStatSync, isSameStat } from 'fs-stat/index';
-import { IOptions as IStatOptions } from 'fs-stat/index';
+import { fsStat, fsStatSync, IOptions as IStatOptions, isSameStat } from 'fs-stat';
 import { ITSResolvable } from 'ts-type';
-import { fsSameRealpath } from 'path-is-same/index';
+import { fsSameRealpath } from 'path-is-same';
 
 export interface IOptions
 {
@@ -34,7 +33,8 @@ export function _handleOverwrite(src: string, dest: string, options: IOptions, a
 	if (async)
 	{
 		return Promise.resolve()
-			.then(async () => {
+			.then(async () =>
+			{
 
 				if (!options?.overwrite)
 				{
@@ -46,7 +46,10 @@ export function _handleOverwrite(src: string, dest: string, options: IOptions, a
 				}
 
 				let s1 = await fsStat(src, opts);
-				let s2 = await fsStat(dest, opts);
+				let s2 = await fsStat(dest, opts) ?? await fsStat(dest, {
+					...opts,
+					followSymlinks: false,
+				});
 
 				if (s1 && s2 && !isSameStat(s1, s2))
 				{
@@ -69,7 +72,10 @@ export function _handleOverwrite(src: string, dest: string, options: IOptions, a
 		}
 
 		let s1 = fsStatSync(src, opts);
-		let s2 = fsStatSync(dest, opts);
+		let s2 = fsStatSync(dest, opts) ?? fsStatSync(dest, {
+			...opts,
+			followSymlinks: false,
+		});
 
 		if (s1 && s2 && !isSameStat(s1, s2))
 		{
