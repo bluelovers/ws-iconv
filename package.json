@@ -28,17 +28,17 @@
     "whatwg-encoding": "^2.0.0"
   },
   "devDependencies": {
-    "@bluelovers/tsconfig": "^1.0.26",
+    "@bluelovers/tsconfig": "^1.0.28",
     "@types/bluebird": "^3",
     "@types/fs-extra": "^9",
     "@types/html-encoding-sniffer": "^2.0.2",
     "@types/jest": "^27.0.3",
-    "@types/lodash": "^4.14.177",
+    "@types/lodash": "^4.14.178",
     "@types/mime-types": "^2.1.1",
     "@types/node": "*",
     "fs-extra": "^10.0.0",
     "jest": "^27.4.3",
-    "ts-jest": "^27.1.0"
+    "ts-jest": "^27.1.1"
   },
   "peerDependencies": {
     "lerna": "^4"
