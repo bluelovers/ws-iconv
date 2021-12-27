@@ -1,5 +1,7 @@
 import pathIsSame, { fsSameRealpath } from '../index';
 
+const isWin = process.platform === "win32";
+
 test(`sep`, () =>
 {
 
@@ -36,14 +38,14 @@ describe(`drive`, () =>
 		'c:',
 		'c:.',
 		'c:/.',
-		'c:\\.',
-		'c:\\',
+		isWin && 'c:\\.',
+		isWin && 'c:\\',
 	];
 
 	list.forEach(target =>
 	{
 
-		test(target, () =>
+		target && test(target, () =>
 		{
 
 			expect(pathIsSame(list[0], target)).toBeTruthy()
