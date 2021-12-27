@@ -1,0 +1,7 @@
+{
+  "extends": "@bluelovers/tsconfig/esm/mapfile.json",
+  "compilerOptions": {
+    "strictBindCallApply": true,
+    "importHelpers": true
+  }
+}
