@@ -7,6 +7,8 @@ import { ITSPartialRecord } from 'ts-type';
 
 export type ITestCaseRow = [string | any[], any?]
 
+const isWin = process.platform === "win32";
+
 export const testCases = {
 	normalize: [
 		[
@@ -17,11 +19,11 @@ export const testCases = {
 			'c:/windows/../nodejs/path',
 			"c:/nodejs/path"
 		],
-		[
+		isWin && [
 			'c:\\windows\\nodejs\\path',
 			"c:/windows/nodejs/path"
 		],
-		[
+		isWin && [
 			'c:\\windows\\..\\nodejs\\path',
 			"c:/nodejs/path"
 		],
@@ -62,36 +64,36 @@ export const testCases = {
 		[
 			['some/nodejs/deep', '../path'],
 		],
-		[
+		isWin && [
 			['some/nodejs\\windows', '../path'],
 		],
-		[
+		isWin && [
 			['some\\windows\\only', '..\\path'],
 		],
 	],
 	parse: [
-		[
+		isWin && [
 			'c:/windows/nodejs/path',
 		],
-		[
+		isWin && [
 			'c:/windows/../nodejs/path',
 		],
-		[
+		isWin && [
 			'c:\\windows\\nodejs\\path',
 		],
-		[
+		isWin && [
 			'c:\\windows\\..\\nodejs\\path',
 		],
-		[
+		isWin && [
 			'//windows\\unix/mixed',
 		],
 		[
 			'\\windows//unix/mixed',
 		],
-		[
+		isWin && [
 			'//\\windows\\..\\unix/mixed/',
 		],
-		[
+		isWin && [
 			'c:\\Windows\\Directory\\somefile.ext',
 		],
 		[

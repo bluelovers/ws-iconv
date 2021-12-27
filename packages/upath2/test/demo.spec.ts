@@ -52,7 +52,7 @@ function _setup(name: string, path: typeof upath2)
 			testCases
 				.forEach(testCase =>
 				{
-					test(inspect(testCase[0]), () => {
+					testCase && test(inspect(testCase[0]), () => {
 						let actual;
 						let expected
 						let expected2
