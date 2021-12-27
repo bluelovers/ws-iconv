@@ -28,3 +28,4 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           package-manager: yarn
           #   threshold: 80 # optional parameter
+          test-script: jest --silent --ci --coverageReporters="text" --coverageReporters="text-summary"
