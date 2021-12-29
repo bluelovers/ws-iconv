@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.1.12](https://github.com/bluelovers/ws-iconv/compare/upath2@3.1.11...upath2@3.1.12) (2021-12-29)
+
+
+### 🛠　Build System
+
+* update ([b0c3ccb](https://github.com/bluelovers/ws-iconv/commit/b0c3ccbb5b18168119b793c2eaad67c37a88c824))
+
+
+### 🔖　Miscellaneous
+
+* Remove dependency to lodash in upath2 ([68f4913](https://github.com/bluelovers/ws-iconv/commit/68f49138de49e1f6de8c86b47dfd8bb928551258))
+
+
+
+
+
 ## [3.1.11](https://github.com/bluelovers/ws-iconv/compare/upath2@3.1.10...upath2@3.1.11) (2021-12-29)
 
 
