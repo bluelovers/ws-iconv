@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.18](https://github.com/bluelovers/ws-iconv/compare/path-parents@1.0.17...path-parents@1.0.18) (2021-12-29)
+
+
+### 🚨　Tests
+
+* fix test only work on windows maybe ([6e959f1](https://github.com/bluelovers/ws-iconv/commit/6e959f1a41686ac05234f686d5178c4dfc87657a))
+
+
+### 🛠　Build System
+
+* update typescript ([141a8ee](https://github.com/bluelovers/ws-iconv/commit/141a8eefbaeeb45f235f5cdceadaeaeb05d9acc7))
+
+
+### 🔖　Miscellaneous
+
+* . ([710cc28](https://github.com/bluelovers/ws-iconv/commit/710cc28b3379253df0ea7959ff9bf21229c808fa))
+* . ([a77b29a](https://github.com/bluelovers/ws-iconv/commit/a77b29ae69eb4e0c87d5120618c699273637510a))
+
+
+
+
+
 ## [1.0.17](https://github.com/bluelovers/ws-iconv/compare/path-parents@1.0.16...path-parents@1.0.17) (2021-12-06)
 
 

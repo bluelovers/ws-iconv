@@ -1,6 +1,6 @@
 {
   "name": "@lazy-node/is-writeable-path",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "description": "detect target path is writeable or not",
   "homepage": "https://github.com/bluelovers/ws-iconv/tree/master/packages/@lazy-node/is-writeable-path#readme",
   "bugs": {

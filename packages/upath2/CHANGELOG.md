@@ -3,6 +3,36 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.1.11](https://github.com/bluelovers/ws-iconv/compare/upath2@3.1.10...upath2@3.1.11) (2021-12-29)
+
+
+### 🚨　Tests
+
+* fix test only work on windows maybe ([3746874](https://github.com/bluelovers/ws-iconv/commit/3746874b4ac34826baf10721554b84428a7a88fa))
+* fix test only work on windows maybe ([daf77d1](https://github.com/bluelovers/ws-iconv/commit/daf77d12bc5090d9b309831d6612fc707d90ea91))
+
+
+### 🛠　Build System
+
+* update typescript ([141a8ee](https://github.com/bluelovers/ws-iconv/commit/141a8eefbaeeb45f235f5cdceadaeaeb05d9acc7))
+
+
+### ⚙️　Continuous Integration
+
+* update ci ([b1f0ff0](https://github.com/bluelovers/ws-iconv/commit/b1f0ff0366add72530c6de117ecbc0fdec481aec))
+
+
+### 🔖　Miscellaneous
+
+* . ([1b47cdf](https://github.com/bluelovers/ws-iconv/commit/1b47cdf69a3a0361b79f7e7acce0f9544a095a20))
+* . ([93469d3](https://github.com/bluelovers/ws-iconv/commit/93469d3f00e34fbbaae19c96e030721d982c7ba9))
+* . ([11a4182](https://github.com/bluelovers/ws-iconv/commit/11a4182cc4d624445dfcb99e95441884c96777fc))
+* . ([a77b29a](https://github.com/bluelovers/ws-iconv/commit/a77b29ae69eb4e0c87d5120618c699273637510a))
+
+
+
+
+
 ## [3.1.10](https://github.com/bluelovers/ws-iconv/compare/upath2@3.1.9...upath2@3.1.10) (2021-08-13)
 
 

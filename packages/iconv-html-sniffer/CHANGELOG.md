@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.23](https://github.com/bluelovers/ws-iconv/compare/iconv-html-sniffer@1.0.20...iconv-html-sniffer@1.0.23) (2021-12-29)
+
+
+### 🛠　Build System
+
+* update typescript ([141a8ee](https://github.com/bluelovers/ws-iconv/commit/141a8eefbaeeb45f235f5cdceadaeaeb05d9acc7))
+
+
+### ⚙️　Continuous Integration
+
+* update ci ([b1f0ff0](https://github.com/bluelovers/ws-iconv/commit/b1f0ff0366add72530c6de117ecbc0fdec481aec))
+
+
+### 🔖　Miscellaneous
+
+* . ([c60df45](https://github.com/bluelovers/ws-iconv/commit/c60df451cb6728e0c28522bba043feaad4a883e0))
+* . ([526ff7c](https://github.com/bluelovers/ws-iconv/commit/526ff7c919a83f407386c2e872170813bfc575d0))
+
+
+
+
+
 ## [1.0.22](https://github.com/bluelovers/ws-iconv/compare/iconv-html-sniffer@1.0.20...iconv-html-sniffer@1.0.22) (2021-12-29)
 
 
