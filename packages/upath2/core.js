@@ -6,10 +6,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports._this_origin = exports.fn = exports.upath = exports.win32 = exports.posix = exports.PathWrap = void 0;
 const tslib_1 = require("tslib");
 const path_1 = tslib_1.__importDefault(require("path"));
-const lodash_1 = require("lodash");
 const type_1 = require("./lib/type");
 const util_1 = require("./lib/util");
-const path_is_network_drive_1 = tslib_1.__importStar(require("path-is-network-drive"));
+const path_is_network_drive_1 = require("path-is-network-drive");
 const fix_1 = require("./lib/fix");
 class PathWrap {
     constructor(path, id) {
@@ -18,7 +17,7 @@ class PathWrap {
         this.node = path_1.default;
         let _static = (0, util_1.getStatic)(this);
         // @ts-ignore
-        this.fn = (0, lodash_1.defaults)(this.__proto__, _static.fn, path);
+        this.fn = (0, util_1.defaults)(this.__proto__, _static.fn, path);
         this.delimiter = (_a = path.delimiter) !== null && _a !== void 0 ? _a : _static.fn.delimiter;
         [
             'join',
@@ -83,7 +82,7 @@ class PathWrap {
     }
     dirname(path) {
         let r;
-        if (false && this.name !== 'posix' && (0, path_is_network_drive_1.default)(path)) {
+        if (false && this.name !== 'posix' && (0, path_is_network_drive_1.pathIsNetworkDrive)(path)) {
             if ((0, path_is_network_drive_1.matchNetworkDriveRoot)(path)) {
                 r = path;
             }

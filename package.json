@@ -5,6 +5,14 @@
   "keywords": [
     "create-by-yarn-tool"
   ],
+  "homepage": "https://github.com/bluelovers/ws-iconv#readme",
+  "bugs": {
+    "url": "https://github.com/bluelovers/ws-iconv/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bluelovers/ws-iconv.git"
+  },
   "workspaces": [
     "packages/@lazy-node/*",
     "packages/@lazy-iconv/*",
