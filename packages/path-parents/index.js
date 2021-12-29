@@ -2,9 +2,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.pathSplit = exports.pathSplitGenerator = exports.pathParents = exports.pathParentsGenerator = exports.pathParentsCore = exports.handleOptions = void 0;
 const tslib_1 = require("tslib");
-const core_1 = (0, tslib_1.__importDefault)(require("upath2/core"));
-const path_1 = (0, tslib_1.__importDefault)(require("path"));
-const path_is_same_1 = (0, tslib_1.__importDefault)(require("path-is-same"));
+const core_1 = tslib_1.__importDefault(require("upath2/core"));
+const path_1 = tslib_1.__importDefault(require("path"));
+const path_is_same_1 = tslib_1.__importDefault(require("path-is-same"));
 function handleOptions(cwd, opts) {
     if (typeof opts === 'undefined') {
         if (typeof cwd !== 'string') {

@@ -6,7 +6,9 @@ import { IPathLike, IOptions, EnumNewLineCharacter } from './lib/types';
 import { readSync, closeSync, openSync } from 'fs';
 import {
 	handleOptionNewLineCharacter,
-	splitBufferByBuffer, bufferStripEndWithByBuffer, bufferEndWithByBuffer,
+	splitBufferByBuffer,
+	bufferStripEndWithByBuffer,
+	bufferEndWithByBuffer,
 } from './lib/util';
 
 export class LineByLine
@@ -216,5 +218,7 @@ export class LineByLine
 	static LineByLine = LineByLine;
 	static default = LineByLine;
 }
+
+Object.defineProperty(LineByLine, "__esModule", { value: true });
 
 export default LineByLine

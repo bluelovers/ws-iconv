@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.trimFilename = exports.trimSpace = exports.replaceToFullWidth = exports.sanitizeFilename = void 0;
 const tslib_1 = require("tslib");
-const filenamify_1 = (0, tslib_1.__importDefault)(require("filenamify"));
+const filenamify_1 = tslib_1.__importDefault(require("filenamify"));
 const zero_width_1 = require("zero-width");
 const index_1 = require("@lazy-node/windows-unsafe-filename/index");
 function sanitizeFilename(name, options) {

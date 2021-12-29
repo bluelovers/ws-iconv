@@ -2,7 +2,9 @@
   "packages": [
     "packages/@lazy-node/*",
     "packages/@lazy-iconv/*",
-    "packages/*"
+    "packages/*",
+    "packages/@bluelovers/*",
+    "!**/test/**"
   ],
   "command": {
     "publish": {

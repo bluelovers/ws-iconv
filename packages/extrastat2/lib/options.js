@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getOptionResolvers = exports.getOptions = exports.defaultOptions = void 0;
 const tslib_1 = require("tslib");
-const resolvers = (0, tslib_1.__importStar)(require("./resolvers"));
+const resolvers = tslib_1.__importStar(require("./resolvers"));
 const lodash_1 = require("lodash");
 exports.defaultOptions = {
     "name": true,

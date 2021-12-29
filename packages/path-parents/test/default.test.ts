@@ -1,10 +1,12 @@
 import pathParents, { IOptions } from '../index';
 
+const isWin = process.platform === "win32";
+
 let options: IOptions = {
 	//platform: 'win32'
 }
 
-test('win32', function ()
+isWin && test('win32', function ()
 {
 	var dir = 'c:\\Program Files\\Maxis\\Sim City 2000\\cities';
 	var dirs = pathParents(dir, options);

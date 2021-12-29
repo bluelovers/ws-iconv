@@ -1,6 +1,6 @@
 {
   "name": "path-dir-normalize",
-  "version": "1.0.21",
+  "version": "1.0.22",
   "description": "dir normalize with end of path.sep",
   "keywords": [],
   "homepage": "https://github.com/bluelovers/ws-iconv/tree/master/packages/path-dir-normalize#readme",
@@ -15,22 +15,22 @@
   "author": "bluelovers",
   "main": "index.js",
   "scripts": {
-    "coverage": "npx nyc yarn run test",
-    "lint": "npx eslint **/*.ts",
+    "coverage": "ynpx nyc yarn run test",
+    "lint": "ynpx eslint **/*.ts",
     "test": "jest",
     "npm:publish": "npm publish",
-    "npm:publish:lerna": "npx lerna publish --yes --cd-version patch",
+    "npm:publish:lerna": "lerna publish --yes --cd-version patch",
     "preversion": "yarn run test",
-    "prepublish:lockfile": "npx sync-lockfile .",
+    "prepublish:lockfile": "ynpx sync-lockfile .",
     "postpublish_": "git commit -m \"chore(release): publish\" .",
-    "ncu": "npx yarn-tool ncu -u",
-    "sort-package-json": "npx sort-package-json ./package.json",
+    "ncu": "yarn-tool ncu -u",
+    "sort-package-json": "ynpx sort-package-json ./package.json",
     "tsc:default": "tsc -p tsconfig.json",
     "tsc:esm": "tsc -p tsconfig.esm.json"
   },
   "dependencies": {
     "tslib": "^2.3.1",
-    "upath2": "^3.1.10"
+    "upath2": "^3.1.11"
   },
   "gitHead": "cabd8644753e89e8d4bd1f081dc167f87ad9a3f4"
 }

@@ -2,25 +2,46 @@
   "name": "ws-iconv",
   "version": "1.0.0",
   "private": true,
+  "keywords": [
+    "create-by-yarn-tool"
+  ],
   "workspaces": [
     "packages/@lazy-node/*",
     "packages/@lazy-iconv/*",
-    "packages/*"
+    "packages/*",
+    "packages/@bluelovers/*",
+    "!**/test/**"
   ],
   "scripts": {
-    "test": "npx yarn-tool ws run prepublishOnly",
-    "lerna:publish": "npx lerna publish",
-    "lerna:publish:yes": "npx lerna publish --yes --bump patch",
+    "test": "yarn-tool ws run prepublishOnly",
+    "test:all": "lerna run test --concurrency 1",
+    "install:reset-lockfile": "yarn-tool install --reset-lockfile",
+    "build:all": "lerna run build --concurrency 1",
+    "lerna:publish": "lerna publish",
+    "lerna:publish:yes": "lerna publish --yes --bump patch",
     "preversion": "yarn run prepublishOnly:check-bin",
-    "prepublish:lockfile": "npx sync-lockfile .",
+    "version": "echo workspaces version",
+    "postversion": "echo workspaces postversion",
+    "prepublish": "echo workspaces prepublish",
+    "prepublish:lockfile": "ynpx sync-lockfile .",
+    "prepare:fix-ws-links": "ynpx --quiet @yarn-tool/fix-ws-links",
+    "prepublishOnly": "echo workspaces prepublishOnly",
     "prepublishOnly:check-bin": "ynpx --quiet @yarn-tool/check-pkg-bin",
+    "prepublishOnly:lockfile": "ynpx --quiet sync-lockfile",
+    "prepublishOnly:root": "yarn run prepublishOnly:check-bin && yarn run prepare:fix-ws-links",
+    "prepublishOnly:update": "yarn run ncu && yarn run sort-package-json",
+    "publish": "echo workspaces publish",
+    "postpublish": "echo workspaces postpublish",
     "postpublish_": "git subtree push --prefix=packages/fs-iconv node-fs-iconv master && git subtree push --prefix=packages/iconv-jschardet node-iconv-jschardet master",
+    "postpublishOnly": "yarn run postpublishOnly:ws-root-changelog & echo postpublishOnly",
+    "postpublishOnly:ws-root-changelog": "ynpx ws-root-changelog & git add ./CHANGELOG.md & git commit ./CHANGELOG.md -m \"chore(changelog): update changelog toc in workspaces root\" & echo update changelog toc in workspaces root",
     "ncu": "yarn run ncu:root && yarn run ncu:ws",
-    "ncu:root": "npx yarn-tool ncu -u",
-    "ncu:ws": "npx yarn-tool ws exec yarn-tool ncu -- -u",
+    "ncu:root": "yarn-tool ncu -u",
+    "ncu:ws": "yarn-tool ws exec yarn-tool ncu -- -u",
     "sort-package-json": "yarn run sort-package-json:root && yarn run sort-package-json:ws",
     "sort-package-json:root": "yarn-tool sort",
-    "sort-package-json:ws": "yarn-tool ws sort"
+    "sort-package-json:ws": "yarn-tool ws sort",
+    "tsc:showConfig": "ynpx get-current-tsconfig -p"
   },
   "resolutions": {},
   "dependencies": {
@@ -33,14 +54,16 @@
     "@types/fs-extra": "^9",
     "@types/html-encoding-sniffer": "^2.0.2",
     "@types/jest": "^27.0.3",
+    "@types/jsonfile": "^6.0.1",
     "@types/lodash": "^4.14.178",
     "@types/mime-types": "^2.1.1",
     "@types/node": "*",
     "fs-extra": "^10.0.0",
-    "jest": "^27.4.3",
-    "ts-jest": "^27.1.1"
+    "jest": "^27.4.5",
+    "ts-jest": "^27.1.2"
   },
   "peerDependencies": {
     "lerna": "^4"
-  }
+  },
+  "packageManager": "yarn@^1.22.11"
 }

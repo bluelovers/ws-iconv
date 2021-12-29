@@ -1,6 +1,6 @@
 {
   "name": "fs-iconv",
-  "version": "3.1.7",
+  "version": "3.1.8",
   "description": "save file with charset/encoding/iconv",
   "keywords": [
     "async",
@@ -63,18 +63,18 @@
   "scripts": {
     "test": "jest",
     "npm:publish": "npm publish",
-    "npm:publish:lerna": "npx lerna publish --yes --cd-version patch",
+    "npm:publish:lerna": "lerna publish --yes --cd-version patch",
     "preversion": "yarn run test",
-    "prepublish:lockfile": "npx sync-lockfile .",
+    "prepublish:lockfile": "ynpx sync-lockfile .",
     "postpublish_": "git commit -m \"chore(release): publish\" .",
-    "ncu": "npx yarn-tool ncu -u",
-    "sort-package-json": "npx yarn-tool sort"
+    "ncu": "yarn-tool ncu -u",
+    "sort-package-json": "yarn-tool sort"
   },
   "dependencies": {
-    "@lazy-node/sanitize-filename": "^1.0.2",
+    "@lazy-node/sanitize-filename": "^1.0.3",
     "bluebird": "^3.7.2",
     "fs-extra": "^10.0.0",
-    "iconv-jschardet": "^2.0.21",
+    "iconv-jschardet": "^2.0.24",
     "lodash": "^4.17.21",
     "ts-type": "^2.1.2",
     "tslib": "^2.3.1"

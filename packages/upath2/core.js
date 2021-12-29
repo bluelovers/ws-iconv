@@ -5,10 +5,10 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports._this_origin = exports.fn = exports.upath = exports.win32 = exports.posix = exports.PathWrap = void 0;
 const tslib_1 = require("tslib");
-const path_1 = (0, tslib_1.__importDefault)(require("path"));
+const path_1 = tslib_1.__importDefault(require("path"));
 const type_1 = require("./lib/type");
 const util_1 = require("./lib/util");
-const path_is_network_drive_1 = (0, tslib_1.__importStar)(require("path-is-network-drive"));
+const path_is_network_drive_1 = tslib_1.__importStar(require("path-is-network-drive"));
 const fix_1 = require("./lib/fix");
 class PathWrap {
     constructor(path, id) {

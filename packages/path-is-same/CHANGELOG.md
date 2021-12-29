@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.16](https://github.com/bluelovers/ws-iconv/compare/path-is-same@1.0.15...path-is-same@1.0.16) (2021-12-29)
+
+
+### 🚨　Tests
+
+* fix test only work on windows maybe ([1dc2ff5](https://github.com/bluelovers/ws-iconv/commit/1dc2ff59c37c73c0ca97031a2ae329df2409c263))
+
+
+### ⚙️　Continuous Integration
+
+* update ci ([b1f0ff0](https://github.com/bluelovers/ws-iconv/commit/b1f0ff0366add72530c6de117ecbc0fdec481aec))
+
+
+### 🔖　Miscellaneous
+
+* . ([a77b29a](https://github.com/bluelovers/ws-iconv/commit/a77b29ae69eb4e0c87d5120618c699273637510a))
+
+
+
+
+
 ## [1.0.15](https://github.com/bluelovers/ws-iconv/compare/path-is-same@1.0.14...path-is-same@1.0.15) (2021-08-20)
 
 

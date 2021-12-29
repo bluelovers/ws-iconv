@@ -1,6 +1,6 @@
 {
   "name": "upath2",
-  "version": "3.1.10",
+  "version": "3.1.11",
   "description": "A proxy to `path`, replacing `\\` with `/` for all results",
   "keywords": [
     "absolute",
@@ -51,16 +51,16 @@
   "scripts": {
     "test": "jest",
     "npm:publish": "npm publish",
-    "npm:publish:lerna": "npx lerna publish --yes --cd-version patch",
+    "npm:publish:lerna": "lerna publish --yes --cd-version patch",
     "preversion": "yarn run test",
-    "prepublish:lockfile": "npx sync-lockfile .",
+    "prepublish:lockfile": "ynpx sync-lockfile .",
     "postpublish_": "git commit -m \"chore(release): publish\" .",
-    "ncu": "npx yarn-tool ncu -u",
-    "sort-package-json": "npx yarn-tool sort"
+    "ncu": "yarn-tool ncu -u",
+    "sort-package-json": "yarn-tool sort"
   },
   "dependencies": {
-    "path-is-network-drive": "^1.0.10",
-    "path-strip-sep": "^1.0.7",
+    "path-is-network-drive": "^1.0.13",
+    "path-strip-sep": "^1.0.10",
     "tslib": "^2.3.1"
   },
   "devDependencies": {

@@ -1,6 +1,6 @@
 {
   "name": "iconv-jschardet",
-  "version": "2.0.21",
+  "version": "2.0.24",
   "description": "Convert/auto-detection Character encodings  in JavaScript ( iconv-lite, jschardet )",
   "keywords": [
     "big-5",
@@ -47,12 +47,12 @@
   "scripts": {
     "test": "jest",
     "npm:publish": "npm publish",
-    "npm:publish:lerna": "npx lerna publish --yes --cd-version patch",
+    "npm:publish:lerna": "lerna publish --yes --cd-version patch",
     "preversion": "yarn run test",
-    "prepublish:lockfile": "npx sync-lockfile .",
+    "prepublish:lockfile": "ynpx sync-lockfile .",
     "postpublish_": "git commit -m \"chore(release): publish\" .",
-    "ncu": "npx yarn-tool ncu -u",
-    "sort-package-json": "npx yarn-tool sort"
+    "ncu": "yarn-tool ncu -u",
+    "sort-package-json": "yarn-tool sort"
   },
   "dependencies": {
     "debug-color2": "^1",

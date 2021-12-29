@@ -6,7 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.arrayBufferToBuffer = exports.arrayBufferToString = void 0;
 const tslib_1 = require("tslib");
 const buffer_1 = require("buffer");
-const typedarray_to_buffer_1 = (0, tslib_1.__importDefault)(require("typedarray-to-buffer"));
+const typedarray_to_buffer_1 = tslib_1.__importDefault(require("typedarray-to-buffer"));
 function arrayBufferToString(buf, encoding, from) {
     return arrayBufferToBuffer(buf, encoding, from).toString(encoding);
 }
