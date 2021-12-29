@@ -8,7 +8,9 @@
   "workspaces": [
     "packages/@lazy-node/*",
     "packages/@lazy-iconv/*",
-    "packages/*"
+    "packages/*",
+    "packages/@bluelovers/*",
+    "!**/test/**"
   ],
   "scripts": {
     "test": "yarn-tool ws run prepublishOnly",
@@ -52,12 +54,13 @@
     "@types/fs-extra": "^9",
     "@types/html-encoding-sniffer": "^2.0.2",
     "@types/jest": "^27.0.3",
+    "@types/jsonfile": "^6.0.1",
     "@types/lodash": "^4.14.178",
     "@types/mime-types": "^2.1.1",
     "@types/node": "*",
     "fs-extra": "^10.0.0",
-    "jest": "^27.4.3",
-    "ts-jest": "^27.1.1"
+    "jest": "^27.4.5",
+    "ts-jest": "^27.1.2"
   },
   "peerDependencies": {
     "lerna": "^4"

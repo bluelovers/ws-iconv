@@ -1,5 +1,11 @@
 {
-  "version": "independent",
+  "packages": [
+    "packages/@lazy-node/*",
+    "packages/@lazy-iconv/*",
+    "packages/*",
+    "packages/@bluelovers/*",
+    "!**/test/**"
+  ],
   "command": {
     "publish": {
       "ignoreChanges": [
@@ -30,10 +36,6 @@
     }
   },
   "npmClient": "yarn",
-  "packages": [
-    "packages/@lazy-node/*",
-    "packages/@lazy-iconv/*",
-    "packages/*"
-  ],
-  "useWorkspaces": true
+  "useWorkspaces": true,
+  "version": "independent"
 }
