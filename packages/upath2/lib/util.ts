@@ -43,3 +43,18 @@ export function getStatic(who): PathWrap
 {
 	return who.__proto__.constructor;
 }
+
+export function defaults(destination, ...input)
+{
+	destination = destination || {};
+
+	input.forEach(defaults => {
+		for (const key in defaults) {
+			if (defaults.hasOwnProperty(key) && !destination.hasOwnProperty(key)) {
+				destination[key] = defaults[key];
+			}
+		}
+	});
+	  
+	return destination;
+}

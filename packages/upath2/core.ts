@@ -3,11 +3,10 @@
  */
 
 import _path, { ParsedPath, PlatformPath } from 'path';
-import { defaults } from 'lodash';
 
 import { IPathNode, IPath, IParse, IPathType, ORIGIN_KEY, IPathPlatform } from './lib/type';
 
-import { getStatic, _replace_sep, _strip_sep } from './lib/util';
+import { getStatic, _replace_sep, _strip_sep, defaults } from './lib/util';
 import * as types from './lib/type';
 import pathIsNetworkDrive, { matchNetworkDriveRoot, matchNetworkDrive02 } from 'path-is-network-drive';
 import { _fix_special } from './lib/fix';
