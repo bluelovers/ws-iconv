@@ -59,7 +59,6 @@
     "sort-package-json": "yarn-tool sort"
   },
   "dependencies": {
-    "lodash": "^4.17.21",
     "path-is-network-drive": "^1.0.13",
     "path-strip-sep": "^1.0.10",
     "tslib": "^2.3.1"
