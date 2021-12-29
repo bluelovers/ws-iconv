@@ -1,6 +1,6 @@
 {
   "name": "@bluelovers/fs-json",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "stringify with final EOL",
   "keywords": [
     "create-by-yarn-tool"
@@ -46,8 +46,6 @@
     "jsonfile": "^6.1.0",
     "tslib": "^2.3.1"
   },
-  "devDependencies": {},
-  "peerDependencies": {},
   "publishConfig": {
     "access": "public"
   },

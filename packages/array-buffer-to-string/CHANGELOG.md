@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.26](https://github.com/bluelovers/ws-iconv/compare/@bluelovers/array-buffer-to-string@1.0.25...@bluelovers/array-buffer-to-string@1.0.26) (2021-12-29)
+
+
+### 🛠　Build System
+
+* update typescript ([141a8ee](https://github.com/bluelovers/ws-iconv/commit/141a8eefbaeeb45f235f5cdceadaeaeb05d9acc7))
+
+
+### ⚙️　Continuous Integration
+
+* update ci ([b1f0ff0](https://github.com/bluelovers/ws-iconv/commit/b1f0ff0366add72530c6de117ecbc0fdec481aec))
+
+
+
+
+
 ## [1.0.25](https://github.com/bluelovers/ws-iconv/compare/@bluelovers/array-buffer-to-string@1.0.24...@bluelovers/array-buffer-to-string@1.0.25) (2021-08-30)
 
 
