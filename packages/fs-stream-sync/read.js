@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.createReadStream = exports.ReadStream = void 0;
 const tslib_1 = require("tslib");
-const fs_1 = (0, tslib_1.__importDefault)(require("fs"));
+const fs_1 = tslib_1.__importDefault(require("fs"));
 const internal_1 = require("./lib/internal");
 // @ts-ignore
 class ReadStream extends fs_1.default.ReadStream {

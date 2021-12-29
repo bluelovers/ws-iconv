@@ -4,7 +4,7 @@ exports.list = void 0;
 const tslib_1 = require("tslib");
 const fs_1 = require("fs");
 const mime_1 = require("./mime");
-const path_1 = (0, tslib_1.__importStar)(require("path"));
+const path_1 = tslib_1.__importStar(require("path"));
 function list(resolvedpath) {
     return new Promise((resolve, reject) => {
         (0, fs_1.readdir)(resolvedpath, {

@@ -2,10 +2,10 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.createSyncWriteStream = exports.SyncWriteStream = void 0;
 const tslib_1 = require("tslib");
-const fs_1 = (0, tslib_1.__importDefault)(require("fs"));
+const fs_1 = tslib_1.__importDefault(require("fs"));
 const errors_1 = require("./lib/errors");
 const internal_1 = require("./lib/internal");
-const internal_2 = (0, tslib_1.__importDefault)(require("./lib/internal"));
+const internal_2 = tslib_1.__importDefault(require("./lib/internal"));
 const write_1 = require("./write");
 class SyncWriteStream extends write_1.WriteStream {
     constructor(path, options) {

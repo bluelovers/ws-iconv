@@ -5,8 +5,8 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getStatic = exports._replace_sep = exports._strip_sep = void 0;
 const tslib_1 = require("tslib");
-const path_is_network_drive_1 = (0, tslib_1.__importDefault)(require("path-is-network-drive"));
-const path_strip_sep_1 = (0, tslib_1.__importDefault)(require("path-strip-sep"));
+const path_is_network_drive_1 = tslib_1.__importDefault(require("path-is-network-drive"));
+const path_strip_sep_1 = tslib_1.__importDefault(require("path-strip-sep"));
 exports._strip_sep = path_strip_sep_1.default;
 function _replace_sep(who, input) {
     let sep = who.sep;

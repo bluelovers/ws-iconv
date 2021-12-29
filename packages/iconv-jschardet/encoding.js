@@ -2,10 +2,10 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.codec_data = exports.disableCodecDataWarn = exports.isNodeEncoding = void 0;
 const tslib_1 = require("tslib");
-const logger_1 = (0, tslib_1.__importDefault)(require("debug-color2/logger"));
+const logger_1 = tslib_1.__importDefault(require("debug-color2/logger"));
 const const_1 = require("./lib/const");
 const util_1 = require("./lib/util");
-(0, tslib_1.__exportStar)(require("./lib/const"), exports);
+tslib_1.__exportStar(require("./lib/const"), exports);
 //export { console }
 function isNodeEncoding(encoding) {
     let enc = (0, const_1._enc)(encoding);

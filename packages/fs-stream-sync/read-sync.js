@@ -2,9 +2,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.createSyncReadStream = exports.SyncReadStream = exports.kMinPoolSpace = void 0;
 const tslib_1 = require("tslib");
-const fs_1 = (0, tslib_1.__importDefault)(require("fs"));
+const fs_1 = tslib_1.__importDefault(require("fs"));
 const internal_1 = require("./lib/internal");
-const internal_2 = (0, tslib_1.__importDefault)(require("./lib/internal"));
+const internal_2 = tslib_1.__importDefault(require("./lib/internal"));
 const read_1 = require("./read");
 exports.kMinPoolSpace = 128;
 let pool;

@@ -15,9 +15,9 @@ Object.defineProperty(exports, "_outputStream", { enumerable: true, get: functio
 Object.defineProperty(exports, "loadFile", { enumerable: true, get: function () { return core_2.loadFile; } });
 Object.defineProperty(exports, "loadFileSync", { enumerable: true, get: function () { return core_2.loadFileSync; } });
 Object.defineProperty(exports, "saveFile", { enumerable: true, get: function () { return core_2.saveFile; } });
-const iconv_jschardet_1 = (0, tslib_1.__importDefault)(require("iconv-jschardet"));
+const iconv_jschardet_1 = tslib_1.__importDefault(require("iconv-jschardet"));
 exports.iconv = iconv_jschardet_1.default;
-(0, tslib_1.__exportStar)(require("fs-extra"), exports);
+tslib_1.__exportStar(require("fs-extra"), exports);
 const fs = (0, core_1.WrapFSIconv)(require('fs-extra'));
 // @ts-ignore
 exports = module.exports = fs;

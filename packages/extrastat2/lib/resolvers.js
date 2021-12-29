@@ -5,7 +5,7 @@ const tslib_1 = require("tslib");
 const path_1 = require("path");
 const mime_1 = require("./mime");
 const list_1 = require("./list");
-const index_1 = (0, tslib_1.__importDefault)(require("path-parents/index"));
+const index_1 = tslib_1.__importDefault(require("path-parents/index"));
 var rwx_1 = require("./resolvers/rwx");
 Object.defineProperty(exports, "rwx", { enumerable: true, get: function () { return rwx_1.rwx; } });
 /*
