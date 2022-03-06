@@ -69,53 +69,53 @@ var ENUM_NODE_ENCODING;
     ENUM_NODE_ENCODING["HEX"] = "hex";
 })(ENUM_NODE_ENCODING = exports.ENUM_NODE_ENCODING || (exports.ENUM_NODE_ENCODING = {}));
 exports.NodeEncoding = [
-    "ascii" /* ASCII */,
-    "utf8" /* UTF8 */,
-    "utf-8" /* UTF_8 */,
-    "utf16le" /* UTF16_LE */,
-    "ucs2" /* UCS2 */,
-    "base64" /* BASE64 */,
-    "latin1" /* LATIN1 */,
-    "binary" /* BINARY */,
-    "hex" /* HEX */,
+    "ascii" /* ENUM_NODE_ENCODING.ASCII */,
+    "utf8" /* ENUM_NODE_ENCODING.UTF8 */,
+    "utf-8" /* ENUM_NODE_ENCODING.UTF_8 */,
+    "utf16le" /* ENUM_NODE_ENCODING.UTF16_LE */,
+    "ucs2" /* ENUM_NODE_ENCODING.UCS2 */,
+    "base64" /* ENUM_NODE_ENCODING.BASE64 */,
+    "latin1" /* ENUM_NODE_ENCODING.LATIN1 */,
+    "binary" /* ENUM_NODE_ENCODING.BINARY */,
+    "hex" /* ENUM_NODE_ENCODING.HEX */,
 ];
 exports.codec_table = {
-    ["big5hkscs" /* big5hkscs */]: _codecTable({
+    ["big5hkscs" /* CODEC_DATA_ENCODING_ID.big5hkscs */]: _codecTable({
         id: 'big5',
-        name: "Big5" /* BIG5 */,
+        name: "Big5" /* CODEC_DATA_NAME.BIG5 */,
     }),
-    ["cp936" /* cp936 */]: _codecTable({
-        name: "GB2312" /* GB2312 */,
+    ["cp936" /* CODEC_DATA_ENCODING_ID.cp936 */]: _codecTable({
+        name: "GB2312" /* CODEC_DATA_NAME.GB2312 */,
     }),
-    ["gbk" /* gbk */]: _codecTable({
-        name: "GBK" /* GBK */,
+    ["gbk" /* CODEC_DATA_ENCODING_ID.gbk */]: _codecTable({
+        name: "GBK" /* CODEC_DATA_NAME.GBK */,
     }),
-    ["eucjp" /* eucjp */]: _codecTable({
-        name: "EUC-JP" /* EUC_JP */,
+    ["eucjp" /* CODEC_DATA_ENCODING_ID.eucjp */]: _codecTable({
+        name: "EUC-JP" /* CODEC_DATA_NAME.EUC_JP */,
     }),
-    ["shiftjis" /* shiftjis */]: _codecTable({
-        name: "SHIFT_JIS" /* SHIFT_JIS */,
-    }),
-    //------------------
-    ["utf8" /* utf8 */]: _codecTable({
-        name: "UTF-8" /* UTF_8 */,
-    }),
-    ["ucs2" /* ucs2 */]: _codecTable({
-        name: "UTF-16LE" /* UTF_16_LE */,
+    ["shiftjis" /* CODEC_DATA_ENCODING_ID.shiftjis */]: _codecTable({
+        name: "SHIFT_JIS" /* CODEC_DATA_NAME.SHIFT_JIS */,
     }),
     //------------------
-    ["utf16be" /* utf16be */]: _codecTable({
-        name: "UTF-16BE" /* UTF_16_BE */,
+    ["utf8" /* CODEC_DATA_ENCODING_ID.utf8 */]: _codecTable({
+        name: "UTF-8" /* CODEC_DATA_NAME.UTF_8 */,
+    }),
+    ["ucs2" /* CODEC_DATA_ENCODING_ID.ucs2 */]: _codecTable({
+        name: "UTF-16LE" /* CODEC_DATA_NAME.UTF_16_LE */,
+    }),
+    //------------------
+    ["utf16be" /* CODEC_DATA_ENCODING_ID.utf16be */]: _codecTable({
+        name: "UTF-16BE" /* CODEC_DATA_NAME.UTF_16_BE */,
     }),
     /**
      * Error: Encoding not recognized: '' (searched as: '')
      */
-    ["utf32be" /* utf32be */]: _codecTable({
-        name: "UTF-32BE" /* UTF_32_BE */,
+    ["utf32be" /* CODEC_DATA_ENCODING_ID.utf32be */]: _codecTable({
+        name: "UTF-32BE" /* CODEC_DATA_NAME.UTF_32_BE */,
         not: true,
     }),
-    ["utf32le" /* utf32le */]: _codecTable({
-        name: "UTF-32LE" /* UTF_32_LE */,
+    ["utf32le" /* CODEC_DATA_ENCODING_ID.utf32le */]: _codecTable({
+        name: "UTF-32LE" /* CODEC_DATA_NAME.UTF_32_LE */,
         not: true,
     }),
 };

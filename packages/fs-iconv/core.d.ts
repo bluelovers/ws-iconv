@@ -2,6 +2,8 @@
  * Created by user on 2019/3/17.
  */
 /// <reference types="node" />
+/// <reference types="node" />
+/// <reference types="node" />
 import { vEncoding } from 'iconv-jschardet';
 import fsExtra from 'fs-extra';
 import iconv from 'iconv-jschardet';

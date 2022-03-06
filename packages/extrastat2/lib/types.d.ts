@@ -1,4 +1,5 @@
 /// <reference types="node" />
+/// <reference types="node" />
 import { ParsedPath } from "path";
 import * as resolvers from './resolvers';
 import { Stats, Dirent } from 'fs';

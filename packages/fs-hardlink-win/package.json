@@ -26,7 +26,7 @@
     "sort-package-json": "yarn-tool sort"
   },
   "dependencies": {
-    "crlf-normalize": "^1.0.6",
+    "crlf-normalize": "^1.0.7",
     "cross-spawn-extra": "^2.1.0",
     "tslib": "^2.3.1"
   }

@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.splitBufferByBuffer = exports.bufferIndexWith = exports.bufferIndexWithByBuffer = exports.bufferStripEndWith = exports.bufferStripEndWithByBuffer = exports.bufferEndWith = exports.bufferEndWithByBuffer = exports.handleOptionNewLineCharacter = void 0;
 function handleOptionNewLineCharacter(newLineCharacter) {
     if (!newLineCharacter) {
-        return [10 /* LF */];
+        return [10 /* EnumNewLineCharacter.LF */];
     }
     else if (typeof newLineCharacter !== 'number') {
         let ls = [];

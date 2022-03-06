@@ -93,19 +93,19 @@ function decode(str, from = null) {
         //case 'UTF-16BE':
         //case 'EUC-JP':
         //case 'SHIFT_JIS':
-        case "BIG5" /* BIG5 */:
-        case "GBK" /* GBK */:
-        case "GB2312" /* GB2312 */:
-        case "UTF-16LE" /* UTF_16_LE */:
-        case "UTF-16BE" /* UTF_16_BE */:
-        case "EUC-JP" /* EUC_JP */:
-        case "SHIFT_JIS" /* SHIFT_JIS */:
+        case "BIG5" /* CODEC_DATA_NAME_TO_UPPER_CASE.BIG5 */:
+        case "GBK" /* CODEC_DATA_NAME_TO_UPPER_CASE.GBK */:
+        case "GB2312" /* CODEC_DATA_NAME_TO_UPPER_CASE.GB2312 */:
+        case "UTF-16LE" /* CODEC_DATA_NAME_TO_UPPER_CASE.UTF_16_LE */:
+        case "UTF-16BE" /* CODEC_DATA_NAME_TO_UPPER_CASE.UTF_16_BE */:
+        case "EUC-JP" /* CODEC_DATA_NAME_TO_UPPER_CASE.EUC_JP */:
+        case "SHIFT_JIS" /* CODEC_DATA_NAME_TO_UPPER_CASE.SHIFT_JIS */:
             data = iconv_lite_1.default.decode(str, from);
             break;
         //case 'ASCII':
         //case 'UTF-8':
-        case "ASCII" /* ASCII */:
-        case "UTF-8" /* UTF_8 */:
+        case "ASCII" /* CODEC_DATA_NAME_TO_UPPER_CASE.ASCII */:
+        case "UTF-8" /* CODEC_DATA_NAME_TO_UPPER_CASE.UTF_8 */:
             data = str;
             break;
         default:
@@ -124,8 +124,8 @@ exports.decode = decode;
 /**
  * 檢測輸入內容編碼並且轉換為 Buffer
  */
-function encode(str, to = "utf8" /* UTF8 */, from = null, options) {
-    let buf = BufferFrom(str, "utf8" /* UTF8 */, from);
+function encode(str, to = "utf8" /* ENUM_NODE_ENCODING.UTF8 */, from = null, options) {
+    let buf = BufferFrom(str, "utf8" /* ENUM_NODE_ENCODING.UTF8 */, from);
     // @ts-ignore
     return iconv_lite_1.default.encode(buf, to, options);
 }

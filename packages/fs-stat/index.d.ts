@@ -1,4 +1,5 @@
 /// <reference types="node" />
+/// <reference types="node" />
 /**
  * Created by user on 2020/6/22.
  */

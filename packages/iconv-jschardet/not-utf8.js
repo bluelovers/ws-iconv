@@ -21,7 +21,7 @@ exports.detectEncoding = detectEncoding;
 function notUTF8Buffer(buf) {
     let chk = (0, index_1.detect)(buf, true);
     let encoding = (0, const_1._enc)(chk.encoding);
-    return (encoding === "utf8" /* utf8 */ || encoding === "ascii" /* ascii */) ? null : chk;
+    return (encoding === "utf8" /* CODEC_DATA_ENCODING_ID.utf8 */ || encoding === "ascii" /* CODEC_DATA_ENCODING_ID.ascii */) ? null : chk;
 }
 exports.notUTF8Buffer = notUTF8Buffer;
 /**
