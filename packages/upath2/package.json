@@ -59,15 +59,13 @@
     "sort-package-json": "yarn-tool sort"
   },
   "dependencies": {
+    "@types/node": "*",
     "path-is-network-drive": "^1.0.13",
     "path-strip-sep": "^1.0.10",
     "tslib": "^2.3.1"
   },
   "devDependencies": {
     "upath": "^2.0.1"
-  },
-  "peerDependencies": {
-    "@types/node": "*"
   },
   "gitHead": "cabd8644753e89e8d4bd1f081dc167f87ad9a3f4"
 }
