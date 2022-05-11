@@ -1,6 +1,6 @@
 {
   "name": "@lazy-node/sanitize-filename",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Convert string to safe filename",
   "keywords": [
     "filename",
@@ -40,7 +40,7 @@
     "sort-package-json": "yarn-tool sort"
   },
   "dependencies": {
-    "@lazy-node/windows-unsafe-filename": "^1.0.5",
+    "@lazy-node/windows-unsafe-filename": "^1.0.7",
     "filenamify": "<5 >=4",
     "tslib": "^2",
     "zero-width": "^1.0.17"

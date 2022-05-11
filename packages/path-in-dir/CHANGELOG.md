@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.4](https://github.com/bluelovers/ws-iconv/compare/path-in-dir@1.0.3...path-in-dir@1.0.4) (2022-05-11)
+
+
+### ♻️　Chores
+
+* update deps ([8874ec0](https://github.com/bluelovers/ws-iconv/commit/8874ec0576dc65e55d6710c61a1dc67e3142fa8f))
+
+
+
+
+
 ## [1.0.3](https://github.com/bluelovers/ws-iconv/compare/path-in-dir@1.0.2...path-in-dir@1.0.3) (2021-12-29)
 
 **Note:** Version bump only for package path-in-dir
