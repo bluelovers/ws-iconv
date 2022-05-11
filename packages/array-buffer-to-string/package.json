@@ -37,7 +37,7 @@
   },
   "dependencies": {
     "iconv-jschardet": "^2.0.24",
-    "tslib": "^2.3.1",
+    "tslib": "^2",
     "typedarray-to-buffer": "^4.0.0"
   },
   "publishConfig": {

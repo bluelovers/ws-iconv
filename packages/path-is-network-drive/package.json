@@ -25,7 +25,7 @@
     "sort-package-json": "yarn-tool sort"
   },
   "dependencies": {
-    "tslib": "^2.3.1"
+    "tslib": "^2"
   },
   "gitHead": "cabd8644753e89e8d4bd1f081dc167f87ad9a3f4"
 }
