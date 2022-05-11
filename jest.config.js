@@ -54,6 +54,8 @@ module.exports = {
 		},
 	},
 
+	maxWorkers: 1,
+
 	clearMocks: true,
 	moduleFileExtensions: [
 		'ts',
