@@ -2,13 +2,13 @@
  * Created by user on 2020/6/22.
  */
 import { stat, lstat, statSync, lstatSync, Stats } from 'fs-extra';
-import { StatOptions, BigIntStats } from 'fs';
+import { StatOptions, BigIntStats, StatSyncOptions } from 'fs';
 
 export type { Stats as IStats }
 export type { Stats }
 export type { BigIntStats }
 
-export interface IOptions extends StatOptions
+export interface IOptions extends StatSyncOptions, StatOptions
 {
 	followSymlinks?: boolean;
 	/**

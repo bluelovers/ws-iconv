@@ -5,7 +5,6 @@ exports.isSameStat = exports.isSymbolicLinkSync = exports.isSymbolicLink = expor
  * Created by user on 2020/6/22.
  */
 const fs_extra_1 = require("fs-extra");
-const fs_1 = require("fs");
 function _handleOptions(options) {
     var _a, _b;
     options = {
