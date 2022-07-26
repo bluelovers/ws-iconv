@@ -6,14 +6,18 @@ import { pathIsSame } from 'path-is-same';
 export interface IOptions
 {
 	cwd?: string;
-	platform?: IPathPlatform
+	platform?: IPathPlatform;
+	stopPath?: string | string[];
+	limit?: number;
 }
 
 export interface IRuntime
 {
 	cwd: string;
 	opts: IOptions;
-	path: IPathNode;
+	path: Pick<IPathNode, 'normalize' | 'dirname' | 'basename'>;
+	stopPath: string[];
+	limit: number;
 }
 
 export function handleOptions(cwd?: string | IOptions, opts?: IOptions): IRuntime
@@ -28,6 +32,10 @@ export function handleOptions(cwd?: string | IOptions, opts?: IOptions): IRuntim
 
 	opts = opts ?? {};
 	cwd = cwd ?? opts.cwd ?? process.cwd();
+
+	opts = {
+		...opts,
+	};
 
 	let path: IPathNode = upath;
 
@@ -52,11 +60,18 @@ export function handleOptions(cwd?: string | IOptions, opts?: IOptions): IRuntim
 
 	cwd = path.normalize(cwd as string);
 
+	const stopPath = [opts.stopPath ?? []]
+		.flat()
+		.map(p => path.normalize(p))
+	;
+
 	return {
 		// @ts-ignore
 		cwd,
 		opts,
 		path,
+		stopPath,
+		limit: opts.limit > 0 ? opts.limit : Infinity,
 	}
 }
 
@@ -90,6 +105,11 @@ export function* pathParentsGenerator(cwd?: string | IOptions, opts?: IOptions)
 		}
 
 		yield current;
+
+		if (--runtime.limit <= 0 || runtime.stopPath.includes(current))
+		{
+			break;
+		}
 	}
 	while (_do)
 }

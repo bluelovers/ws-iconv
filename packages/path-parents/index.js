@@ -6,7 +6,7 @@ const core_1 = tslib_1.__importDefault(require("upath2/core"));
 const path_1 = tslib_1.__importDefault(require("path"));
 const path_is_same_1 = require("path-is-same");
 function handleOptions(cwd, opts) {
-    var _a;
+    var _a, _b;
     if (typeof opts === 'undefined') {
         if (typeof cwd !== 'string') {
             ([opts, cwd] = [cwd, opts]);
@@ -14,6 +14,9 @@ function handleOptions(cwd, opts) {
     }
     opts = opts !== null && opts !== void 0 ? opts : {};
     cwd = (_a = cwd !== null && cwd !== void 0 ? cwd : opts.cwd) !== null && _a !== void 0 ? _a : process.cwd();
+    opts = {
+        ...opts,
+    };
     let path = core_1.default;
     if (typeof opts.platform === 'string') {
         switch (opts.platform) {
@@ -32,11 +35,16 @@ function handleOptions(cwd, opts) {
         }
     }
     cwd = path.normalize(cwd);
+    const stopPath = [(_b = opts.stopPath) !== null && _b !== void 0 ? _b : []]
+        .flat()
+        .map(p => path.normalize(p));
     return {
         // @ts-ignore
         cwd,
         opts,
         path,
+        stopPath,
+        limit: opts.limit > 0 ? opts.limit : Infinity,
     };
 }
 exports.handleOptions = handleOptions;
@@ -60,6 +68,9 @@ function* pathParentsGenerator(cwd, opts) {
             break;
         }
         yield current;
+        if (--runtime.limit <= 0 || runtime.stopPath.includes(current)) {
+            break;
+        }
     } while (_do);
 }
 exports.pathParentsGenerator = pathParentsGenerator;
