@@ -1,6 +1,6 @@
 {
   "name": "find-up-paths",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Find a file or directory by walking up parent directories",
   "keywords": [
     "find",
