@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.22](https://github.com/bluelovers/ws-iconv/compare/path-parents@1.0.21...path-parents@1.0.22) (2022-07-26)
+
+
+### ✨　Features
+
+* add `limit` , `stopPath` ([f62185e](https://github.com/bluelovers/ws-iconv/commit/f62185ee6179e8a27741fed56e030932fe7473d1))
+
+
+
+
+
 ## [1.0.21](https://github.com/bluelovers/ws-iconv/compare/path-parents@1.0.20...path-parents@1.0.21) (2022-07-26)
 
 

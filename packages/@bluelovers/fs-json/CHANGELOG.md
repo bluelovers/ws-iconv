@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.6](https://github.com/bluelovers/ws-iconv/compare/@bluelovers/fs-json@1.0.5...@bluelovers/fs-json@1.0.6) (2022-07-26)
+
+
+### 🔖　Miscellaneous
+
+* . ([e7bab45](https://github.com/bluelovers/ws-iconv/commit/e7bab45824f495b0eaf545f6555871cf4ec42447))
+
+
+
+
+
 ## [1.0.5](https://github.com/bluelovers/ws-iconv/compare/@bluelovers/fs-json@1.0.3...@bluelovers/fs-json@1.0.5) (2022-05-11)
 
 
