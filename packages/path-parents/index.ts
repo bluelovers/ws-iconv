@@ -1,10 +1,11 @@
 import upath from 'upath2/core';
 import { IPathNode, IPathPlatform } from 'upath2/lib/type';
 import pathNode from 'path';
-import pathIsSame from 'path-is-same';
+import { pathIsSame } from 'path-is-same';
 
 export interface IOptions
 {
+	cwd?: string;
 	platform?: IPathPlatform
 }
 
@@ -25,8 +26,8 @@ export function handleOptions(cwd?: string | IOptions, opts?: IOptions): IRuntim
 		}
 	}
 
-	cwd = cwd ?? process.cwd();
 	opts = opts ?? {};
+	cwd = cwd ?? opts.cwd ?? process.cwd();
 
 	let path: IPathNode = upath;
 

@@ -1,5 +1,6 @@
 import { IPathNode, IPathPlatform } from 'upath2/lib/type';
 export interface IOptions {
+    cwd?: string;
     platform?: IPathPlatform;
 }
 export interface IRuntime {
