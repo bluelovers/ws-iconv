@@ -73,6 +73,8 @@
     "tsc:showConfig": "ynpx get-current-tsconfig -p"
   },
   "dependencies": {
+    "fs-extra": "^10.1.0",
+    "fs-stat": "^1.0.18",
     "path-parents": "^1.0.23",
     "tslib": "^2"
   },
