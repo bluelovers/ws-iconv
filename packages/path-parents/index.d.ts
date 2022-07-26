@@ -5,14 +5,14 @@ export interface IOptions {
     stopPath?: string | string[];
     limit?: number;
 }
-export interface IRuntime {
+export interface IRuntime<OPTS extends IOptions = IOptions> {
     cwd: string;
-    opts: IOptions;
-    path: Pick<IPathNode, 'normalize' | 'dirname' | 'basename'>;
+    opts: OPTS;
+    path: Pick<IPathNode, 'normalize' | 'dirname' | 'basename' | 'resolve' | 'join'>;
     stopPath: string[];
     limit: number;
 }
-export declare function handleOptions(cwd?: string | IOptions, opts?: IOptions): IRuntime;
+export declare function handleOptions<T extends IOptions>(cwd?: string | T, opts?: T): IRuntime<T>;
 export declare function pathParentsCore(cwd: string, runtime: IRuntime): string;
 export declare function pathParentsGenerator(cwd?: string | IOptions, opts?: IOptions): Generator<string, void, unknown>;
 export declare function pathParents(cwd?: string | IOptions, opts?: IOptions): string[];

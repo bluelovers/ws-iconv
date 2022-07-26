@@ -9,9 +9,11 @@ function handleOptions(cwd, opts) {
     var _a, _b;
     if (typeof opts === 'undefined') {
         if (typeof cwd !== 'string') {
+            // @ts-ignore
             ([opts, cwd] = [cwd, opts]);
         }
     }
+    // @ts-ignore
     opts = opts !== null && opts !== void 0 ? opts : {};
     cwd = (_a = cwd !== null && cwd !== void 0 ? cwd : opts.cwd) !== null && _a !== void 0 ? _a : process.cwd();
     opts = {

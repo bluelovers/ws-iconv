@@ -11,25 +11,27 @@ export interface IOptions
 	limit?: number;
 }
 
-export interface IRuntime
+export interface IRuntime<OPTS extends IOptions = IOptions>
 {
 	cwd: string;
-	opts: IOptions;
-	path: Pick<IPathNode, 'normalize' | 'dirname' | 'basename'>;
+	opts: OPTS;
+	path: Pick<IPathNode, 'normalize' | 'dirname' | 'basename' | 'resolve' | 'join'>;
 	stopPath: string[];
 	limit: number;
 }
 
-export function handleOptions(cwd?: string | IOptions, opts?: IOptions): IRuntime
+export function handleOptions<T extends IOptions>(cwd?: string | T, opts?: T): IRuntime<T>
 {
 	if (typeof opts === 'undefined')
 	{
 		if (typeof cwd !== 'string')
 		{
+			// @ts-ignore
 			([opts, cwd] = [cwd, opts]);
 		}
 	}
 
+	// @ts-ignore
 	opts = opts ?? {};
 	cwd = cwd ?? opts.cwd ?? process.cwd();
 
