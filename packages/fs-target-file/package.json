@@ -27,7 +27,7 @@
   },
   "dependencies": {
     "fs-extra": "^10.1.0",
-    "ts-type": "^2.1.6",
+    "ts-type": "^2.1.8",
     "tslib": "^2"
   },
   "devDependencies": {
