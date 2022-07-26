@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.21](https://github.com/bluelovers/ws-iconv/compare/path-parents@1.0.20...path-parents@1.0.21) (2022-07-26)
+
+
+### ✨　Features
+
+* tweak options ([3d858bb](https://github.com/bluelovers/ws-iconv/commit/3d858bbe184a0ef976e065da0127335371a9d4d6))
+
+
+
+
+
 ## [1.0.20](https://github.com/bluelovers/ws-iconv/compare/path-parents@1.0.19...path-parents@1.0.20) (2022-05-11)
 
 

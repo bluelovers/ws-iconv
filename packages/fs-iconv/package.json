@@ -1,6 +1,6 @@
 {
   "name": "fs-iconv",
-  "version": "3.1.9",
+  "version": "3.1.10",
   "description": "save file with charset/encoding/iconv",
   "keywords": [
     "async",

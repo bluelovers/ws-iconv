@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.14](https://github.com/bluelovers/ws-iconv/compare/fs-target-file@1.0.13...fs-target-file@1.0.14) (2022-07-26)
+
+
+### 📌　Dependencies
+
+* update deps ([03cef00](https://github.com/bluelovers/ws-iconv/commit/03cef00e69370e3353f352fa6f2d154c06bacce8))
+
+
+
+
+
 ## [1.0.13](https://github.com/bluelovers/ws-iconv/compare/fs-target-file@1.0.11...fs-target-file@1.0.13) (2022-05-11)
 
 
