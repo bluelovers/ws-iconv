@@ -1,6 +1,6 @@
 {
   "name": "find-up-paths",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Find a file or directory by walking up parent directories",
   "keywords": [
     "find",
@@ -73,10 +73,8 @@
     "tsc:showConfig": "ynpx get-current-tsconfig -p"
   },
   "dependencies": {
-    "path-parents": "^1.0.22",
+    "path-parents": "^1.0.23",
     "tslib": "^2"
   },
-  "devDependencies": {},
-  "peerDependencies": {},
   "packageManager": "yarn@1.22.19"
 }
