@@ -3,6 +3,7 @@ import { Stats } from 'fs-extra';
 export interface IOptionsFindUpPaths extends IOptions {
     onlyDirectories?: boolean;
     onlyFiles?: boolean;
+    throwIfNoEntry?: boolean;
 }
 export declare function findUpPaths(pattern: string | string[], opts?: IOptionsFindUpPaths): {
     stat: Stats;

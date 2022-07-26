@@ -37,6 +37,9 @@ function findUpPaths(pattern, opts) {
             };
         }
     }
+    if (runtime.opts.throwIfNoEntry) {
+        throw new RangeError(`can't found any entries of entries`);
+    }
 }
 exports.findUpPaths = findUpPaths;
 async function findUpPathsAsync(pattern, opts) {
@@ -63,6 +66,9 @@ async function findUpPathsAsync(pattern, opts) {
                 };
             }
         }
+    }
+    if (runtime.opts.throwIfNoEntry) {
+        throw new RangeError(`can't found any entries of entries`);
     }
 }
 exports.findUpPathsAsync = findUpPathsAsync;

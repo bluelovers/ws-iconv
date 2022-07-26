@@ -11,6 +11,7 @@ export interface IOptionsFindUpPaths extends IOptions
 {
 	onlyDirectories?: boolean,
 	onlyFiles?: boolean,
+	throwIfNoEntry?: boolean,
 }
 
 function _checkStringArray(pattern: string[]): asserts pattern is string[]
@@ -70,6 +71,11 @@ export function findUpPaths(pattern: string | string[], opts?: IOptionsFindUpPat
 			}
 		}
 	}
+
+	if (runtime.opts.throwIfNoEntry)
+	{
+		throw new RangeError(`can't found any entries of entries`)
+	}
 }
 
 export async function findUpPathsAsync(pattern: string | string[], opts?: IOptionsFindUpPaths)
@@ -112,6 +118,11 @@ export async function findUpPathsAsync(pattern: string | string[], opts?: IOptio
 				}
 			}
 		}
+	}
+
+	if (runtime.opts.throwIfNoEntry)
+	{
+		throw new RangeError(`can't found any entries of entries`)
 	}
 }
 
