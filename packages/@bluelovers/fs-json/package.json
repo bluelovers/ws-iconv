@@ -42,6 +42,7 @@
     "tsc:showConfig": "ynpx get-current-tsconfig -p"
   },
   "dependencies": {
+    "@types/jsonfile": "^6",
     "fs-extra": "^10.1.0",
     "jsonfile": "^6.1.0",
     "tslib": "^2"
