@@ -40,13 +40,16 @@ function handleOptions(cwd, opts) {
     const stopPath = [(_b = opts.stopPath) !== null && _b !== void 0 ? _b : []]
         .flat()
         .map(p => path.normalize(p));
+    const limit = opts.limit > 0 ? opts.limit : Infinity;
+    opts.cwd = cwd;
+    opts.stopPath = stopPath;
+    opts.limit = limit;
     return {
-        // @ts-ignore
         cwd,
         opts,
         path,
         stopPath,
-        limit: opts.limit > 0 ? opts.limit : Infinity,
+        limit,
     };
 }
 exports.handleOptions = handleOptions;

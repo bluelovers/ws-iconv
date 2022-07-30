@@ -68,13 +68,18 @@ export function handleOptions<T extends IOptions>(cwd?: string | T, opts?: T): I
 		.map(p => path.normalize(p))
 	;
 
+	const limit = opts.limit > 0 ? opts.limit : Infinity;
+
+	opts.cwd = cwd;
+	opts.stopPath = stopPath;
+	opts.limit = limit;
+
 	return {
-		// @ts-ignore
 		cwd,
 		opts,
 		path,
 		stopPath,
-		limit: opts.limit > 0 ? opts.limit : Infinity,
+		limit,
 	}
 }
 
