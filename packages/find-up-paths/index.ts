@@ -29,6 +29,8 @@ export function findUpPaths(pattern: string | string[], opts?: IOptionsFindUpPat
 {
 	const runtime = handleOptions(opts);
 
+	runtime.opts.includeCurrentDirectory ??= true;
+
 	const {
 		onlyDirectories,
 		onlyFiles,
