@@ -9,6 +9,7 @@ export interface IOptions
 	platform?: IPathPlatform;
 	stopPath?: string | string[];
 	limit?: number;
+	includeCurrentDirectory?: boolean;
 }
 
 export interface IRuntime<OPTS extends IOptions = IOptions>
@@ -87,6 +88,14 @@ export function pathParentsCore(cwd: string, runtime: IRuntime)
 	}
 }
 
+/**
+ * if return true, then stop
+ */
+export function _checkRuntimeLimit(current: string, runtime: IRuntime)
+{
+	return --runtime.limit <= 0 || runtime.stopPath.includes(current)
+}
+
 export function* pathParentsGenerator(cwd?: string | IOptions, opts?: IOptions)
 {
 	let runtime = handleOptions(cwd, opts);
@@ -94,6 +103,16 @@ export function* pathParentsGenerator(cwd?: string | IOptions, opts?: IOptions)
 	let _do = true;
 	let current = runtime.cwd;
 	let last: string
+
+	if (runtime.opts.includeCurrentDirectory)
+	{
+		yield current;
+
+		if (_checkRuntimeLimit(current, runtime))
+		{
+			return;
+		}
+	}
 
 	do
 	{
@@ -108,7 +127,7 @@ export function* pathParentsGenerator(cwd?: string | IOptions, opts?: IOptions)
 
 		yield current;
 
-		if (--runtime.limit <= 0 || runtime.stopPath.includes(current))
+		if (_checkRuntimeLimit(current, runtime))
 		{
 			break;
 		}

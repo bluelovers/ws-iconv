@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.pathSplit = exports.pathSplitGenerator = exports.pathParents = exports.pathParentsGenerator = exports.pathParentsCore = exports.handleOptions = void 0;
+exports.pathSplit = exports.pathSplitGenerator = exports.pathParents = exports.pathParentsGenerator = exports._checkRuntimeLimit = exports.pathParentsCore = exports.handleOptions = void 0;
 const tslib_1 = require("tslib");
 const core_1 = tslib_1.__importDefault(require("upath2/core"));
 const path_1 = tslib_1.__importDefault(require("path"));
@@ -57,11 +57,24 @@ function pathParentsCore(cwd, runtime) {
     }
 }
 exports.pathParentsCore = pathParentsCore;
+/**
+ * if return true, then stop
+ */
+function _checkRuntimeLimit(current, runtime) {
+    return --runtime.limit <= 0 || runtime.stopPath.includes(current);
+}
+exports._checkRuntimeLimit = _checkRuntimeLimit;
 function* pathParentsGenerator(cwd, opts) {
     let runtime = handleOptions(cwd, opts);
     let _do = true;
     let current = runtime.cwd;
     let last;
+    if (runtime.opts.includeCurrentDirectory) {
+        yield current;
+        if (_checkRuntimeLimit(current, runtime)) {
+            return;
+        }
+    }
     do {
         last = current;
         current = pathParentsCore(current, runtime);
@@ -70,7 +83,7 @@ function* pathParentsGenerator(cwd, opts) {
             break;
         }
         yield current;
-        if (--runtime.limit <= 0 || runtime.stopPath.includes(current)) {
+        if (_checkRuntimeLimit(current, runtime)) {
             break;
         }
     } while (_do);
