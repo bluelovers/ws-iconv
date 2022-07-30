@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.pathSplit = exports.pathSplitGenerator = exports.pathParents = exports.pathParentsGenerator = exports._checkRuntimeLimit = exports.pathParentsCore = exports.handleOptions = void 0;
+exports.pathSplit = exports.pathSplitGenerator = exports.pathParents = exports.pathParentsGeneratorRuntime = exports.pathParentsGenerator = exports._checkRuntimeLimit = exports.pathParentsCore = exports.handleOptions = void 0;
 const tslib_1 = require("tslib");
 const core_1 = tslib_1.__importDefault(require("upath2/core"));
 const path_1 = tslib_1.__importDefault(require("path"));
@@ -68,7 +68,11 @@ function _checkRuntimeLimit(current, runtime) {
 }
 exports._checkRuntimeLimit = _checkRuntimeLimit;
 function* pathParentsGenerator(cwd, opts) {
-    let runtime = handleOptions(cwd, opts);
+    const runtime = handleOptions(cwd, opts);
+    yield* pathParentsGeneratorRuntime(runtime);
+}
+exports.pathParentsGenerator = pathParentsGenerator;
+function* pathParentsGeneratorRuntime(runtime) {
     let _do = true;
     let current = runtime.cwd;
     let last;
@@ -91,14 +95,14 @@ function* pathParentsGenerator(cwd, opts) {
         }
     } while (_do);
 }
-exports.pathParentsGenerator = pathParentsGenerator;
+exports.pathParentsGeneratorRuntime = pathParentsGeneratorRuntime;
 function pathParents(cwd, opts) {
     return [...pathParentsGenerator(cwd, opts)];
 }
 exports.pathParents = pathParents;
 function* pathSplitGenerator(cwd, opts) {
     const runtime = handleOptions(cwd, opts);
-    for (const p of pathParentsGenerator(cwd, runtime.opts)) {
+    for (const p of pathParentsGeneratorRuntime(runtime)) {
         let r = runtime.path.basename(p);
         if (!(r === null || r === void 0 ? void 0 : r.length)) {
             r = p;

@@ -1,8 +1,8 @@
 import {
-	handleOptions,
+	handleOptions as _handleOptions,
 	IOptions,
-	pathParentsGenerator,
-	pathSplitGenerator,
+	IRuntime,
+	pathParentsGeneratorRuntime,
 } from 'path-parents';
 import { fsStat, fsStatSync } from 'fs-stat';
 import { Stats } from 'fs-extra';
@@ -14,6 +14,15 @@ export interface IOptionsFindUpPaths extends IOptions
 	throwIfNoEntry?: boolean,
 }
 
+export function handleOptions<T extends IOptionsFindUpPaths>(cwd?: string | T, opts?: T): IRuntime<T>
+{
+	const runtime = _handleOptions(opts);
+
+	runtime.opts.includeCurrentDirectory ??= true;
+
+	return runtime;
+}
+
 function _checkStringArray(pattern: string[]): asserts pattern is string[]
 {
 	pattern.forEach(name =>
@@ -22,25 +31,47 @@ function _checkStringArray(pattern: string[]): asserts pattern is string[]
 		{
 			throw new TypeError(`'${name}' should be non-empty string`)
 		}
+		else if (name === '.' || name === '..' || name === '/' || name === '\\' || name === '../' || name === '..\\')
+		{
+			throw new TypeError(`'${name}' is invalid pattern`)
+		}
 	});
+}
+
+export function _handlePattern(pattern: string | string[]): string[]
+{
+	pattern = [pattern].flat();
+
+	_checkStringArray(pattern);
+
+	return pattern;
+}
+
+export function _checkStat(stat: Stats, onlyDirectories: boolean, onlyFiles: boolean)
+{
+	return !(!stat || onlyDirectories && !stat.isDirectory() || onlyFiles && !stat.isFile())
+}
+
+export function _throwIfNoEntry(runtime: IRuntime<IOptionsFindUpPaths>)
+{
+	if (runtime.opts.throwIfNoEntry)
+	{
+		throw new RangeError(`can't found any entries of given patterns`)
+	}
 }
 
 export function findUpPaths(pattern: string | string[], opts?: IOptionsFindUpPaths)
 {
 	const runtime = handleOptions(opts);
 
-	runtime.opts.includeCurrentDirectory ??= true;
-
 	const {
 		onlyDirectories,
 		onlyFiles,
 	} = runtime.opts;
 
-	pattern = [pattern].flat();
+	pattern = _handlePattern(pattern);
 
-	_checkStringArray(pattern);
-
-	for (const dir of pathParentsGenerator(runtime.cwd, runtime.opts))
+	for (const dir of pathParentsGeneratorRuntime(runtime))
 	{
 		let stat: Stats;
 		let result: string;
@@ -48,7 +79,6 @@ export function findUpPaths(pattern: string | string[], opts?: IOptionsFindUpPat
 		const name = pattern
 			.find(name =>
 			{
-
 				result = runtime.path.resolve(dir, name);
 
 				stat = fsStatSync(result, {
@@ -56,12 +86,7 @@ export function findUpPaths(pattern: string | string[], opts?: IOptionsFindUpPat
 					throwIfNoEntry: false,
 				});
 
-				if (!stat || onlyDirectories && !stat.isDirectory() || onlyFiles && !stat.isFile())
-				{
-					return false
-				}
-
-				return true;
+				return _checkStat(stat, onlyDirectories, onlyFiles);
 			})
 		;
 
@@ -74,10 +99,7 @@ export function findUpPaths(pattern: string | string[], opts?: IOptionsFindUpPat
 		}
 	}
 
-	if (runtime.opts.throwIfNoEntry)
-	{
-		throw new RangeError(`can't found any entries of entries`)
-	}
+	_throwIfNoEntry(runtime);
 }
 
 export async function findUpPathsAsync(pattern: string | string[], opts?: IOptionsFindUpPaths)
@@ -89,11 +111,9 @@ export async function findUpPathsAsync(pattern: string | string[], opts?: IOptio
 		onlyFiles,
 	} = runtime.opts;
 
-	pattern = [pattern].flat();
+	pattern = _handlePattern(pattern);
 
-	_checkStringArray(pattern);
-
-	for (const dir of pathParentsGenerator(runtime.cwd, runtime.opts))
+	for (const dir of pathParentsGeneratorRuntime(runtime))
 	{
 		let stat: Stats;
 		let result: string;
@@ -107,12 +127,7 @@ export async function findUpPathsAsync(pattern: string | string[], opts?: IOptio
 				throwIfNoEntry: false,
 			});
 
-			if (!stat || onlyDirectories && !stat.isDirectory() || onlyFiles && !stat.isFile())
-			{
-				continue;
-			}
-
-			if (name.length)
+			if (_checkStat(stat, onlyDirectories, onlyFiles))
 			{
 				return {
 					stat,
@@ -122,10 +137,7 @@ export async function findUpPathsAsync(pattern: string | string[], opts?: IOptio
 		}
 	}
 
-	if (runtime.opts.throwIfNoEntry)
-	{
-		throw new RangeError(`can't found any entries of entries`)
-	}
+	_throwIfNoEntry(runtime);
 }
 
 export default findUpPaths

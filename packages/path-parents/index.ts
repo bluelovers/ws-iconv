@@ -103,8 +103,13 @@ export function _checkRuntimeLimit(current: string, runtime: IRuntime)
 
 export function* pathParentsGenerator(cwd?: string | IOptions, opts?: IOptions)
 {
-	let runtime = handleOptions(cwd, opts);
+	const runtime = handleOptions(cwd, opts);
 
+	yield* pathParentsGeneratorRuntime(runtime)
+}
+
+export function* pathParentsGeneratorRuntime(runtime: IRuntime)
+{
 	let _do = true;
 	let current = runtime.cwd;
 	let last: string
@@ -149,7 +154,7 @@ export function* pathSplitGenerator(cwd?: string | IOptions, opts?: IOptions)
 {
 	const runtime = handleOptions(cwd, opts);
 
-	for (const p of pathParentsGenerator(cwd, runtime.opts))
+	for (const p of pathParentsGeneratorRuntime(runtime))
 	{
 		let r = runtime.path.basename(p);
 
