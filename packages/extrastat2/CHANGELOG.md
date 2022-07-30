@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.2.26](https://github.com/bluelovers/ws-iconv/compare/extrastat2@4.2.25...extrastat2@4.2.26) (2022-07-30)
+
+**Note:** Version bump only for package extrastat2
+
+
+
+
+
 ## [4.2.25](https://github.com/bluelovers/ws-iconv/compare/extrastat2@4.2.24...extrastat2@4.2.25) (2022-07-26)
 
 **Note:** Version bump only for package extrastat2

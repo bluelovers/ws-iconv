@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.4](https://github.com/bluelovers/ws-iconv/compare/find-up-paths@1.0.3...find-up-paths@1.0.4) (2022-07-30)
+
+
+### 🐛　Bug Fixes
+
+* should include current directory ([af280a4](https://github.com/bluelovers/ws-iconv/commit/af280a4d47d6462daaf8efd3090bf5c3b47e2d74))
+
+
+### BREAKING CHANGES
+
+* should include current directory
+
+
+
+
+
 ## [1.0.3](https://github.com/bluelovers/ws-iconv/compare/find-up-paths@1.0.2...find-up-paths@1.0.3) (2022-07-26)
 
 

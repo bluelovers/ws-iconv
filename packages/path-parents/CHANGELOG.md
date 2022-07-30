@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.24](https://github.com/bluelovers/ws-iconv/compare/path-parents@1.0.23...path-parents@1.0.24) (2022-07-30)
+
+
+### ✨　Features
+
+* support `includeCurrentDirectory` ([b2b44e6](https://github.com/bluelovers/ws-iconv/commit/b2b44e6958059787d8b7b74b6e85ecdd0eb66e10))
+
+
+### ♻️　Chores
+
+* update opts ([2317a6f](https://github.com/bluelovers/ws-iconv/commit/2317a6f96f0f3e8a799d97d27d6d6d8713e1f418))
+
+
+
+
+
 ## [1.0.23](https://github.com/bluelovers/ws-iconv/compare/path-parents@1.0.22...path-parents@1.0.23) (2022-07-26)
 
 
