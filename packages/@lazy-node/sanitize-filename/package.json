@@ -1,6 +1,6 @@
 {
   "name": "@lazy-node/sanitize-filename",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Convert string to safe filename",
   "keywords": [
     "filename",

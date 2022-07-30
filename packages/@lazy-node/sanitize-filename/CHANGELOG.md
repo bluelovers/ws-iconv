@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.5](https://github.com/bluelovers/ws-iconv/compare/@lazy-node/sanitize-filename@1.0.4...@lazy-node/sanitize-filename@1.0.5) (2022-07-30)
+
+
+### 🐛　Bug Fixes
+
+* **refactor:** fix import ([e732955](https://github.com/bluelovers/ws-iconv/commit/e73295573a8a1cc0247324fdb619aaa3d8548ff7))
+
+
+
+
+
 ## [1.0.4](https://github.com/bluelovers/ws-iconv/compare/@lazy-node/sanitize-filename@1.0.3...@lazy-node/sanitize-filename@1.0.4) (2022-05-11)
 
 
