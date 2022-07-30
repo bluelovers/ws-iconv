@@ -2,7 +2,7 @@ import { ParsedPath, join, sep } from "path";
 import { _mimetype } from './mime';
 import { list } from './list';
 import { IStatsExtra } from './types';
-import pathParents from 'path-parents/index';
+import { pathParents } from 'path-parents';
 export { rwx } from './resolvers/rwx';
 
 /*

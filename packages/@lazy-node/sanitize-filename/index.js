@@ -4,7 +4,7 @@ exports.trimFilename = exports.trimSpace = exports.replaceToFullWidth = exports.
 const tslib_1 = require("tslib");
 const filenamify_1 = tslib_1.__importDefault(require("filenamify"));
 const zero_width_1 = require("zero-width");
-const index_1 = require("@lazy-node/windows-unsafe-filename/index");
+const windows_unsafe_filename_1 = require("@lazy-node/windows-unsafe-filename");
 function sanitizeFilename(name, options) {
     var _a, _b, _c;
     var _d;
@@ -27,7 +27,7 @@ function sanitizeFilename(name, options) {
         name = replaceToFullWidth(name);
     }
     let bool;
-    name = (0, index_1.replaceWindowsUnsafeName)(name, ($0, $1, $2) => {
+    name = (0, windows_unsafe_filename_1.replaceWindowsUnsafeName)(name, ($0, $1, $2) => {
         bool = true;
         return '~!' + ($2 !== null && $2 !== void 0 ? $2 : '');
     }, true);
@@ -41,7 +41,7 @@ function sanitizeFilename(name, options) {
     else if (!options.noTrimSpace) {
         name = trimSpace(name);
     }
-    name = (0, index_1.replaceWindowsUnsafeName)(name, ($0, $1, $2) => options.replacement + ($2 !== null && $2 !== void 0 ? $2 : ''), true);
+    name = (0, windows_unsafe_filename_1.replaceWindowsUnsafeName)(name, ($0, $1, $2) => options.replacement + ($2 !== null && $2 !== void 0 ? $2 : ''), true);
     if (name.length === 0 || old.length === 0) {
         if (options.throwEmpty) {
             throw new RangeError(`Invalid filename: {'${old}' => '${name}'} length ${old.length} => ${name.length}`);

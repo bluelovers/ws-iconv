@@ -9,7 +9,7 @@ import {
 import hasWindowsUnsafeName, {
 	newRegExpWindowsUnsafeName,
 	replaceWindowsUnsafeName,
-} from '@lazy-node/windows-unsafe-filename/index';
+} from '@lazy-node/windows-unsafe-filename';
 
 export interface IOptions extends Options
 {
