@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.25](https://github.com/bluelovers/ws-iconv/compare/path-parents@1.0.24...path-parents@1.0.25) (2022-07-30)
+
+
+### 🚀　Performance Improvements
+
+* speed up performance by refactoring code splitting ([5e7061d](https://github.com/bluelovers/ws-iconv/commit/5e7061d8f0e2a451cbec262fd7a66acaa8bfe1a8))
+
+
+
+
+
 ## [1.0.24](https://github.com/bluelovers/ws-iconv/compare/path-parents@1.0.23...path-parents@1.0.24) (2022-07-30)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.5](https://github.com/bluelovers/ws-iconv/compare/find-up-paths@1.0.4...find-up-paths@1.0.5) (2022-07-30)
+
+
+### 🚀　Performance Improvements
+
+* speed up performance by refactoring code splitting ([5e7061d](https://github.com/bluelovers/ws-iconv/commit/5e7061d8f0e2a451cbec262fd7a66acaa8bfe1a8))
+
+
+
+
+
 ## [1.0.4](https://github.com/bluelovers/ws-iconv/compare/find-up-paths@1.0.3...find-up-paths@1.0.4) (2022-07-30)
 
 
