@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.7](https://github.com/bluelovers/ws-iconv/compare/find-up-paths@1.0.6...find-up-paths@1.0.7) (2022-08-11)
+
+
+### ✨　Features
+
+* add runtime function ([8ae984c](https://github.com/bluelovers/ws-iconv/commit/8ae984c30d770fe6d0c264644f42398abfd48173))
+
+
+
+
+
 ## [1.0.6](https://github.com/bluelovers/ws-iconv/compare/find-up-paths@1.0.5...find-up-paths@1.0.6) (2022-08-11)
 
 
