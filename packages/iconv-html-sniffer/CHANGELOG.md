@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.26](https://github.com/bluelovers/ws-iconv/compare/iconv-html-sniffer@1.0.25...iconv-html-sniffer@1.0.26) (2022-08-11)
+
+
+### 📌　Dependencies
+
+* update deps ([6443574](https://github.com/bluelovers/ws-iconv/commit/6443574492a2305365e4d063efe1959010ee67be))
+
+
+
+
+
 ## [1.0.25](https://github.com/bluelovers/ws-iconv/compare/iconv-html-sniffer@1.0.23...iconv-html-sniffer@1.0.25) (2022-05-11)
 
 

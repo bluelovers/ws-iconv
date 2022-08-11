@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.13](https://github.com/bluelovers/ws-iconv/compare/@lazy-node/is-writeable-path@1.0.12...@lazy-node/is-writeable-path@1.0.13) (2022-08-11)
+
+
+### ♻️　Chores
+
+* update jest.config.js ([520edae](https://github.com/bluelovers/ws-iconv/commit/520edae6273f468fb194a76486b80432b4d69758))
+
+
+
+
+
 ## [1.0.12](https://github.com/bluelovers/ws-iconv/compare/@lazy-node/is-writeable-path@1.0.10...@lazy-node/is-writeable-path@1.0.12) (2022-05-11)
 
 

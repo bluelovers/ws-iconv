@@ -1,6 +1,6 @@
 {
   "name": "path-strip-sep",
-  "version": "1.0.12",
+  "version": "1.0.13",
   "description": "Remove trailing path separator from string.",
   "keywords": [],
   "homepage": "https://github.com/bluelovers/ws-iconv/tree/master/packages/path-strip-sep#readme",

@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.14](https://github.com/bluelovers/ws-iconv/compare/fs-stream-sync@2.0.11...fs-stream-sync@2.0.14) (2022-08-11)
+
+
+### ♻️　Chores
+
+* update jest.config.js ([520edae](https://github.com/bluelovers/ws-iconv/commit/520edae6273f468fb194a76486b80432b4d69758))
+
+
+### 📌　Dependencies
+
+* update deps ([6443574](https://github.com/bluelovers/ws-iconv/commit/6443574492a2305365e4d063efe1959010ee67be))
+
+
+### 🔖　Miscellaneous
+
+* . ([9f40e1b](https://github.com/bluelovers/ws-iconv/commit/9f40e1bd5c0e7ce5c336f5bbd3583224b25bd988))
+
+
+
+
+
 ## [2.0.13](https://github.com/bluelovers/ws-iconv/compare/fs-stream-sync@2.0.11...fs-stream-sync@2.0.13) (2022-08-11)
 
 

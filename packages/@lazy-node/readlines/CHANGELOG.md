@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.18](https://github.com/bluelovers/ws-iconv/compare/@lazy-node/readlines@2.0.16...@lazy-node/readlines@2.0.18) (2022-08-11)
+
+
+### ♻️　Chores
+
+* update jest.config.js ([520edae](https://github.com/bluelovers/ws-iconv/commit/520edae6273f468fb194a76486b80432b4d69758))
+
+
+### 📌　Dependencies
+
+* update deps ([6443574](https://github.com/bluelovers/ws-iconv/commit/6443574492a2305365e4d063efe1959010ee67be))
+
+
+
+
+
 ## [2.0.17](https://github.com/bluelovers/ws-iconv/compare/@lazy-node/readlines@2.0.16...@lazy-node/readlines@2.0.17) (2022-08-11)
 
 
