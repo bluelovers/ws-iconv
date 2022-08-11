@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.findUpPathsAsync = exports.findUpPaths = exports._throwIfNoEntry = exports._handlePattern = exports.handleOptions = void 0;
+exports.findUpPathsRuntimeAsync = exports.findUpPathsAsync = exports.findUpPathsRuntime = exports.findUpPaths = exports._throwIfNoEntry = exports._handlePattern = exports.handleOptions = void 0;
 const path_parents_1 = require("path-parents");
 const fs_stat_1 = require("fs-stat");
 function handleOptions(cwd, opts) {
@@ -35,6 +35,10 @@ function _throwIfNoEntry(runtime) {
 exports._throwIfNoEntry = _throwIfNoEntry;
 function findUpPaths(pattern, opts) {
     const runtime = handleOptions(opts);
+    return findUpPathsRuntime(pattern, runtime);
+}
+exports.findUpPaths = findUpPaths;
+function findUpPathsRuntime(pattern, runtime) {
     const { onlyDirectories, onlyFiles, } = runtime.opts;
     pattern = _handlePattern(pattern);
     const _opts = {
@@ -62,9 +66,13 @@ function findUpPaths(pattern, opts) {
     }
     _throwIfNoEntry(runtime);
 }
-exports.findUpPaths = findUpPaths;
+exports.findUpPathsRuntime = findUpPathsRuntime;
 async function findUpPathsAsync(pattern, opts) {
     const runtime = handleOptions(opts);
+    return findUpPathsRuntimeAsync(pattern, runtime);
+}
+exports.findUpPathsAsync = findUpPathsAsync;
+async function findUpPathsRuntimeAsync(pattern, runtime) {
     const { onlyDirectories, onlyFiles, } = runtime.opts;
     pattern = _handlePattern(pattern);
     const _opts = {
@@ -90,6 +98,6 @@ async function findUpPathsAsync(pattern, opts) {
     }
     _throwIfNoEntry(runtime);
 }
-exports.findUpPathsAsync = findUpPathsAsync;
+exports.findUpPathsRuntimeAsync = findUpPathsRuntimeAsync;
 exports.default = findUpPaths;
 //# sourceMappingURL=index.js.map

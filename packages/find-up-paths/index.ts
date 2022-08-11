@@ -19,7 +19,12 @@ export interface IOptionsFindUpPaths extends IOptions, IOptionsIsDirectoryOrFile
 	throwIfNoEntry?: boolean,
 }
 
-export function handleOptions<T extends IOptionsFindUpPaths>(cwd?: string | T, opts?: T): IRuntime<T>
+export interface IRuntimeFindUpPaths<OPTS extends IOptionsFindUpPaths = IOptionsFindUpPaths> extends IRuntime<OPTS>
+{
+
+}
+
+export function handleOptions<T extends IOptionsFindUpPaths>(cwd?: string | T, opts?: T): IRuntimeFindUpPaths<T>
 {
 	const runtime = _handleOptions(opts);
 
@@ -63,7 +68,11 @@ export function _throwIfNoEntry(runtime: IRuntime<IOptionsFindUpPaths>)
 export function findUpPaths(pattern: string | string[], opts?: IOptionsFindUpPaths)
 {
 	const runtime = handleOptions(opts);
+	return findUpPathsRuntime(pattern, runtime);
+}
 
+export function findUpPathsRuntime(pattern: string | string[], runtime: IRuntimeFindUpPaths)
+{
 	const {
 		onlyDirectories,
 		onlyFiles,
@@ -110,7 +119,11 @@ export function findUpPaths(pattern: string | string[], opts?: IOptionsFindUpPat
 export async function findUpPathsAsync(pattern: string | string[], opts?: IOptionsFindUpPaths)
 {
 	const runtime = handleOptions(opts);
+	return findUpPathsRuntimeAsync(pattern, runtime);
+}
 
+export async function findUpPathsRuntimeAsync(pattern: string | string[], runtime: IRuntimeFindUpPaths)
+{
 	const {
 		onlyDirectories,
 		onlyFiles,
