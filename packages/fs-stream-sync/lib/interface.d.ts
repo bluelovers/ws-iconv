@@ -1,6 +1,6 @@
 /// <reference types="node" />
 export type { PathLike } from 'fs';
-export declare type IFsPath = string | Buffer;
+export type IFsPath = string | Buffer;
 export interface IFsStreamOptions {
     flags?: string;
     /**
@@ -31,7 +31,7 @@ export interface IFsReadStreamOptions extends IFsStreamOptions {
      */
     highWaterMark?: number;
 }
-export declare type IFsWriteStreamOptions = IFsStreamOptions;
+export type IFsWriteStreamOptions = IFsStreamOptions;
 export interface IFsStreamState {
     destroyed: boolean;
     sync: boolean;

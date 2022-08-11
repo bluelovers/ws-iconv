@@ -20,8 +20,8 @@ export declare function detectBOMEncoding(buffer: Uint8Array, options?: {
     utf_32le?: boolean;
     unicode?: boolean;
 }): EnumEncoding;
-export declare type I_WhatwgEncodingAllowed = EnumEncoding.utf_8 | EnumEncoding.utf_16be | EnumEncoding.utf_16le;
-export declare type IEnumAndString<T extends string | number> = T | ITSToStringLiteral<T>;
+export type I_WhatwgEncodingAllowed = EnumEncoding.utf_8 | EnumEncoding.utf_16be | EnumEncoding.utf_16le;
+export type IEnumAndString<T extends string | number> = T | ITSToStringLiteral<T>;
 export declare function isWhatwgBOMEncodingAllowed(encoding: IEnumAndString<I_WhatwgEncodingAllowed> | string): encoding is I_WhatwgEncodingAllowed;
 export declare function whatwgBOMEncoding(buffer: Uint8Array, options?: {
     utf_32le?: boolean;

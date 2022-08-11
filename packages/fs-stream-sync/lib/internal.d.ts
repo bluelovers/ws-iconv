@@ -6,7 +6,7 @@ import { SyncWriteStream } from '../write-sync';
 import { IFsStreamData } from './interface';
 import fs from 'fs';
 export declare const SYM_FS_STREAM_DATA: unique symbol;
-export declare type IThisFsStream = WriteStream | ReadStream | SyncWriteStream | SyncReadStream;
+export type IThisFsStream = WriteStream | ReadStream | SyncWriteStream | SyncReadStream;
 export declare function open(thisArgv: IThisFsStream, argv?: any[]): void;
 export declare function _error_emit<T extends Error>(thisArgv: IThisFsStream, e: T): void;
 export declare function __close(thisArgv: IThisFsStream): void;

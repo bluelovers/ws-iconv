@@ -38,7 +38,7 @@ export declare namespace PathWrap {
 }
 export declare const posix: IPath;
 export declare const win32: IPath;
-export declare type IUPath = PathWrap & {
+export type IUPath = PathWrap & {
     default: IUPath;
     upath: IUPath;
     PathWrap: typeof PathWrap;

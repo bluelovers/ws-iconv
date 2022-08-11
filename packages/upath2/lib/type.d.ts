@@ -3,12 +3,12 @@
  * Created by user on 2018/3/30/030.
  */
 import { ParsedPath, PlatformPath } from 'path';
-export declare type IPathPlatformOrigin = 'win32' | 'posix';
-export declare type IPathPlatform = IPathPlatformOrigin | 'upath' | 'node';
+export type IPathPlatformOrigin = 'win32' | 'posix';
+export type IPathPlatform = IPathPlatformOrigin | 'upath' | 'node';
 export declare const ORIGIN_KEY: unique symbol;
 export interface IParse extends Partial<ParsedPath> {
 }
-export declare type IPathType = PlatformPath | IPath | IPathNode;
+export type IPathType = PlatformPath | IPath | IPathNode;
 export interface IPathNode extends Pick<PlatformPath, 'toNamespacedPath' | 'delimiter' | 'sep' | 'isAbsolute' | 'extname' | 'dirname' | 'format' | 'parse' | 'resolve' | 'relative' | 'normalize' | 'join' | 'basename'> {
     win32?: IPathNode;
     posix?: IPathNode;

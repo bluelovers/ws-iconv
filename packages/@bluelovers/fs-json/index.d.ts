@@ -5,7 +5,7 @@ declare module 'fs-extra' {
         finalEOL?: boolean;
     }
 }
-export declare type IWriteOptions = WriteOptions & Exclude<JFWriteOptions, string | null>;
+export type IWriteOptions = WriteOptions & Exclude<JFWriteOptions, string | null>;
 export declare function _handleWriteOptions(options?: IWriteOptions): IWriteOptions;
 export { readJSON, readJSONSync, };
 export declare function outputJSON(file: string, data: any, options?: IWriteOptions): Promise<void>;

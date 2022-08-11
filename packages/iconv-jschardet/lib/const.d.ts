@@ -112,8 +112,8 @@ export declare enum EnumEncoding {
     UTF8 = "UTF-8",
     GBK = "Gbk"
 }
-export declare type vNodeEncoding = string | null | ENUM_NODE_ENCODING | BufferEncoding;
-export declare type vEncoding = string | null | EnumEncoding | ENUM_NODE_ENCODING | BufferEncoding;
+export type vNodeEncoding = string | null | ENUM_NODE_ENCODING | BufferEncoding;
+export type vEncoding = string | null | EnumEncoding | ENUM_NODE_ENCODING | BufferEncoding;
 export interface IDetectData {
     encoding: string;
     confidence: number;

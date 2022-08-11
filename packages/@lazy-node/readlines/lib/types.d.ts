@@ -12,5 +12,5 @@ export declare const enum EnumNewLineCharacter {
     LF = 10,
     CR = 13
 }
-export declare type IPathLike = PathLike | number;
-export declare type INewLineCharacter = string | number | EnumNewLineCharacter | (string | number | EnumNewLineCharacter)[] | Buffer;
+export type IPathLike = PathLike | number;
+export type INewLineCharacter = string | number | EnumNewLineCharacter | (string | number | EnumNewLineCharacter)[] | Buffer;
