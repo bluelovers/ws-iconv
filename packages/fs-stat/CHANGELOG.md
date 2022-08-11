@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.19](https://github.com/bluelovers/ws-iconv/compare/fs-stat@1.0.18...fs-stat@1.0.19) (2022-08-11)
+
+
+### 📦　Code Refactoring
+
+* { _checkStat => isDirectoryOrFileStat } ([6241ac3](https://github.com/bluelovers/ws-iconv/commit/6241ac379e3dbb6a054f64cfd677613d3d82b0ef))
+
+
+### BREAKING CHANGES
+
+* { _checkStat => isDirectoryOrFileStat }
+
+
+
+
+
 ## [1.0.18](https://github.com/bluelovers/ws-iconv/compare/fs-stat@1.0.16...fs-stat@1.0.18) (2022-05-11)
 
 

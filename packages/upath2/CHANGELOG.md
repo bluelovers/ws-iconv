@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.1.14](https://github.com/bluelovers/ws-iconv/compare/upath2@3.1.13...upath2@3.1.14) (2022-08-11)
+
+
+### 📌　Dependencies
+
+* update deps ([6443574](https://github.com/bluelovers/ws-iconv/commit/6443574492a2305365e4d063efe1959010ee67be))
+
+
+
+
+
 ## [3.1.13](https://github.com/bluelovers/ws-iconv/compare/upath2@3.1.12...upath2@3.1.13) (2022-05-11)
 
 
