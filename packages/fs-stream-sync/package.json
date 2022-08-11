@@ -1,6 +1,6 @@
 {
   "name": "fs-stream-sync",
-  "version": "2.0.12",
+  "version": "2.0.13",
   "description": "File System SyncWriteStream/SyncReadStream implementation from Node.js Core",
   "keywords": [
     "File System",
