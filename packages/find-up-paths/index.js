@@ -6,7 +6,7 @@ const fs_stat_1 = require("fs-stat");
 function handleOptions(cwd, opts) {
     var _a;
     var _b;
-    const runtime = (0, path_parents_1.handleOptions)(opts);
+    const runtime = (0, path_parents_1.handleOptions)(cwd, opts);
     (_a = (_b = runtime.opts).includeCurrentDirectory) !== null && _a !== void 0 ? _a : (_b.includeCurrentDirectory = true);
     return runtime;
 }

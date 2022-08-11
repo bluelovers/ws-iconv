@@ -26,7 +26,7 @@ export interface IRuntimeFindUpPaths<OPTS extends IOptionsFindUpPaths = IOptions
 
 export function handleOptions<T extends IOptionsFindUpPaths>(cwd?: string | T, opts?: T): IRuntimeFindUpPaths<T>
 {
-	const runtime = _handleOptions(opts);
+	const runtime = _handleOptions(cwd, opts);
 
 	runtime.opts.includeCurrentDirectory ??= true;
 
