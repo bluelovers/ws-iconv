@@ -2,12 +2,17 @@ import {
 	handleOptions as _handleOptions,
 	IOptions,
 	IRuntime,
-	pathParentsGeneratorRuntime,
+	pathParentsGeneratorRuntime
 } from 'path-parents';
-import { fsStat, fsStatSync } from 'fs-stat';
+import {
+	fsStat,
+	fsStatSync,
+	IOptionsIsDirectoryOrFileStat,
+	isDirectoryOrFileStat
+} from 'fs-stat';
 import { Stats } from 'fs-extra';
 
-export interface IOptionsFindUpPaths extends IOptions
+export interface IOptionsFindUpPaths extends IOptions, IOptionsIsDirectoryOrFileStat
 {
 	onlyDirectories?: boolean,
 	onlyFiles?: boolean,
@@ -47,11 +52,6 @@ export function _handlePattern(pattern: string | string[]): string[]
 	return pattern;
 }
 
-export function _checkStat(stat: Stats, onlyDirectories: boolean, onlyFiles: boolean)
-{
-	return !(!stat || onlyDirectories && !stat.isDirectory() || onlyFiles && !stat.isFile())
-}
-
 export function _throwIfNoEntry(runtime: IRuntime<IOptionsFindUpPaths>)
 {
 	if (runtime.opts.throwIfNoEntry)
@@ -71,6 +71,11 @@ export function findUpPaths(pattern: string | string[], opts?: IOptionsFindUpPat
 
 	pattern = _handlePattern(pattern);
 
+	const _opts: Required<IOptionsIsDirectoryOrFileStat> = {
+		onlyDirectories,
+		onlyFiles,
+	};
+
 	for (const dir of pathParentsGeneratorRuntime(runtime))
 	{
 		let stat: Stats;
@@ -86,7 +91,7 @@ export function findUpPaths(pattern: string | string[], opts?: IOptionsFindUpPat
 					throwIfNoEntry: false,
 				});
 
-				return _checkStat(stat, onlyDirectories, onlyFiles);
+				return isDirectoryOrFileStat(stat, _opts);
 			})
 		;
 
@@ -113,6 +118,11 @@ export async function findUpPathsAsync(pattern: string | string[], opts?: IOptio
 
 	pattern = _handlePattern(pattern);
 
+	const _opts: Required<IOptionsIsDirectoryOrFileStat> = {
+		onlyDirectories,
+		onlyFiles,
+	};
+
 	for (const dir of pathParentsGeneratorRuntime(runtime))
 	{
 		let stat: Stats;
@@ -127,7 +137,7 @@ export async function findUpPathsAsync(pattern: string | string[], opts?: IOptio
 				throwIfNoEntry: false,
 			});
 
-			if (_checkStat(stat, onlyDirectories, onlyFiles))
+			if (isDirectoryOrFileStat(stat, _opts))
 			{
 				return {
 					stat,

@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.isSameStat = exports.isSymbolicLinkSync = exports.isSymbolicLink = exports.fsStatSync = exports.fsStat = exports._handleOptions = void 0;
+exports.isDirectoryOrFileStat = exports.isSameStat = exports.isSymbolicLinkSync = exports.isSymbolicLink = exports.fsStatSync = exports.fsStat = exports._handleOptions = void 0;
 /**
  * Created by user on 2020/6/22.
  */
@@ -62,5 +62,9 @@ function isSameStat(st1, ...stats) {
     return stats.every(st2 => (st2 === null || st2 === void 0 ? void 0 : st2.ino) === st1.ino);
 }
 exports.isSameStat = isSameStat;
+function isDirectoryOrFileStat(stat, opts) {
+    return !(!stat || opts.onlyDirectories && !stat.isDirectory() || opts.onlyFiles && !stat.isFile());
+}
+exports.isDirectoryOrFileStat = isDirectoryOrFileStat;
 exports.default = fsStat;
 //# sourceMappingURL=index.js.map

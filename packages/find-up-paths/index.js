@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.findUpPathsAsync = exports.findUpPaths = exports._throwIfNoEntry = exports._checkStat = exports._handlePattern = exports.handleOptions = void 0;
+exports.findUpPathsAsync = exports.findUpPaths = exports._throwIfNoEntry = exports._handlePattern = exports.handleOptions = void 0;
 const path_parents_1 = require("path-parents");
 const fs_stat_1 = require("fs-stat");
 function handleOptions(cwd, opts) {
@@ -27,10 +27,6 @@ function _handlePattern(pattern) {
     return pattern;
 }
 exports._handlePattern = _handlePattern;
-function _checkStat(stat, onlyDirectories, onlyFiles) {
-    return !(!stat || onlyDirectories && !stat.isDirectory() || onlyFiles && !stat.isFile());
-}
-exports._checkStat = _checkStat;
 function _throwIfNoEntry(runtime) {
     if (runtime.opts.throwIfNoEntry) {
         throw new RangeError(`can't found any entries of given patterns`);
@@ -41,6 +37,10 @@ function findUpPaths(pattern, opts) {
     const runtime = handleOptions(opts);
     const { onlyDirectories, onlyFiles, } = runtime.opts;
     pattern = _handlePattern(pattern);
+    const _opts = {
+        onlyDirectories,
+        onlyFiles,
+    };
     for (const dir of (0, path_parents_1.pathParentsGeneratorRuntime)(runtime)) {
         let stat;
         let result;
@@ -51,7 +51,7 @@ function findUpPaths(pattern, opts) {
                 followSymlinks: true,
                 throwIfNoEntry: false,
             });
-            return _checkStat(stat, onlyDirectories, onlyFiles);
+            return (0, fs_stat_1.isDirectoryOrFileStat)(stat, _opts);
         });
         if (name === null || name === void 0 ? void 0 : name.length) {
             return {
@@ -67,6 +67,10 @@ async function findUpPathsAsync(pattern, opts) {
     const runtime = handleOptions(opts);
     const { onlyDirectories, onlyFiles, } = runtime.opts;
     pattern = _handlePattern(pattern);
+    const _opts = {
+        onlyDirectories,
+        onlyFiles,
+    };
     for (const dir of (0, path_parents_1.pathParentsGeneratorRuntime)(runtime)) {
         let stat;
         let result;
@@ -76,7 +80,7 @@ async function findUpPathsAsync(pattern, opts) {
                 followSymlinks: true,
                 throwIfNoEntry: false,
             });
-            if (_checkStat(stat, onlyDirectories, onlyFiles)) {
+            if ((0, fs_stat_1.isDirectoryOrFileStat)(stat, _opts)) {
                 return {
                     stat,
                     result,

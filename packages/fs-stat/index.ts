@@ -1,12 +1,15 @@
 /**
  * Created by user on 2020/6/22.
  */
-import { stat, lstat, statSync, lstatSync, Stats } from 'fs-extra';
-import { StatOptions, BigIntStats, StatSyncOptions } from 'fs';
+import { lstat, lstatSync, stat, Stats, statSync } from 'fs-extra';
+import { BigIntStats, StatOptions, StatSyncOptions } from 'fs';
+import { ITSRequireAtLeastOne } from 'ts-type';
 
 export type { Stats as IStats }
 export type { Stats }
 export type { BigIntStats }
+
+export type IStatsInput = Stats | BigIntStats;
 
 export interface IOptions extends StatSyncOptions, StatOptions
 {
@@ -30,11 +33,11 @@ export function _handleOptions(options: IOptions): IOptions
 	return options
 }
 
-export function fsStat(path: string | Buffer, options?: IOptions)
+export function fsStat<S extends IStatsInput = Stats>(path: string | Buffer, options?: IOptions)
 {
 	options = _handleOptions(options);
 
-	let p = (options.followSymlinks ? stat : lstat)(path);
+	let p = (options.followSymlinks ? stat : lstat)(path) as Promise<S>;
 
 	if (!options.throwIfNoEntry)
 	{
@@ -52,7 +55,7 @@ export function fsStat(path: string | Buffer, options?: IOptions)
 	return p
 }
 
-export function fsStatSync<S extends Stats | BigIntStats = Stats>(path: string | Buffer, options?: IOptions): S
+export function fsStatSync<S extends IStatsInput = Stats>(path: string | Buffer, options?: IOptions): S
 {
 	options = _handleOptions(options);
 
@@ -84,7 +87,7 @@ export function isSymbolicLinkSync(dir0: string, options?: IOptions)
 	return stats?.isSymbolicLink()
 }
 
-export function isSameStat<S extends Stats | BigIntStats>(st1: S, st2: S, ...stats: S[]): boolean
+export function isSameStat<S extends IStatsInput>(st1: S, st2: S, ...stats: S[]): boolean
 export function isSameStat<S extends Stats | BigIntStats>(st1: S, ...stats: S[]): boolean
 {
 	if (stats.length <= 0)
@@ -98,6 +101,17 @@ export function isSameStat<S extends Stats | BigIntStats>(st1: S, ...stats: S[])
 	}
 
 	return stats.every(st2 => st2?.ino === st1.ino)
+}
+
+export interface IOptionsIsDirectoryOrFileStat
+{
+	onlyDirectories?: boolean,
+	onlyFiles?: boolean,
+}
+
+export function isDirectoryOrFileStat(stat: IStatsInput, opts: ITSRequireAtLeastOne<IOptionsIsDirectoryOrFileStat>)
+{
+	return !(!stat || opts.onlyDirectories && !stat.isDirectory() || opts.onlyFiles && !stat.isFile())
 }
 
 export default fsStat

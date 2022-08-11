@@ -4,10 +4,12 @@
  * Created by user on 2020/6/22.
  */
 import { Stats } from 'fs-extra';
-import { StatOptions, BigIntStats, StatSyncOptions } from 'fs';
+import { BigIntStats, StatOptions, StatSyncOptions } from 'fs';
+import { ITSRequireAtLeastOne } from 'ts-type';
 export type { Stats as IStats };
 export type { Stats };
 export type { BigIntStats };
+export type IStatsInput = Stats | BigIntStats;
 export interface IOptions extends StatSyncOptions, StatOptions {
     followSymlinks?: boolean;
     /**
@@ -17,9 +19,14 @@ export interface IOptions extends StatSyncOptions, StatOptions {
     allowSymlinks?: boolean;
 }
 export declare function _handleOptions(options: IOptions): IOptions;
-export declare function fsStat(path: string | Buffer, options?: IOptions): Promise<Stats>;
-export declare function fsStatSync<S extends Stats | BigIntStats = Stats>(path: string | Buffer, options?: IOptions): S;
+export declare function fsStat<S extends IStatsInput = Stats>(path: string | Buffer, options?: IOptions): Promise<S>;
+export declare function fsStatSync<S extends IStatsInput = Stats>(path: string | Buffer, options?: IOptions): S;
 export declare function isSymbolicLink(dir0: string, options?: IOptions): Promise<boolean>;
 export declare function isSymbolicLinkSync(dir0: string, options?: IOptions): boolean;
-export declare function isSameStat<S extends Stats | BigIntStats>(st1: S, st2: S, ...stats: S[]): boolean;
+export declare function isSameStat<S extends IStatsInput>(st1: S, st2: S, ...stats: S[]): boolean;
+export interface IOptionsIsDirectoryOrFileStat {
+    onlyDirectories?: boolean;
+    onlyFiles?: boolean;
+}
+export declare function isDirectoryOrFileStat(stat: IStatsInput, opts: ITSRequireAtLeastOne<IOptionsIsDirectoryOrFileStat>): boolean;
 export default fsStat;
