@@ -1,3 +1,4 @@
+/// <reference types="node" />
 import { IOptions, IRuntime } from 'path-parents';
 import { IOptionsIsDirectoryOrFileStat } from 'fs-stat';
 import { Stats } from 'fs-extra';
