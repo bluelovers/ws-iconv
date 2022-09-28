@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`check encoding BIG5_BUF 1`] = `
-Object {
+{
   "confidence": 0.99,
   "encoding": "Big5",
   "name": "Big5",
@@ -9,7 +9,7 @@ Object {
 `;
 
 exports[`check encoding BIG5_STR 1`] = `
-Object {
+{
   "confidence": 0.99,
   "encoding": "Big5",
   "name": "Big5",
@@ -17,7 +17,7 @@ Object {
 `;
 
 exports[`iconv encode 1`] = `
-Object {
+{
   "confidence": 0.99,
   "encoding": "UTF-8",
   "name": "UTF-8",
@@ -25,8 +25,8 @@ Object {
 `;
 
 exports[`iconv encode 2`] = `
-Object {
-  "data": Array [
+{
+  "data": [
     230,
     172,
     161,
@@ -63,7 +63,7 @@ Object {
 `;
 
 exports[`iconv encode 3`] = `
-Object {
+{
   "confidence": 0.99,
   "encoding": "UTF-8",
   "name": "UTF-8",
@@ -71,8 +71,8 @@ Object {
 `;
 
 exports[`iconv encode 4`] = `
-Object {
-  "data": Array [
+{
+  "data": [
     230,
     172,
     161,
@@ -109,7 +109,7 @@ Object {
 `;
 
 exports[`iconv encode big5 1`] = `
-Object {
+{
   "confidence": 0.99,
   "encoding": "Big5",
   "name": "Big5",
@@ -117,8 +117,8 @@ Object {
 `;
 
 exports[`iconv encode big5 2`] = `
-Object {
-  "data": Array [
+{
+  "data": [
     166,
     184,
     177,
@@ -145,7 +145,7 @@ Object {
 `;
 
 exports[`iconv encode big5 3`] = `
-Object {
+{
   "confidence": 0.99,
   "encoding": "Big5",
   "id": "big5",
@@ -154,8 +154,8 @@ Object {
 `;
 
 exports[`iconv encode big5 4`] = `
-Object {
-  "data": Array [
+{
+  "data": [
     166,
     184,
     177,

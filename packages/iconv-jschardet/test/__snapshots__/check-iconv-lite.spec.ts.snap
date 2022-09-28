@@ -1,11 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`iconvLite 1`] = `
-Object {
+{
   "IconvLiteDecoderStream": [Function],
   "IconvLiteEncoderStream": [Function],
   "_canonicalizeEncoding": [Function],
-  "_codecDataCache": Object {},
+  "_codecDataCache": {},
   "decode": [Function],
   "decodeStream": [Function],
   "defaultCharSingleByte": "?",

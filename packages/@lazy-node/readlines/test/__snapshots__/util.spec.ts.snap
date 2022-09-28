@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`splitBufferByBuffer 1`] = `
-Array [
+[
   "0
 ",
   "1
@@ -38,72 +38,72 @@ exports[`splitBufferByBuffer 2`] = `
 `;
 
 exports[`splitBufferByBuffer 3`] = `
-Array [
-  Object {
-    "data": Array [
+[
+  {
+    "data": [
       48,
       10,
     ],
     "type": "Buffer",
   },
-  Object {
-    "data": Array [
+  {
+    "data": [
       49,
       10,
     ],
     "type": "Buffer",
   },
-  Object {
-    "data": Array [
+  {
+    "data": [
       50,
       10,
     ],
     "type": "Buffer",
   },
-  Object {
-    "data": Array [
+  {
+    "data": [
       51,
       10,
     ],
     "type": "Buffer",
   },
-  Object {
-    "data": Array [
+  {
+    "data": [
       52,
       10,
     ],
     "type": "Buffer",
   },
-  Object {
-    "data": Array [
+  {
+    "data": [
       53,
       10,
     ],
     "type": "Buffer",
   },
-  Object {
-    "data": Array [
+  {
+    "data": [
       54,
       10,
     ],
     "type": "Buffer",
   },
-  Object {
-    "data": Array [
+  {
+    "data": [
       55,
       10,
     ],
     "type": "Buffer",
   },
-  Object {
-    "data": Array [
+  {
+    "data": [
       56,
       10,
     ],
     "type": "Buffer",
   },
-  Object {
-    "data": Array [
+  {
+    "data": [
       57,
     ],
     "type": "Buffer",
@@ -112,63 +112,63 @@ Array [
 `;
 
 exports[`splitBufferByBuffer 4`] = `
-Array [
-  Object {
-    "data": Array [
+[
+  {
+    "data": [
       48,
     ],
     "type": "Buffer",
   },
-  Object {
-    "data": Array [
+  {
+    "data": [
       49,
     ],
     "type": "Buffer",
   },
-  Object {
-    "data": Array [
+  {
+    "data": [
       50,
     ],
     "type": "Buffer",
   },
-  Object {
-    "data": Array [
+  {
+    "data": [
       51,
     ],
     "type": "Buffer",
   },
-  Object {
-    "data": Array [
+  {
+    "data": [
       52,
     ],
     "type": "Buffer",
   },
-  Object {
-    "data": Array [
+  {
+    "data": [
       53,
     ],
     "type": "Buffer",
   },
-  Object {
-    "data": Array [
+  {
+    "data": [
       54,
     ],
     "type": "Buffer",
   },
-  Object {
-    "data": Array [
+  {
+    "data": [
       55,
     ],
     "type": "Buffer",
   },
-  Object {
-    "data": Array [
+  {
+    "data": [
       56,
     ],
     "type": "Buffer",
   },
-  Object {
-    "data": Array [
+  {
+    "data": [
       57,
     ],
     "type": "Buffer",

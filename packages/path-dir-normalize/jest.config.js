@@ -69,7 +69,7 @@ try
 			switch (name)
 			{
 				case 'jest-preset':
-					jestConfig.preset = result;
+					jestConfig.preset = dirname(result);
 					break;
 				default:
 					jestConfig = {
