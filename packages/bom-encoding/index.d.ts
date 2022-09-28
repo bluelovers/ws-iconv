@@ -10,7 +10,7 @@ export declare const enum EnumEncoding {
 }
 export declare function createBOMEncoding(encoding: IEnumAndString<I_WhatwgEncodingAllowed> | string, options?: {
     throwError?: boolean;
-}): number[];
+}): [number, number, ...number[]];
 /**
  * @see https://github.com/jsdom/whatwg-encoding/blob/master/lib/whatwg-encoding.js
  * @see https://github.com/whatwg/html/issues/1910#issuecomment-254017369

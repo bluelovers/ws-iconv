@@ -8,7 +8,8 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/bluelovers/ws-iconv.git"
+    "url": "git+https://github.com/bluelovers/ws-iconv.git",
+    "directory": "packages/fs-hardlink-win"
   },
   "license": "ISC",
   "author": "bluelovers",
@@ -18,7 +19,10 @@
     "lint": "ynpx --quiet eslint -- **/*.ts",
     "test": "echo \"Error: no test specified\"",
     "test:jest": "jest --passWithNoTests",
+    "test:jest:snapshot": "yarn run test:jest -- -u",
     "test:mocha": "ynpx --quiet -p ts-node -p mocha mocha -- --require ts-node/register \"!(node_modules)/**/*.{test,spec}.{ts,tsx}\"",
+    "test:snapshot": "yarn run test -- -u",
+    "test:tsd": "ynpx tsd",
     "preversion": "echo preversion && yarn run test",
     "prepublishOnly:check-bin": "ynpx --quiet @yarn-tool/check-pkg-bin",
     "prepublishOnly:update": "yarn run ncu && yarn run sort-package-json",
@@ -26,7 +30,7 @@
     "sort-package-json": "yarn-tool sort"
   },
   "dependencies": {
-    "crlf-normalize": "^1.0.7",
+    "crlf-normalize": "^1.0.15",
     "cross-spawn-extra": "^2.1.0",
     "tslib": "^2"
   }

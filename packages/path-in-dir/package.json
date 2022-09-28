@@ -11,7 +11,8 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/bluelovers/ws-iconv.git"
+    "url": "git+https://github.com/bluelovers/ws-iconv.git",
+    "directory": "packages/path-in-dir"
   },
   "license": "ISC",
   "author": "bluelovers",
@@ -21,7 +22,10 @@
     "lint": "ynpx --quiet eslint -- **/*.ts",
     "test": "jest --passWithNoTests",
     "test:jest": "jest --passWithNoTests",
+    "test:jest:snapshot": "yarn run test:jest -- -u",
     "test:mocha": "ynpx --quiet -p ts-node -p mocha mocha -- --require ts-node/register \"!(node_modules)/**/*.{test,spec}.{ts,tsx}\"",
+    "test:snapshot": "yarn run test -- -u",
+    "test:tsd": "ynpx tsd",
     "test:tsdx": "ynpx @bluelovers/tsdx test --passWithNoTests",
     "build:dts": "ynpx dts-bundle-generator -o ./dist/index.d.ts ./src/index.ts --no-banner & echo build:dts",
     "build:tsdx": "ynpx @bluelovers/tsdx build --target node --name index",

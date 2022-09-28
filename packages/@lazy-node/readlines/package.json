@@ -20,7 +20,8 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/bluelovers/ws-iconv.git"
+    "url": "git+https://github.com/bluelovers/ws-iconv.git",
+    "directory": "packages/@lazy-node/readlines"
   },
   "license": "MIT",
   "author": "Yoan Arnaudov <jonidev@gmail.com>",
@@ -32,6 +33,9 @@
   "scripts": {
     "test": "yarn run test:jest",
     "test:jest": "jest",
+    "test:jest:snapshot": "yarn run test:jest -- -u",
+    "test:snapshot": "yarn run test -- -u",
+    "test:tsd": "ynpx tsd",
     "npm:publish": "npm publish",
     "npm:publish:lerna": "npx lerna publish --yes --cd-version patch",
     "preversion": "yarn run test",

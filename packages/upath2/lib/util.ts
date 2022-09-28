@@ -4,8 +4,8 @@
 
 import { IPath } from './type';
 import { PathWrap } from '../core';
-import pathIsNetworkDrive from 'path-is-network-drive';
-import _strip_sep from 'path-strip-sep';
+import { pathIsNetworkDrive } from 'path-is-network-drive';
+import { pathStripSep as _strip_sep } from 'path-strip-sep';
 
 export { _strip_sep }
 
@@ -55,6 +55,6 @@ export function defaults(destination, ...input)
 			}
 		}
 	});
-	  
+
 	return destination;
 }

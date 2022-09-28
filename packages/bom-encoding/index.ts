@@ -17,7 +17,7 @@ export const enum EnumEncoding
 
 export function createBOMEncoding(encoding: IEnumAndString<I_WhatwgEncodingAllowed> | string, options?: {
 	throwError?: boolean,
-})
+}): [number, number, ...number[]]
 {
 	switch (encoding)
 	{

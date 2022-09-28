@@ -4,13 +4,12 @@
  */
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.defaults = exports.getStatic = exports._replace_sep = exports._strip_sep = void 0;
-const tslib_1 = require("tslib");
-const path_is_network_drive_1 = tslib_1.__importDefault(require("path-is-network-drive"));
-const path_strip_sep_1 = tslib_1.__importDefault(require("path-strip-sep"));
-exports._strip_sep = path_strip_sep_1.default;
+const path_is_network_drive_1 = require("path-is-network-drive");
+const path_strip_sep_1 = require("path-strip-sep");
+Object.defineProperty(exports, "_strip_sep", { enumerable: true, get: function () { return path_strip_sep_1.pathStripSep; } });
 function _replace_sep(who, input) {
     let sep = who.sep;
-    if (who.name !== 'posix' && (0, path_is_network_drive_1.default)(input)) {
+    if (who.name !== 'posix' && (0, path_is_network_drive_1.pathIsNetworkDrive)(input)) {
         sep = '\\';
         input = sep + sep + input
             .slice(2)

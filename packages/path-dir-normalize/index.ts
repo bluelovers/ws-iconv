@@ -1,5 +1,5 @@
 import { normalize as _normalize, sep as _sep } from 'upath2';
-import { _strip_sep } from 'upath2/lib/util';
+import { pathStripSep as _strip_sep } from 'path-strip-sep';
 
 export interface IPathLibLike
 {
