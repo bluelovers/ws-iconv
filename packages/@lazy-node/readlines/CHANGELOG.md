@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.19](https://github.com/bluelovers/ws-iconv/compare/@lazy-node/readlines@2.0.18...@lazy-node/readlines@2.0.19) (2022-09-28)
+
+
+
+### 🚨　Tests
+
+* **snap:** update snapshot ([50c9082](https://github.com/bluelovers/ws-iconv/commit/50c90823b7b65aa3f10f14b771327e81f0905f6e))
+
+
+### 🔖　Miscellaneous
+
+* . ([dceda31](https://github.com/bluelovers/ws-iconv/commit/dceda31798222a650c62f9bd688b9fa55b915cc7))
+* . ([d63dc4f](https://github.com/bluelovers/ws-iconv/commit/d63dc4f45321ac9d9f2811a1565ade6aaff0ffe1))
+
+
+
 ## [2.0.18](https://github.com/bluelovers/ws-iconv/compare/@lazy-node/readlines@2.0.16...@lazy-node/readlines@2.0.18) (2022-08-11)
 
 

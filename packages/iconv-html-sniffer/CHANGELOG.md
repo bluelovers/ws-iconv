@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.27](https://github.com/bluelovers/ws-iconv/compare/iconv-html-sniffer@1.0.26...iconv-html-sniffer@1.0.27) (2022-09-28)
+
+
+
+### 🔖　Miscellaneous
+
+* . ([dceda31](https://github.com/bluelovers/ws-iconv/commit/dceda31798222a650c62f9bd688b9fa55b915cc7))
+
+
+
 ## [1.0.26](https://github.com/bluelovers/ws-iconv/compare/iconv-html-sniffer@1.0.25...iconv-html-sniffer@1.0.26) (2022-08-11)
 
 

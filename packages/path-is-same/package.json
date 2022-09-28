@@ -1,6 +1,6 @@
 {
   "name": "path-is-same",
-  "version": "1.0.19",
+  "version": "1.0.20",
   "description": "",
   "homepage": "https://github.com/bluelovers/ws-iconv/tree/master/packages/path-is-same#readme",
   "bugs": {
@@ -35,7 +35,7 @@
   },
   "dependencies": {
     "tslib": "^2",
-    "upath2": "^3.1.15"
+    "upath2": "^3.1.16"
   },
   "gitHead": "008b0ff206ac188acd641377c3a6e4fb3a73acbe"
 }
