@@ -1,6 +1,6 @@
 {
   "name": "@bluelovers/array-buffer-to-string",
-  "version": "1.0.33",
+  "version": "1.0.34",
   "private": false,
   "description": "",
   "keywords": [
@@ -40,7 +40,7 @@
     "tsc:esm": "tsc -p tsconfig.esm.json"
   },
   "dependencies": {
-    "iconv-jschardet": "^2.0.29",
+    "iconv-jschardet": "^2.0.30",
     "tslib": "^2",
     "typedarray-to-buffer": "^4.0.0"
   },

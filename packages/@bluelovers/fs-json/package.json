@@ -1,6 +1,6 @@
 {
   "name": "@bluelovers/fs-json",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "description": "stringify with final EOL",
   "keywords": [
     "create-by-yarn-tool"

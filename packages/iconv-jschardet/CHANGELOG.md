@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.30](https://github.com/bluelovers/ws-iconv/compare/iconv-jschardet@2.0.29...iconv-jschardet@2.0.30) (2022-09-29)
+
+
+
+### 🔖　Miscellaneous
+
+* . ([a0a4d4a](https://github.com/bluelovers/ws-iconv/commit/a0a4d4a7d220fdf76dae7cdcb77b1d40da5e1b62))
+
+
+
 ## [2.0.29](https://github.com/bluelovers/ws-iconv/compare/iconv-jschardet@2.0.28...iconv-jschardet@2.0.29) (2022-09-28)
 
 

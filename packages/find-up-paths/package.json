@@ -1,6 +1,6 @@
 {
   "name": "find-up-paths",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "description": "Find a file or directory by walking up parent directories",
   "keywords": [
     "find",
@@ -79,7 +79,7 @@
   "dependencies": {
     "fs-extra": "^10.1.0",
     "fs-stat": "^1.0.22",
-    "path-parents": "^1.0.27",
+    "path-parents": "^1.0.28",
     "tslib": "^2"
   },
   "packageManager": "yarn@1.22.19"

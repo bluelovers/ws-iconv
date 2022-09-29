@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.7](https://github.com/bluelovers/ws-iconv/compare/path-in-dir@1.0.6...path-in-dir@1.0.7) (2022-09-29)
+
+
+
+### 🔖　Miscellaneous
+
+* . ([a0a4d4a](https://github.com/bluelovers/ws-iconv/commit/a0a4d4a7d220fdf76dae7cdcb77b1d40da5e1b62))
+
+
+
 ## [1.0.6](https://github.com/bluelovers/ws-iconv/compare/path-in-dir@1.0.5...path-in-dir@1.0.6) (2022-09-28)
 
 

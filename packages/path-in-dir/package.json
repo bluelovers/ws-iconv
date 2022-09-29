@@ -1,6 +1,6 @@
 {
   "name": "path-in-dir",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "check path inside of directory",
   "keywords": [
     "create-by-yarn-tool"
@@ -43,9 +43,9 @@
     "tsc:showConfig": "ynpx get-current-tsconfig -p"
   },
   "dependencies": {
-    "path-dir-normalize": "^1.0.26",
+    "path-dir-normalize": "^1.0.27",
     "tslib": "^2",
-    "upath2": "^3.1.16"
+    "upath2": "^3.1.17"
   },
   "packageManager": "yarn@^1.22.11"
 }

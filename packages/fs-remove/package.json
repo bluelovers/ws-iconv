@@ -1,8 +1,7 @@
 {
   "name": "fs-remove",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Removes a file or directory. The directory can have contents. If the path does not exist, silently does nothing.",
-
   "keywords": [
     "create-by-yarn-tool"
   ],
@@ -62,7 +61,5 @@
   "dependencies": {
     "fs-stat": "^1.0.22"
   },
-  "devDependencies": {},
-  "peerDependencies": {},
   "packageManager": "yarn@1.22.19"
 }
