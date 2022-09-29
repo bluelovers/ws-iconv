@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.24](https://github.com/bluelovers/ws-iconv/compare/fs-stat@1.0.23...fs-stat@1.0.24) (2022-09-29)
+
+
+
+### 🔖　Miscellaneous
+
+* . ([66a4398](https://github.com/bluelovers/ws-iconv/commit/66a4398df74674c57e3599e4104d11622bdc9135))
+
+
+
 ## [1.0.23](https://github.com/bluelovers/ws-iconv/compare/fs-stat@1.0.22...fs-stat@1.0.23) (2022-09-29)
 
 
