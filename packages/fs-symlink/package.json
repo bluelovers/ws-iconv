@@ -1,6 +1,6 @@
 {
   "name": "fs-symlink-extra",
-  "version": "1.0.14",
+  "version": "1.0.15",
   "description": "",
   "homepage": "https://github.com/bluelovers/ws-iconv/tree/master/packages/fs-symlink#readme",
   "bugs": {
@@ -30,7 +30,7 @@
   },
   "dependencies": {
     "fs-extra": "^10.1.0",
-    "fs-stat": "^1.0.21",
+    "fs-stat": "^1.0.22",
     "path-is-same": "^1.0.20",
     "ts-type": "^2.1.10",
     "tslib": "^2"
