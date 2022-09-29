@@ -67,7 +67,10 @@ function isSameStat(st1, ...stats) {
 }
 exports.isSameStat = isSameStat;
 function isDirectoryOrFileStat(stat, opts) {
-    return !(!stat || opts.onlyDirectories && !stat.isDirectory() || opts.onlyFiles && !stat.isFile());
+    if (stat) {
+        return !(opts.onlyDirectories && !stat.isDirectory() || opts.onlyFiles && !stat.isFile());
+    }
+    return null;
 }
 exports.isDirectoryOrFileStat = isDirectoryOrFileStat;
 function isExistsStat(stat, options) {
@@ -77,7 +80,7 @@ function isExistsStat(stat, options) {
         }
         return true;
     }
-    return false;
+    return null;
 }
 exports.isExistsStat = isExistsStat;
 function fsStatExists(path, options) {

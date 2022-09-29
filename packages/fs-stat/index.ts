@@ -122,7 +122,11 @@ export function isSameStat<S extends Stats | BigIntStats>(st1: S, ...stats: S[])
 
 export function isDirectoryOrFileStat(stat: IStatsInput, opts: ITSRequireAtLeastOne<IOptionsIsDirectoryOrFileStat>)
 {
-	return !(!stat || opts.onlyDirectories && !stat.isDirectory() || opts.onlyFiles && !stat.isFile())
+	if (stat)
+	{
+		return !(opts.onlyDirectories && !stat.isDirectory() || opts.onlyFiles && !stat.isFile())
+	}
+	return null
 }
 
 export function isExistsStat(stat: IStatsInput, options?: IOptionsIsDirectoryOrFileStat)
@@ -135,7 +139,7 @@ export function isExistsStat(stat: IStatsInput, options?: IOptionsIsDirectoryOrF
 		}
 		return true
 	}
-	return false
+	return null
 }
 
 export function fsStatExists(path: string | Buffer, options?: IOptionsWithOnlyDirectoryOrFile)
