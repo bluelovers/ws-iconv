@@ -1,6 +1,6 @@
 {
   "name": "fs-remove-extra",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Removes a file or directory. The directory can have contents. If the path does not exist, silently does nothing.",
   "keywords": [
     "create-by-yarn-tool"
@@ -59,7 +59,7 @@
     "tsc:showConfig": "ynpx get-current-tsconfig -p"
   },
   "dependencies": {
-    "fs-stat": "^1.0.22"
+    "fs-stat": "^1.0.23"
   },
   "packageManager": "yarn@1.22.19",
   "gitHead": "6c258437d14e2d37d1fb08068fa60833ce6d389b"
