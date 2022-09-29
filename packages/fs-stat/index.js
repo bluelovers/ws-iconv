@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.isDirectoryOrFileStat = exports.isSameStat = exports.isSymbolicLinkSync = exports.isSymbolicLink = exports.fsStatSync = exports.fsStat = exports._handleOptions = void 0;
+exports.fsStatExistsSync = exports.fsStatExists = exports.isExistsStat = exports.isDirectoryOrFileStat = exports.isSameStat = exports.isSymbolicLinkSync = exports.isSymbolicLink = exports.fsStatSync = exports.fsStat = exports._handleOptions = void 0;
 /**
  * Created by user on 2020/6/22.
  */
@@ -12,6 +12,10 @@ function _handleOptions(options) {
     };
     (_a = options.followSymlinks) !== null && _a !== void 0 ? _a : (options.followSymlinks = options.allowSymlinks);
     (_b = options.throwIfNoEntry) !== null && _b !== void 0 ? _b : (options.throwIfNoEntry = false);
+    // @ts-ignore
+    if (options.onlyFiles && options.onlyDirectories) {
+        throw new TypeError(`Can't use onlyFiles and onlyDirectories at same time`);
+    }
     return options;
 }
 exports._handleOptions = _handleOptions;
@@ -66,5 +70,27 @@ function isDirectoryOrFileStat(stat, opts) {
     return !(!stat || opts.onlyDirectories && !stat.isDirectory() || opts.onlyFiles && !stat.isFile());
 }
 exports.isDirectoryOrFileStat = isDirectoryOrFileStat;
+function isExistsStat(stat, options) {
+    if (stat) {
+        if (options.onlyFiles || options.onlyDirectories) {
+            return isDirectoryOrFileStat(stat, options);
+        }
+        return true;
+    }
+    return false;
+}
+exports.isExistsStat = isExistsStat;
+function fsStatExists(path, options) {
+    return fsStat(path, options)
+        .then(stat => {
+        return isExistsStat(stat, options);
+    });
+}
+exports.fsStatExists = fsStatExists;
+function fsStatExistsSync(path, options) {
+    const stat = fsStatSync(path, options);
+    return isExistsStat(stat, options);
+}
+exports.fsStatExistsSync = fsStatExistsSync;
 exports.default = fsStat;
 //# sourceMappingURL=index.js.map

@@ -3,7 +3,7 @@
  */
 import { lstat, lstatSync, stat, Stats, statSync } from 'fs-extra';
 import { BigIntStats, StatOptions, StatSyncOptions } from 'fs';
-import { ITSRequireAtLeastOne } from 'ts-type';
+import { ITSRequireAtLeastOne } from 'ts-type/lib/type/record';
 
 export type { Stats as IStats }
 export type { Stats }
@@ -21,7 +21,18 @@ export interface IOptions extends StatSyncOptions, StatOptions
 	allowSymlinks?: boolean;
 }
 
-export function _handleOptions(options: IOptions): IOptions
+export interface IOptionsIsDirectoryOrFileStat
+{
+	onlyDirectories?: boolean,
+	onlyFiles?: boolean,
+}
+
+export interface IOptionsWithOnlyDirectoryOrFile extends IOptions, IOptionsIsDirectoryOrFileStat
+{
+
+}
+
+export function _handleOptions<T extends IOptions>(options: T): T
 {
 	options = {
 		...options,
@@ -29,6 +40,12 @@ export function _handleOptions(options: IOptions): IOptions
 
 	options.followSymlinks ??= options.allowSymlinks;
 	options.throwIfNoEntry ??= false;
+
+	// @ts-ignore
+	if (options.onlyFiles && options.onlyDirectories)
+	{
+		throw new TypeError(`Can't use onlyFiles and onlyDirectories at same time`)
+	}
 
 	return options
 }
@@ -103,15 +120,37 @@ export function isSameStat<S extends Stats | BigIntStats>(st1: S, ...stats: S[])
 	return stats.every(st2 => st2?.ino === st1.ino)
 }
 
-export interface IOptionsIsDirectoryOrFileStat
-{
-	onlyDirectories?: boolean,
-	onlyFiles?: boolean,
-}
-
 export function isDirectoryOrFileStat(stat: IStatsInput, opts: ITSRequireAtLeastOne<IOptionsIsDirectoryOrFileStat>)
 {
 	return !(!stat || opts.onlyDirectories && !stat.isDirectory() || opts.onlyFiles && !stat.isFile())
+}
+
+export function isExistsStat(stat: IStatsInput, options?: IOptionsIsDirectoryOrFileStat)
+{
+	if (stat)
+	{
+		if (options.onlyFiles || options.onlyDirectories)
+		{
+			return isDirectoryOrFileStat(stat, options as any)
+		}
+		return true
+	}
+	return false
+}
+
+export function fsStatExists(path: string | Buffer, options?: IOptionsWithOnlyDirectoryOrFile)
+{
+	return fsStat(path, options)
+		.then(stat =>
+		{
+			return isExistsStat(stat, options)
+		})
+}
+
+export function fsStatExistsSync(path: string | Buffer, options?: IOptionsWithOnlyDirectoryOrFile)
+{
+	const stat = fsStatSync(path, options);
+	return isExistsStat(stat, options)
 }
 
 export default fsStat
