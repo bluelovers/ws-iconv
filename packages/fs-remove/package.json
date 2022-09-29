@@ -1,5 +1,5 @@
 {
-  "name": "fs-remove",
+  "name": "fs-remove-extra",
   "version": "1.0.1",
   "description": "Removes a file or directory. The directory can have contents. If the path does not exist, silently does nothing.",
   "keywords": [
@@ -61,5 +61,6 @@
   "dependencies": {
     "fs-stat": "^1.0.22"
   },
-  "packageManager": "yarn@1.22.19"
+  "packageManager": "yarn@1.22.19",
+  "gitHead": "6c258437d14e2d37d1fb08068fa60833ce6d389b"
 }

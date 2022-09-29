@@ -33,5 +33,6 @@
     "crlf-normalize": "^1.0.15",
     "cross-spawn-extra": "^2.1.0",
     "tslib": "^2"
-  }
+  },
+  "gitHead": "6c258437d14e2d37d1fb08068fa60833ce6d389b"
 }

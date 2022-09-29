@@ -54,5 +54,6 @@
   "packageManager": "yarn@^1.22.11",
   "publishConfig": {
     "access": "public"
-  }
+  },
+  "gitHead": "6c258437d14e2d37d1fb08068fa60833ce6d389b"
 }
