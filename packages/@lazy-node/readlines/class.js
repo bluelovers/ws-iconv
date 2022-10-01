@@ -8,6 +8,7 @@ exports.LineByLine = void 0;
 const tslib_1 = require("tslib");
 const fs_1 = require("fs");
 const util_1 = require("./lib/util");
+const util_buffer_1 = require("@lazy-node/util-buffer");
 class LineByLine {
     constructor(file, options) {
         _LineByLine_file.set(this, void 0);
@@ -75,7 +76,7 @@ class LineByLine {
         tslib_1.__classPrivateFieldSet(this, _LineByLine_fd, null, "f");
     }
     _extractLines(buffer) {
-        return (0, util_1.splitBufferByBuffer)(buffer, tslib_1.__classPrivateFieldGet(this, _LineByLine_newLineCharacter, "f"));
+        return (0, util_buffer_1.splitBufferByBuffer)(buffer, tslib_1.__classPrivateFieldGet(this, _LineByLine_newLineCharacter, "f"));
     }
     ;
     _readChunk(lineLeftovers) {
@@ -115,7 +116,7 @@ class LineByLine {
         if (tslib_1.__classPrivateFieldGet(this, _LineByLine_linesCache, "f").length) {
             line = tslib_1.__classPrivateFieldGet(this, _LineByLine_linesCache, "f").shift();
             //const lastLineCharacter = line[line.length - 1];
-            if (!(0, util_1.bufferEndWithByBuffer)(line, tslib_1.__classPrivateFieldGet(this, _LineByLine_newLineCharacter, "f"))) {
+            if (!(0, util_buffer_1.bufferEndWithByBuffer)(line, tslib_1.__classPrivateFieldGet(this, _LineByLine_newLineCharacter, "f"))) {
                 bytesRead = this._readChunk(line);
                 if (bytesRead) {
                     line = tslib_1.__classPrivateFieldGet(this, _LineByLine_linesCache, "f").shift();
@@ -126,7 +127,7 @@ class LineByLine {
             this.close();
         }
         if (line) {
-            line = (0, util_1.bufferStripEndWithByBuffer)(line, tslib_1.__classPrivateFieldGet(this, _LineByLine_newLineCharacter, "f"), 0 - tslib_1.__classPrivateFieldGet(this, _LineByLine_newLineCharacter, "f").length);
+            line = (0, util_buffer_1.bufferStripEndWithByBuffer)(line, tslib_1.__classPrivateFieldGet(this, _LineByLine_newLineCharacter, "f"), 0 - tslib_1.__classPrivateFieldGet(this, _LineByLine_newLineCharacter, "f").length);
         }
         tslib_1.__classPrivateFieldSet(this, _LineByLine_lineNumber, (_a = tslib_1.__classPrivateFieldGet(this, _LineByLine_lineNumber, "f"), _a++, _a), "f");
         return line;

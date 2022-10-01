@@ -1,5 +1,5 @@
-import { newContent } from './util';
-import { splitBufferByBuffer, bufferStripEndWithByBuffer } from '../lib/util';
+import { newContent } from '@lazy-node/readlines/test/util';
+import { bufferStripEndWithByBuffer, splitBufferByBuffer } from '../src/index';
 
 test(`splitBufferByBuffer`, () =>
 {

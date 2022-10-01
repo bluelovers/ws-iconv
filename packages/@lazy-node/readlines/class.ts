@@ -6,10 +6,12 @@ import { IPathLike, IOptions, EnumNewLineCharacter } from './lib/types';
 import { readSync, closeSync, openSync } from 'fs';
 import {
 	handleOptionNewLineCharacter,
-	splitBufferByBuffer,
-	bufferStripEndWithByBuffer,
-	bufferEndWithByBuffer,
 } from './lib/util';
+import {
+	bufferEndWithByBuffer,
+	bufferStripEndWithByBuffer,
+	splitBufferByBuffer,
+} from '@lazy-node/util-buffer';
 
 export class LineByLine
 {
