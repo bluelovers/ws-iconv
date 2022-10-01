@@ -12,7 +12,9 @@
     "synchronous",
     "sync",
     "readline",
-    "readlines"
+    "readlines",
+    "create-by-yarn-tool",
+    "create-by-tsdx"
   ],
   "homepage": "https://github.com/bluelovers/ws-iconv/tree/master/packages/@lazy-node/readlines#readme",
   "bugs": {
@@ -25,18 +27,57 @@
   },
   "license": "MIT",
   "author": "Yoan Arnaudov <jonidev@gmail.com>",
-  "main": "./index.js",
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.esm.mjs",
+      "require": "./dist/index.cjs"
+    },
+    "./package.json": "./package.json",
+    "./src/*": "./src/*"
+  },
+  "main": "dist/index.cjs",
+  "unpkg": "dist/index.umd.production.min.cjs",
+  "module": "dist/index.esm.mjs",
+  "types": "dist/index.d.ts",
+  "typings": "dist/index.d.ts",
   "directories": {
-    "lib": "lib",
     "test": "test"
   },
   "scripts": {
-
+    "pretest": "echo pretest",
+    "test": "jest --passWithNoTests",
+    "posttest": "yarn run build",
+    "build": "yarn run build:tsdx && yarn run build:dts:bundle",
+    "build:dts:bundle": "ynpx dts-bundle-generator -o ./dist/index.d.ts ./src/index.ts --no-banner --inline-declare-global & echo build:dts:bundle",
+    "build:dts:copy": "copy .\\src\\index.d.ts .\\dist\\index.d.ts & echo build:dts",
+    "build:dts:tsc": "yarn run build:dts:copy && yarn run build:dts:tsc:emit && yarn run build:dts:copy",
+    "build:dts:tsc:emit": "tsc --emitDeclarationOnly --declaration --noEmit false",
+    "build:tsdx": "ynpx @bluelovers/tsdx build --target node",
+    "ci:install": "echo ci:install",
+    "ci:build": "echo ci:build",
+    "preversion": "echo preversion && yarn run test",
+    "version": "echo version",
+    "postversion": "echo postversion",
+    "prepublish": "echo prepublish",
+    "prepare": "echo prepare",
+    "prepublishOnly": "echo prepublishOnly",
+    "prepublishOnly:update": "yarn run ncu && yarn run sort-package-json",
+    "prepack": "echo prepack",
+    "pack": "echo pack",
+    "postpack": "echo postpack",
+    "publish": "echo publish",
+    "postpublish": "echo postpublish",
+    "postpublishOnly": "echo postpublishOnly",
+    "ncu": "yarn-tool ncu -u",
+    "sort-package-json": "yarn-tool sort",
+    "tsc:showConfig": "ynpx get-current-tsconfig -p"
   },
   "dependencies": {
-    "@lazy-node/util-buffer": "^1.0.0",
-    "tslib": "^2"
+    "@lazy-node/util-buffer": "^1.0.0"
   },
+  "packageManager": "yarn@1.22.19",
   "publishConfig": {
     "access": "public"
   },

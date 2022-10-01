@@ -1,6 +1,6 @@
 'use strict';
 
-import LineByLine from '..';
+import { LineByLine } from '../src';
 
 import path from 'path';
 

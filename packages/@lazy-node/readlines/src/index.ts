@@ -2,11 +2,11 @@
  * Created by user on 2020/5/29.
  */
 
-import { IPathLike, IOptions, EnumNewLineCharacter } from './lib/types';
+import { IPathLike, IOptions } from './types';
 import { readSync, closeSync, openSync } from 'fs';
 import {
 	handleOptionNewLineCharacter,
-} from './lib/util';
+} from './util';
 import {
 	bufferEndWithByBuffer,
 	bufferStripEndWithByBuffer,
