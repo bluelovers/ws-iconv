@@ -1,2 +1,2 @@
-import { LineByLine } from './class';
+import { LineByLine } from './src/index';
 export = LineByLine;

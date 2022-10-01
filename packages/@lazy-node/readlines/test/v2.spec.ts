@@ -1,4 +1,4 @@
-import LineByLine from '../class';
+import { LineByLine } from '../src/index';
 import { join } from 'path';
 import { outputFileSync } from 'fs-extra';
 import { openSync } from "fs";
