@@ -18,13 +18,29 @@ test(bufferEndWithByBuffer.name, () =>
 
 	expect(actual).toBeTruthy();
 
-	actual = bufferEndWith(line, '\n'.charCodeAt(0) as any);
+	actual = bufferEndWithByBuffer(line, '\n'.charCodeAt(0) as any);
 
-	console.dir(line)
-	console.dir('\n'.charCodeAt(0))
 	expect(actual).toBeTruthy();
 
 	actual = bufferEndWithByBuffer(line, '77\n' as any);
+
+	expect(actual).toBeTruthy();
+
+});
+
+test(bufferEndWith.name, () =>
+{
+	const line = Buffer.from('\n777777\n')
+
+	let actual = bufferEndWith(line, '\n' as any);
+
+	expect(actual).toBeTruthy();
+
+	actual = bufferEndWith(line, '\n'.charCodeAt(0) as any);
+
+	expect(actual).toBeTruthy();
+
+	actual = bufferEndWith(line, '77\n' as any);
 
 	expect(actual).toBeTruthy();
 

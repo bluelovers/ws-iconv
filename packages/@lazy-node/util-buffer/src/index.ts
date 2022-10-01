@@ -1,12 +1,34 @@
-export function bufferEndWithByBuffer(buf: Buffer,
-	value: Uint8Array | string,
+
+export type IBufferValueInput = string | number | Uint8Array;
+
+export function _valueLength(value: IBufferValueInput)
+{
+	return typeof value === 'number' ? 1 : value.length;
+}
+
+export function _bufferLastIndexOf(buf: Buffer,
+	value: IBufferValueInput,
 	byteOffset?: number,
 	encoding?: BufferEncoding,
 )
 {
-	const i = buf.lastIndexOf(value, byteOffset ?? (0 - value.length), encoding);
+	const len = _valueLength(value);
+	const i = buf.lastIndexOf(value, byteOffset ?? (0 - len), encoding);
 
-	return i !== -1 && (i + value.length) === buf.length
+	return {
+		len,
+		i,
+	}
+}
+
+export function _endWith(buf: any[] | Uint8Array, i: number, len: number)
+{
+	return i !== -1 && (i + len) === buf.length
+}
+
+export function _indexWith(i: number, byteOffset: number)
+{
+	return i !== -1 && i === byteOffset
 }
 
 export function bufferEndWith(buf: Buffer,
@@ -15,99 +37,48 @@ export function bufferEndWith(buf: Buffer,
 	encoding?: BufferEncoding,
 )
 {
-	if (typeof value === 'number')
-	{
-		return buf[buf.length - 1] === value
-	}
+	const { len, i } = _bufferLastIndexOf(buf, value, byteOffset, encoding);
 
-	const i = buf.lastIndexOf(value, byteOffset ?? (0 - value.length), encoding);
-
-	return i !== -1 && (i + value.length) === buf.length
+	return _endWith(buf, i, len)
 }
 
-export function bufferStripEndWithByBuffer(buf: Buffer,
-	value: Uint8Array,
-	byteOffset?: number,
-	encoding?: BufferEncoding,
-)
-{
-	const i = buf.lastIndexOf(value, byteOffset ?? (0 - value.length), encoding);
-
-	if (i !== -1 && (i + value.length) === buf.length)
-	{
-		return buf.slice(0, i)
-	}
-
-	return buf
-}
+export { bufferEndWith as bufferEndWithByBuffer }
 
 export function bufferStripEndWith(buf: Buffer,
-	value: string | number | Uint8Array,
+	value: IBufferValueInput,
 	byteOffset?: number,
 	encoding?: BufferEncoding,
 )
 {
-	if (typeof value === 'number')
+	const { len, i } = _bufferLastIndexOf(buf, value, byteOffset, encoding);
+
+	if (_endWith(buf, i, len))
 	{
-		if (buf[buf.length - 1] === value)
-		{
-			return buf.slice(0, buf.length - 1);
-		}
-	}
-	else
-	{
-		const i = buf.lastIndexOf(value, byteOffset ?? (0 - value.length), encoding);
-
-		if (i !== -1 && (i + value.length) === buf.length)
-		{
-			/*
-			console.dir({
-				i,
-				vl: value.length,
-				bl: buf.length,
-
-				v: value.toString(),
-				b: buf.toString(),
-				b2: buf.slice(0, i).toString(),
-			})
-			 */
-
-			return buf.slice(0, i)
-		}
+		return buf.subarray(0, i)
 	}
 
 	return buf
 }
 
-export function bufferIndexWithByBuffer(buf: Buffer,
-	value: Uint8Array,
-	byteOffset: number,
-	encoding?: BufferEncoding,
-)
-{
-	const i = buf.indexOf(value, byteOffset, encoding);
-
-	return i !== -1 && i === byteOffset
-}
+export { bufferStripEndWith as bufferStripEndWithByBuffer }
 
 export function bufferIndexWith(buf: Buffer,
-	value: string | number | Uint8Array,
+	value: IBufferValueInput,
 	byteOffset: number,
 	encoding?: BufferEncoding,
 )
 {
-	if (typeof value === 'number')
-	{
-		return buf[byteOffset] === value
-	}
-
 	const i = buf.indexOf(value, byteOffset, encoding);
 
-	return i !== -1 && i === byteOffset
+	return _indexWith(i, byteOffset)
 }
+
+export { bufferIndexWith as bufferIndexWithByBuffer }
 
 export function splitBufferByBuffer(buffer: Buffer, value: Uint8Array)
 {
+	const len = _valueLength(value);
+
 	const lines: Buffer[] = [];
 	let bufferPosition = 0;
 
@@ -117,19 +88,19 @@ export function splitBufferByBuffer(buffer: Buffer, value: Uint8Array)
 		let line: Buffer;
 		const bufferPositionValue = buffer[bufferPosition];
 
-		if (bufferIndexWithByBuffer(buffer, value, bufferPosition++))
+		if (bufferIndexWith(buffer, value, bufferPosition++))
 		{
-			line = buffer.slice(lastNewLineBufferPosition, bufferPosition += (value.length - 1));
+			line = buffer.subarray(lastNewLineBufferPosition, bufferPosition += (len - 1));
 			lines.push(line);
 			lastNewLineBufferPosition = bufferPosition;
 		}
-		else if (bufferPositionValue === undefined)
+		else if (bufferPositionValue === void 0)
 		{
 			break;
 		}
 	}
 
-	const leftovers = buffer.slice(lastNewLineBufferPosition, bufferPosition);
+	const leftovers = buffer.subarray(lastNewLineBufferPosition, bufferPosition);
 	if (leftovers.length)
 	{
 		lines.push(leftovers);

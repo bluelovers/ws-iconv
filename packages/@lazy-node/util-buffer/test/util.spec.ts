@@ -8,7 +8,6 @@ test(`splitBufferByBuffer`, () =>
 	let c = Buffer.from(`\n`);
 
 	let actual = splitBufferByBuffer(buf, c);
-	let expected;
 
 	let lines = actual.map(v => v.toString());
 
