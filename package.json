@@ -46,6 +46,7 @@
     "lerna:publish": "lerna publish",
     "lerna:publish:yes": "lerna publish --yes --bump patch",
     "ws:fix-all": "yarn-tool fix-all  --overwriteHostedGitInfo",
+    "ws:fix-all:resetStaticFiles": "yarn run ws:fix-all -- --resetStaticFiles",
     "preversion": "yarn run test",
     "version": "echo workspaces version",
     "postversion": "yt fix-all",
