@@ -1,4 +1,5 @@
-import { EnumNewLineCharacter, INewLineCharacter } from './types';
+import { INewLineCharacter } from './types';
+import { EnumNewLineCharacter } from './index';
 
 export function handleOptionNewLineCharacter(newLineCharacter?: INewLineCharacter): number[]
 {
@@ -8,11 +9,11 @@ export function handleOptionNewLineCharacter(newLineCharacter?: INewLineCharacte
 	}
 	else if (typeof newLineCharacter !== 'number')
 	{
-		let ls = [] as number[]
+		const ls = [] as number[];
 
 		for (let i = 0; i < newLineCharacter.length; i++)
 		{
-			let c = newLineCharacter[i];
+			const c = newLineCharacter[i];
 
 			if (typeof c !== 'number')
 			{

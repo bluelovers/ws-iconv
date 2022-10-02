@@ -2,6 +2,8 @@
  * Created by user on 2020/5/29.
  */
 
+export * from './types';
+export * from './util';
 import { IPathLike, IOptions } from './types';
 import { readSync, closeSync, openSync } from 'fs';
 import {
@@ -12,6 +14,12 @@ import {
 	bufferStripEndWithByBuffer,
 	splitBufferByBuffer,
 } from '@lazy-node/util-buffer';
+
+export const enum EnumNewLineCharacter
+{
+	LF = 0x0a,
+	CR = 0x0d,
+}
 
 export class LineByLine
 {
@@ -222,5 +230,10 @@ export class LineByLine
 }
 
 Object.defineProperty(LineByLine, "__esModule", { value: true });
+
+Object.defineProperty(LineByLine, "handleOptionNewLineCharacter", { value: handleOptionNewLineCharacter });
+
+// @ts-ignore
+Object.defineProperty(LineByLine, "EnumNewLineCharacter", { value: EnumNewLineCharacter });
 
 export default LineByLine

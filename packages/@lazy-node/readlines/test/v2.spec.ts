@@ -58,6 +58,7 @@ describe('v2', () =>
 			newLineCharacter,
 		});
 
+		// @ts-ignore
 		let line: Buffer;
 		let lineNumber = 0;
 
