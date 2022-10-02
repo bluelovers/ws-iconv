@@ -3,6 +3,37 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.1](https://github.com/bluelovers/ws-iconv/compare/@lazy-node/readlines@2.0.21...@lazy-node/readlines@3.0.1) (2022-10-02)
+
+
+### BREAKING CHANGES
+
+* speed up performance by refactoring code splitting
+
+
+
+### 📦　Code Refactoring
+
+* support cjs ([02b093d](https://github.com/bluelovers/ws-iconv/commit/02b093d4a6562ad314a0969091c432ed2cbca203))
+* update to tsdx ([8eaee0a](https://github.com/bluelovers/ws-iconv/commit/8eaee0a81cfe497676486cbbe524c4f72d66c1c2))
+* speed up performance by refactoring code splitting ([f506766](https://github.com/bluelovers/ws-iconv/commit/f50676644122c3906c03137b19eb219555c1326e))
+* @lazy-node/util-buffer ([774601d](https://github.com/bluelovers/ws-iconv/commit/774601df8b133c31c37414dd42080ecfa58e30ad))
+
+
+### 🛠　Build System
+
+* update build ([a43c8d2](https://github.com/bluelovers/ws-iconv/commit/a43c8d2b998765402b4e6f5defd1d77350b0a44b))
+
+
+### 🔖　Miscellaneous
+
+* . ([56e065c](https://github.com/bluelovers/ws-iconv/commit/56e065ce78a0e784397851ec6fb47baf3fb5963a))
+* . ([c62712e](https://github.com/bluelovers/ws-iconv/commit/c62712ed9f285ff77b7ddd08b4ff76aa098a7450))
+* . ([98cd21d](https://github.com/bluelovers/ws-iconv/commit/98cd21d8a2bd0859a3730d6fdc76362530148816))
+* . ([f4de49b](https://github.com/bluelovers/ws-iconv/commit/f4de49bda969fc0f59ba1b929de786601c64bd57))
+
+
+
 ## [2.0.21](https://github.com/bluelovers/ws-iconv/compare/@lazy-node/readlines@2.0.20...@lazy-node/readlines@2.0.21) (2022-09-29)
 
 

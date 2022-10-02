@@ -1,6 +1,6 @@
 {
   "name": "@lazy-node/readlines",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "Read file line by line without buffering the whole file in memory.",
   "keywords": [
     "read",
@@ -84,7 +84,7 @@
     "tsc:showConfig": "ynpx get-current-tsconfig -p"
   },
   "dependencies": {
-    "@lazy-node/util-buffer": "^1.0.0"
+    "@lazy-node/util-buffer": "^1.0.1"
   },
   "packageManager": "yarn@1.22.19",
   "publishConfig": {
