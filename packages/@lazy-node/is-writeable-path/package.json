@@ -30,7 +30,7 @@
     "sort-package-json": "yarn-tool sort"
   },
   "dependencies": {
-    "tslib": "^2"
+    "fs-stat": "^1.0.24"
   },
   "publishConfig": {
     "access": "public"
