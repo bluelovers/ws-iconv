@@ -1,7 +1,7 @@
 import { LineByLine } from '../src/index';
 import { join } from 'path';
 import { openSync, outputFileSync } from 'fs-extra';
-import { newContent } from './util';
+import { newContent } from '../../../../test/util/util';
 
 describe('v2', () =>
 {
