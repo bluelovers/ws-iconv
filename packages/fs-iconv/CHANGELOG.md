@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.1.17](https://github.com/bluelovers/ws-iconv/compare/fs-iconv@3.1.16...fs-iconv@3.1.17) (2022-10-16)
+
+
+
+### 🛠　Build System
+
+* update build ([ecfef01](https://github.com/bluelovers/ws-iconv/commit/ecfef01e81ed9430facda8d921e3013730365d8f))
+
+
+
 ## [3.1.16](https://github.com/bluelovers/ws-iconv/compare/fs-iconv@3.1.15...fs-iconv@3.1.16) (2022-10-02)
 
 

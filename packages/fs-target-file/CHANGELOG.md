@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.21](https://github.com/bluelovers/ws-iconv/compare/fs-target-file@1.0.20...fs-target-file@1.0.21) (2022-10-16)
+
+
+
+### 🛠　Build System
+
+* update build ([ecfef01](https://github.com/bluelovers/ws-iconv/commit/ecfef01e81ed9430facda8d921e3013730365d8f))
+
+
+
 ## [1.0.20](https://github.com/bluelovers/ws-iconv/compare/fs-target-file@1.0.19...fs-target-file@1.0.20) (2022-10-02)
 
 

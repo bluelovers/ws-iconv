@@ -1,6 +1,6 @@
 {
   "name": "extrastat2",
-  "version": "4.2.33",
+  "version": "4.2.34",
   "description": "Resolve fs.Stat to mimetype, ownername, groupname, and human-readable permissions.",
   "keywords": [
     "MIME",

@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.11](https://github.com/bluelovers/ws-iconv/compare/@lazy-node/sanitize-filename@1.0.10...@lazy-node/sanitize-filename@1.0.11) (2022-10-16)
+
+
+
+### 🛠　Build System
+
+* update build ([ecfef01](https://github.com/bluelovers/ws-iconv/commit/ecfef01e81ed9430facda8d921e3013730365d8f))
+
+
+
 ## [1.0.10](https://github.com/bluelovers/ws-iconv/compare/@lazy-node/sanitize-filename@1.0.9...@lazy-node/sanitize-filename@1.0.10) (2022-10-02)
 
 
