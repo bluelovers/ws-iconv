@@ -48,7 +48,7 @@
     "@lazy-node/windows-unsafe-filename": "^1.0.12",
     "filenamify": "<5 >=4",
     "tslib": "^2",
-    "zero-width": "^1.0.23"
+    "zero-width": "^1.0.24"
   },
   "devDependencies": {
     "get-random-string": "^1.0.9"

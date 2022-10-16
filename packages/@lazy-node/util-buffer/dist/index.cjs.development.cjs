@@ -7,7 +7,6 @@ function _valueLength(value) {
 }
 function _bufferLastIndexOf(buf, value, byteOffset, encoding) {
   const len = _valueLength(value);
-
   const i = buf.lastIndexOf(value, byteOffset !== null && byteOffset !== void 0 ? byteOffset : 0 - len, encoding);
   return {
     len,
@@ -25,7 +24,6 @@ function bufferEndWith(buf, value, byteOffset, encoding) {
     len,
     i
   } = _bufferLastIndexOf(buf, value, byteOffset, encoding);
-
   return _endWith(buf, i, len);
 }
 function bufferStripEndWith(buf, value, byteOffset, encoding) {
@@ -33,11 +31,9 @@ function bufferStripEndWith(buf, value, byteOffset, encoding) {
     len,
     i
   } = _bufferLastIndexOf(buf, value, byteOffset, encoding);
-
   if (_endWith(buf, i, len)) {
     return buf.subarray(0, i);
   }
-
   return buf;
 }
 function bufferIndexWith(buf, value, byteOffset, encoding) {
@@ -46,15 +42,12 @@ function bufferIndexWith(buf, value, byteOffset, encoding) {
 }
 function splitBufferByBuffer(buffer, value) {
   const len = _valueLength(value);
-
   const lines = [];
   let bufferPosition = 0;
   let lastNewLineBufferPosition = 0;
-
   while (true) {
     let line;
     const bufferPositionValue = buffer[bufferPosition];
-
     if (bufferIndexWith(buffer, value, bufferPosition++)) {
       line = buffer.subarray(lastNewLineBufferPosition, bufferPosition += len - 1);
       lines.push(line);
@@ -63,13 +56,10 @@ function splitBufferByBuffer(buffer, value) {
       break;
     }
   }
-
   const leftovers = buffer.subarray(lastNewLineBufferPosition, bufferPosition);
-
   if (leftovers.length) {
     lines.push(leftovers);
   }
-
   return lines;
 }
 

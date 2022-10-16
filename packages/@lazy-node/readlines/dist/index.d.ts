@@ -32,8 +32,6 @@ export declare class LineByLine {
 	next(): Buffer;
 	generator(): Generator<Buffer, void, unknown>;
 	static generator(file: IPathLike, options?: IOptions): Generator<Buffer, void, unknown>;
-	static LineByLine: typeof LineByLine;
-	static default: typeof LineByLine;
 }
 
 export {

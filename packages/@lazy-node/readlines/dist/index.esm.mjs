@@ -96,17 +96,7 @@ class LineByLine {
     const i = new this(e, t);
     yield* i.generator();
   }
-  static LineByLine=LineByLine;
-  static default=LineByLine;
 }
-
-Object.defineProperty(LineByLine, "__esModule", {
-  value: !0
-}), Object.defineProperty(LineByLine, "handleOptionNewLineCharacter", {
-  value: handleOptionNewLineCharacter
-}), Object.defineProperty(LineByLine, "EnumNewLineCharacter", {
-  value: s
-});
 
 export { s as EnumNewLineCharacter, LineByLine, LineByLine as default, handleOptionNewLineCharacter };
 //# sourceMappingURL=index.esm.mjs.map
