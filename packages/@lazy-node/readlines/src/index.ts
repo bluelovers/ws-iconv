@@ -224,16 +224,20 @@ export class LineByLine
 		const liner = new this(file, options)
 		yield* liner.generator()
 	}
-
-	static LineByLine = LineByLine;
-	static default = LineByLine;
 }
 
-Object.defineProperty(LineByLine, "__esModule", { value: true });
-
-Object.defineProperty(LineByLine, "handleOptionNewLineCharacter", { value: handleOptionNewLineCharacter });
-
 // @ts-ignore
-Object.defineProperty(LineByLine, "EnumNewLineCharacter", { value: EnumNewLineCharacter });
+if (process.env.TSDX_FORMAT !== 'esm')
+{
+	Object.defineProperty(LineByLine, "__esModule", { value: true });
+
+	Object.defineProperty(LineByLine, 'LineByLine', { value: LineByLine });
+	Object.defineProperty(LineByLine, 'default', { value: LineByLine });
+
+	Object.defineProperty(LineByLine, "handleOptionNewLineCharacter", { value: handleOptionNewLineCharacter });
+
+	// @ts-ignore
+	Object.defineProperty(LineByLine, "EnumNewLineCharacter", { value: EnumNewLineCharacter });
+}
 
 export default LineByLine
