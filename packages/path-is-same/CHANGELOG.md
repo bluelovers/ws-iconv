@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.24](https://github.com/bluelovers/ws-iconv/compare/path-is-same@1.0.23...path-is-same@1.0.24) (2022-10-18)
+
+
+
+### 📦　Code Refactoring
+
+* { realpathSync => realpathSync.native } ([252c33e](https://github.com/bluelovers/ws-iconv/commit/252c33eff4a210e243ce6d8c4a968ad12bb1fbaf))
+
+
+
 ## [1.0.23](https://github.com/bluelovers/ws-iconv/compare/path-is-same@1.0.22...path-is-same@1.0.23) (2022-10-02)
 
 
