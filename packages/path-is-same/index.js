@@ -19,10 +19,10 @@ function fsSameRealpath(p1, ...ps) {
     if (!(p1 === null || p1 === void 0 ? void 0 : p1.length) || !((_a = ps[0]) === null || _a === void 0 ? void 0 : _a.length)) {
         return false;
     }
-    p1 = (0, fs_1.realpathSync)(p1);
+    p1 = fs_1.realpathSync.native(p1);
     return ps.every(p2 => {
         try {
-            p2 = (0, fs_1.realpathSync)(p2);
+            p2 = fs_1.realpathSync.native(p2);
         }
         catch (e) {
             return false;

@@ -24,14 +24,14 @@ export function fsSameRealpath(p1: string, ...ps: string[]): boolean
 		return false
 	}
 
-	p1 = realpathSync(p1);
+	p1 = realpathSync.native(p1);
 
 	return ps.every(p2 =>
 	{
 
 		try
 		{
-			p2 = realpathSync(p2);
+			p2 = realpathSync.native(p2);
 		}
 		catch (e)
 		{
