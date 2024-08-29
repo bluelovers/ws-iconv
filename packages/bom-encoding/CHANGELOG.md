@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.15](https://github.com/bluelovers/ws-iconv/compare/bom-encoding@1.0.14...bom-encoding@1.0.15) (2024-08-29)
+
+
+
+### 🛠　Build System
+
+* update build ([263e72e](https://github.com/bluelovers/ws-iconv/commit/263e72e423867a305d52992f40543e2efd19a349))
+
+
+
 ## [1.0.14](https://github.com/bluelovers/ws-iconv/compare/bom-encoding@1.0.13...bom-encoding@1.0.14) (2022-10-16)
 
 

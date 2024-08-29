@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.33](https://github.com/bluelovers/ws-iconv/compare/iconv-jschardet@2.0.32...iconv-jschardet@2.0.33) (2024-08-29)
+
+
+
+### 🛠　Build System
+
+* update build ([263e72e](https://github.com/bluelovers/ws-iconv/commit/263e72e423867a305d52992f40543e2efd19a349))
+
+
+### 📌　Dependencies
+
+* update deps ([dffc6e3](https://github.com/bluelovers/ws-iconv/commit/dffc6e313e4017a32d608bd0dad6ef6faaf761a3))
+
+
+
 ## [2.0.32](https://github.com/bluelovers/ws-iconv/compare/iconv-jschardet@2.0.31...iconv-jschardet@2.0.32) (2022-10-02)
 
 

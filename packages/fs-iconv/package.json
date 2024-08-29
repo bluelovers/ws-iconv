@@ -1,6 +1,6 @@
 {
   "name": "fs-iconv",
-  "version": "3.1.17",
+  "version": "3.1.18",
   "description": "save file with charset/encoding/iconv",
   "keywords": [
     "async",
@@ -76,10 +76,10 @@
     "sort-package-json": "yarn-tool sort"
   },
   "dependencies": {
-    "@lazy-node/sanitize-filename": "^1.0.11",
+    "@lazy-node/sanitize-filename": "^1.0.12",
     "bluebird": "^3.7.2",
     "fs-extra": "^11.2.0",
-    "iconv-jschardet": "^2.0.32",
+    "iconv-jschardet": "^2.0.33",
     "lodash": "^4.17.21",
     "ts-type": "^3.0.1",
     "tslib": "^2"

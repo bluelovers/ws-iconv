@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.3](https://github.com/bluelovers/ws-iconv/compare/@lazy-node/util-buffer@1.0.2...@lazy-node/util-buffer@1.0.3) (2024-08-29)
+
+
+
+### 🐛　Bug Fixes
+
+* types ([f91c2e6](https://github.com/bluelovers/ws-iconv/commit/f91c2e6c809b6ca3da3c432b88711349a8652241))
+
+
+
 ## [1.0.2](https://github.com/bluelovers/ws-iconv/compare/@lazy-node/util-buffer@1.0.1...@lazy-node/util-buffer@1.0.2) (2022-10-16)
 
 

@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.19](https://github.com/bluelovers/ws-iconv/compare/fs-stream-sync@2.0.18...fs-stream-sync@2.0.19) (2024-08-29)
+
+
+
+### 🛠　Build System
+
+* update build ([263e72e](https://github.com/bluelovers/ws-iconv/commit/263e72e423867a305d52992f40543e2efd19a349))
+
+
+
 ## [2.0.18](https://github.com/bluelovers/ws-iconv/compare/fs-stream-sync@2.0.17...fs-stream-sync@2.0.18) (2022-10-02)
 
 

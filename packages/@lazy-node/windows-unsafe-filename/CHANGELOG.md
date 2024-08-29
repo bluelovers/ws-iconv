@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.13](https://github.com/bluelovers/ws-iconv/compare/@lazy-node/windows-unsafe-filename@1.0.12...@lazy-node/windows-unsafe-filename@1.0.13) (2024-08-29)
+
+
+
+### 🛠　Build System
+
+* update build ([263e72e](https://github.com/bluelovers/ws-iconv/commit/263e72e423867a305d52992f40543e2efd19a349))
+
+
+
 ## [1.0.12](https://github.com/bluelovers/ws-iconv/compare/@lazy-node/windows-unsafe-filename@1.0.11...@lazy-node/windows-unsafe-filename@1.0.12) (2022-10-02)
 
 
