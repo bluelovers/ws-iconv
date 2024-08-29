@@ -120,7 +120,7 @@ export class LineByLine
 
 	protected _extractLines(buffer: Buffer)
 	{
-		return splitBufferByBuffer(buffer, this.#newLineCharacter)
+		return splitBufferByBuffer(buffer, this.#newLineCharacter as any)
 	};
 
 	protected _readChunk(lineLeftovers?: Buffer)
@@ -133,16 +133,16 @@ export class LineByLine
 		{
 			const readBuffer = Buffer.alloc(this.#readChunk);
 
-			bytesRead = readSync(this.#fd, readBuffer, 0, this.#readChunk, this.#fdPosition);
+			bytesRead = readSync(this.#fd, readBuffer as any, 0, this.#readChunk, this.#fdPosition);
 			totalBytesRead = totalBytesRead + bytesRead;
 
 			this.#fdPosition = this.#fdPosition + bytesRead;
 
 			buffers.push(readBuffer);
 		}
-		while (bytesRead && buffers[buffers.length - 1].indexOf(this.#newLineCharacter) === -1);
+		while (bytesRead && buffers[buffers.length - 1].indexOf(this.#newLineCharacter as any) === -1);
 
-		let bufferData = Buffer.concat(buffers);
+		let bufferData = Buffer.concat(buffers as any);
 
 		if (bytesRead < this.#readChunk)
 		{
@@ -156,7 +156,7 @@ export class LineByLine
 
 			if (lineLeftovers)
 			{
-				this.#linesCache[0] = Buffer.concat([lineLeftovers, this.#linesCache[0]]);
+				this.#linesCache[0] = Buffer.concat([lineLeftovers as any, this.#linesCache[0] as any]);
 			}
 		}
 

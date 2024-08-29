@@ -5,7 +5,7 @@ var utilBuffer = require('@lazy-node/util-buffer');
 
 function handleOptionNewLineCharacter(newLineCharacter) {
   if (!newLineCharacter) {
-    return [10];
+    return [10 /* EnumNewLineCharacter.LF */];
   } else if (typeof newLineCharacter !== 'number') {
     const ls = [];
     for (let i = 0; i < newLineCharacter.length; i++) {
@@ -155,6 +155,7 @@ class LineByLine {
     yield* liner.generator();
   }
 }
+// @ts-ignore
 {
   Object.defineProperty(LineByLine, "__esModule", {
     value: true
@@ -168,6 +169,7 @@ class LineByLine {
   Object.defineProperty(LineByLine, "handleOptionNewLineCharacter", {
     value: handleOptionNewLineCharacter
   });
+  // @ts-ignore
   Object.defineProperty(LineByLine, "EnumNewLineCharacter", {
     value: EnumNewLineCharacter
   });
