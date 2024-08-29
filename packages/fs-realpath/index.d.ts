@@ -1,5 +1,3 @@
-/// <reference types="node" />
-/// <reference types="node" />
 import { BufferEncodingOption, EncodingOption, PathLike, realpathSync } from 'fs';
 export declare const fsRealpathNativeSync: typeof realpathSync.native;
 export declare function fsRealpathNativeAsync(path: PathLike, options?: EncodingOption): Promise<string>;

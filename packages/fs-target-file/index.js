@@ -1,6 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.fsTargetFile = exports.toTargetFileOptions = exports.fsFileMethodAsync = void 0;
+exports.fsFileMethodAsync = fsFileMethodAsync;
+exports.toTargetFileOptions = toTargetFileOptions;
+exports.fsTargetFile = fsTargetFile;
 const fs_extra_1 = require("fs-extra");
 function fsFileMethodAsync(options) {
     options !== null && options !== void 0 ? options : (options = {});
@@ -19,7 +21,6 @@ function fsFileMethodAsync(options) {
         write,
     };
 }
-exports.fsFileMethodAsync = fsFileMethodAsync;
 function toTargetFileOptions(targetOptions) {
     var _a;
     let inputFile;
@@ -39,7 +40,6 @@ function toTargetFileOptions(targetOptions) {
         outputFile,
     };
 }
-exports.toTargetFileOptions = toTargetFileOptions;
 function fsTargetFile(targetOptions, options) {
     const { read, write } = fsFileMethodAsync(options);
     const { inputFile, outputFile } = toTargetFileOptions(targetOptions);
@@ -62,6 +62,5 @@ function fsTargetFile(targetOptions, options) {
     };
     return target;
 }
-exports.fsTargetFile = fsTargetFile;
 exports.default = fsTargetFile;
 //# sourceMappingURL=index.js.map

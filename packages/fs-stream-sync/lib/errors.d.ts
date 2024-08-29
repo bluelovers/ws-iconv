@@ -1,4 +1,3 @@
-/// <reference types="node" />
 import ErrnoException = NodeJS.ErrnoException;
 export declare class NodeLikeError extends Error {
     code: string;

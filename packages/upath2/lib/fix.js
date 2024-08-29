@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports._fix_special = void 0;
+exports._fix_special = _fix_special;
 function _fix_special(who, path, returnOldIfNoPreset) {
     var _a;
     let m;
@@ -11,5 +11,4 @@ function _fix_special(who, path, returnOldIfNoPreset) {
         return path;
     }
 }
-exports._fix_special = _fix_special;
 //# sourceMappingURL=fix.js.map

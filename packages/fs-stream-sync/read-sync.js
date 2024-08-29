@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.createSyncReadStream = exports.SyncReadStream = exports.kMinPoolSpace = void 0;
+exports.SyncReadStream = exports.kMinPoolSpace = void 0;
+exports.createSyncReadStream = createSyncReadStream;
 const tslib_1 = require("tslib");
 const fs_1 = tslib_1.__importDefault(require("fs"));
 const internal_1 = require("./lib/internal");
@@ -105,6 +106,5 @@ exports.SyncReadStream = SyncReadStream;
 function createSyncReadStream(path, options) {
     return new SyncReadStream(path, options);
 }
-exports.createSyncReadStream = createSyncReadStream;
 exports.default = SyncReadStream;
 //# sourceMappingURL=read-sync.js.map

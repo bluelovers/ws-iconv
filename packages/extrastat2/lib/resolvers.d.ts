@@ -1,4 +1,3 @@
-/// <reference types="node" />
 import { ParsedPath } from "path";
 import { IStatsExtra } from './types';
 export { rwx } from './resolvers/rwx';

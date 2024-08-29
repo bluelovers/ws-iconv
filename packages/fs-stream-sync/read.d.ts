@@ -1,4 +1,3 @@
-/// <reference types="node" />
 import { PathLike } from "fs";
 import fs from 'fs';
 import { IFsReadStreamOptions, IFsStreamData, IFsStreamState, IFsWriteStreamOptions } from './lib/interface';

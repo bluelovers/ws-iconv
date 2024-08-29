@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports._mimetype = void 0;
+exports._mimetype = _mimetype;
 const mime_types_1 = require("mime-types");
 function _mimetype(parsedPath, dirent) {
     return (dirent.isFile() ? (0, mime_types_1.lookup)(parsedPath.ext) :
@@ -9,5 +9,4 @@ function _mimetype(parsedPath, dirent) {
                 dirent.isSocket() ? "application/socket" /* EnumMimetypePlus.socket */ :
                     "application/unknown" /* EnumMimetypePlus.unknown */) || void 0;
 }
-exports._mimetype = _mimetype;
 //# sourceMappingURL=mime.js.map

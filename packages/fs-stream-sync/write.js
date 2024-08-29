@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.createWriteStream = exports.WriteStream = void 0;
+exports.WriteStream = void 0;
+exports.createWriteStream = createWriteStream;
 const tslib_1 = require("tslib");
 const fs_1 = tslib_1.__importDefault(require("fs"));
 const internal_1 = require("./lib/internal");
@@ -32,6 +33,5 @@ exports.WriteStream = WriteStream;
 function createWriteStream(path, options) {
     return new WriteStream(path, options);
 }
-exports.createWriteStream = createWriteStream;
 exports.default = WriteStream;
 //# sourceMappingURL=write.js.map

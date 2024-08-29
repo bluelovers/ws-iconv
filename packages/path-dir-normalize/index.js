@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.createPathDirNormalize = exports.pathDirNormalize = void 0;
+exports.pathDirNormalize = pathDirNormalize;
+exports.createPathDirNormalize = createPathDirNormalize;
 const upath2_1 = require("upath2");
 const path_strip_sep_1 = require("path-strip-sep");
 /**
@@ -13,7 +14,6 @@ function pathDirNormalize(dir, pathLib) {
     let ret = (0, path_strip_sep_1.pathStripSep)(((_b = pathLib.normalize) !== null && _b !== void 0 ? _b : upath2_1.normalize)(dir));
     return ret + sep;
 }
-exports.pathDirNormalize = pathDirNormalize;
 function createPathDirNormalize(defaultPathLib) {
     if (typeof defaultPathLib.normalize !== 'function') {
         throw new TypeError(`normalize must be function`);
@@ -27,6 +27,5 @@ function createPathDirNormalize(defaultPathLib) {
         return ((_a = pathLib.normalize) !== null && _a !== void 0 ? _a : defaultPathLib.normalize)(dir + ((_b = pathLib.sep) !== null && _b !== void 0 ? _b : defaultPathLib.sep));
     };
 }
-exports.createPathDirNormalize = createPathDirNormalize;
 exports.default = pathDirNormalize;
 //# sourceMappingURL=index.js.map

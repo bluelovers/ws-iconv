@@ -1,5 +1,3 @@
-/// <reference types="node" />
-/// <reference types="bluebird" />
 /**
  * @internal
  */

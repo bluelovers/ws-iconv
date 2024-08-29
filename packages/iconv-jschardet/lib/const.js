@@ -3,7 +3,10 @@
  * Created by user on 2019/3/21.
  */
 Object.defineProperty(exports, "__esModule", { value: true });
-exports._enc = exports._codecTable = exports.codecDataNameToUpperCase = exports.EnumEncoding = exports.codec_table = exports.NodeEncoding = exports.ENUM_NODE_ENCODING = exports.CODEC_DATA_ENCODING_ID = exports.CODEC_DATA_NAME_TO_UPPER_CASE = exports.CODEC_DATA_NAME = void 0;
+exports.EnumEncoding = exports.codec_table = exports.NodeEncoding = exports.ENUM_NODE_ENCODING = exports.CODEC_DATA_ENCODING_ID = exports.CODEC_DATA_NAME_TO_UPPER_CASE = exports.CODEC_DATA_NAME = void 0;
+exports.codecDataNameToUpperCase = codecDataNameToUpperCase;
+exports._codecTable = _codecTable;
+exports._enc = _enc;
 var CODEC_DATA_NAME;
 (function (CODEC_DATA_NAME) {
     CODEC_DATA_NAME["BIG5"] = "Big5";
@@ -17,7 +20,7 @@ var CODEC_DATA_NAME;
     CODEC_DATA_NAME["UTF_8"] = "UTF-8";
     CODEC_DATA_NAME["UTF_32_LE"] = "UTF-32LE";
     CODEC_DATA_NAME["UTF_32_BE"] = "UTF-32BE";
-})(CODEC_DATA_NAME = exports.CODEC_DATA_NAME || (exports.CODEC_DATA_NAME = {}));
+})(CODEC_DATA_NAME || (exports.CODEC_DATA_NAME = CODEC_DATA_NAME = {}));
 var CODEC_DATA_NAME_TO_UPPER_CASE;
 (function (CODEC_DATA_NAME_TO_UPPER_CASE) {
     CODEC_DATA_NAME_TO_UPPER_CASE["BIG5"] = "BIG5";
@@ -31,7 +34,7 @@ var CODEC_DATA_NAME_TO_UPPER_CASE;
     CODEC_DATA_NAME_TO_UPPER_CASE["UTF_8"] = "UTF-8";
     CODEC_DATA_NAME_TO_UPPER_CASE["UTF_32_LE"] = "UTF-32LE";
     CODEC_DATA_NAME_TO_UPPER_CASE["UTF_32_BE"] = "UTF-32BE";
-})(CODEC_DATA_NAME_TO_UPPER_CASE = exports.CODEC_DATA_NAME_TO_UPPER_CASE || (exports.CODEC_DATA_NAME_TO_UPPER_CASE = {}));
+})(CODEC_DATA_NAME_TO_UPPER_CASE || (exports.CODEC_DATA_NAME_TO_UPPER_CASE = CODEC_DATA_NAME_TO_UPPER_CASE = {}));
 var CODEC_DATA_ENCODING_ID;
 (function (CODEC_DATA_ENCODING_ID) {
     CODEC_DATA_ENCODING_ID["big5hkscs"] = "big5hkscs";
@@ -55,7 +58,7 @@ var CODEC_DATA_ENCODING_ID;
     // ----------
     CODEC_DATA_ENCODING_ID["ascii"] = "ascii";
     CODEC_DATA_ENCODING_ID["ASCII"] = "ASCII";
-})(CODEC_DATA_ENCODING_ID = exports.CODEC_DATA_ENCODING_ID || (exports.CODEC_DATA_ENCODING_ID = {}));
+})(CODEC_DATA_ENCODING_ID || (exports.CODEC_DATA_ENCODING_ID = CODEC_DATA_ENCODING_ID = {}));
 var ENUM_NODE_ENCODING;
 (function (ENUM_NODE_ENCODING) {
     ENUM_NODE_ENCODING["ASCII"] = "ascii";
@@ -67,7 +70,7 @@ var ENUM_NODE_ENCODING;
     ENUM_NODE_ENCODING["LATIN1"] = "latin1";
     ENUM_NODE_ENCODING["BINARY"] = "binary";
     ENUM_NODE_ENCODING["HEX"] = "hex";
-})(ENUM_NODE_ENCODING = exports.ENUM_NODE_ENCODING || (exports.ENUM_NODE_ENCODING = {}));
+})(ENUM_NODE_ENCODING || (exports.ENUM_NODE_ENCODING = ENUM_NODE_ENCODING = {}));
 exports.NodeEncoding = [
     "ascii" /* ENUM_NODE_ENCODING.ASCII */,
     "utf8" /* ENUM_NODE_ENCODING.UTF8 */,
@@ -124,15 +127,13 @@ var EnumEncoding;
     EnumEncoding["BIG5"] = "Big5";
     EnumEncoding["UTF8"] = "UTF-8";
     EnumEncoding["GBK"] = "Gbk";
-})(EnumEncoding = exports.EnumEncoding || (exports.EnumEncoding = {}));
+})(EnumEncoding || (exports.EnumEncoding = EnumEncoding = {}));
 function codecDataNameToUpperCase(key) {
     return key.toUpperCase();
 }
-exports.codecDataNameToUpperCase = codecDataNameToUpperCase;
 function _codecTable(data) {
     return data;
 }
-exports._codecTable = _codecTable;
 function _enc(encoding) {
     if (encoding == null) {
         throw new Error(`encoding '${encoding}' is broken`);
@@ -142,6 +143,5 @@ function _enc(encoding) {
         .toLowerCase()
         .replace(/[^0-9a-z]|:\d{4}$/g, '');
 }
-exports._enc = _enc;
 exports.default = exports;
 //# sourceMappingURL=const.js.map

@@ -1,6 +1,11 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.encode = exports.decode = exports.detect = exports.BufferFrom = exports.skipDecodeWarning = exports.disableCodecDataWarn = exports.iconvLite = exports.jschardet = exports.encodingExists = void 0;
+exports.disableCodecDataWarn = exports.iconvLite = exports.jschardet = exports.encodingExists = void 0;
+exports.skipDecodeWarning = skipDecodeWarning;
+exports.BufferFrom = BufferFrom;
+exports.detect = detect;
+exports.decode = decode;
+exports.encode = encode;
 const tslib_1 = require("tslib");
 const iconv_lite_1 = tslib_1.__importStar(require("iconv-lite"));
 exports.iconvLite = iconv_lite_1.default;
@@ -21,7 +26,6 @@ function skipDecodeWarning(bool = true) {
     // @ts-ignore
     return iconv_lite_1.default.skipDecodeWarning = bool;
 }
-exports.skipDecodeWarning = skipDecodeWarning;
 /**
  * 將輸入內容轉換為 Buffer
  */
@@ -43,7 +47,6 @@ function BufferFrom(str, encoding = 'utf8', from, options) {
     let buf = iconv_lite_1.default.encode(data, encoding, options);
     return buf;
 }
-exports.BufferFrom = BufferFrom;
 /**
  * 檢測輸入內容編碼
  */
@@ -63,7 +66,6 @@ function detect(str, plus) {
     }
     return ret;
 }
-exports.detect = detect;
 /**
  * 檢測輸入內容編碼並且轉換為 字串
  */
@@ -120,7 +122,6 @@ function decode(str, from = null) {
     }
     return data;
 }
-exports.decode = decode;
 /**
  * 檢測輸入內容編碼並且轉換為 Buffer
  */
@@ -129,6 +130,5 @@ function encode(str, to = "utf8" /* ENUM_NODE_ENCODING.UTF8 */, from = null, opt
     // @ts-ignore
     return iconv_lite_1.default.encode(buf, to, options);
 }
-exports.encode = encode;
 exports.default = exports;
 //# sourceMappingURL=index.js.map

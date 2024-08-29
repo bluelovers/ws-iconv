@@ -1,6 +1,10 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.fsHardlinkSync = exports.fsHardlink = exports.fsSymlinkSync = exports.fsSymlink = exports._handleOverwrite = void 0;
+exports._handleOverwrite = _handleOverwrite;
+exports.fsSymlink = fsSymlink;
+exports.fsSymlinkSync = fsSymlinkSync;
+exports.fsHardlink = fsHardlink;
+exports.fsHardlinkSync = fsHardlinkSync;
 const fs_extra_1 = require("fs-extra");
 const fs_stat_1 = require("fs-stat");
 const path_is_same_1 = require("path-is-same");
@@ -51,25 +55,20 @@ function _handleOverwrite(src, dest, options, async) {
         return false;
     }
 }
-exports._handleOverwrite = _handleOverwrite;
 async function fsSymlink(src, dest, options) {
     await _handleOverwrite(src, dest, options, true);
     return (0, fs_extra_1.ensureSymlink)(src, dest, options === null || options === void 0 ? void 0 : options.type);
 }
-exports.fsSymlink = fsSymlink;
 function fsSymlinkSync(src, dest, options) {
     _handleOverwrite(src, dest, options, false);
     return (0, fs_extra_1.ensureSymlinkSync)(src, dest, options === null || options === void 0 ? void 0 : options.type);
 }
-exports.fsSymlinkSync = fsSymlinkSync;
 async function fsHardlink(src, dest, options) {
     await _handleOverwrite(src, dest, options, true);
     return (0, fs_extra_1.ensureLink)(src, dest);
 }
-exports.fsHardlink = fsHardlink;
 function fsHardlinkSync(src, dest, options) {
     return (0, fs_extra_1.ensureLinkSync)(src, dest);
 }
-exports.fsHardlinkSync = fsHardlinkSync;
 exports.default = fsSymlinkSync;
 //# sourceMappingURL=index.js.map

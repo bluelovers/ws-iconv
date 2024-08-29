@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.statExtra = void 0;
+exports.statExtra = statExtra;
 const promises_1 = require("fs/promises");
 const options_1 = require("./options");
 const path_1 = require("path");
@@ -18,6 +18,5 @@ function statExtra(pathname, options) {
         });
     });
 }
-exports.statExtra = statExtra;
 exports.default = statExtra;
 //# sourceMappingURL=index.js.map

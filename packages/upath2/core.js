@@ -3,7 +3,8 @@
  * Created by user on 2017/12/9/009.
  */
 Object.defineProperty(exports, "__esModule", { value: true });
-exports._this_origin = exports.fn = exports.upath = exports.win32 = exports.posix = exports.PathWrap = void 0;
+exports.fn = exports.upath = exports.win32 = exports.posix = exports.PathWrap = void 0;
+exports._this_origin = _this_origin;
 const tslib_1 = require("tslib");
 const path_1 = tslib_1.__importDefault(require("path"));
 const type_1 = require("./lib/type");
@@ -125,7 +126,7 @@ exports.PathWrap = PathWrap;
     // @ts-ignore
     PathWrap.fn.sep = '/';
     PathWrap.prototype.fn = PathWrap.fn;
-})(PathWrap = exports.PathWrap || (exports.PathWrap = {}));
+})(PathWrap || (exports.PathWrap = PathWrap = {}));
 exports.posix = new PathWrap(path_1.default.posix, 'posix');
 exports.win32 = new PathWrap(path_1.default.win32, 'win32');
 const _upath = new PathWrap(path_1.default, 'upath');
@@ -175,5 +176,4 @@ function _this_origin(who) {
     }
     throw new TypeError(`this not PathWrap`);
 }
-exports._this_origin = _this_origin;
 //# sourceMappingURL=core.js.map

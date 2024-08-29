@@ -1,6 +1,7 @@
 'use strict';
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.createSyncWriteStream = exports.SyncWriteStream = void 0;
+exports.SyncWriteStream = void 0;
+exports.createSyncWriteStream = createSyncWriteStream;
 const tslib_1 = require("tslib");
 const fs_1 = tslib_1.__importDefault(require("fs"));
 const errors_1 = require("./lib/errors");
@@ -92,6 +93,5 @@ exports.SyncWriteStream = SyncWriteStream;
 function createSyncWriteStream(path, options) {
     return new SyncWriteStream(path, options);
 }
-exports.createSyncWriteStream = createSyncWriteStream;
 exports.default = SyncWriteStream;
 //# sourceMappingURL=write-sync.js.map

@@ -1,6 +1,12 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.children = exports.siblings = exports.mimetype = exports.pathname = exports.name = exports.parents = exports.rwx = void 0;
+exports.rwx = void 0;
+exports.parents = parents;
+exports.name = name;
+exports.pathname = pathname;
+exports.mimetype = mimetype;
+exports.siblings = siblings;
+exports.children = children;
 const path_1 = require("path");
 const mime_1 = require("./mime");
 const list_1 = require("./list");
@@ -83,12 +89,10 @@ function parents(parsedPath, stat) {
     stat.parents = (0, path_parents_1.pathParents)(resolvedpath);
     return stat;
 }
-exports.parents = parents;
 function name(parsedPath, stat) {
     stat.name = parsedPath.name;
     return stat;
 }
-exports.name = name;
 function pathname(parsedPath, stat) {
     let resolvedpath = (0, path_1.join)(parsedPath.dir, parsedPath.name);
     if (stat.isDirectory()) {
@@ -97,17 +101,14 @@ function pathname(parsedPath, stat) {
     stat.pathname = resolvedpath;
     return stat;
 }
-exports.pathname = pathname;
 function mimetype(parsedPath, stat) {
     stat.mimetype = (0, mime_1._mimetype)(parsedPath, stat);
     return stat;
 }
-exports.mimetype = mimetype;
 async function siblings(parsedPath, stat) {
     stat.siblings = await (0, list_1.list)(parsedPath.dir);
     return stat;
 }
-exports.siblings = siblings;
 async function children(parsedPath, stat) {
     if (!stat.isDirectory()) {
         stat.children = null;
@@ -118,5 +119,4 @@ async function children(parsedPath, stat) {
     }
     return stat;
 }
-exports.children = children;
 //# sourceMappingURL=resolvers.js.map

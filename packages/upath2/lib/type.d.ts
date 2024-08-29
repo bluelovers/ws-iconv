@@ -1,4 +1,3 @@
-/// <reference types="node" />
 /**
  * Created by user on 2018/3/30/030.
  */

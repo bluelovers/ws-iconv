@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.EnumFsStreamErrorCode = exports.createError = exports.NodeLikeError = void 0;
+exports.EnumFsStreamErrorCode = exports.NodeLikeError = void 0;
+exports.createError = createError;
 class NodeLikeError extends Error {
     constructor(code, msg) {
         super(msg);
@@ -13,10 +14,9 @@ function createError(Err, code, msg) {
     e.code = code;
     return e;
 }
-exports.createError = createError;
 var EnumFsStreamErrorCode;
 (function (EnumFsStreamErrorCode) {
     EnumFsStreamErrorCode["ERR_STREAM_WRITE_AFTER_END"] = "ERR_STREAM_WRITE_AFTER_END";
     EnumFsStreamErrorCode["ERR_STREAM_DESTROYED"] = "ERR_STREAM_DESTROYED";
-})(EnumFsStreamErrorCode = exports.EnumFsStreamErrorCode || (exports.EnumFsStreamErrorCode = {}));
+})(EnumFsStreamErrorCode || (exports.EnumFsStreamErrorCode = EnumFsStreamErrorCode = {}));
 //# sourceMappingURL=errors.js.map

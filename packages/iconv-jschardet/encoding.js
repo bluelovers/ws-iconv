@@ -1,6 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.codec_data = exports.disableCodecDataWarn = exports.isNodeEncoding = void 0;
+exports.isNodeEncoding = isNodeEncoding;
+exports.disableCodecDataWarn = disableCodecDataWarn;
+exports.codec_data = codec_data;
 const tslib_1 = require("tslib");
 const logger_1 = tslib_1.__importDefault(require("debug-color2/logger"));
 const const_1 = require("./lib/const");
@@ -11,12 +13,10 @@ function isNodeEncoding(encoding) {
     let enc = (0, const_1._enc)(encoding);
     return const_1.NodeEncoding.includes((0, const_1._enc)(encoding)) ? enc : null;
 }
-exports.isNodeEncoding = isNodeEncoding;
 let DISABLE_CODEC_DATA_WARN = false;
 function disableCodecDataWarn(bool = true) {
     return DISABLE_CODEC_DATA_WARN = bool;
 }
-exports.disableCodecDataWarn = disableCodecDataWarn;
 function codec_data(encoding) {
     var _a, _b, _c;
     if (encoding == null) {
@@ -53,6 +53,5 @@ function codec_data(encoding) {
         return null;
     }
 }
-exports.codec_data = codec_data;
 exports.default = exports;
 //# sourceMappingURL=encoding.js.map

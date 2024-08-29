@@ -1,6 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.notUTF8 = exports.notUTF8Buffer = exports.detectEncoding = void 0;
+exports.detectEncoding = detectEncoding;
+exports.notUTF8Buffer = notUTF8Buffer;
+exports.notUTF8 = notUTF8;
 /**
  * Created by user on 2019/3/21.
  */
@@ -13,7 +15,6 @@ function detectEncoding(buf) {
     let chk = (0, index_1.detect)(buf);
     return (0, const_1._enc)(chk.encoding);
 }
-exports.detectEncoding = detectEncoding;
 /**
  * 當 Buffer 編碼不屬於 UTF-8 或者 ascii 時
  * 返回編碼資訊
@@ -23,7 +24,6 @@ function notUTF8Buffer(buf) {
     let encoding = (0, const_1._enc)(chk.encoding);
     return (encoding === "utf8" /* CODEC_DATA_ENCODING_ID.utf8 */ || encoding === "ascii" /* CODEC_DATA_ENCODING_ID.ascii */) ? null : chk;
 }
-exports.notUTF8Buffer = notUTF8Buffer;
 /**
  * 當 Buffer | string 編碼不屬於 UTF-8 或者 ascii 時
  * 返回編碼資訊
@@ -34,6 +34,5 @@ function notUTF8(buf) {
     }
     return notUTF8Buffer(buf);
 }
-exports.notUTF8 = notUTF8;
 exports.default = exports;
 //# sourceMappingURL=not-utf8.js.map

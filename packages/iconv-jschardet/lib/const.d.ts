@@ -1,7 +1,6 @@
 /**
  * Created by user on 2019/3/21.
  */
-/// <reference types="node" />
 export declare const enum CODEC_DATA_NAME {
     BIG5 = "Big5",
     GBK = "GBK",

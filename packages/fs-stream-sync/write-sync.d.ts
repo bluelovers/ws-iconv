@@ -1,5 +1,3 @@
-/// <reference types="node" />
-/// <reference types="node" />
 import { PathLike } from "fs";
 import { IFsWriteStreamOptions } from './lib/interface';
 import { WriteStream } from './write';

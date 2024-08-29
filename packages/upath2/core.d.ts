@@ -1,7 +1,6 @@
 /**
  * Created by user on 2017/12/9/009.
  */
-/// <reference types="node" />
 import { ParsedPath, PlatformPath } from 'path';
 import { IPathNode, IPath, IParse, IPathType, ORIGIN_KEY, IPathPlatform } from './lib/type';
 import * as types from './lib/type';
@@ -31,7 +30,7 @@ export declare class PathWrap implements IPath {
     toNamespacedPath(path: string): any;
 }
 export declare namespace PathWrap {
-    let fn: types.IPath;
+    let fn: IPath;
     type IPath = types.IPath;
     type IPathNode = types.IPathNode;
     type IParse = types.IParse;

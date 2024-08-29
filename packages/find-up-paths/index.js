@@ -1,6 +1,12 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.findUpPathsRuntimeAsync = exports.findUpPathsAsync = exports.findUpPathsRuntime = exports.findUpPaths = exports._throwIfNoEntry = exports._handlePattern = exports.handleOptions = void 0;
+exports.handleOptions = handleOptions;
+exports._handlePattern = _handlePattern;
+exports._throwIfNoEntry = _throwIfNoEntry;
+exports.findUpPaths = findUpPaths;
+exports.findUpPathsRuntime = findUpPathsRuntime;
+exports.findUpPathsAsync = findUpPathsAsync;
+exports.findUpPathsRuntimeAsync = findUpPathsRuntimeAsync;
 const path_parents_1 = require("path-parents");
 const fs_stat_1 = require("fs-stat");
 function handleOptions(cwd, opts) {
@@ -10,7 +16,6 @@ function handleOptions(cwd, opts) {
     (_a = (_b = runtime.opts).includeCurrentDirectory) !== null && _a !== void 0 ? _a : (_b.includeCurrentDirectory = true);
     return runtime;
 }
-exports.handleOptions = handleOptions;
 function _checkStringArray(pattern) {
     pattern.forEach(name => {
         if (typeof name !== 'string' || !(name === null || name === void 0 ? void 0 : name.length)) {
@@ -26,18 +31,15 @@ function _handlePattern(pattern) {
     _checkStringArray(pattern);
     return pattern;
 }
-exports._handlePattern = _handlePattern;
 function _throwIfNoEntry(runtime) {
     if (runtime.opts.throwIfNoEntry) {
         throw new RangeError(`can't found any entries of given patterns`);
     }
 }
-exports._throwIfNoEntry = _throwIfNoEntry;
 function findUpPaths(pattern, opts) {
     const runtime = handleOptions(opts);
     return findUpPathsRuntime(pattern, runtime);
 }
-exports.findUpPaths = findUpPaths;
 function findUpPathsRuntime(pattern, runtime) {
     const { onlyDirectories, onlyFiles, } = runtime.opts;
     pattern = _handlePattern(pattern);
@@ -66,12 +68,10 @@ function findUpPathsRuntime(pattern, runtime) {
     }
     _throwIfNoEntry(runtime);
 }
-exports.findUpPathsRuntime = findUpPathsRuntime;
 async function findUpPathsAsync(pattern, opts) {
     const runtime = handleOptions(opts);
     return findUpPathsRuntimeAsync(pattern, runtime);
 }
-exports.findUpPathsAsync = findUpPathsAsync;
 async function findUpPathsRuntimeAsync(pattern, runtime) {
     const { onlyDirectories, onlyFiles, } = runtime.opts;
     pattern = _handlePattern(pattern);
@@ -98,6 +98,5 @@ async function findUpPathsRuntimeAsync(pattern, runtime) {
     }
     _throwIfNoEntry(runtime);
 }
-exports.findUpPathsRuntimeAsync = findUpPathsRuntimeAsync;
 exports.default = findUpPaths;
 //# sourceMappingURL=index.js.map

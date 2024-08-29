@@ -1,6 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getOptionResolvers = exports.getOptions = exports.defaultOptions = void 0;
+exports.defaultOptions = void 0;
+exports.getOptions = getOptions;
+exports.getOptionResolvers = getOptionResolvers;
 const tslib_1 = require("tslib");
 const resolvers = tslib_1.__importStar(require("./resolvers"));
 const lodash_1 = require("lodash");
@@ -14,7 +16,6 @@ exports.defaultOptions = {
 function getOptions(options, sync) {
     return (0, lodash_1.defaults)(options, exports.defaultOptions);
 }
-exports.getOptions = getOptions;
 function getOptionResolvers(options, sync) {
     return Object.entries(getOptions(options, sync))
         .reduce((fns, [name, bool]) => {
@@ -31,5 +32,4 @@ function getOptionResolvers(options, sync) {
         return fns;
     }, []);
 }
-exports.getOptionResolvers = getOptionResolvers;
 //# sourceMappingURL=options.js.map

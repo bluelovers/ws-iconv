@@ -1,4 +1,3 @@
-/// <reference types="node" />
 import { ReadStream } from '../read';
 import { WriteStream } from '../write';
 import { SyncReadStream } from '../read-sync';

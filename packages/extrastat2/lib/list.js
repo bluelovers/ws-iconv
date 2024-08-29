@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.list = void 0;
+exports.list = list;
 const tslib_1 = require("tslib");
 const fs_1 = require("fs");
 const mime_1 = require("./mime");
@@ -19,5 +19,4 @@ function list(resolvedpath) {
         });
     });
 }
-exports.list = list;
 //# sourceMappingURL=list.js.map

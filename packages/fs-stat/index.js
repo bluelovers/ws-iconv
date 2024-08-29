@@ -1,6 +1,15 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.fsStatExistsSync = exports.fsStatExists = exports.isExistsStat = exports.isDirectoryOrFileStat = exports.isSameStat = exports.isSymbolicLinkSync = exports.isSymbolicLink = exports.fsStatSync = exports.fsStat = exports._handleOptions = void 0;
+exports._handleOptions = _handleOptions;
+exports.fsStat = fsStat;
+exports.fsStatSync = fsStatSync;
+exports.isSymbolicLink = isSymbolicLink;
+exports.isSymbolicLinkSync = isSymbolicLinkSync;
+exports.isSameStat = isSameStat;
+exports.isDirectoryOrFileStat = isDirectoryOrFileStat;
+exports.isExistsStat = isExistsStat;
+exports.fsStatExists = fsStatExists;
+exports.fsStatExistsSync = fsStatExistsSync;
 /**
  * Created by user on 2020/6/22.
  */
@@ -18,7 +27,6 @@ function _handleOptions(options) {
     }
     return options;
 }
-exports._handleOptions = _handleOptions;
 function fsStat(path, options) {
     options = _handleOptions(options);
     let p = (options.followSymlinks ? fs_extra_1.stat : fs_extra_1.lstat)(path);
@@ -32,7 +40,6 @@ function fsStat(path, options) {
     }
     return p;
 }
-exports.fsStat = fsStat;
 function fsStatSync(path, options) {
     options = _handleOptions(options);
     let stat;
@@ -46,16 +53,13 @@ function fsStatSync(path, options) {
     }
     return stat;
 }
-exports.fsStatSync = fsStatSync;
 function isSymbolicLink(dir0, options) {
     return fsStat(dir0, options).then(stats => stats === null || stats === void 0 ? void 0 : stats.isSymbolicLink());
 }
-exports.isSymbolicLink = isSymbolicLink;
 function isSymbolicLinkSync(dir0, options) {
     const stats = fsStatSync(dir0, options);
     return stats === null || stats === void 0 ? void 0 : stats.isSymbolicLink();
 }
-exports.isSymbolicLinkSync = isSymbolicLinkSync;
 function isSameStat(st1, ...stats) {
     if (stats.length <= 0) {
         throw new TypeError(`st2 must be protected`);
@@ -65,14 +69,12 @@ function isSameStat(st1, ...stats) {
     }
     return stats.every(st2 => (st2 === null || st2 === void 0 ? void 0 : st2.ino) === st1.ino);
 }
-exports.isSameStat = isSameStat;
 function isDirectoryOrFileStat(stat, opts) {
     if (stat) {
         return !(opts.onlyDirectories && !stat.isDirectory() || opts.onlyFiles && !stat.isFile());
     }
     return null;
 }
-exports.isDirectoryOrFileStat = isDirectoryOrFileStat;
 function isExistsStat(stat, options) {
     if (stat) {
         if (options.onlyFiles || options.onlyDirectories) {
@@ -82,18 +84,15 @@ function isExistsStat(stat, options) {
     }
     return null;
 }
-exports.isExistsStat = isExistsStat;
 function fsStatExists(path, options) {
     return fsStat(path, options)
         .then(stat => {
         return isExistsStat(stat, options);
     });
 }
-exports.fsStatExists = fsStatExists;
 function fsStatExistsSync(path, options) {
     const stat = fsStatSync(path, options);
     return isExistsStat(stat, options);
 }
-exports.fsStatExistsSync = fsStatExistsSync;
 exports.default = fsStat;
 //# sourceMappingURL=index.js.map

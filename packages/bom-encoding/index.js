@@ -1,6 +1,10 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.whatwgBOMEncoding = exports.isWhatwgBOMEncodingAllowed = exports.detectBOMEncoding = exports.createBOMEncoding = exports.EnumEncoding = void 0;
+exports.EnumEncoding = void 0;
+exports.createBOMEncoding = createBOMEncoding;
+exports.detectBOMEncoding = detectBOMEncoding;
+exports.isWhatwgBOMEncodingAllowed = isWhatwgBOMEncodingAllowed;
+exports.whatwgBOMEncoding = whatwgBOMEncoding;
 var EnumEncoding;
 (function (EnumEncoding) {
     EnumEncoding["utf_16be"] = "UTF-16BE";
@@ -10,7 +14,7 @@ var EnumEncoding;
     EnumEncoding["utf_32le"] = "UTF-32LE";
     EnumEncoding["gb_18030"] = "GB-18030";
     EnumEncoding["unicode"] = "Unicode";
-})(EnumEncoding = exports.EnumEncoding || (exports.EnumEncoding = {}));
+})(EnumEncoding || (exports.EnumEncoding = EnumEncoding = {}));
 function createBOMEncoding(encoding, options) {
     switch (encoding) {
         case "UTF-16BE" /* EnumEncoding.utf_16be */:
@@ -33,7 +37,6 @@ function createBOMEncoding(encoding, options) {
     }
     return null;
 }
-exports.createBOMEncoding = createBOMEncoding;
 /**
  * @see https://github.com/jsdom/whatwg-encoding/blob/master/lib/whatwg-encoding.js
  * @see https://github.com/whatwg/html/issues/1910#issuecomment-254017369
@@ -63,7 +66,6 @@ function detectBOMEncoding(buffer, options) {
     }
     return null;
 }
-exports.detectBOMEncoding = detectBOMEncoding;
 const _whatwgEncodingAllowed = [
     "UTF-8" /* EnumEncoding.utf_8 */,
     "UTF-16BE" /* EnumEncoding.utf_16be */,
@@ -72,7 +74,6 @@ const _whatwgEncodingAllowed = [
 function isWhatwgBOMEncodingAllowed(encoding) {
     return _whatwgEncodingAllowed.includes(encoding);
 }
-exports.isWhatwgBOMEncodingAllowed = isWhatwgBOMEncodingAllowed;
 function whatwgBOMEncoding(buffer, options) {
     const encoding = detectBOMEncoding(buffer, options);
     if (isWhatwgBOMEncodingAllowed(encoding)) {
@@ -80,6 +81,5 @@ function whatwgBOMEncoding(buffer, options) {
     }
     return null;
 }
-exports.whatwgBOMEncoding = whatwgBOMEncoding;
 exports.default = detectBOMEncoding;
 //# sourceMappingURL=index.js.map

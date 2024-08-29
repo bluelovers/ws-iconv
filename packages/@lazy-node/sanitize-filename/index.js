@@ -1,6 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.trimFilename = exports.trimSpace = exports.replaceToFullWidth = exports.sanitizeFilename = void 0;
+exports.sanitizeFilename = sanitizeFilename;
+exports.replaceToFullWidth = replaceToFullWidth;
+exports.trimSpace = trimSpace;
+exports.trimFilename = trimFilename;
 const tslib_1 = require("tslib");
 const filenamify_1 = tslib_1.__importDefault(require("filenamify"));
 const zero_width_1 = require("zero-width");
@@ -52,7 +55,6 @@ function sanitizeFilename(name, options) {
     }
     return dot + name;
 }
-exports.sanitizeFilename = sanitizeFilename;
 function replaceToFullWidth(name) {
     return name
         .replace(/\//g, '／')
@@ -62,20 +64,17 @@ function replaceToFullWidth(name) {
         .replace(/>/g, '＞')
         .replace(/</g, '＜');
 }
-exports.replaceToFullWidth = replaceToFullWidth;
 function trimSpace(name) {
     name = name
         .replace(/^[　\s\xA0]+/g, '')
         .replace(/[　\s\xA0]+$/g, '');
     return name;
 }
-exports.trimSpace = trimSpace;
 function trimFilename(name) {
     name = trimSpace(name)
         .replace(/^[_\-+]+/g, '')
         .replace(/[_\-+]+$/g, '');
     return name;
 }
-exports.trimFilename = trimFilename;
 exports.default = sanitizeFilename;
 //# sourceMappingURL=index.js.map

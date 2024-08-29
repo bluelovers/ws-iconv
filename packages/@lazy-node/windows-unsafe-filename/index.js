@@ -1,6 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.replaceWindowsUnsafeName = exports.hasWindowsUnsafeName = exports.newRegExpWindowsUnsafeName = void 0;
+exports.newRegExpWindowsUnsafeName = newRegExpWindowsUnsafeName;
+exports.hasWindowsUnsafeName = hasWindowsUnsafeName;
+exports.replaceWindowsUnsafeName = replaceWindowsUnsafeName;
 const windowsReservedRe = newRegExpWindowsUnsafeName();
 const windowsReservedRe2 = newRegExpWindowsUnsafeName(true);
 /**
@@ -13,14 +15,11 @@ function newRegExpWindowsUnsafeName(mode) {
     }
     return /^(con|prn|aux|nul|com[0-9]|lpt[0-9])(\..*)?$/i;
 }
-exports.newRegExpWindowsUnsafeName = newRegExpWindowsUnsafeName;
 function hasWindowsUnsafeName(name, mode) {
     return name.match(mode ? windowsReservedRe2 : windowsReservedRe);
 }
-exports.hasWindowsUnsafeName = hasWindowsUnsafeName;
 function replaceWindowsUnsafeName(name, replaceValue, mode) {
     return name.replace(mode ? windowsReservedRe2 : windowsReservedRe, replaceValue);
 }
-exports.replaceWindowsUnsafeName = replaceWindowsUnsafeName;
 exports.default = hasWindowsUnsafeName;
 //# sourceMappingURL=index.js.map

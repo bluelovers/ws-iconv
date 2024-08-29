@@ -1,4 +1,3 @@
-/// <reference types="node" />
 export interface INormalizeHTML {
     html: string;
     encoding: string;

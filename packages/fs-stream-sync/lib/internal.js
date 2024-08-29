@@ -1,6 +1,13 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getFsStreamData = exports._destroy = exports.closeFsStreamSync = exports._error_callback = exports.__close = exports._error_emit = exports.open = exports.SYM_FS_STREAM_DATA = void 0;
+exports.SYM_FS_STREAM_DATA = void 0;
+exports.open = open;
+exports._error_emit = _error_emit;
+exports.__close = __close;
+exports._error_callback = _error_callback;
+exports.closeFsStreamSync = closeFsStreamSync;
+exports._destroy = _destroy;
+exports.getFsStreamData = getFsStreamData;
 const fs_1 = require("fs");
 exports.SYM_FS_STREAM_DATA = Symbol('FsStreamData');
 function open(thisArgv, argv) {
@@ -19,24 +26,20 @@ function open(thisArgv, argv) {
     thisArgv.emit('open', thisArgv.fd);
     thisArgv.emit('ready');
 }
-exports.open = open;
 function _error_emit(thisArgv, e) {
     __close(thisArgv);
     thisArgv.emit('error', e);
 }
-exports._error_emit = _error_emit;
 function __close(thisArgv) {
     // @ts-ignore
     if (thisArgv.autoClose) {
         thisArgv.destroy();
     }
 }
-exports.__close = __close;
 function _error_callback(thisArgv, e, callback) {
     __close(thisArgv);
     callback(e);
 }
-exports._error_callback = _error_callback;
 function closeFsStreamSync(stream, cb, err) {
     let er;
     try {
@@ -53,7 +56,6 @@ function closeFsStreamSync(stream, cb, err) {
         stream.emit('close');
     }
 }
-exports.closeFsStreamSync = closeFsStreamSync;
 function _destroy(thisArgv, error, callback) {
     // @ts-ignore
     const isOpen = typeof thisArgv.fd !== 'number';
@@ -66,7 +68,6 @@ function _destroy(thisArgv, error, callback) {
     // @ts-ignore
     thisArgv.fd = null;
 }
-exports._destroy = _destroy;
 function emitErrorAndCloseNT(self, err) {
     emitErrorNT(self, err);
     emitCloseNT(self);
@@ -86,6 +87,5 @@ function emitErrorNT(self, err) {
 function getFsStreamData(thisArgv) {
     return thisArgv[exports.SYM_FS_STREAM_DATA] = thisArgv[exports.SYM_FS_STREAM_DATA] || {};
 }
-exports.getFsStreamData = getFsStreamData;
 exports.default = exports;
 //# sourceMappingURL=internal.js.map

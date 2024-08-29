@@ -24,6 +24,13 @@ export interface IRuntimeFindUpPaths<OPTS extends IOptionsFindUpPaths = IOptions
 
 }
 
+export interface IFindUpPathsResult
+{
+	stat: Stats;
+	result: string;
+	dir: string;
+}
+
 export function handleOptions<T extends IOptionsFindUpPaths>(cwd?: string | T, opts?: T): IRuntimeFindUpPaths<T>
 {
 	const runtime = _handleOptions(cwd, opts);
@@ -109,7 +116,8 @@ export function findUpPathsRuntime(pattern: string | string[], runtime: IRuntime
 			return {
 				stat,
 				result,
-			}
+				dir,
+			} satisfies IFindUpPathsResult as IFindUpPathsResult
 		}
 	}
 
@@ -155,7 +163,8 @@ export async function findUpPathsRuntimeAsync(pattern: string | string[], runtim
 				return {
 					stat,
 					result,
-				}
+					dir,
+				} satisfies IFindUpPathsResult as IFindUpPathsResult
 			}
 		}
 	}

@@ -7,5 +7,5 @@ var EnumMimetypePlus;
     EnumMimetypePlus["fifo"] = "application/FIFO";
     EnumMimetypePlus["socket"] = "application/socket";
     EnumMimetypePlus["unknown"] = "application/unknown";
-})(EnumMimetypePlus = exports.EnumMimetypePlus || (exports.EnumMimetypePlus = {}));
+})(EnumMimetypePlus || (exports.EnumMimetypePlus = EnumMimetypePlus = {}));
 //# sourceMappingURL=types.js.map

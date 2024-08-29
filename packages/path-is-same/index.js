@@ -1,18 +1,19 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.pathIsSame = exports.fsSameRealpath = exports._assertInputArgv = exports._pathIsSame = void 0;
+exports._pathIsSame = _pathIsSame;
+exports._assertInputArgv = _assertInputArgv;
+exports.fsSameRealpath = fsSameRealpath;
+exports.pathIsSame = pathIsSame;
 const upath2_1 = require("upath2");
 const fs_1 = require("fs");
 function _pathIsSame(p1, p2) {
     return (0, upath2_1.relative)(p1, p2) === '';
 }
-exports._pathIsSame = _pathIsSame;
 function _assertInputArgv(p1, ...ps) {
     if (ps.length <= 0) {
         throw new TypeError(`p2 must be provide`);
     }
 }
-exports._assertInputArgv = _assertInputArgv;
 function fsSameRealpath(p1, ...ps) {
     var _a;
     _assertInputArgv(p1, ...ps);
@@ -30,7 +31,6 @@ function fsSameRealpath(p1, ...ps) {
         return _pathIsSame(p1, p2);
     });
 }
-exports.fsSameRealpath = fsSameRealpath;
 function pathIsSame(p1, ...ps) {
     var _a;
     _assertInputArgv(p1, ...ps);
@@ -39,6 +39,5 @@ function pathIsSame(p1, ...ps) {
     }
     return ps.every(p2 => _pathIsSame(p1, p2));
 }
-exports.pathIsSame = pathIsSame;
 exports.default = pathIsSame;
 //# sourceMappingURL=index.js.map

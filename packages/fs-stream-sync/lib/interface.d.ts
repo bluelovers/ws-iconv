@@ -1,4 +1,3 @@
-/// <reference types="node" />
 export type { PathLike } from 'fs';
 export type IFsPath = string | Buffer;
 export interface IFsStreamOptions {

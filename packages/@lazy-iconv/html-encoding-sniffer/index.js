@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.normalizeHTML = void 0;
+exports.normalizeHTML = normalizeHTML;
 const tslib_1 = require("tslib");
 const html_encoding_sniffer_1 = tslib_1.__importDefault(require("html-encoding-sniffer"));
 const whatwg_encoding_1 = tslib_1.__importDefault(require("whatwg-encoding"));
@@ -22,6 +22,5 @@ function normalizeHTML(html = '', transportLayerEncodingLabel) {
     }
     return { html, encoding };
 }
-exports.normalizeHTML = normalizeHTML;
 exports.default = normalizeHTML;
 //# sourceMappingURL=index.js.map

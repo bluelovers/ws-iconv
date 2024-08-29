@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.pathInsideDirectory = void 0;
+exports.pathInsideDirectory = pathInsideDirectory;
 const path_dir_normalize_1 = require("path-dir-normalize");
 const upath2_1 = require("upath2");
 function pathInsideDirectory(input, dir) {
@@ -8,6 +8,5 @@ function pathInsideDirectory(input, dir) {
     input = (0, upath2_1.normalize)(input);
     return input.startsWith(dir);
 }
-exports.pathInsideDirectory = pathInsideDirectory;
 exports.default = pathInsideDirectory;
 //# sourceMappingURL=index.js.map

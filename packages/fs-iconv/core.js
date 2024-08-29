@@ -3,7 +3,16 @@
  * Created by user on 2019/3/17.
  */
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.loadFileSync = exports.loadFile = exports._autoDecode = exports._outputStream = exports._createStreamPassThrough = exports.saveFile = exports.saveFileSync = exports.ensureWriteStream = exports.WrapFSIconv = exports.SymFSLib = void 0;
+exports.SymFSLib = void 0;
+exports.WrapFSIconv = WrapFSIconv;
+exports.ensureWriteStream = ensureWriteStream;
+exports.saveFileSync = saveFileSync;
+exports.saveFile = saveFile;
+exports._createStreamPassThrough = _createStreamPassThrough;
+exports._outputStream = _outputStream;
+exports._autoDecode = _autoDecode;
+exports.loadFile = loadFile;
+exports.loadFileSync = loadFileSync;
 const tslib_1 = require("tslib");
 const lodash_1 = require("lodash");
 const iconv_jschardet_1 = tslib_1.__importDefault(require("iconv-jschardet"));
@@ -35,14 +44,12 @@ function WrapFSIconv(fsLib) {
     fs.default = fs;
     return fs;
 }
-exports.WrapFSIconv = WrapFSIconv;
 function ensureWriteStream(file) {
     // @ts-ignore
     let fs = this[exports.SymFSLib];
     fs.ensureFileSync(file);
     return fs.createWriteStream(file);
 }
-exports.ensureWriteStream = ensureWriteStream;
 function saveFileSync(file, data, options = {}) {
     // @ts-ignore
     let fs = this[exports.SymFSLib];
@@ -53,7 +60,6 @@ function saveFileSync(file, data, options = {}) {
     fs.outputFileSync(file, data);
     return true;
 }
-exports.saveFileSync = saveFileSync;
 function saveFile(file, data, options = {}) {
     // @ts-ignore
     let self = this;
@@ -73,13 +79,11 @@ function saveFile(file, data, options = {}) {
     })
         .thenReturn(true);
 }
-exports.saveFile = saveFile;
 function _createStreamPassThrough(data) {
     let readStream = new stream_1.PassThrough();
     readStream.end(data);
     return readStream;
 }
-exports._createStreamPassThrough = _createStreamPassThrough;
 function _outputStream(file, readStream) {
     // @ts-ignore
     let fs = this[exports.SymFSLib];
@@ -87,7 +91,6 @@ function _outputStream(file, readStream) {
     readStream.pipe(writeStream);
     return writeStream;
 }
-exports._outputStream = _outputStream;
 function _autoDecode(buf, options) {
     if (Array.isArray(options.autoDecode)) {
         let _do;
@@ -112,7 +115,6 @@ function _autoDecode(buf, options) {
     }
     return iconv_jschardet_1.default.encode(buf);
 }
-exports._autoDecode = _autoDecode;
 function loadFile(file, options = {}) {
     // @ts-ignore
     let self = this;
@@ -143,7 +145,6 @@ function loadFile(file, options = {}) {
     }
     return bluebird_1.default.resolve(ps);
 }
-exports.loadFile = loadFile;
 function loadFileSync(file, options = {}) {
     // @ts-ignore
     let self = this;
@@ -172,6 +173,5 @@ function loadFileSync(file, options = {}) {
     }
     return ps;
 }
-exports.loadFileSync = loadFileSync;
 exports.default = exports;
 //# sourceMappingURL=core.js.map

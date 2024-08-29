@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.createReadStream = exports.ReadStream = void 0;
+exports.ReadStream = void 0;
+exports.createReadStream = createReadStream;
 const tslib_1 = require("tslib");
 const fs_1 = tslib_1.__importDefault(require("fs"));
 const internal_1 = require("./lib/internal");
@@ -26,6 +27,5 @@ exports.ReadStream = ReadStream;
 function createReadStream(path, options) {
     return new ReadStream(path, options);
 }
-exports.createReadStream = createReadStream;
 exports.default = ReadStream;
 //# sourceMappingURL=read.js.map

@@ -1,4 +1,3 @@
-/// <reference types="node" />
 import { PathLike } from 'fs';
 export declare function isWritableAsync(target: PathLike): Promise<boolean>;
 export declare function isWritableSync(target: PathLike): boolean;
