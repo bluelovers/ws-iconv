@@ -47,7 +47,7 @@
   },
   "dependencies": {
     "@types/jsonfile": "^6",
-    "fs-extra": "^10.1.0",
+    "fs-extra": "^11.2.0",
     "jsonfile": "^6.1.0",
     "tslib": "^2"
   },

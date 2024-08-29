@@ -30,12 +30,12 @@
     "sort-package-json": "yarn-tool sort"
   },
   "dependencies": {
-    "fs-extra": "^10.1.0",
+    "fs-extra": "^11.2.0",
     "ts-type": "^3.0.1",
     "tslib": "^2"
   },
   "devDependencies": {
-    "@types/fs-extra": "^9"
+    "@types/fs-extra": "^11"
   },
   "gitHead": "6c258437d14e2d37d1fb08068fa60833ce6d389b"
 }
