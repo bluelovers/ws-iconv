@@ -1,5 +1,5 @@
 
-export type IBufferValueInput = string | number | Uint8Array;
+export type IBufferValueInput = string | number | Uint8Array | Buffer;
 
 export function _valueLength(value: IBufferValueInput)
 {
@@ -13,7 +13,7 @@ export function _bufferLastIndexOf(buf: Buffer,
 )
 {
 	const len = _valueLength(value);
-	const i = buf.lastIndexOf(value, byteOffset ?? (0 - len), encoding);
+	const i = buf.lastIndexOf(value as any, byteOffset ?? (0 - len), encoding);
 
 	return {
 		len,
@@ -21,7 +21,7 @@ export function _bufferLastIndexOf(buf: Buffer,
 	}
 }
 
-export function _endWith(buf: any[] | Uint8Array, i: number, len: number)
+export function _endWith(buf: any[] | Uint8Array | Buffer, i: number, len: number): buf is Uint8Array | Buffer
 {
 	return i !== -1 && (i + len) === buf.length
 }
@@ -32,14 +32,14 @@ export function _indexWith(i: number, byteOffset: number)
 }
 
 export function bufferEndWith(buf: Buffer,
-	value: string | number | Uint8Array,
+	value: IBufferValueInput,
 	byteOffset?: number,
 	encoding?: BufferEncoding,
 )
 {
 	const { len, i } = _bufferLastIndexOf(buf, value, byteOffset, encoding);
 
-	return _endWith(buf, i, len)
+	return _endWith(buf as any, i, len)
 }
 
 export { bufferEndWith as bufferEndWithByBuffer }
@@ -68,7 +68,7 @@ export function bufferIndexWith(buf: Buffer,
 	encoding?: BufferEncoding,
 )
 {
-	const i = buf.indexOf(value, byteOffset, encoding);
+	const i = buf.indexOf(value as any, byteOffset, encoding);
 
 	return _indexWith(i, byteOffset)
 }
