@@ -36,6 +36,7 @@
     "tsc:showConfig": "ynpx get-current-tsconfig -p"
   },
   "dependencies": {
+    "path-strip-sep": "^1.0.18",
     "tslib": "^2",
     "upath2": "^3.1.20"
   },
