@@ -10,6 +10,7 @@ packages:
 publicHoistPattern:
   - "ts-type"
   - "@bluelovers/jest-config"
+  - "@types/node"
 
 linkWorkspacePackages: true
 saveWorkspaceProtocol: false

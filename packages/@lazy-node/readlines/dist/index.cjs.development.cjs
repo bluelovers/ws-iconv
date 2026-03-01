@@ -3,6 +3,13 @@
 var fs = require('fs');
 var utilBuffer = require('@lazy-node/util-buffer');
 
+/**
+ * 處理換行字元選項，將各種輸入格式轉換為位元組陣列
+ * Process new line character option, converting various input formats to byte array
+ *
+ * @param {INewLineCharacter} [newLineCharacter] - 換行字元設定 / New line character configuration
+ * @returns {number[]} 換行字元的位元組陣列 / Byte array of new line characters
+ */
 function handleOptionNewLineCharacter(newLineCharacter) {
   if (!newLineCharacter) {
     return [10 /* EnumNewLineCharacter.LF */];
@@ -36,6 +43,13 @@ class LineByLine {
   #fdPosition;
   #readChunk;
   #lineNumber = -1;
+  /**
+   * 建立逐行讀取器實例
+   * Create a line by line reader instance
+   *
+   * @param {IPathLike} file - 檔案路徑或檔案描述符 / File path or file descriptor
+   * @param {IOptions} [options] - 讀取選項 / Read options
+   */
   constructor(file, options) {
     let {
       readChunk,
@@ -52,6 +66,11 @@ class LineByLine {
     this._open();
     this.reset();
   }
+  /**
+   * 開啟檔案並取得檔案描述符
+   * Open file and obtain file descriptor
+   * @protected
+   */
   _open() {
     if (typeof this.#file === 'number') {
       this.#fd = this.#file;
@@ -90,9 +109,25 @@ class LineByLine {
     this.#fd && fs.closeSync(this.#fd);
     this.#fd = null;
   }
+  /**
+   * 從 Buffer 中提取行資料
+   * Extract line data from buffer
+   *
+   * @param {Buffer} buffer - 原始 Buffer 資料 / Raw buffer data
+   * @returns {Buffer[]} 分割後的行資料陣列 / Array of line data buffers
+   * @protected
+   */
   _extractLines(buffer) {
     return utilBuffer.splitBufferByBuffer(buffer, this.#newLineCharacter);
   }
+  /**
+   * 讀取一個區塊的資料並解析出行資料
+   * Read a chunk of data and parse line data
+   *
+   * @param {Buffer} [lineLeftovers] - 上一區塊剩餘的未完整行資料 / Incomplete line data from previous chunk
+   * @returns {number} 實際讀取的位元組數 / Number of bytes actually read
+   * @protected
+   */
   _readChunk(lineLeftovers) {
     let totalBytesRead = 0;
     let bytesRead;
@@ -117,6 +152,12 @@ class LineByLine {
     }
     return totalBytesRead;
   }
+  /**
+   * 讀取下一行資料
+   * Read next line data
+   *
+   * @returns {Buffer | undefined} 行資料 Buffer，若已到結尾則回傳 undefined / Line data buffer, returns undefined if end is reached
+   */
   next() {
     if (!this.#fd || this.#eofReached && this.#linesCache.length === 0) {
       return;
@@ -144,12 +185,26 @@ class LineByLine {
     this.#lineNumber++;
     return line;
   }
+  /**
+   * 產生器函式，迭代讀取所有行
+   * Generator function to iterate through all lines
+   *
+   * @returns {Generator<Buffer>} 行資料產生器 / Line data generator
+   */
   *generator() {
     let line;
     while (line = this.next()) {
       yield line;
     }
   }
+  /**
+   * 靜態產生器函式，建立實例並迭代讀取所有行
+   * Static generator function to create instance and iterate through all lines
+   *
+   * @param {IPathLike} file - 檔案路徑或檔案描述符 / File path or file descriptor
+   * @param {IOptions} [options] - 讀取選項 / Read options
+   * @returns {Generator<Buffer>} 行資料產生器 / Line data generator
+   */
   static *generator(file, options) {
     const liner = new this(file, options);
     yield* liner.generator();
