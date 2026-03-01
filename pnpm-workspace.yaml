@@ -6,3 +6,15 @@ packages:
   - packages/@bluelovers/*
   - packages/@lazy-node/*
   - packages/@lazy-iconv/*
+
+publicHoistPattern:
+  - "ts-type"
+  - "@bluelovers/jest-config"
+
+linkWorkspacePackages: true
+saveWorkspaceProtocol: false
+
+# ignoreWorkspaceRootCheck: true
+
+# onlyBuiltDependencies: []
+# ignoredBuiltDependencies: []
