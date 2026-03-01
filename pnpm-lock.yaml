@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      '@bluelovers/conventional-changelog-bluelovers':
+        specifier: ^5.0.27
+        version: 5.0.27(@types/bluebird@3.5.42)(@types/node@25.3.3)(ts-toolbelt@9.6.0)
       '@bluelovers/jest-config':
         specifier: ^1.1.11
         version: 1.1.11(@types/bluebird@3.5.42)(@types/node@25.3.3)(debug@4.4.3)(semver@7.7.4)(ts-toolbelt@9.6.0)
@@ -596,6 +599,10 @@ packages:
 
   '@bcoe/v8-coverage@0.2.3':
     resolution: {integrity: sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==}
+
+  '@bluelovers/conventional-changelog-bluelovers@5.0.27':
+    resolution: {integrity: sha512-brOWuZDYEcYB4FWE+kvO3NgAidoAcIA/mPyeOqiOkGxXYZHU4ngEMLF6lrbAm6Tjhe+DkxhfFLzNrFbr/j3r/A==}
+    engines: {node: '>=10'}
 
   '@bluelovers/jest-config@1.1.11':
     resolution: {integrity: sha512-M6xr+Oj6DDlcWqn6/rxQhssb9367Do2yOLR0thTm5aCooLCES4MZtzNeYhrZF0x27PiJ6q/1Mr9JMaNmvb6O6w==}
@@ -1812,6 +1819,9 @@ packages:
   emittery@0.13.1:
     resolution: {integrity: sha512-DeWwawk6r5yR9jFgnDKYt4sLS0LmHJJi3ZOnb5/JdbYwj3nW+FxQnHIjhBKz8YLC7oRNPVM9NQ47I3CVx34eqQ==}
     engines: {node: '>=12'}
+
+  emoji-regex@10.6.0:
+    resolution: {integrity: sha512-toUI84YS5YmxW219erniWD0CIVOo46xGKColeNQRgOzDorgBi1v4D71/OFzgD9GO2UGKIv1C3Sp8DAn0+j5w7A==}
 
   emoji-regex@8.0.0:
     resolution: {integrity: sha512-MSjYzcWNOA0ewAHpz0MxpYFvwg6yjy1NG3xteoqz644VCo/RPgnr1/GGt+ic3iJTzQ8Eu3TdM14SawnVUmGE6A==}
@@ -4164,6 +4174,17 @@ snapshots:
 
   '@bcoe/v8-coverage@0.2.3': {}
 
+  '@bluelovers/conventional-changelog-bluelovers@5.0.27(@types/bluebird@3.5.42)(@types/node@25.3.3)(ts-toolbelt@9.6.0)':
+    dependencies:
+      compare-func: 2.0.0
+      emoji-regex: 10.6.0
+      q: 1.5.1
+      ts-type: 2.1.10(@types/bluebird@3.5.42)(@types/node@25.3.3)(ts-toolbelt@9.6.0)
+    transitivePeerDependencies:
+      - '@types/bluebird'
+      - '@types/node'
+      - ts-toolbelt
+
   '@bluelovers/jest-config@1.1.11(@types/bluebird@3.5.42)(@types/node@25.3.3)(debug@4.4.3)(semver@7.7.4)(ts-toolbelt@9.6.0)':
     dependencies:
       '@yarn-tool/require-resolve': 3.0.2
@@ -5700,6 +5721,8 @@ snapshots:
   electron-to-chromium@1.5.302: {}
 
   emittery@0.13.1: {}
+
+  emoji-regex@10.6.0: {}
 
   emoji-regex@8.0.0: {}
 
