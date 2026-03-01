@@ -19,24 +19,15 @@ export function _replace_sep(who: Pick<IPath, 'sep' | 'name'>, input: string): s
 
 		input = sep + sep + input
 			.slice(2)
-			.replace(/[/\\]/g, sep)
-		;
-	}
-	else
-	{
-		input = input
-			.replace(/[/\\]/g, sep)
+			//.replace(/[/\\]/g, sep)
 		;
 	}
 
-//	if (/^\w:[/\\]$/.test(input))
-//	{
-//		return input
-//	}
+	input = input
+		.replace(/[/\\]/g, sep)
+	;
 
-	return input
-		//.replace(/([^/\\])[/\\]$/, '$1')
-		;
+	return input;
 }
 
 export function getStatic(who): PathWrap

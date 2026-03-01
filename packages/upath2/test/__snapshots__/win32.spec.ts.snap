@@ -1,13 +1,43 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
-exports[`normalize (unbind) normalize '//windows\\\\unix/mixed' 1`] = `"\\\\windows\\unix\\mixed"`;
+exports[`normalize (unbind) normalize '//windows\\\\unix/mixed' 1`] = `
+{
+  "upath": undefined,
+  "upath2": "\\\\windows\\unix\\mixed",
+}
+`;
 
-exports[`normalize (unbind) normalize '\\\\\\\\storageserver01\\\\Active Projects\\\\ProjectA' 1`] = `"\\\\storageserver01\\Active Projects\\ProjectA"`;
+exports[`normalize (unbind) normalize '\\\\\\\\storageserver01\\\\Active Projects\\\\ProjectA' 1`] = `
+{
+  "upath": undefined,
+  "upath2": "\\\\storageserver01\\Active Projects\\ProjectA",
+}
+`;
 
-exports[`normalize (unbind) normalize '\\\\windows//unix/mixed' 1`] = `"/windows/unix/mixed"`;
+exports[`normalize (unbind) normalize '\\\\windows//unix/mixed' 1`] = `
+{
+  "upath": undefined,
+  "upath2": "/windows/unix/mixed",
+}
+`;
 
-exports[`normalize normalize '//windows\\\\unix/mixed' 1`] = `"\\\\windows\\unix\\mixed"`;
+exports[`normalize normalize '//windows\\\\unix/mixed' 1`] = `
+{
+  "upath": "//windows/unix/mixed",
+  "upath2": "\\\\windows\\unix\\mixed",
+}
+`;
 
-exports[`normalize normalize '\\\\\\\\storageserver01\\\\Active Projects\\\\ProjectA' 1`] = `"\\\\storageserver01\\Active Projects\\ProjectA"`;
+exports[`normalize normalize '\\\\\\\\storageserver01\\\\Active Projects\\\\ProjectA' 1`] = `
+{
+  "upath": "//storageserver01/Active Projects/ProjectA",
+  "upath2": "\\\\storageserver01\\Active Projects\\ProjectA",
+}
+`;
 
-exports[`normalize normalize '\\\\windows//unix/mixed' 1`] = `"/windows/unix/mixed"`;
+exports[`normalize normalize '\\\\windows//unix/mixed' 1`] = `
+{
+  "upath": "/windows/unix/mixed",
+  "upath2": "/windows/unix/mixed",
+}
+`;
