@@ -1,6 +1,6 @@
 {
   "name": "@lazy-node/windows-unsafe-filename",
-  "version": "1.0.14",
+  "version": "1.0.15",
   "description": "Windows 不安全檔案名稱檢測模組 - 檢測和處理 Windows 系統中不安全的檔案名稱，支援保留字元和裝置名稱檢測",
   "keywords": [
     "create-by-yarn-tool",

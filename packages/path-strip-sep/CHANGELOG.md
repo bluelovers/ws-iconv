@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.20](https://github.com/bluelovers/ws-iconv/compare/path-strip-sep@1.0.19...path-strip-sep@1.0.20) (2026-03-01)
+
+**Note:** Version bump only for package path-strip-sep
+
+
+
+
+
 ## [1.0.19](https://github.com/bluelovers/ws-iconv/compare/path-strip-sep@1.0.18...path-strip-sep@1.0.19) (2026-03-01)
 
 

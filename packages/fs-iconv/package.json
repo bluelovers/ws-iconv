@@ -1,6 +1,6 @@
 {
   "name": "fs-iconv",
-  "version": "3.1.19",
+  "version": "3.1.20",
   "description": "save file with charset/encoding/iconv",
   "keywords": [
     "async",
@@ -79,10 +79,10 @@
     "tsc:showConfig": "ynpx get-current-tsconfig -p"
   },
   "dependencies": {
-    "@lazy-node/sanitize-filename": "^1.0.13",
+    "@lazy-node/sanitize-filename": "^1.0.14",
     "bluebird": "^3.7.2",
     "fs-extra": "^11.2.0",
-    "iconv-jschardet": "^2.0.34",
+    "iconv-jschardet": "^2.0.35",
     "lodash": "^4.17.21",
     "ts-type": "^3.0.1",
     "tslib": "^2"

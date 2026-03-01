@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.5](https://github.com/bluelovers/ws-iconv/compare/fs-realpath-native@1.0.4...fs-realpath-native@1.0.5) (2026-03-01)
+
+**Note:** Version bump only for package fs-realpath-native
+
+
+
+
+
 ## [1.0.4](https://github.com/bluelovers/ws-iconv/compare/fs-realpath-native@1.0.3...fs-realpath-native@1.0.4) (2026-03-01)
 
 

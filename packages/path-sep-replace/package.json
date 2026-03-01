@@ -1,6 +1,6 @@
 {
   "name": "path-sep-replace",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "路徑分隔符替換工具 - 將路徑中的正斜線和反斜線替換為指定的分隔符",
   "keywords": [
     "create-by-yarn-tool"
@@ -61,8 +61,8 @@
     "tsc:showConfig": "ynpx get-current-tsconfig -p"
   },
   "dependencies": {
-    "@lazy-node/types-path": "^1.0.1",
-    "path-is-network-drive": "^1.0.22",
+    "@lazy-node/types-path": "^1.0.2",
+    "path-is-network-drive": "^1.0.23",
     "tslib": ">=2"
   }
 }

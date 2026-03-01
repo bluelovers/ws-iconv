@@ -1,6 +1,6 @@
 {
   "name": "fs-realpath-native",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "File system real path resolution with sync/async operations and error handling / 檔案系統實體路徑處理，支援同步/異步操作和錯誤處理",
   "keywords": [
     "create-by-yarn-tool"

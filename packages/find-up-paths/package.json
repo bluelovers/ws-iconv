@@ -1,6 +1,6 @@
 {
   "name": "find-up-paths",
-  "version": "1.0.18",
+  "version": "1.0.19",
   "description": "從當前目錄向上遍歷父目錄尋找檔案或目錄 (Find files or directories by walking up parent directories)",
   "keywords": [
     "find",
@@ -79,8 +79,8 @@
   },
   "dependencies": {
     "fs-extra": "^11.2.0",
-    "fs-stat": "^1.0.27",
-    "path-parents": "^1.0.34",
+    "fs-stat": "^1.0.28",
+    "path-parents": "^1.0.35",
     "tslib": "^2"
   },
   "gitHead": "e6dea90eaa22e331d180711d3ec4c4d430fce071"
