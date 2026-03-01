@@ -1,14 +1,43 @@
-# fs-stream-sync
+# fs-stream-sync - 檔案系統流處理工具
 
-    File System SyncWriteStream/SyncReadStream implementation from Node.js Core
+這個模組提供了檔案系統的同步和異步流處理功能，包括讀取和寫入流。
 
-## install
+## 主要功能
 
-```nodemon
+- 同步和異步流處理
+- 讀取和寫入流
+- 完全相容於 Node.js 核心流
+- 支援同步寫入流
+- 跨平台相容性
+
+## 安裝 (Installation)
+
+```bash
+# 使用 yarn / Using yarn
+yarn add fs-stream-sync
+
+# 使用 yarn-tool / Using yarn-tool
+yarn-tool add fs-stream-sync
+# yt 是 yarn-tool 的別名 / yt is an alias for yarn-tool
+yt add fs-stream-sync
+
+# 使用 pnpm / Using pnpm
+pnpm add fs-stream-sync
+
+# 使用 npm / Using npm
 npm install fs-stream-sync
 ```
 
-## know issues
+## 已知問題
+
+- 與 ReadStream/WriteStream 不完全相同
+- 某些事件觸發不如預期
+- 某些 API 仍為異步
+- SyncWriteStream.write 無法追加
+
+> 歡迎發送 PR，使這個模組更接近原始的 fs.stream
+
+## Known Issues (已知問題)
 
 - not 100% same as ReadStream/WriteStream
 - some event not trigger as expect

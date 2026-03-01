@@ -14,9 +14,9 @@ test(`argv`, () =>
 {
 
 	// @ts-ignore
-	expect(() => pathIsSame(__dirname)).toThrowError(`p2 must be provide`)
+	expect(() => pathIsSame(__dirname)).toThrowErrorMatchingSnapshot()
 	// @ts-ignore
-	expect(() => fsSameRealpath(__dirname)).toThrowError(`p2 must be provide`)
+	expect(() => fsSameRealpath(__dirname)).toThrowErrorMatchingSnapshot()
 
 	// @ts-ignore
 	expect(() => pathIsSame(void 0, void 0)).not.toThrowError()

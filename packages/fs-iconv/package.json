@@ -62,8 +62,10 @@
     "test": "test"
   },
   "scripts": {
+    "coverage": "yarn run test -- --coverage",
     "test": "jest",
     "test:jest": "jest --passWithNoTests",
+    "test:jest:coverage": "yarn run test:jest -- --coverage",
     "test:jest:snapshot": "yarn run test:jest -- -u",
     "test:snapshot": "yarn run test -- -u",
     "test:tsd": "ynpx tsd",
@@ -73,7 +75,8 @@
     "prepublish:lockfile": "ynpx sync-lockfile .",
     "postpublish_": "git commit -m \"chore(release): publish\" .",
     "ncu": "yarn-tool ncu -u",
-    "sort-package-json": "yarn-tool sort"
+    "sort-package-json": "yarn-tool sort",
+    "tsc:showConfig": "ynpx get-current-tsconfig -p"
   },
   "dependencies": {
     "@lazy-node/sanitize-filename": "^1.0.12",

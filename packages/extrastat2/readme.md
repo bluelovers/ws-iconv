@@ -1,5 +1,53 @@
-# extrastat
-### Resolve mimetype, ownername and groupname, and human-readable permissions.
+# extrastat2 - 擴展檔案狀態資訊
+# extrastat2 - Extended File Status Information
+
+解析 fs.Stat 物件，提供 MIME 類型、擁有者名稱、群組名稱和可讀權限等額外資訊。
+Resolve fs.Stat to mimetype, ownername, groupname, and human-readable permissions.
+
+## 安裝 (Installation)
+
+```bash
+# 使用 yarn / Using yarn
+yarn add extrastat2
+
+# 使用 yarn-tool / Using yarn-tool
+yarn-tool add extrastat2
+# yt 是 yarn-tool 的別名 / yt is an alias for yarn-tool
+yt add extrastat2
+
+# 使用 pnpm / Using pnpm
+pnpm add extrastat2
+
+# 使用 npm / Using npm
+npm install extrastat2
+```
+
+## 功能特點 (Features)
+
+- 解析 MIME 類型（基於副檔名）/ Resolve MIME type (based on extension)
+- 顯示可讀權限格式（如 rwxr-xr-x）/ Show human-readable permissions (e.g., rwxr-xr-x)
+- 解析擁有者和群組名稱 / Resolve owner and group names
+- 取得檔案狀態資訊 / Get file status information
+- 支援取得子項目、同層項目和父目錄 / Support getting children, siblings, and parents
+
+## 使用範例 (Usage)
+
+```typescript
+import { statExtra } from 'extrastat2';
+
+const stat = await statExtra('package.json');
+console.log(stat);
+// {
+//   dev: 16777220,
+//   mode: 33188,
+//   rwx: Mode { ... },
+//   mimetype: 'application/json',
+//   parsed: { root: '/', dir: '/path/to', base: 'package.json', ... }
+//   ...
+// }
+```
+
+## 原始說明 (Original Description)
 
 I wrote this because I wanted a lightweight callback to add Content-Type headers to my font files and css files. Then I started added more features to mimic the utility of `ls -la`, printing the names of the owner, group owner, and the permissions as 'rwxr-xr-w' as opposted to fs.stat's representation of an octal mode, `16877`
 

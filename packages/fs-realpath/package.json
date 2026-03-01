@@ -1,7 +1,7 @@
 {
   "name": "fs-realpath-native",
   "version": "1.0.3",
-  "description": "",
+  "description": "File system real path resolution with sync/async operations and error handling / 檔案系統實體路徑處理，支援同步/異步操作和錯誤處理",
   "keywords": [
     "create-by-yarn-tool"
   ],
@@ -31,6 +31,7 @@
     "pretest": "echo pretest",
     "test": "jest --passWithNoTests",
     "test:jest": "jest --passWithNoTests",
+    "test:jest:coverage": "yarn run test:jest -- --coverage",
     "test:jest:snapshot": "yarn run test:jest -- -u",
     "test:mocha": "ynpx --quiet -p ts-node -p mocha mocha -- --require ts-node/register \"!(node_modules)/**/*.{test,spec}.{ts,tsx}\"",
     "test:snapshot": "yarn run test -- -u",
@@ -61,6 +62,5 @@
     "sort-package-json": "yarn-tool sort",
     "tsc:showConfig": "ynpx get-current-tsconfig -p"
   },
-  "packageManager": "yarn@1.22.19",
   "gitHead": "e6dea90eaa22e331d180711d3ec4c4d430fce071"
 }

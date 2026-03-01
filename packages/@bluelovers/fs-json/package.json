@@ -1,7 +1,7 @@
 {
   "name": "@bluelovers/fs-json",
   "version": "1.0.14",
-  "description": "stringify with final EOL",
+  "description": "Enhanced JSON file operations with final EOL support / 增強型 JSON 檔案操作，支援結尾換行符號",
   "keywords": [
     "create-by-yarn-tool"
   ],
@@ -22,6 +22,7 @@
     "lint": "ynpx --quiet eslint -- **/*.ts",
     "test": "jest --passWithNoTests",
     "test:jest": "jest --passWithNoTests",
+    "test:jest:coverage": "yarn run test:jest -- --coverage",
     "test:jest:snapshot": "yarn run test:jest -- -u",
     "test:mocha": "ynpx --quiet -p ts-node -p mocha mocha -- --require ts-node/register \"!(node_modules)/**/*.{test,spec}.{ts,tsx}\"",
     "test:snapshot": "yarn run test -- -u",
@@ -51,7 +52,6 @@
     "jsonfile": "^6.1.0",
     "tslib": "^2"
   },
-  "packageManager": "yarn@^1.22.11",
   "publishConfig": {
     "access": "public"
   },

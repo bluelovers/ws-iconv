@@ -1,7 +1,7 @@
 {
   "name": "iconv-jschardet",
   "version": "2.0.33",
-  "description": "Convert/auto-detection Character encodings  in JavaScript ( iconv-lite, jschardet )",
+  "description": "JavaScript 字符編碼轉換與自動檢測工具 (支援 iconv-lite, jschardet) / Character encoding conversion and auto-detection tool in JavaScript (supports iconv-lite, jschardet)",
   "keywords": [
     "big-5",
     "big5",
@@ -27,7 +27,17 @@
     "shift_jis",
     "text",
     "unicode",
-    "utf-8"
+    "utf-8",
+    "character-encoding",
+    "auto-detection",
+    "buffer-conversion",
+    "text-encoding",
+    "encoding-detection",
+    "nodejs-encoding",
+    "typescript-encoding",
+    "encoding-utils",
+    "charset-detection",
+    "encoding-conversion"
   ],
   "homepage": "https://github.com/bluelovers/ws-iconv/tree/master/packages/iconv-jschardet#readme",
   "bugs": {
@@ -46,8 +56,10 @@
     "test": "test"
   },
   "scripts": {
+    "coverage": "yarn run test -- --coverage",
     "test": "jest",
     "test:jest": "jest --passWithNoTests",
+    "test:jest:coverage": "yarn run test:jest -- --coverage",
     "test:jest:snapshot": "yarn run test:jest -- -u",
     "test:snapshot": "yarn run test -- -u",
     "test:tsd": "ynpx tsd",
@@ -57,7 +69,8 @@
     "prepublish:lockfile": "ynpx sync-lockfile .",
     "postpublish_": "git commit -m \"chore(release): publish\" .",
     "ncu": "yarn-tool ncu -u",
-    "sort-package-json": "yarn-tool sort"
+    "sort-package-json": "yarn-tool sort",
+    "tsc:showConfig": "ynpx get-current-tsconfig -p"
   },
   "dependencies": {
     "debug-color2": "^1",

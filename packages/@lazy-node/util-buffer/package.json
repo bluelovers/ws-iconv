@@ -1,10 +1,19 @@
 {
   "name": "@lazy-node/util-buffer",
   "version": "1.0.3",
-  "description": "",
+  "description": "Buffer 工具函數模組 - 提供多種 Buffer 處理的工具函數，包括字串搜尋、截取、分割等功能",
   "keywords": [
     "create-by-yarn-tool",
-    "create-by-tsdx"
+    "create-by-tsdx",
+    "buffer",
+    "util",
+    "tools",
+    "nodejs",
+    "typescript",
+    "string",
+    "search",
+    "split",
+    "manipulation"
   ],
   "homepage": "https://github.com/bluelovers/ws-iconv/tree/master/packages/@lazy-node/util-buffer#readme",
   "bugs": {
@@ -21,8 +30,8 @@
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
-      "import": "./dist/index.esm.mjs",
-      "require": "./dist/index.cjs"
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.esm.mjs"
     },
     "./package.json": "./package.json",
     "./src/*": "./src/*"
@@ -42,6 +51,7 @@
     "pretest": "echo pretest",
     "test": "jest --passWithNoTests",
     "test:jest": "jest --passWithNoTests",
+    "test:jest:coverage": "yarn run test:jest -- --coverage",
     "test:jest:snapshot": "yarn run test:jest -- -u",
     "test:mocha": "ynpx --quiet -p ts-node -p mocha mocha -- --require ts-node/register \"!(node_modules)/**/*.{test,spec}.{ts,tsx}\"",
     "test:snapshot": "yarn run test -- -u",
@@ -74,7 +84,6 @@
     "sort-package-json": "yarn-tool sort",
     "tsc:showConfig": "ynpx get-current-tsconfig -p"
   },
-  "packageManager": "yarn@1.22.19",
   "publishConfig": {
     "access": "public"
   }

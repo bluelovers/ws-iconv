@@ -1,7 +1,17 @@
 {
   "name": "@lazy-node/is-writeable-path",
   "version": "1.0.18",
-  "description": "detect target path is writeable or not",
+  "description": "路徑可寫入檢測模組 - 檢測目標路徑是否可寫入，支援同步和非同步操作，可檢測檔案和目錄的可寫入狀態",
+  "keywords": [
+    "create-by-yarn-tool",
+    "path",
+    "writeable",
+    "filesystem",
+    "access",
+    "permissions",
+    "fs",
+    "nodejs"
+  ],
   "homepage": "https://github.com/bluelovers/ws-iconv/tree/master/packages/@lazy-node/is-writeable-path#readme",
   "bugs": {
     "url": "https://github.com/bluelovers/ws-iconv/issues"
@@ -15,9 +25,11 @@
   "author": "bluelovers",
   "main": "index.js",
   "scripts": {
+    "coverage": "yarn run test -- --coverage",
     "lint": "ynpx --quiet eslint -- **/*.ts",
     "test": "jest",
     "test:jest": "ynpx --quiet jest -- --coverage",
+    "test:jest:coverage": "yarn run test:jest -- --coverage",
     "test:jest:snapshot": "yarn run test:jest -- -u",
     "test:mocha": "ynpx --quiet -p ts-node -p mocha mocha -- --require ts-node/register \"!(node_modules)/**/*.{test,spec}.{ts,tsx}\"",
     "test:snapshot": "yarn run test -- -u",
@@ -27,7 +39,8 @@
     "prepublishOnly:check-bin": "ynpx --quiet @yarn-tool/check-pkg-bin",
     "prepublishOnly:update": "yarn run ncu && yarn run sort-package-json",
     "ncu": "yarn-tool ncu -u",
-    "sort-package-json": "yarn-tool sort"
+    "sort-package-json": "yarn-tool sort",
+    "tsc:showConfig": "ynpx get-current-tsconfig -p"
   },
   "dependencies": {
     "fs-stat": "^1.0.26"

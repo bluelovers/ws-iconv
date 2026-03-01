@@ -1,7 +1,7 @@
 {
   "name": "find-up-paths",
   "version": "1.0.17",
-  "description": "Find a file or directory by walking up parent directories",
+  "description": "從當前目錄向上遍歷父目錄尋找檔案或目錄 (Find files or directories by walking up parent directories)",
   "keywords": [
     "find",
     "up",
@@ -46,6 +46,7 @@
     "pretest": "echo pretest",
     "test": "jest --passWithNoTests",
     "test:jest": "jest --passWithNoTests",
+    "test:jest:coverage": "yarn run test:jest -- --coverage",
     "test:jest:snapshot": "yarn run test:jest -- -u",
     "test:mocha": "ynpx --quiet -p ts-node -p mocha mocha -- --require ts-node/register \"!(node_modules)/**/*.{test,spec}.{ts,tsx}\"",
     "test:snapshot": "yarn run test -- -u",
@@ -82,6 +83,5 @@
     "path-parents": "^1.0.33",
     "tslib": "^2"
   },
-  "packageManager": "yarn@1.22.19",
   "gitHead": "e6dea90eaa22e331d180711d3ec4c4d430fce071"
 }

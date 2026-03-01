@@ -1,7 +1,7 @@
 {
   "name": "@lazy-iconv/html-encoding-sniffer",
   "version": "1.0.12",
-  "description": "",
+  "description": "Normalize HTML encoding by sniffing and decoding with proper encoding / 透過偵測和解碼正確編碼來標準化 HTML 編碼",
   "homepage": "https://github.com/bluelovers/ws-iconv/tree/master/packages/@lazy-iconv/html-encoding-sniffer#readme",
   "bugs": {
     "url": "https://github.com/bluelovers/ws-iconv/issues"
@@ -19,6 +19,7 @@
     "lint": "ynpx --quiet eslint -- **/*.ts",
     "test": "jest --passWithNoTests",
     "test:jest": "jest --passWithNoTests",
+    "test:jest:coverage": "yarn run test:jest -- --coverage",
     "test:jest:snapshot": "yarn run test:jest -- -u",
     "test:mocha": "ynpx --quiet -p ts-node -p mocha mocha -- --require ts-node/register \"!(node_modules)/**/*.{test,spec}.{ts,tsx}\"",
     "test:snapshot": "yarn run test -- -u",
