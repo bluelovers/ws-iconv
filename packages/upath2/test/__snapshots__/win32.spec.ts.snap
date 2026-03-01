@@ -2,6 +2,7 @@
 
 exports[`normalize (unbind) normalize '//windows\\\\unix/mixed' 1`] = `
 {
+  "path": undefined,
   "upath": undefined,
   "upath2": "\\\\windows\\unix\\mixed",
 }
@@ -9,6 +10,7 @@ exports[`normalize (unbind) normalize '//windows\\\\unix/mixed' 1`] = `
 
 exports[`normalize (unbind) normalize '\\\\\\\\storageserver01\\\\Active Projects\\\\ProjectA' 1`] = `
 {
+  "path": undefined,
   "upath": undefined,
   "upath2": "\\\\storageserver01\\Active Projects\\ProjectA",
 }
@@ -16,6 +18,7 @@ exports[`normalize (unbind) normalize '\\\\\\\\storageserver01\\\\Active Project
 
 exports[`normalize (unbind) normalize '\\\\windows//unix/mixed' 1`] = `
 {
+  "path": undefined,
   "upath": undefined,
   "upath2": "/windows/unix/mixed",
 }
@@ -23,6 +26,7 @@ exports[`normalize (unbind) normalize '\\\\windows//unix/mixed' 1`] = `
 
 exports[`normalize normalize '//windows\\\\unix/mixed' 1`] = `
 {
+  "path": "\\\\windows\\unix\\mixed",
   "upath": "//windows/unix/mixed",
   "upath2": "\\\\windows\\unix\\mixed",
 }
@@ -30,6 +34,7 @@ exports[`normalize normalize '//windows\\\\unix/mixed' 1`] = `
 
 exports[`normalize normalize '\\\\\\\\storageserver01\\\\Active Projects\\\\ProjectA' 1`] = `
 {
+  "path": "\\\\storageserver01\\Active Projects\\ProjectA",
   "upath": "//storageserver01/Active Projects/ProjectA",
   "upath2": "\\\\storageserver01\\Active Projects\\ProjectA",
 }
@@ -37,6 +42,7 @@ exports[`normalize normalize '\\\\\\\\storageserver01\\\\Active Projects\\\\Proj
 
 exports[`normalize normalize '\\\\windows//unix/mixed' 1`] = `
 {
+  "path": "\\windows\\unix\\mixed",
   "upath": "/windows/unix/mixed",
   "upath2": "/windows/unix/mixed",
 }

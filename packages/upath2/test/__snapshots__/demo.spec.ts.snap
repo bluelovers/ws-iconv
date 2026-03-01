@@ -2,6 +2,7 @@
 
 exports[`check upath (unbind) join [ 'some/nodejs/deep', '../path' ] 1`] = `
 {
+  "path": undefined,
   "upath": undefined,
   "upath2": "some/nodejs/path",
 }
@@ -9,6 +10,7 @@ exports[`check upath (unbind) join [ 'some/nodejs/deep', '../path' ] 1`] = `
 
 exports[`check upath (unbind) join [ 'some/nodejs\\\\windows', '../path' ] 1`] = `
 {
+  "path": undefined,
   "upath": undefined,
   "upath2": "some/nodejs/path",
 }
@@ -16,6 +18,7 @@ exports[`check upath (unbind) join [ 'some/nodejs\\\\windows', '../path' ] 1`] =
 
 exports[`check upath (unbind) join [ 'some\\\\windows\\\\only', '..\\\\path' ] 1`] = `
 {
+  "path": undefined,
   "upath": undefined,
   "upath2": "some/windows/path",
 }
@@ -23,6 +26,7 @@ exports[`check upath (unbind) join [ 'some\\\\windows\\\\only', '..\\\\path' ] 1
 
 exports[`check upath (unbind) normalize '//\\\\windows\\\\..\\\\unix/mixed/' 1`] = `
 {
+  "path": undefined,
   "upath": undefined,
   "upath2": "/unix/mixed/",
 }
@@ -30,6 +34,7 @@ exports[`check upath (unbind) normalize '//\\\\windows\\\\..\\\\unix/mixed/' 1`]
 
 exports[`check upath (unbind) normalize '/root/of/unix/somefile.ext' 1`] = `
 {
+  "path": undefined,
   "upath": undefined,
   "upath2": "/root/of/unix/somefile.ext",
 }
@@ -37,6 +42,7 @@ exports[`check upath (unbind) normalize '/root/of/unix/somefile.ext' 1`] = `
 
 exports[`check upath (unbind) normalize 'c:/windows/../nodejs/path' 1`] = `
 {
+  "path": undefined,
   "upath": undefined,
   "upath2": "c:/nodejs/path",
 }
@@ -44,6 +50,7 @@ exports[`check upath (unbind) normalize 'c:/windows/../nodejs/path' 1`] = `
 
 exports[`check upath (unbind) normalize 'c:/windows/nodejs/path' 1`] = `
 {
+  "path": undefined,
   "upath": undefined,
   "upath2": "c:/windows/nodejs/path",
 }
@@ -51,6 +58,7 @@ exports[`check upath (unbind) normalize 'c:/windows/nodejs/path' 1`] = `
 
 exports[`check upath (unbind) normalize 'c:\\\\Windows\\\\Directory\\\\somefile.ext' 1`] = `
 {
+  "path": undefined,
   "upath": undefined,
   "upath2": "c:/Windows/Directory/somefile.ext",
 }
@@ -58,6 +66,7 @@ exports[`check upath (unbind) normalize 'c:\\\\Windows\\\\Directory\\\\somefile.
 
 exports[`check upath (unbind) normalize 'c:\\\\windows\\\\..\\\\nodejs\\\\path' 1`] = `
 {
+  "path": undefined,
   "upath": undefined,
   "upath2": "c:/nodejs/path",
 }
@@ -65,6 +74,7 @@ exports[`check upath (unbind) normalize 'c:\\\\windows\\\\..\\\\nodejs\\\\path' 
 
 exports[`check upath (unbind) normalize 'c:\\\\windows\\\\nodejs\\\\path' 1`] = `
 {
+  "path": undefined,
   "upath": undefined,
   "upath2": "c:/windows/nodejs/path",
 }
@@ -72,6 +82,7 @@ exports[`check upath (unbind) normalize 'c:\\\\windows\\\\nodejs\\\\path' 1`] = 
 
 exports[`check upath (unbind) parse '//\\\\windows\\\\..\\\\unix/mixed/' 1`] = `
 {
+  "path": undefined,
   "upath": undefined,
   "upath2": {
     "base": "mixed",
@@ -85,6 +96,7 @@ exports[`check upath (unbind) parse '//\\\\windows\\\\..\\\\unix/mixed/' 1`] = `
 
 exports[`check upath (unbind) parse '//windows\\\\unix/mixed' 1`] = `
 {
+  "path": undefined,
   "upath": undefined,
   "upath2": {
     "base": "mixed",
@@ -98,6 +110,7 @@ exports[`check upath (unbind) parse '//windows\\\\unix/mixed' 1`] = `
 
 exports[`check upath (unbind) parse '/root/of/unix/somefile.ext' 1`] = `
 {
+  "path": undefined,
   "upath": undefined,
   "upath2": {
     "base": "somefile.ext",
@@ -111,6 +124,7 @@ exports[`check upath (unbind) parse '/root/of/unix/somefile.ext' 1`] = `
 
 exports[`check upath (unbind) parse '\\\\windows//unix/mixed' 1`] = `
 {
+  "path": undefined,
   "upath": undefined,
   "upath2": {
     "base": "mixed",
@@ -124,6 +138,7 @@ exports[`check upath (unbind) parse '\\\\windows//unix/mixed' 1`] = `
 
 exports[`check upath (unbind) parse 'c:/windows/../nodejs/path' 1`] = `
 {
+  "path": undefined,
   "upath": undefined,
   "upath2": {
     "base": "path",
@@ -137,6 +152,7 @@ exports[`check upath (unbind) parse 'c:/windows/../nodejs/path' 1`] = `
 
 exports[`check upath (unbind) parse 'c:/windows/nodejs/path' 1`] = `
 {
+  "path": undefined,
   "upath": undefined,
   "upath2": {
     "base": "path",
@@ -150,6 +166,7 @@ exports[`check upath (unbind) parse 'c:/windows/nodejs/path' 1`] = `
 
 exports[`check upath (unbind) parse 'c:\\\\Windows\\\\Directory\\\\somefile.ext' 1`] = `
 {
+  "path": undefined,
   "upath": undefined,
   "upath2": {
     "base": "somefile.ext",
@@ -163,6 +180,7 @@ exports[`check upath (unbind) parse 'c:\\\\Windows\\\\Directory\\\\somefile.ext'
 
 exports[`check upath (unbind) parse 'c:\\\\windows\\\\..\\\\nodejs\\\\path' 1`] = `
 {
+  "path": undefined,
   "upath": undefined,
   "upath2": {
     "base": "path",
@@ -176,6 +194,7 @@ exports[`check upath (unbind) parse 'c:\\\\windows\\\\..\\\\nodejs\\\\path' 1`] 
 
 exports[`check upath (unbind) parse 'c:\\\\windows\\\\nodejs\\\\path' 1`] = `
 {
+  "path": undefined,
   "upath": undefined,
   "upath2": {
     "base": "path",
@@ -189,6 +208,7 @@ exports[`check upath (unbind) parse 'c:\\\\windows\\\\nodejs\\\\path' 1`] = `
 
 exports[`check upath join [ 'some/nodejs/deep', '../path' ] 1`] = `
 {
+  "path": "some\\nodejs\\path",
   "upath": "some/nodejs/path",
   "upath2": "some/nodejs/path",
 }
@@ -196,6 +216,7 @@ exports[`check upath join [ 'some/nodejs/deep', '../path' ] 1`] = `
 
 exports[`check upath join [ 'some/nodejs\\\\windows', '../path' ] 1`] = `
 {
+  "path": "some\\nodejs\\path",
   "upath": "some/nodejs/path",
   "upath2": "some/nodejs/path",
 }
@@ -203,6 +224,7 @@ exports[`check upath join [ 'some/nodejs\\\\windows', '../path' ] 1`] = `
 
 exports[`check upath join [ 'some\\\\windows\\\\only', '..\\\\path' ] 1`] = `
 {
+  "path": "some\\windows\\path",
   "upath": "some/windows/path",
   "upath2": "some/windows/path",
 }
@@ -210,6 +232,7 @@ exports[`check upath join [ 'some\\\\windows\\\\only', '..\\\\path' ] 1`] = `
 
 exports[`check upath normalize '//\\\\windows\\\\..\\\\unix/mixed/' 1`] = `
 {
+  "path": "\\unix\\mixed\\",
   "upath": "//windows/../unix/mixed/",
   "upath2": "/unix/mixed/",
 }
@@ -217,6 +240,7 @@ exports[`check upath normalize '//\\\\windows\\\\..\\\\unix/mixed/' 1`] = `
 
 exports[`check upath normalize '/root/of/unix/somefile.ext' 1`] = `
 {
+  "path": "\\root\\of\\unix\\somefile.ext",
   "upath": "/root/of/unix/somefile.ext",
   "upath2": "/root/of/unix/somefile.ext",
 }
@@ -224,6 +248,7 @@ exports[`check upath normalize '/root/of/unix/somefile.ext' 1`] = `
 
 exports[`check upath normalize 'c:/windows/../nodejs/path' 1`] = `
 {
+  "path": "c:\\nodejs\\path",
   "upath": "c:/nodejs/path",
   "upath2": "c:/nodejs/path",
 }
@@ -231,6 +256,7 @@ exports[`check upath normalize 'c:/windows/../nodejs/path' 1`] = `
 
 exports[`check upath normalize 'c:/windows/nodejs/path' 1`] = `
 {
+  "path": "c:\\windows\\nodejs\\path",
   "upath": "c:/windows/nodejs/path",
   "upath2": "c:/windows/nodejs/path",
 }
@@ -238,6 +264,7 @@ exports[`check upath normalize 'c:/windows/nodejs/path' 1`] = `
 
 exports[`check upath normalize 'c:\\\\Windows\\\\Directory\\\\somefile.ext' 1`] = `
 {
+  "path": "c:\\Windows\\Directory\\somefile.ext",
   "upath": "c:/Windows/Directory/somefile.ext",
   "upath2": "c:/Windows/Directory/somefile.ext",
 }
@@ -245,6 +272,7 @@ exports[`check upath normalize 'c:\\\\Windows\\\\Directory\\\\somefile.ext' 1`] 
 
 exports[`check upath normalize 'c:\\\\windows\\\\..\\\\nodejs\\\\path' 1`] = `
 {
+  "path": "c:\\nodejs\\path",
   "upath": "c:/nodejs/path",
   "upath2": "c:/nodejs/path",
 }
@@ -252,6 +280,7 @@ exports[`check upath normalize 'c:\\\\windows\\\\..\\\\nodejs\\\\path' 1`] = `
 
 exports[`check upath normalize 'c:\\\\windows\\\\nodejs\\\\path' 1`] = `
 {
+  "path": "c:\\windows\\nodejs\\path",
   "upath": "c:/windows/nodejs/path",
   "upath2": "c:/windows/nodejs/path",
 }
@@ -259,6 +288,13 @@ exports[`check upath normalize 'c:\\\\windows\\\\nodejs\\\\path' 1`] = `
 
 exports[`check upath parse '//\\\\windows\\\\..\\\\unix/mixed/' 1`] = `
 {
+  "path": {
+    "base": "mixed",
+    "dir": "//\\windows\\..\\unix",
+    "ext": "",
+    "name": "mixed",
+    "root": "/",
+  },
   "upath": {
     "base": "mixed",
     "dir": "//windows/../unix",
@@ -278,6 +314,13 @@ exports[`check upath parse '//\\\\windows\\\\..\\\\unix/mixed/' 1`] = `
 
 exports[`check upath parse '//windows\\\\unix/mixed' 1`] = `
 {
+  "path": {
+    "base": "mixed",
+    "dir": "//windows\\unix/",
+    "ext": "",
+    "name": "mixed",
+    "root": "//windows\\unix/",
+  },
   "upath": {
     "base": "mixed",
     "dir": "//windows/unix/",
@@ -297,6 +340,13 @@ exports[`check upath parse '//windows\\\\unix/mixed' 1`] = `
 
 exports[`check upath parse '/root/of/unix/somefile.ext' 1`] = `
 {
+  "path": {
+    "base": "somefile.ext",
+    "dir": "/root/of/unix",
+    "ext": ".ext",
+    "name": "somefile",
+    "root": "/",
+  },
   "upath": {
     "base": "somefile.ext",
     "dir": "/root/of/unix",
@@ -316,6 +366,13 @@ exports[`check upath parse '/root/of/unix/somefile.ext' 1`] = `
 
 exports[`check upath parse '\\\\windows//unix/mixed' 1`] = `
 {
+  "path": {
+    "base": "mixed",
+    "dir": "\\windows//unix",
+    "ext": "",
+    "name": "mixed",
+    "root": "\\",
+  },
   "upath": {
     "base": "mixed",
     "dir": "/windows/unix",
@@ -335,6 +392,13 @@ exports[`check upath parse '\\\\windows//unix/mixed' 1`] = `
 
 exports[`check upath parse 'c:/windows/../nodejs/path' 1`] = `
 {
+  "path": {
+    "base": "path",
+    "dir": "c:/windows/../nodejs",
+    "ext": "",
+    "name": "path",
+    "root": "c:/",
+  },
   "upath": {
     "base": "path",
     "dir": "c:/windows/../nodejs",
@@ -354,6 +418,13 @@ exports[`check upath parse 'c:/windows/../nodejs/path' 1`] = `
 
 exports[`check upath parse 'c:/windows/nodejs/path' 1`] = `
 {
+  "path": {
+    "base": "path",
+    "dir": "c:/windows/nodejs",
+    "ext": "",
+    "name": "path",
+    "root": "c:/",
+  },
   "upath": {
     "base": "path",
     "dir": "c:/windows/nodejs",
@@ -373,6 +444,13 @@ exports[`check upath parse 'c:/windows/nodejs/path' 1`] = `
 
 exports[`check upath parse 'c:\\\\Windows\\\\Directory\\\\somefile.ext' 1`] = `
 {
+  "path": {
+    "base": "somefile.ext",
+    "dir": "c:\\Windows\\Directory",
+    "ext": ".ext",
+    "name": "somefile",
+    "root": "c:\\",
+  },
   "upath": {
     "base": "somefile.ext",
     "dir": "c:/Windows/Directory",
@@ -392,6 +470,13 @@ exports[`check upath parse 'c:\\\\Windows\\\\Directory\\\\somefile.ext' 1`] = `
 
 exports[`check upath parse 'c:\\\\windows\\\\..\\\\nodejs\\\\path' 1`] = `
 {
+  "path": {
+    "base": "path",
+    "dir": "c:\\windows\\..\\nodejs",
+    "ext": "",
+    "name": "path",
+    "root": "c:\\",
+  },
   "upath": {
     "base": "path",
     "dir": "c:/windows/../nodejs",
@@ -411,6 +496,13 @@ exports[`check upath parse 'c:\\\\windows\\\\..\\\\nodejs\\\\path' 1`] = `
 
 exports[`check upath parse 'c:\\\\windows\\\\nodejs\\\\path' 1`] = `
 {
+  "path": {
+    "base": "path",
+    "dir": "c:\\windows\\nodejs",
+    "ext": "",
+    "name": "path",
+    "root": "c:\\",
+  },
   "upath": {
     "base": "path",
     "dir": "c:/windows/nodejs",
@@ -430,6 +522,7 @@ exports[`check upath parse 'c:\\\\windows\\\\nodejs\\\\path' 1`] = `
 
 exports[`check upath2 (unbind) join [ 'some/nodejs/deep', '../path' ] 1`] = `
 {
+  "path": undefined,
   "upath": undefined,
   "upath2": "some/nodejs/path",
 }
@@ -437,6 +530,7 @@ exports[`check upath2 (unbind) join [ 'some/nodejs/deep', '../path' ] 1`] = `
 
 exports[`check upath2 (unbind) join [ 'some/nodejs\\\\windows', '../path' ] 1`] = `
 {
+  "path": undefined,
   "upath": undefined,
   "upath2": "some/nodejs/path",
 }
@@ -444,6 +538,7 @@ exports[`check upath2 (unbind) join [ 'some/nodejs\\\\windows', '../path' ] 1`] 
 
 exports[`check upath2 (unbind) join [ 'some\\\\windows\\\\only', '..\\\\path' ] 1`] = `
 {
+  "path": undefined,
   "upath": undefined,
   "upath2": "some/windows/path",
 }
@@ -451,6 +546,7 @@ exports[`check upath2 (unbind) join [ 'some\\\\windows\\\\only', '..\\\\path' ] 
 
 exports[`check upath2 (unbind) normalize '//\\\\windows\\\\..\\\\unix/mixed/' 1`] = `
 {
+  "path": undefined,
   "upath": undefined,
   "upath2": "/unix/mixed/",
 }
@@ -458,6 +554,7 @@ exports[`check upath2 (unbind) normalize '//\\\\windows\\\\..\\\\unix/mixed/' 1`
 
 exports[`check upath2 (unbind) normalize '/root/of/unix/somefile.ext' 1`] = `
 {
+  "path": undefined,
   "upath": undefined,
   "upath2": "/root/of/unix/somefile.ext",
 }
@@ -465,6 +562,7 @@ exports[`check upath2 (unbind) normalize '/root/of/unix/somefile.ext' 1`] = `
 
 exports[`check upath2 (unbind) normalize 'c:/windows/../nodejs/path' 1`] = `
 {
+  "path": undefined,
   "upath": undefined,
   "upath2": "c:/nodejs/path",
 }
@@ -472,6 +570,7 @@ exports[`check upath2 (unbind) normalize 'c:/windows/../nodejs/path' 1`] = `
 
 exports[`check upath2 (unbind) normalize 'c:/windows/nodejs/path' 1`] = `
 {
+  "path": undefined,
   "upath": undefined,
   "upath2": "c:/windows/nodejs/path",
 }
@@ -479,6 +578,7 @@ exports[`check upath2 (unbind) normalize 'c:/windows/nodejs/path' 1`] = `
 
 exports[`check upath2 (unbind) normalize 'c:\\\\Windows\\\\Directory\\\\somefile.ext' 1`] = `
 {
+  "path": undefined,
   "upath": undefined,
   "upath2": "c:/Windows/Directory/somefile.ext",
 }
@@ -486,6 +586,7 @@ exports[`check upath2 (unbind) normalize 'c:\\\\Windows\\\\Directory\\\\somefile
 
 exports[`check upath2 (unbind) normalize 'c:\\\\windows\\\\..\\\\nodejs\\\\path' 1`] = `
 {
+  "path": undefined,
   "upath": undefined,
   "upath2": "c:/nodejs/path",
 }
@@ -493,6 +594,7 @@ exports[`check upath2 (unbind) normalize 'c:\\\\windows\\\\..\\\\nodejs\\\\path'
 
 exports[`check upath2 (unbind) normalize 'c:\\\\windows\\\\nodejs\\\\path' 1`] = `
 {
+  "path": undefined,
   "upath": undefined,
   "upath2": "c:/windows/nodejs/path",
 }
@@ -500,6 +602,7 @@ exports[`check upath2 (unbind) normalize 'c:\\\\windows\\\\nodejs\\\\path' 1`] =
 
 exports[`check upath2 (unbind) parse '//\\\\windows\\\\..\\\\unix/mixed/' 1`] = `
 {
+  "path": undefined,
   "upath": undefined,
   "upath2": {
     "base": "mixed",
@@ -513,6 +616,7 @@ exports[`check upath2 (unbind) parse '//\\\\windows\\\\..\\\\unix/mixed/' 1`] = 
 
 exports[`check upath2 (unbind) parse '//windows\\\\unix/mixed' 1`] = `
 {
+  "path": undefined,
   "upath": undefined,
   "upath2": {
     "base": "mixed",
@@ -526,6 +630,7 @@ exports[`check upath2 (unbind) parse '//windows\\\\unix/mixed' 1`] = `
 
 exports[`check upath2 (unbind) parse '/root/of/unix/somefile.ext' 1`] = `
 {
+  "path": undefined,
   "upath": undefined,
   "upath2": {
     "base": "somefile.ext",
@@ -539,6 +644,7 @@ exports[`check upath2 (unbind) parse '/root/of/unix/somefile.ext' 1`] = `
 
 exports[`check upath2 (unbind) parse '\\\\windows//unix/mixed' 1`] = `
 {
+  "path": undefined,
   "upath": undefined,
   "upath2": {
     "base": "mixed",
@@ -552,6 +658,7 @@ exports[`check upath2 (unbind) parse '\\\\windows//unix/mixed' 1`] = `
 
 exports[`check upath2 (unbind) parse 'c:/windows/../nodejs/path' 1`] = `
 {
+  "path": undefined,
   "upath": undefined,
   "upath2": {
     "base": "path",
@@ -565,6 +672,7 @@ exports[`check upath2 (unbind) parse 'c:/windows/../nodejs/path' 1`] = `
 
 exports[`check upath2 (unbind) parse 'c:/windows/nodejs/path' 1`] = `
 {
+  "path": undefined,
   "upath": undefined,
   "upath2": {
     "base": "path",
@@ -578,6 +686,7 @@ exports[`check upath2 (unbind) parse 'c:/windows/nodejs/path' 1`] = `
 
 exports[`check upath2 (unbind) parse 'c:\\\\Windows\\\\Directory\\\\somefile.ext' 1`] = `
 {
+  "path": undefined,
   "upath": undefined,
   "upath2": {
     "base": "somefile.ext",
@@ -591,6 +700,7 @@ exports[`check upath2 (unbind) parse 'c:\\\\Windows\\\\Directory\\\\somefile.ext
 
 exports[`check upath2 (unbind) parse 'c:\\\\windows\\\\..\\\\nodejs\\\\path' 1`] = `
 {
+  "path": undefined,
   "upath": undefined,
   "upath2": {
     "base": "path",
@@ -604,6 +714,7 @@ exports[`check upath2 (unbind) parse 'c:\\\\windows\\\\..\\\\nodejs\\\\path' 1`]
 
 exports[`check upath2 (unbind) parse 'c:\\\\windows\\\\nodejs\\\\path' 1`] = `
 {
+  "path": undefined,
   "upath": undefined,
   "upath2": {
     "base": "path",
@@ -617,6 +728,7 @@ exports[`check upath2 (unbind) parse 'c:\\\\windows\\\\nodejs\\\\path' 1`] = `
 
 exports[`check upath2 join [ 'some/nodejs/deep', '../path' ] 1`] = `
 {
+  "path": "some\\nodejs\\path",
   "upath": "some/nodejs/path",
   "upath2": "some/nodejs/path",
 }
@@ -624,6 +736,7 @@ exports[`check upath2 join [ 'some/nodejs/deep', '../path' ] 1`] = `
 
 exports[`check upath2 join [ 'some/nodejs\\\\windows', '../path' ] 1`] = `
 {
+  "path": "some\\nodejs\\path",
   "upath": "some/nodejs/path",
   "upath2": "some/nodejs/path",
 }
@@ -631,6 +744,7 @@ exports[`check upath2 join [ 'some/nodejs\\\\windows', '../path' ] 1`] = `
 
 exports[`check upath2 join [ 'some\\\\windows\\\\only', '..\\\\path' ] 1`] = `
 {
+  "path": "some\\windows\\path",
   "upath": "some/windows/path",
   "upath2": "some/windows/path",
 }
@@ -638,6 +752,7 @@ exports[`check upath2 join [ 'some\\\\windows\\\\only', '..\\\\path' ] 1`] = `
 
 exports[`check upath2 normalize '//\\\\windows\\\\..\\\\unix/mixed/' 1`] = `
 {
+  "path": "\\unix\\mixed\\",
   "upath": "//windows/../unix/mixed/",
   "upath2": "/unix/mixed/",
 }
@@ -645,6 +760,7 @@ exports[`check upath2 normalize '//\\\\windows\\\\..\\\\unix/mixed/' 1`] = `
 
 exports[`check upath2 normalize '/root/of/unix/somefile.ext' 1`] = `
 {
+  "path": "\\root\\of\\unix\\somefile.ext",
   "upath": "/root/of/unix/somefile.ext",
   "upath2": "/root/of/unix/somefile.ext",
 }
@@ -652,6 +768,7 @@ exports[`check upath2 normalize '/root/of/unix/somefile.ext' 1`] = `
 
 exports[`check upath2 normalize 'c:/windows/../nodejs/path' 1`] = `
 {
+  "path": "c:\\nodejs\\path",
   "upath": "c:/nodejs/path",
   "upath2": "c:/nodejs/path",
 }
@@ -659,6 +776,7 @@ exports[`check upath2 normalize 'c:/windows/../nodejs/path' 1`] = `
 
 exports[`check upath2 normalize 'c:/windows/nodejs/path' 1`] = `
 {
+  "path": "c:\\windows\\nodejs\\path",
   "upath": "c:/windows/nodejs/path",
   "upath2": "c:/windows/nodejs/path",
 }
@@ -666,6 +784,7 @@ exports[`check upath2 normalize 'c:/windows/nodejs/path' 1`] = `
 
 exports[`check upath2 normalize 'c:\\\\Windows\\\\Directory\\\\somefile.ext' 1`] = `
 {
+  "path": "c:\\Windows\\Directory\\somefile.ext",
   "upath": "c:/Windows/Directory/somefile.ext",
   "upath2": "c:/Windows/Directory/somefile.ext",
 }
@@ -673,6 +792,7 @@ exports[`check upath2 normalize 'c:\\\\Windows\\\\Directory\\\\somefile.ext' 1`]
 
 exports[`check upath2 normalize 'c:\\\\windows\\\\..\\\\nodejs\\\\path' 1`] = `
 {
+  "path": "c:\\nodejs\\path",
   "upath": "c:/nodejs/path",
   "upath2": "c:/nodejs/path",
 }
@@ -680,6 +800,7 @@ exports[`check upath2 normalize 'c:\\\\windows\\\\..\\\\nodejs\\\\path' 1`] = `
 
 exports[`check upath2 normalize 'c:\\\\windows\\\\nodejs\\\\path' 1`] = `
 {
+  "path": "c:\\windows\\nodejs\\path",
   "upath": "c:/windows/nodejs/path",
   "upath2": "c:/windows/nodejs/path",
 }
@@ -687,6 +808,13 @@ exports[`check upath2 normalize 'c:\\\\windows\\\\nodejs\\\\path' 1`] = `
 
 exports[`check upath2 parse '//\\\\windows\\\\..\\\\unix/mixed/' 1`] = `
 {
+  "path": {
+    "base": "mixed",
+    "dir": "//\\windows\\..\\unix",
+    "ext": "",
+    "name": "mixed",
+    "root": "/",
+  },
   "upath": {
     "base": "mixed",
     "dir": "//windows/../unix",
@@ -706,6 +834,13 @@ exports[`check upath2 parse '//\\\\windows\\\\..\\\\unix/mixed/' 1`] = `
 
 exports[`check upath2 parse '//windows\\\\unix/mixed' 1`] = `
 {
+  "path": {
+    "base": "mixed",
+    "dir": "//windows\\unix/",
+    "ext": "",
+    "name": "mixed",
+    "root": "//windows\\unix/",
+  },
   "upath": {
     "base": "mixed",
     "dir": "//windows/unix/",
@@ -725,6 +860,13 @@ exports[`check upath2 parse '//windows\\\\unix/mixed' 1`] = `
 
 exports[`check upath2 parse '/root/of/unix/somefile.ext' 1`] = `
 {
+  "path": {
+    "base": "somefile.ext",
+    "dir": "/root/of/unix",
+    "ext": ".ext",
+    "name": "somefile",
+    "root": "/",
+  },
   "upath": {
     "base": "somefile.ext",
     "dir": "/root/of/unix",
@@ -744,6 +886,13 @@ exports[`check upath2 parse '/root/of/unix/somefile.ext' 1`] = `
 
 exports[`check upath2 parse '\\\\windows//unix/mixed' 1`] = `
 {
+  "path": {
+    "base": "mixed",
+    "dir": "\\windows//unix",
+    "ext": "",
+    "name": "mixed",
+    "root": "\\",
+  },
   "upath": {
     "base": "mixed",
     "dir": "/windows/unix",
@@ -763,6 +912,13 @@ exports[`check upath2 parse '\\\\windows//unix/mixed' 1`] = `
 
 exports[`check upath2 parse 'c:/windows/../nodejs/path' 1`] = `
 {
+  "path": {
+    "base": "path",
+    "dir": "c:/windows/../nodejs",
+    "ext": "",
+    "name": "path",
+    "root": "c:/",
+  },
   "upath": {
     "base": "path",
     "dir": "c:/windows/../nodejs",
@@ -782,6 +938,13 @@ exports[`check upath2 parse 'c:/windows/../nodejs/path' 1`] = `
 
 exports[`check upath2 parse 'c:/windows/nodejs/path' 1`] = `
 {
+  "path": {
+    "base": "path",
+    "dir": "c:/windows/nodejs",
+    "ext": "",
+    "name": "path",
+    "root": "c:/",
+  },
   "upath": {
     "base": "path",
     "dir": "c:/windows/nodejs",
@@ -801,6 +964,13 @@ exports[`check upath2 parse 'c:/windows/nodejs/path' 1`] = `
 
 exports[`check upath2 parse 'c:\\\\Windows\\\\Directory\\\\somefile.ext' 1`] = `
 {
+  "path": {
+    "base": "somefile.ext",
+    "dir": "c:\\Windows\\Directory",
+    "ext": ".ext",
+    "name": "somefile",
+    "root": "c:\\",
+  },
   "upath": {
     "base": "somefile.ext",
     "dir": "c:/Windows/Directory",
@@ -820,6 +990,13 @@ exports[`check upath2 parse 'c:\\\\Windows\\\\Directory\\\\somefile.ext' 1`] = `
 
 exports[`check upath2 parse 'c:\\\\windows\\\\..\\\\nodejs\\\\path' 1`] = `
 {
+  "path": {
+    "base": "path",
+    "dir": "c:\\windows\\..\\nodejs",
+    "ext": "",
+    "name": "path",
+    "root": "c:\\",
+  },
   "upath": {
     "base": "path",
     "dir": "c:/windows/../nodejs",
@@ -839,6 +1016,13 @@ exports[`check upath2 parse 'c:\\\\windows\\\\..\\\\nodejs\\\\path' 1`] = `
 
 exports[`check upath2 parse 'c:\\\\windows\\\\nodejs\\\\path' 1`] = `
 {
+  "path": {
+    "base": "path",
+    "dir": "c:\\windows\\nodejs",
+    "ext": "",
+    "name": "path",
+    "root": "c:\\",
+  },
   "upath": {
     "base": "path",
     "dir": "c:/windows/nodejs",
@@ -858,6 +1042,7 @@ exports[`check upath2 parse 'c:\\\\windows\\\\nodejs\\\\path' 1`] = `
 
 exports[`check win32 (unbind) join [ 'some/nodejs/deep', '../path' ] 1`] = `
 {
+  "path": undefined,
   "upath": undefined,
   "upath2": "some/nodejs/path",
 }
@@ -865,6 +1050,7 @@ exports[`check win32 (unbind) join [ 'some/nodejs/deep', '../path' ] 1`] = `
 
 exports[`check win32 (unbind) join [ 'some/nodejs\\\\windows', '../path' ] 1`] = `
 {
+  "path": undefined,
   "upath": undefined,
   "upath2": "some/nodejs/path",
 }
@@ -872,6 +1058,7 @@ exports[`check win32 (unbind) join [ 'some/nodejs\\\\windows', '../path' ] 1`] =
 
 exports[`check win32 (unbind) join [ 'some\\\\windows\\\\only', '..\\\\path' ] 1`] = `
 {
+  "path": undefined,
   "upath": undefined,
   "upath2": "some/windows/path",
 }
@@ -879,6 +1066,7 @@ exports[`check win32 (unbind) join [ 'some\\\\windows\\\\only', '..\\\\path' ] 1
 
 exports[`check win32 (unbind) normalize '//\\\\windows\\\\..\\\\unix/mixed/' 1`] = `
 {
+  "path": undefined,
   "upath": undefined,
   "upath2": "/unix/mixed/",
 }
@@ -886,6 +1074,7 @@ exports[`check win32 (unbind) normalize '//\\\\windows\\\\..\\\\unix/mixed/' 1`]
 
 exports[`check win32 (unbind) normalize '/root/of/unix/somefile.ext' 1`] = `
 {
+  "path": undefined,
   "upath": undefined,
   "upath2": "/root/of/unix/somefile.ext",
 }
@@ -893,6 +1082,7 @@ exports[`check win32 (unbind) normalize '/root/of/unix/somefile.ext' 1`] = `
 
 exports[`check win32 (unbind) normalize 'c:/windows/../nodejs/path' 1`] = `
 {
+  "path": undefined,
   "upath": undefined,
   "upath2": "c:/nodejs/path",
 }
@@ -900,6 +1090,7 @@ exports[`check win32 (unbind) normalize 'c:/windows/../nodejs/path' 1`] = `
 
 exports[`check win32 (unbind) normalize 'c:/windows/nodejs/path' 1`] = `
 {
+  "path": undefined,
   "upath": undefined,
   "upath2": "c:/windows/nodejs/path",
 }
@@ -907,6 +1098,7 @@ exports[`check win32 (unbind) normalize 'c:/windows/nodejs/path' 1`] = `
 
 exports[`check win32 (unbind) normalize 'c:\\\\Windows\\\\Directory\\\\somefile.ext' 1`] = `
 {
+  "path": undefined,
   "upath": undefined,
   "upath2": "c:/Windows/Directory/somefile.ext",
 }
@@ -914,6 +1106,7 @@ exports[`check win32 (unbind) normalize 'c:\\\\Windows\\\\Directory\\\\somefile.
 
 exports[`check win32 (unbind) normalize 'c:\\\\windows\\\\..\\\\nodejs\\\\path' 1`] = `
 {
+  "path": undefined,
   "upath": undefined,
   "upath2": "c:/nodejs/path",
 }
@@ -921,6 +1114,7 @@ exports[`check win32 (unbind) normalize 'c:\\\\windows\\\\..\\\\nodejs\\\\path' 
 
 exports[`check win32 (unbind) normalize 'c:\\\\windows\\\\nodejs\\\\path' 1`] = `
 {
+  "path": undefined,
   "upath": undefined,
   "upath2": "c:/windows/nodejs/path",
 }
@@ -928,6 +1122,7 @@ exports[`check win32 (unbind) normalize 'c:\\\\windows\\\\nodejs\\\\path' 1`] = 
 
 exports[`check win32 (unbind) parse '//\\\\windows\\\\..\\\\unix/mixed/' 1`] = `
 {
+  "path": undefined,
   "upath": undefined,
   "upath2": {
     "base": "mixed",
@@ -941,6 +1136,7 @@ exports[`check win32 (unbind) parse '//\\\\windows\\\\..\\\\unix/mixed/' 1`] = `
 
 exports[`check win32 (unbind) parse '//windows\\\\unix/mixed' 1`] = `
 {
+  "path": undefined,
   "upath": undefined,
   "upath2": {
     "base": "mixed",
@@ -954,6 +1150,7 @@ exports[`check win32 (unbind) parse '//windows\\\\unix/mixed' 1`] = `
 
 exports[`check win32 (unbind) parse '/root/of/unix/somefile.ext' 1`] = `
 {
+  "path": undefined,
   "upath": undefined,
   "upath2": {
     "base": "somefile.ext",
@@ -967,6 +1164,7 @@ exports[`check win32 (unbind) parse '/root/of/unix/somefile.ext' 1`] = `
 
 exports[`check win32 (unbind) parse '\\\\windows//unix/mixed' 1`] = `
 {
+  "path": undefined,
   "upath": undefined,
   "upath2": {
     "base": "mixed",
@@ -980,6 +1178,7 @@ exports[`check win32 (unbind) parse '\\\\windows//unix/mixed' 1`] = `
 
 exports[`check win32 (unbind) parse 'c:/windows/../nodejs/path' 1`] = `
 {
+  "path": undefined,
   "upath": undefined,
   "upath2": {
     "base": "path",
@@ -993,6 +1192,7 @@ exports[`check win32 (unbind) parse 'c:/windows/../nodejs/path' 1`] = `
 
 exports[`check win32 (unbind) parse 'c:/windows/nodejs/path' 1`] = `
 {
+  "path": undefined,
   "upath": undefined,
   "upath2": {
     "base": "path",
@@ -1006,6 +1206,7 @@ exports[`check win32 (unbind) parse 'c:/windows/nodejs/path' 1`] = `
 
 exports[`check win32 (unbind) parse 'c:\\\\Windows\\\\Directory\\\\somefile.ext' 1`] = `
 {
+  "path": undefined,
   "upath": undefined,
   "upath2": {
     "base": "somefile.ext",
@@ -1019,6 +1220,7 @@ exports[`check win32 (unbind) parse 'c:\\\\Windows\\\\Directory\\\\somefile.ext'
 
 exports[`check win32 (unbind) parse 'c:\\\\windows\\\\..\\\\nodejs\\\\path' 1`] = `
 {
+  "path": undefined,
   "upath": undefined,
   "upath2": {
     "base": "path",
@@ -1032,6 +1234,7 @@ exports[`check win32 (unbind) parse 'c:\\\\windows\\\\..\\\\nodejs\\\\path' 1`] 
 
 exports[`check win32 (unbind) parse 'c:\\\\windows\\\\nodejs\\\\path' 1`] = `
 {
+  "path": undefined,
   "upath": undefined,
   "upath2": {
     "base": "path",
@@ -1045,6 +1248,7 @@ exports[`check win32 (unbind) parse 'c:\\\\windows\\\\nodejs\\\\path' 1`] = `
 
 exports[`check win32 join [ 'some/nodejs/deep', '../path' ] 1`] = `
 {
+  "path": "some\\nodejs\\path",
   "upath": "some/nodejs/path",
   "upath2": "some/nodejs/path",
 }
@@ -1052,6 +1256,7 @@ exports[`check win32 join [ 'some/nodejs/deep', '../path' ] 1`] = `
 
 exports[`check win32 join [ 'some/nodejs\\\\windows', '../path' ] 1`] = `
 {
+  "path": "some\\nodejs\\path",
   "upath": "some/nodejs/path",
   "upath2": "some/nodejs/path",
 }
@@ -1059,6 +1264,7 @@ exports[`check win32 join [ 'some/nodejs\\\\windows', '../path' ] 1`] = `
 
 exports[`check win32 join [ 'some\\\\windows\\\\only', '..\\\\path' ] 1`] = `
 {
+  "path": "some\\windows\\path",
   "upath": "some/windows/path",
   "upath2": "some/windows/path",
 }
@@ -1066,6 +1272,7 @@ exports[`check win32 join [ 'some\\\\windows\\\\only', '..\\\\path' ] 1`] = `
 
 exports[`check win32 normalize '//\\\\windows\\\\..\\\\unix/mixed/' 1`] = `
 {
+  "path": "\\unix\\mixed\\",
   "upath": "//windows/../unix/mixed/",
   "upath2": "/unix/mixed/",
 }
@@ -1073,6 +1280,7 @@ exports[`check win32 normalize '//\\\\windows\\\\..\\\\unix/mixed/' 1`] = `
 
 exports[`check win32 normalize '/root/of/unix/somefile.ext' 1`] = `
 {
+  "path": "\\root\\of\\unix\\somefile.ext",
   "upath": "/root/of/unix/somefile.ext",
   "upath2": "/root/of/unix/somefile.ext",
 }
@@ -1080,6 +1288,7 @@ exports[`check win32 normalize '/root/of/unix/somefile.ext' 1`] = `
 
 exports[`check win32 normalize 'c:/windows/../nodejs/path' 1`] = `
 {
+  "path": "c:\\nodejs\\path",
   "upath": "c:/nodejs/path",
   "upath2": "c:/nodejs/path",
 }
@@ -1087,6 +1296,7 @@ exports[`check win32 normalize 'c:/windows/../nodejs/path' 1`] = `
 
 exports[`check win32 normalize 'c:/windows/nodejs/path' 1`] = `
 {
+  "path": "c:\\windows\\nodejs\\path",
   "upath": "c:/windows/nodejs/path",
   "upath2": "c:/windows/nodejs/path",
 }
@@ -1094,6 +1304,7 @@ exports[`check win32 normalize 'c:/windows/nodejs/path' 1`] = `
 
 exports[`check win32 normalize 'c:\\\\Windows\\\\Directory\\\\somefile.ext' 1`] = `
 {
+  "path": "c:\\Windows\\Directory\\somefile.ext",
   "upath": "c:/Windows/Directory/somefile.ext",
   "upath2": "c:/Windows/Directory/somefile.ext",
 }
@@ -1101,6 +1312,7 @@ exports[`check win32 normalize 'c:\\\\Windows\\\\Directory\\\\somefile.ext' 1`] 
 
 exports[`check win32 normalize 'c:\\\\windows\\\\..\\\\nodejs\\\\path' 1`] = `
 {
+  "path": "c:\\nodejs\\path",
   "upath": "c:/nodejs/path",
   "upath2": "c:/nodejs/path",
 }
@@ -1108,6 +1320,7 @@ exports[`check win32 normalize 'c:\\\\windows\\\\..\\\\nodejs\\\\path' 1`] = `
 
 exports[`check win32 normalize 'c:\\\\windows\\\\nodejs\\\\path' 1`] = `
 {
+  "path": "c:\\windows\\nodejs\\path",
   "upath": "c:/windows/nodejs/path",
   "upath2": "c:/windows/nodejs/path",
 }
@@ -1115,6 +1328,13 @@ exports[`check win32 normalize 'c:\\\\windows\\\\nodejs\\\\path' 1`] = `
 
 exports[`check win32 parse '//\\\\windows\\\\..\\\\unix/mixed/' 1`] = `
 {
+  "path": {
+    "base": "mixed",
+    "dir": "//\\windows\\..\\unix",
+    "ext": "",
+    "name": "mixed",
+    "root": "/",
+  },
   "upath": {
     "base": "mixed",
     "dir": "//windows/../unix",
@@ -1134,6 +1354,13 @@ exports[`check win32 parse '//\\\\windows\\\\..\\\\unix/mixed/' 1`] = `
 
 exports[`check win32 parse '//windows\\\\unix/mixed' 1`] = `
 {
+  "path": {
+    "base": "mixed",
+    "dir": "//windows\\unix/",
+    "ext": "",
+    "name": "mixed",
+    "root": "//windows\\unix/",
+  },
   "upath": {
     "base": "mixed",
     "dir": "//windows/unix/",
@@ -1153,6 +1380,13 @@ exports[`check win32 parse '//windows\\\\unix/mixed' 1`] = `
 
 exports[`check win32 parse '/root/of/unix/somefile.ext' 1`] = `
 {
+  "path": {
+    "base": "somefile.ext",
+    "dir": "/root/of/unix",
+    "ext": ".ext",
+    "name": "somefile",
+    "root": "/",
+  },
   "upath": {
     "base": "somefile.ext",
     "dir": "/root/of/unix",
@@ -1172,6 +1406,13 @@ exports[`check win32 parse '/root/of/unix/somefile.ext' 1`] = `
 
 exports[`check win32 parse '\\\\windows//unix/mixed' 1`] = `
 {
+  "path": {
+    "base": "mixed",
+    "dir": "\\windows//unix",
+    "ext": "",
+    "name": "mixed",
+    "root": "\\",
+  },
   "upath": {
     "base": "mixed",
     "dir": "/windows/unix",
@@ -1191,6 +1432,13 @@ exports[`check win32 parse '\\\\windows//unix/mixed' 1`] = `
 
 exports[`check win32 parse 'c:/windows/../nodejs/path' 1`] = `
 {
+  "path": {
+    "base": "path",
+    "dir": "c:/windows/../nodejs",
+    "ext": "",
+    "name": "path",
+    "root": "c:/",
+  },
   "upath": {
     "base": "path",
     "dir": "c:/windows/../nodejs",
@@ -1210,6 +1458,13 @@ exports[`check win32 parse 'c:/windows/../nodejs/path' 1`] = `
 
 exports[`check win32 parse 'c:/windows/nodejs/path' 1`] = `
 {
+  "path": {
+    "base": "path",
+    "dir": "c:/windows/nodejs",
+    "ext": "",
+    "name": "path",
+    "root": "c:/",
+  },
   "upath": {
     "base": "path",
     "dir": "c:/windows/nodejs",
@@ -1229,6 +1484,13 @@ exports[`check win32 parse 'c:/windows/nodejs/path' 1`] = `
 
 exports[`check win32 parse 'c:\\\\Windows\\\\Directory\\\\somefile.ext' 1`] = `
 {
+  "path": {
+    "base": "somefile.ext",
+    "dir": "c:\\Windows\\Directory",
+    "ext": ".ext",
+    "name": "somefile",
+    "root": "c:\\",
+  },
   "upath": {
     "base": "somefile.ext",
     "dir": "c:/Windows/Directory",
@@ -1248,6 +1510,13 @@ exports[`check win32 parse 'c:\\\\Windows\\\\Directory\\\\somefile.ext' 1`] = `
 
 exports[`check win32 parse 'c:\\\\windows\\\\..\\\\nodejs\\\\path' 1`] = `
 {
+  "path": {
+    "base": "path",
+    "dir": "c:\\windows\\..\\nodejs",
+    "ext": "",
+    "name": "path",
+    "root": "c:\\",
+  },
   "upath": {
     "base": "path",
     "dir": "c:/windows/../nodejs",
@@ -1267,6 +1536,13 @@ exports[`check win32 parse 'c:\\\\windows\\\\..\\\\nodejs\\\\path' 1`] = `
 
 exports[`check win32 parse 'c:\\\\windows\\\\nodejs\\\\path' 1`] = `
 {
+  "path": {
+    "base": "path",
+    "dir": "c:\\windows\\nodejs",
+    "ext": "",
+    "name": "path",
+    "root": "c:\\",
+  },
   "upath": {
     "base": "path",
     "dir": "c:/windows/nodejs",

@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`argv 1`] = `"p2 must be provide"`;
+
+exports[`argv 2`] = `"p2 must be provide"`;
