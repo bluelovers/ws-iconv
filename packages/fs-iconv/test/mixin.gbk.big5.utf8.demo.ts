@@ -3,13 +3,11 @@
  */
 
 //import fs from 'fs-iconv';
-import fs = require('fs-iconv');
+import fs = require('..');
 import Bluebird = require('bluebird');
 // @ts-ignore
 import globby from 'node-novel-globby/g';
 import { EnumEncoding } from 'iconv-jschardet';
-
-import { SymFSLib } from 'fs-iconv/core';
 
 Bluebird.mapSeries(globby.async([
 	'*.txt',

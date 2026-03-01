@@ -19,14 +19,14 @@ test(`argv`, () =>
 	expect(() => fsSameRealpath(__dirname)).toThrowErrorMatchingSnapshot()
 
 	// @ts-ignore
-	expect(() => pathIsSame(void 0, void 0)).not.toThrowError()
+	expect(() => pathIsSame(void 0, void 0)).not.toThrow()
 	// @ts-ignore
-	expect(() => fsSameRealpath(void 0, void 0)).not.toThrowError()
+	expect(() => fsSameRealpath(void 0, void 0)).not.toThrow()
 
 	// @ts-ignore
-	expect(() => pathIsSame(null, null)).not.toThrowError()
+	expect(() => pathIsSame(null, null)).not.toThrow()
 	// @ts-ignore
-	expect(() => fsSameRealpath(null, null)).not.toThrowError()
+	expect(() => fsSameRealpath(null, null)).not.toThrow()
 
 });
 

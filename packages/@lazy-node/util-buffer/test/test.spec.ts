@@ -1,7 +1,6 @@
 //@noUnusedParameters:false
 /// <reference types="jest" />
 /// <reference types="node" />
-/// <reference types="expect" />
 
 import { bufferEndWith, bufferEndWithByBuffer } from '../src/index';
 

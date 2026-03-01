@@ -8,7 +8,7 @@ test(`fsStatSync:no-exists`, () =>
 
 	expect(() => fsStatSync('./no-exists.js', {
 		throwIfNoEntry: true,
-	})).toThrowError()
+	})).toThrowErrorMatchingSnapshot()
 
 });
 
@@ -19,6 +19,6 @@ test(`fsStat:no-exists`, () =>
 
 	expect(fsStat('./no-exists.js', {
 		throwIfNoEntry: true,
-	})).rejects.toThrowError()
+	})).rejects.toThrowErrorMatchingSnapshot()
 
 });

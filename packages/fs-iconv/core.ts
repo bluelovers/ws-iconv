@@ -1,8 +1,8 @@
 /**
  * fs-iconv 核心功能模組
- * 
+ *
  * 這個模組提供了檔案系統操作的編碼轉換功能，可以處理各種文字編碼的檔案讀寫操作。
- * 
+ *
  * @module fs-iconv/core
  * @author bluelovers
  * @since 2019/3/17
@@ -23,7 +23,7 @@ export const SymFSLib = Symbol('fsLib');
 
 /**
  * 包裝檔案系統操作並添加編碼轉換功能
- * 
+ *
  * @template F 檔案系統類型，預設為 fs-extra
  * @param {F} fsLib 要包裝的檔案系統庫
  * @returns {WrapFSIconv.IWrapFS<F>} 包裝後的檔案系統實例
@@ -74,9 +74,9 @@ export function WrapFSIconv<F extends typeof fsExtra = typeof fsExtra>(fsLib: F)
 }
 /**
  * 確保檔案存在並創建寫入流
- * 
+ *
  * 這個函數會先確保目標檔案存在（如果不存在則創建），然後返回一個可寫入的檔案流。
- * 
+ *
  * @param {string} file 檔案路徑
  * @returns {fsExtra.WriteStream} 檔案寫入流
  */
@@ -92,9 +92,9 @@ export function ensureWriteStream(file: string)
 }
 /**
  * 同步保存檔案並處理編碼轉換
- * 
+ *
  * 這個函數會將資料保存到指定檔案，並在需要時進行編碼轉換。
- * 
+ *
  * @param {string} file 檔案路徑
  * @param {any} data 要保存的資料
  * @param {WrapFSIconv.IWrapFSIconvOptions} [options={}] 選項
@@ -123,9 +123,9 @@ export function saveFileSync(file: string, data, options: WrapFSIconv.IWrapFSIco
 }
 /**
  * 異步保存檔案並處理編碼轉換
- * 
+ *
  * 這個函數會將資料保存到指定檔案，並在需要時進行編碼轉換。使用 Promise 處理異步操作。
- * 
+ *
  * @param {string} file 檔案路徑
  * @param {any} data 要保存的資料
  * @param {WrapFSIconv.IWrapFSIconvOptions} [options={}] 選項
@@ -221,9 +221,9 @@ export declare namespace WrapFSIconv
 
 /**
  * 創建數據流傳遞流
- * 
+ *
  * 這個函數將創建一個 PassThrough 流，用於在讀取和寫入操作之間傳遞數據。
- * 
+ *
  * @param {unknown} data 要傳遞的資料
  * @returns {stream.Readable} 可讀取的數據流
  */
@@ -235,9 +235,9 @@ export function _createStreamPassThrough(data): stream.Readable
 }
 /**
  * 創建檔案輸出流
- * 
+ *
  * 這個函數將創建一個寫入流，用於將數據流寫入指定檔案。
- * 
+ *
  * @param {string} file 檔案路徑
  * @param {stream.Readable} readStream 要寫入的數據流
  * @returns {fsExtra.WriteStream} 檔案寫入流
@@ -254,9 +254,9 @@ export function _outputStream(file: string, readStream: stream.Readable): fsExtr
 }
 /**
  * 自動解碼緩衝區
- * 
+ *
  * 這個函數會根據提供的選項自動檢測並解碼緩衝區。如果提供了 autoDecode 選項，會嘗試使用指定的編碼進行解碼。
- * 
+ *
  * @template T 緩衝區類型
  * @param {T} buf 要解碼的緩衝區
  * @param {WrapFSIconv.IWrapFSIconvOptionsLoadFile} options 解碼選項
@@ -307,9 +307,9 @@ export function _autoDecode(buf, options: WrapFSIconv.IWrapFSIconvOptionsLoadFil
 }
 /**
  * 異步載入檔案並處理編碼轉換
- * 
+ *
  * 這個函數會異步載入指定檔案，並根據提供的選項進行編碼轉換。
- * 
+ *
  * @template T 返回類型，預設為 string
  * @param {string} file 檔案路徑
  * @param {WrapFSIconv.IWrapFSIconvOptionsLoadFile2} options 載入選項
@@ -334,14 +334,14 @@ export function loadFile(file: string, options: WrapFSIconv.IWrapFSIconvOptionsL
 
 		if (enc)
 		{
-			ps = fs.readFile(file, options);
+			ps = fs.readFile(file, options as any);
 		}
 		else
 		{
 			let ops: WrapFSIconv.IWrapFSIconvOptionsLoadFile = Object.assign({}, options);
 			delete ops.encoding;
 
-			ps = fs.readFile(file, ops)
+			ps = fs.readFile(file, ops as any)
 				.then(function (buf)
 				{
 					return iconv.decode(buf, options.encoding);
@@ -351,7 +351,7 @@ export function loadFile(file: string, options: WrapFSIconv.IWrapFSIconvOptionsL
 	}
 	else if (options.autoDecode)
 	{
-		ps = fs.readFile(file, options)
+		ps = fs.readFile(file, options as any)
 			.then(function (buf)
 			{
 				return self._autoDecode(buf, options);
@@ -360,16 +360,16 @@ export function loadFile(file: string, options: WrapFSIconv.IWrapFSIconvOptionsL
 	}
 	else
 	{
-		ps = fs.readFile(file, options);
+		ps = fs.readFile(file, options as any);
 	}
 
 	return Bluebird.resolve(ps);
 }
 /**
  * 同步載入檔案並處理編碼轉換
- * 
+ *
  * 這個函數會同步載入指定檔案，並根據提供的選項進行編碼轉換。
- * 
+ *
  * @template T 返回類型，預設為 string
  * @param {string} file 檔案路徑
  * @param {WrapFSIconv.IWrapFSIconvOptionsLoadFile2} options 載入選項
