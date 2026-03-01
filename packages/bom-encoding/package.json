@@ -1,6 +1,6 @@
 {
   "name": "bom-encoding",
-  "version": "1.0.16",
+  "version": "1.0.17",
   "description": "Create or detect BOM (Byte Order Mark) encoding / 創建或偵測位元組順序標記 (BOM) 編碼",
   "homepage": "https://github.com/bluelovers/ws-iconv/tree/master/packages/bom-encoding#readme",
   "bugs": {

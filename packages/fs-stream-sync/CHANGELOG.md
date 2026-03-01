@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.20](https://github.com/bluelovers/ws-iconv/compare/fs-stream-sync@2.0.19...fs-stream-sync@2.0.20) (2026-03-01)
+
+
+
+### 📚　Documentation
+
+* 为多个包添加全面的 JSDoc 文档和 README 更新 ([0d149e8](https://github.com/bluelovers/ws-iconv/commit/0d149e856aa9b274aca7fd7562776860c9d00473))
+
+
+### ♻️　Chores
+
+* Update jest config and add new files for testing ([f370583](https://github.com/bluelovers/ws-iconv/commit/f37058385c7bf24d3d0bc975c752f2f35cfe8356))
+
+
+
 ## [2.0.19](https://github.com/bluelovers/ws-iconv/compare/fs-stream-sync@2.0.18...fs-stream-sync@2.0.19) (2024-08-29)
 
 

@@ -1,6 +1,6 @@
 {
   "name": "path-in-dir",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "description": "檢查路徑是否在目錄內工具 - 檢查一個路徑是否位於指定目錄內",
   "keywords": [
     "create-by-yarn-tool"
@@ -44,9 +44,9 @@
     "tsc:showConfig": "ynpx get-current-tsconfig -p"
   },
   "dependencies": {
-    "path-dir-normalize": "^1.0.30",
+    "path-dir-normalize": "^1.0.31",
     "tslib": "^2",
-    "upath2": "^3.1.20"
+    "upath2": "^3.1.21"
   },
   "gitHead": "6c258437d14e2d37d1fb08068fa60833ce6d389b"
 }

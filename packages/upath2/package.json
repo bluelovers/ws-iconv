@@ -1,6 +1,6 @@
 {
   "name": "upath2",
-  "version": "3.1.20",
+  "version": "3.1.21",
   "description": "A proxy to `path`, replacing `\\` with `/` for all results",
   "keywords": [
     "absolute",
@@ -67,10 +67,10 @@
     "tsc:showConfig": "ynpx get-current-tsconfig -p"
   },
   "dependencies": {
-    "@lazy-node/types-path": "^1.0.0",
+    "@lazy-node/types-path": "^1.0.1",
     "@types/node": "*",
-    "path-is-network-drive": "^1.0.21",
-    "path-strip-sep": "^1.0.18",
+    "path-is-network-drive": "^1.0.22",
+    "path-strip-sep": "^1.0.19",
     "tslib": "^2"
   },
   "devDependencies": {

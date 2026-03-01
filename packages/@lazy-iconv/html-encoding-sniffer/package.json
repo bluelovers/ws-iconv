@@ -1,6 +1,6 @@
 {
   "name": "@lazy-iconv/html-encoding-sniffer",
-  "version": "1.0.12",
+  "version": "1.0.13",
   "description": "Normalize HTML encoding by sniffing and decoding with proper encoding / 透過偵測和解碼正確編碼來標準化 HTML 編碼",
   "homepage": "https://github.com/bluelovers/ws-iconv/tree/master/packages/@lazy-iconv/html-encoding-sniffer#readme",
   "bugs": {
@@ -32,7 +32,7 @@
   },
   "dependencies": {
     "html-encoding-sniffer": "^4.0.0",
-    "iconv-jschardet": "^2.0.33",
+    "iconv-jschardet": "^2.0.34",
     "tslib": "^2",
     "whatwg-encoding": "^3.1.1"
   },

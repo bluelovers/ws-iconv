@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.13](https://github.com/bluelovers/ws-iconv/compare/@lazy-iconv/html-encoding-sniffer@1.0.12...@lazy-iconv/html-encoding-sniffer@1.0.13) (2026-03-01)
+
+
+
+### 📚　Documentation
+
+* 为多个包添加全面的 JSDoc 文档和 README 更新 ([0d149e8](https://github.com/bluelovers/ws-iconv/commit/0d149e856aa9b274aca7fd7562776860c9d00473))
+
+
+### ♻️　Chores
+
+* Update jest config and add new files for testing ([f370583](https://github.com/bluelovers/ws-iconv/commit/f37058385c7bf24d3d0bc975c752f2f35cfe8356))
+
+
+
 ## [1.0.12](https://github.com/bluelovers/ws-iconv/compare/@lazy-iconv/html-encoding-sniffer@1.0.11...@lazy-iconv/html-encoding-sniffer@1.0.12) (2024-08-29)
 
 

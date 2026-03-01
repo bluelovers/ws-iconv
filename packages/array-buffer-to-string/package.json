@@ -1,6 +1,6 @@
 {
   "name": "@bluelovers/array-buffer-to-string",
-  "version": "1.0.37",
+  "version": "1.0.38",
   "private": false,
   "description": "Convert ArrayBuffer to string or Buffer with encoding support / 將 ArrayBuffer 轉換為字串或 Buffer，支援編碼",
   "keywords": [
@@ -42,7 +42,7 @@
     "tsc:showConfig": "ynpx get-current-tsconfig -p"
   },
   "dependencies": {
-    "iconv-jschardet": "^2.0.33",
+    "iconv-jschardet": "^2.0.34",
     "tslib": "^2",
     "typedarray-to-buffer": "^4.0.0"
   },

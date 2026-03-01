@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.34](https://github.com/bluelovers/ws-iconv/compare/iconv-jschardet@2.0.33...iconv-jschardet@2.0.34) (2026-03-01)
+
+
+
+### 📚　Documentation
+
+* 为多个包添加全面的 JSDoc 文档和 README 更新 ([0d149e8](https://github.com/bluelovers/ws-iconv/commit/0d149e856aa9b274aca7fd7562776860c9d00473))
+
+
+### 🛠　Build System
+
+* 為 readlines、util-buffer、fs-iconv 與 iconv-jschardet 添加完整 JSDoc 雙語註解 ([67f697c](https://github.com/bluelovers/ws-iconv/commit/67f697c64b50ec920e91d58ecdfaab2d310c3ef9))
+
+
+### ♻️　Chores
+
+* Update jest config and add new files for testing ([f370583](https://github.com/bluelovers/ws-iconv/commit/f37058385c7bf24d3d0bc975c752f2f35cfe8356))
+
+
+
 ## [2.0.33](https://github.com/bluelovers/ws-iconv/compare/iconv-jschardet@2.0.32...iconv-jschardet@2.0.33) (2024-08-29)
 
 

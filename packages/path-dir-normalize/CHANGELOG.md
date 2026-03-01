@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.31](https://github.com/bluelovers/ws-iconv/compare/path-dir-normalize@1.0.30...path-dir-normalize@1.0.31) (2026-03-01)
+
+
+
+### 📚　Documentation
+
+* 为多个包添加双语 README 和 JSDoc 注释 ([71544eb](https://github.com/bluelovers/ws-iconv/commit/71544eb1347aa061cb4ac71afc8d30e79f1ad3ad))
+
+
+### ♻️　Chores
+
+* add path-strip-sep dependency to path-dir-normalize package ([d7c31bf](https://github.com/bluelovers/ws-iconv/commit/d7c31bf50b91e56a1b5cc73632f74b5962bc8e82))
+* Update jest config and add new files for testing ([f370583](https://github.com/bluelovers/ws-iconv/commit/f37058385c7bf24d3d0bc975c752f2f35cfe8356))
+
+
+
 ## [1.0.30](https://github.com/bluelovers/ws-iconv/compare/path-dir-normalize@1.0.29...path-dir-normalize@1.0.30) (2024-08-29)
 
 

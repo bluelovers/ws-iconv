@@ -3,6 +3,36 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.4](https://github.com/bluelovers/ws-iconv/compare/@lazy-node/readlines@3.0.3...@lazy-node/readlines@3.0.4) (2026-03-01)
+
+
+
+### 🐛　Bug Fixes
+
+* **build:** 更新建置腳本、修復 TypeScript 類型並改善測試 ([fd5e98e](https://github.com/bluelovers/ws-iconv/commit/fd5e98e5627d40f7fbe626fd72e9a79fe1af55ac))
+
+
+### 📚　Documentation
+
+* 为多个包添加双语 README 和 JSDoc 注释 ([71544eb](https://github.com/bluelovers/ws-iconv/commit/71544eb1347aa061cb4ac71afc8d30e79f1ad3ad))
+
+
+### 🚨　Tests
+
+* **snap:** 更新跨套件測試快照並新增執行配置 ([06ad833](https://github.com/bluelovers/ws-iconv/commit/06ad833b318697003d731cc307205b9a70b1e094))
+
+
+### 🛠　Build System
+
+* 為 readlines、util-buffer、fs-iconv 與 iconv-jschardet 添加完整 JSDoc 雙語註解 ([67f697c](https://github.com/bluelovers/ws-iconv/commit/67f697c64b50ec920e91d58ecdfaab2d310c3ef9))
+
+
+### ♻️　Chores
+
+* Update jest config and add new files for testing ([f370583](https://github.com/bluelovers/ws-iconv/commit/f37058385c7bf24d3d0bc975c752f2f35cfe8356))
+
+
+
 ## [3.0.3](https://github.com/bluelovers/ws-iconv/compare/@lazy-node/readlines@3.0.2...@lazy-node/readlines@3.0.3) (2024-08-29)
 
 

@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.23](https://github.com/bluelovers/ws-iconv/compare/fs-target-file@1.0.22...fs-target-file@1.0.23) (2026-03-01)
+
+
+
+### 📚　Documentation
+
+* 为多个包添加双语 README 和 JSDoc 注释 ([71544eb](https://github.com/bluelovers/ws-iconv/commit/71544eb1347aa061cb4ac71afc8d30e79f1ad3ad))
+
+
+### ♻️　Chores
+
+* Update jest config and add new files for testing ([f370583](https://github.com/bluelovers/ws-iconv/commit/f37058385c7bf24d3d0bc975c752f2f35cfe8356))
+
+
+
 ## [1.0.22](https://github.com/bluelovers/ws-iconv/compare/fs-target-file@1.0.21...fs-target-file@1.0.22) (2024-08-29)
 
 

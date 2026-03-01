@@ -1,6 +1,6 @@
 {
   "name": "path-dir-normalize",
-  "version": "1.0.30",
+  "version": "1.0.31",
   "description": "目錄路徑規範化工具 - 確保目錄路徑以正確的分隔符結尾 dir normalize with end of path.sep",
   "keywords": [],
   "homepage": "https://github.com/bluelovers/ws-iconv/tree/master/packages/path-dir-normalize#readme",
@@ -36,9 +36,9 @@
     "tsc:showConfig": "ynpx get-current-tsconfig -p"
   },
   "dependencies": {
-    "path-strip-sep": "^1.0.18",
+    "path-strip-sep": "^1.0.19",
     "tslib": "^2",
-    "upath2": "^3.1.20"
+    "upath2": "^3.1.21"
   },
   "gitHead": "6c258437d14e2d37d1fb08068fa60833ce6d389b"
 }

@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.2.38](https://github.com/bluelovers/ws-iconv/compare/extrastat2@4.2.37...extrastat2@4.2.38) (2026-03-01)
+
+
+
+### 📚　Documentation
+
+* 为多个包添加全面的 JSDoc 文档和 README 更新 ([0d149e8](https://github.com/bluelovers/ws-iconv/commit/0d149e856aa9b274aca7fd7562776860c9d00473))
+
+
+### ♻️　Chores
+
+* Update jest config and add new files for testing ([f370583](https://github.com/bluelovers/ws-iconv/commit/f37058385c7bf24d3d0bc975c752f2f35cfe8356))
+
+
+
 ## [4.2.37](https://github.com/bluelovers/ws-iconv/compare/extrastat2@4.2.36...extrastat2@4.2.37) (2024-08-29)
 
 

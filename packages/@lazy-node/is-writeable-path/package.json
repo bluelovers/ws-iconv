@@ -1,6 +1,6 @@
 {
   "name": "@lazy-node/is-writeable-path",
-  "version": "1.0.18",
+  "version": "1.0.19",
   "description": "路徑可寫入檢測模組 - 檢測目標路徑是否可寫入，支援同步和非同步操作，可檢測檔案和目錄的可寫入狀態",
   "keywords": [
     "create-by-yarn-tool",
@@ -43,7 +43,7 @@
     "tsc:showConfig": "ynpx get-current-tsconfig -p"
   },
   "dependencies": {
-    "fs-stat": "^1.0.26"
+    "fs-stat": "^1.0.27"
   },
   "publishConfig": {
     "access": "public"

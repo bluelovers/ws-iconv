@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.1.21](https://github.com/bluelovers/ws-iconv/compare/upath2@3.1.20...upath2@3.1.21) (2026-03-01)
+
+
+
+### ✨　Features
+
+* 新增 path-sep-replace 模組並重構 upath2 類型系統 ([512d392](https://github.com/bluelovers/ws-iconv/commit/512d392fc4f20d06e6e380743bf23f20142ccb74))
+
+
+### 🚨　Tests
+
+* **snap:** 更新跨套件測試快照並新增執行配置 ([06ad833](https://github.com/bluelovers/ws-iconv/commit/06ad833b318697003d731cc307205b9a70b1e094))
+
+
+### ♻️　Chores
+
+* Update jest config and add new files for testing ([f370583](https://github.com/bluelovers/ws-iconv/commit/f37058385c7bf24d3d0bc975c752f2f35cfe8356))
+
+
+
 ## [3.1.20](https://github.com/bluelovers/ws-iconv/compare/upath2@3.1.19...upath2@3.1.20) (2024-08-29)
 
 

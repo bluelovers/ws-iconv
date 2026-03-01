@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.17](https://github.com/bluelovers/ws-iconv/compare/bom-encoding@1.0.15...bom-encoding@1.0.17) (2026-03-01)
+
+
+
+### 📚　Documentation
+
+* 为多个包添加全面的 JSDoc 文档和 README 更新 ([0d149e8](https://github.com/bluelovers/ws-iconv/commit/0d149e856aa9b274aca7fd7562776860c9d00473))
+
+
+### ♻️　Chores
+
+* bump bom-encoding to v1.0.16 and update dependencies ([ab23e80](https://github.com/bluelovers/ws-iconv/commit/ab23e80390bb4f5502ecca7b567b32d0a50f6fa0))
+* Update jest config and add new files for testing ([f370583](https://github.com/bluelovers/ws-iconv/commit/f37058385c7bf24d3d0bc975c752f2f35cfe8356))
+
+
+
 ## [1.0.15](https://github.com/bluelovers/ws-iconv/compare/bom-encoding@1.0.14...bom-encoding@1.0.15) (2024-08-29)
 
 

@@ -1,6 +1,6 @@
 {
   "name": "@lazy-node/readlines",
-  "version": "3.0.3",
+  "version": "3.0.4",
   "description": "逐行讀取檔案，無需將整個檔案載入記憶體 (Read file line by line without buffering the whole file in memory)",
   "keywords": [
     "lazy-node",
@@ -97,7 +97,7 @@
     "tsc:showConfig": "ynpx get-current-tsconfig -p"
   },
   "dependencies": {
-    "@lazy-node/util-buffer": "^1.0.3"
+    "@lazy-node/util-buffer": "^1.0.4"
   },
   "publishConfig": {
     "access": "public"
