@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.22](https://github.com/bluelovers/ws-iconv/compare/fs-stream-sync@2.0.21...fs-stream-sync@2.0.22) (2026-03-02)
+
+
+
+### 📚　Documentation
+
+* 為檔案系統相關套件新增雙語 JSDoc 註解與型別標註 ([83f3845](https://github.com/bluelovers/ws-iconv/commit/83f38456ccc0f5eca4f2a6505bee4caf7e634ba6))
+
+
+
 ## [2.0.21](https://github.com/bluelovers/ws-iconv/compare/fs-stream-sync@2.0.20...fs-stream-sync@2.0.21) (2026-03-01)
 
 **Note:** Version bump only for package fs-stream-sync

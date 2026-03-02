@@ -1,6 +1,6 @@
 {
   "name": "@bluelovers/fs-json",
-  "version": "1.0.16",
+  "version": "1.0.17",
   "description": "Enhanced JSON file operations with final EOL support / 增強型 JSON 檔案操作，支援結尾換行符號",
   "keywords": [
     "create-by-yarn-tool"

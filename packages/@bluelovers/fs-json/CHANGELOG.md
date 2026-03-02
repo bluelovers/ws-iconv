@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.17](https://github.com/bluelovers/ws-iconv/compare/@bluelovers/fs-json@1.0.16...@bluelovers/fs-json@1.0.17) (2026-03-02)
+
+
+
+### 📚　Documentation
+
+* 為檔案系統相關套件新增雙語 JSDoc 註解與型別標註 ([83f3845](https://github.com/bluelovers/ws-iconv/commit/83f38456ccc0f5eca4f2a6505bee4caf7e634ba6))
+
+
+
 ## [1.0.16](https://github.com/bluelovers/ws-iconv/compare/@bluelovers/fs-json@1.0.15...@bluelovers/fs-json@1.0.16) (2026-03-01)
 
 **Note:** Version bump only for package @bluelovers/fs-json

@@ -1,6 +1,6 @@
 {
   "name": "fs-stream-sync",
-  "version": "2.0.21",
+  "version": "2.0.22",
   "description": "檔案系統同步讀寫流實作，相容於 Node.js Core fs 模組 (File System synchronous read/write stream implementation, compatible with Node.js Core fs module)",
   "keywords": [
     "File System",
