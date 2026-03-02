@@ -83,7 +83,7 @@ export class SyncReadStream extends ReadStream
 	 * 建立函數別名
 	 * Factory method alias
 	 */
-	static get create()
+	static override get create()
 	{
 		return createSyncReadStream
 	}
@@ -95,7 +95,7 @@ export class SyncReadStream extends ReadStream
 	 * 同步開啟檔案並發送 open 和 ready 事件
 	 * Opens file synchronously and emits open and ready events
 	 */
-	open(): void
+	override open(): void
 	{
 		if (typeof getFsStreamData(this) !== 'boolean')
 		{
@@ -121,7 +121,7 @@ export class SyncReadStream extends ReadStream
 	 * @param {number} n - 要讀取的位元組數 / Number of bytes to read
 	 * @returns {boolean | this} 讀取結果 / Read result
 	 */
-	_read(n: number)
+	override _read(n: number)
 	{
 		// 等待檔案開啟 / Wait for file to open
 		if (typeof this.fd !== 'number')
@@ -220,7 +220,7 @@ export class SyncReadStream extends ReadStream
 	 * @param {Error | null} error - 錯誤物件或 null / Error object or null
 	 * @param {(error: Error | null) => void} callback - 完成回調 / Completion callback
 	 */
-	_destroy(error: Error | null, callback: (error: Error | null) => void): void
+	override _destroy(error: Error | null, callback: (error: Error | null) => void): void
 	{
 		internal._destroy(this, error, callback)
 	}

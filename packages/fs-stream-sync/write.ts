@@ -46,11 +46,11 @@ export class WriteStream extends fs.WriteStream
 	/**
 	 * 是否已關閉 / Whether closed
 	 */
-	protected closed: boolean
+	protected override closed: boolean
 	/**
 	 * 是否已銷毀 / Whether destroyed
 	 */
-	protected destroyed: boolean
+	protected override destroyed: boolean
 
 	/**
 	 * 可寫狀態 / Writable state
@@ -70,13 +70,13 @@ export class WriteStream extends fs.WriteStream
 	 * 已寫入的位元組數（不包含佇列中的資料）
 	 * Number of bytes written so far (excludes queued data)
 	 */
-	public bytesWritten: number
+	public override bytesWritten: number
 
 	/**
 	 * 檔案路徑（字串或 Buffer）
 	 * File path (string or Buffer)
 	 */
-	public readonly path: IFsPath
+	public override readonly path: IFsPath
 
 	/**
 	 * 構造函數

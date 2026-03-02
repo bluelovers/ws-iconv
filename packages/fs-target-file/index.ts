@@ -1,8 +1,8 @@
 /**
  * fs-target-file - 檔案目標處理工具
- * 
+ *
  * 這個模組提供了檔案目標處理的功能，支援讀取和寫入操作，並可以指定輸入和輸出檔案。
- * 
+ *
  * @module fs-target-file
  * @author bluelovers
  */
@@ -13,7 +13,7 @@ import { ITSRequiredPick } from 'ts-type/lib/type/record';
 
 /**
  * 檔案方法異步選項
- * 
+ *
  * @interface IFileMethodAsyncOptions
  * @template RO 讀取選項類型
  * @template WO 寫入選項類型
@@ -37,9 +37,9 @@ export interface IFileMethodAsyncOptions<RO = ReadOptions, WO = WriteOptions, D 
 
 /**
  * 檔案方法異步處理
- * 
+ *
  * 這個函數會處理檔案的異步讀取和寫入操作，支援自定義函數和選項。
- * 
+ *
  * @template RO 讀取選項類型
  * @template WO 寫入選項類型
  * @template D 資料類型
@@ -64,7 +64,7 @@ export function fsFileMethodAsync<RO = ReadOptions, WO = WriteOptions, D = unkno
 		read = (file, options) => readJSON(file, {
 			...readOptions,
 			...options,
-		}),
+		}) as any as Promise<any>,
 		write = (file, data, options) => outputJSON(file, data, {
 			...writeOptions,
 			...options,
@@ -79,7 +79,7 @@ export function fsFileMethodAsync<RO = ReadOptions, WO = WriteOptions, D = unkno
 
 /**
  * 檔案目標選項
- * 
+ *
  * @interface ITargetFileOptions
  * @template N 檔案路徑類型
  */
@@ -94,9 +94,9 @@ export interface ITargetFileOptions<N = string>
 
 /**
  * 轉換檔案目標選項
- * 
+ *
  * 這個函數會將目標選項轉換為標準格式，支援直接傳入檔案路徑或選項物件。
- * 
+ *
  * @template N 檔案路徑類型
  * @param {N | ITargetFileOptions<N>} targetOptions 目標選項
  * @returns {ITSRequiredPick<ITargetFileOptions<N>>} 標準化後的選項
@@ -128,9 +128,9 @@ export function toTargetFileOptions<N = string>(targetOptions: N | ITargetFileOp
 
 /**
  * 檔案目標處理
- * 
+ *
  * 這個函數會創建一個檔案目標處理器，支援讀取和寫入操作，並可以指定輸入和輸出檔案。
- * 
+ *
  * @template D 資料類型
  * @template RO 讀取選項類型
  * @template WO 寫入選項類型
@@ -164,7 +164,7 @@ export function fsTargetFile<D = unknown, RO = ReadOptions, WO = WriteOptions, N
 
 		/**
 		 * 讀取檔案
-		 * 
+		 *
 		 * @template T 資料類型
 		 * @param {RO} [options] 選項
 		 * @returns {Promise<T>} Promise，解析為資料
@@ -176,7 +176,7 @@ export function fsTargetFile<D = unknown, RO = ReadOptions, WO = WriteOptions, N
 
 		/**
 		 * 寫入檔案
-		 * 
+		 *
 		 * @template T 資料類型
 		 * @param {T} data 資料
 		 * @param {RO} [options] 選項
@@ -189,7 +189,7 @@ export function fsTargetFile<D = unknown, RO = ReadOptions, WO = WriteOptions, N
 
 		/**
 		 * 異步處理
-		 * 
+		 *
 		 * @returns {Promise<object>} Promise，解析為檔案目標處理器
 		 */
 		async async()

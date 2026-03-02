@@ -41,7 +41,7 @@ export interface IFileMethodAsyncOptions<RO = ReadOptions, WO = WriteOptions, D 
  * @returns {object} 包含 read 和 write 方法的物件
  */
 export declare function fsFileMethodAsync<RO = ReadOptions, WO = WriteOptions, D = unknown, N = string>(options?: IFileMethodAsyncOptions<RO, WO, D, N>): {
-    read: ((file: any, options: any) => void) | (<T = D>(file: N, options?: RO) => Promise<T>);
+    read: (<T = D>(file: N, options?: RO) => Promise<T>) | ((file: any, options: any) => Promise<any>);
     write: <T = D>(file: N, data: ITSResolvable<T>, options?: RO) => Promise<any>;
 };
 /**

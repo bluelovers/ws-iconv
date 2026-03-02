@@ -51,7 +51,7 @@ export class SyncWriteStream extends WriteStream
 	 * 建立函數別名
 	 * Factory method alias
 	 */
-	static get create()
+	static override get create()
 	{
 		return createSyncWriteStream
 	}
@@ -63,7 +63,7 @@ export class SyncWriteStream extends WriteStream
 	 * 同步開啟檔案並發送 open 和 ready 事件
 	 * Opens file synchronously and emits open and ready events
 	 */
-	open(): void
+	override open(): void
 	{
 		if (typeof getFsStreamData(this) !== 'boolean')
 		{
@@ -89,7 +89,7 @@ export class SyncWriteStream extends WriteStream
 	 * @param {(error: Error | null | undefined) => void} [cb] - 回調函數 / Callback function
 	 * @returns {boolean} 寫入結果 / Write result
 	 */
-	write(chunk: any, cb?: (error: Error | null | undefined) => void): boolean;
+	override write(chunk: any, cb?: (error: Error | null | undefined) => void): boolean;
 	/**
 	 * 寫入資料（帶編碼）
 	 * Write data with encoding
@@ -99,8 +99,8 @@ export class SyncWriteStream extends WriteStream
 	 * @param {(error: Error | null | undefined) => void} [cb] - 回調函數 / Callback function
 	 * @returns {boolean} 寫入結果 / Write result
 	 */
-	write(chunk: any, encoding?: string, cb?: (error: Error | null | undefined) => void): boolean;
-	write(chunk: any, ...argv)
+	override write(chunk: any, encoding?: string, cb?: (error: Error | null | undefined) => void): boolean;
+	override write(chunk: any, ...argv)
 	{
 		/*
 		if (this.closed)
@@ -134,7 +134,7 @@ export class SyncWriteStream extends WriteStream
 	 * @param {Function} callback - 完成回調 / Completion callback
 	 * @returns {boolean | this} 寫入結果 / Write result
 	 */
-	_write(chunk: Buffer, encoding: string, callback: Function)
+	override _write(chunk: Buffer, encoding: string, callback: Function)
 	{
 		let self = this
 
@@ -184,7 +184,7 @@ export class SyncWriteStream extends WriteStream
 	 *
 	 * @param {Function} [cb] - 關閉回調 / Close callback
 	 */
-	close(cb?: Function)
+	override close(cb?: Function)
 	{
 		if (cb)
 		{
@@ -224,7 +224,7 @@ export class SyncWriteStream extends WriteStream
 	 * @param {Error | null} error - 錯誤物件或 null / Error object or null
 	 * @param {(error: Error | null) => void} callback - 完成回調 / Completion callback
 	 */
-	_destroy(error: Error | null, callback: (error: Error | null) => void): void
+	override _destroy(error: Error | null, callback: (error: Error | null) => void): void
 	{
 		internal._destroy(this, error, callback)
 	}

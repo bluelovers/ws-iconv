@@ -1,8 +1,8 @@
 /**
  * fs-stream-sync - 檔案系統流處理工具
- * 
+ *
  * 這個模組提供了檔案系統的同步和異步流處理功能，包括讀取和寫入流。
- * 
+ *
  * @module fs-stream-sync
  * @author bluelovers
  */
@@ -14,9 +14,9 @@ import { getFsStreamData, SYM_FS_STREAM_DATA } from './lib/internal';
 
 /**
  * 讀取流類 - 擴展 Node.js 的 ReadStream
- * 
+ *
  * 這個類提供了檔案讀取流的功能，支援同步和異步操作。
- * 
+ *
  * @class ReadStream
  * @extends fs.ReadStream
  */
@@ -39,10 +39,10 @@ export class ReadStream extends fs.ReadStream
 	protected pos: number
 
 	/** 是否已關閉 */
-	protected closed: boolean
+	protected override closed: boolean
 
 	/** 是否已銷毀 */
-	protected destroyed: boolean
+	protected override destroyed: boolean
 
 	/** 可寫狀態 */
 	protected _writableState: IFsStreamState
@@ -58,7 +58,7 @@ export class ReadStream extends fs.ReadStream
 
 	/**
 	 * 構造函數
-	 * 
+	 *
 	 * @param {PathLike} path 檔案路徑
 	 * @param {string | IFsWriteStreamOptions} [options] 選項
 	 */
@@ -80,7 +80,7 @@ export class ReadStream extends fs.ReadStream
 
 	/**
 	 * 打開流
-	 * 
+	 *
 	 * 這個函數會打開檔案流，並設置相關狀態。
 	 */
 	open()
@@ -97,9 +97,9 @@ export class ReadStream extends fs.ReadStream
 
 /**
  * 創建讀取流
- * 
+ *
  * 這個函數會創建一個 ReadStream 實例。
- * 
+ *
  * @param {PathLike} path 檔案路徑
  * @param {string | IFsReadStreamOptions} [options] 選項
  * @returns {ReadStream} 讀取流實例
