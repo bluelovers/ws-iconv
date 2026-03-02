@@ -91,7 +91,7 @@ importers:
         specifier: ^4.0.0
         version: 4.0.0
       iconv-jschardet:
-        specifier: ^2.0.35
+        specifier: ^2.0.36
         version: link:../../iconv-jschardet
       tslib:
         specifier: ^2
@@ -103,7 +103,7 @@ importers:
   packages/@lazy-node/is-writeable-path:
     dependencies:
       fs-stat:
-        specifier: ^1.0.28
+        specifier: ^1.0.29
         version: link:../../fs-stat
 
   packages/@lazy-node/readlines:
@@ -115,7 +115,7 @@ importers:
   packages/@lazy-node/sanitize-filename:
     dependencies:
       '@lazy-node/windows-unsafe-filename':
-        specifier: ^1.0.15
+        specifier: ^1.0.16
         version: link:../windows-unsafe-filename
       filenamify:
         specifier: <5 >=4
@@ -154,7 +154,7 @@ importers:
   packages/array-buffer-to-string:
     dependencies:
       iconv-jschardet:
-        specifier: ^2.0.35
+        specifier: ^2.0.36
         version: link:../iconv-jschardet
       tslib:
         specifier: ^2
@@ -181,7 +181,7 @@ importers:
         specifier: ^2.1.35
         version: 2.1.35
       path-parents:
-        specifier: ^1.0.35
+        specifier: ^1.0.36
         version: link:../path-parents
       stat-mode:
         specifier: ^1.0.0
@@ -199,10 +199,10 @@ importers:
         specifier: ^11.2.0
         version: 11.3.3
       fs-stat:
-        specifier: ^1.0.28
+        specifier: ^1.0.29
         version: link:../fs-stat
       path-parents:
-        specifier: ^1.0.35
+        specifier: ^1.0.36
         version: link:../path-parents
       tslib:
         specifier: ^2
@@ -223,7 +223,7 @@ importers:
   packages/fs-iconv:
     dependencies:
       '@lazy-node/sanitize-filename':
-        specifier: ^1.0.14
+        specifier: ^1.0.15
         version: link:../@lazy-node/sanitize-filename
       bluebird:
         specifier: ^3.7.2
@@ -232,7 +232,7 @@ importers:
         specifier: ^11.2.0
         version: 11.3.3
       iconv-jschardet:
-        specifier: ^2.0.35
+        specifier: ^2.0.36
         version: link:../iconv-jschardet
       lodash:
         specifier: ^4.17.21
@@ -253,7 +253,7 @@ importers:
   packages/fs-remove:
     dependencies:
       fs-stat:
-        specifier: ^1.0.28
+        specifier: ^1.0.29
         version: link:../fs-stat
 
   packages/fs-stat:
@@ -284,10 +284,10 @@ importers:
         specifier: ^11.2.0
         version: 11.3.3
       fs-stat:
-        specifier: ^1.0.28
+        specifier: ^1.0.29
         version: link:../fs-stat
       path-is-same:
-        specifier: ^1.0.28
+        specifier: ^1.0.29
         version: link:../path-is-same
       ts-type:
         specifier: ^3.0.1
@@ -318,7 +318,7 @@ importers:
         specifier: ^4.0.0
         version: 4.0.0
       iconv-jschardet:
-        specifier: ^2.0.35
+        specifier: ^2.0.36
         version: link:../iconv-jschardet
       tslib:
         specifier: ^2
@@ -345,25 +345,25 @@ importers:
   packages/path-dir-normalize:
     dependencies:
       path-strip-sep:
-        specifier: ^1.0.20
+        specifier: ^1.0.21
         version: link:../path-strip-sep
       tslib:
         specifier: ^2
         version: 2.8.1
       upath2:
-        specifier: ^3.1.22
+        specifier: ^3.1.23
         version: link:../upath2
 
   packages/path-in-dir:
     dependencies:
       path-dir-normalize:
-        specifier: ^1.0.32
+        specifier: ^1.0.33
         version: link:../path-dir-normalize
       tslib:
         specifier: ^2
         version: 2.8.1
       upath2:
-        specifier: ^3.1.22
+        specifier: ^3.1.23
         version: link:../upath2
 
   packages/path-is-network-drive:
@@ -378,28 +378,28 @@ importers:
         specifier: ^2
         version: 2.8.1
       upath2:
-        specifier: ^3.1.22
+        specifier: ^3.1.23
         version: link:../upath2
 
   packages/path-parents:
     dependencies:
       path-is-same:
-        specifier: ^1.0.28
+        specifier: ^1.0.29
         version: link:../path-is-same
       tslib:
         specifier: ^2
         version: 2.8.1
       upath2:
-        specifier: ^3.1.22
+        specifier: ^3.1.23
         version: link:../upath2
 
   packages/path-sep-replace:
     dependencies:
       '@lazy-node/types-path':
-        specifier: ^1.0.2
+        specifier: ^1.0.3
         version: link:../@lazy-node/types-path
       path-is-network-drive:
-        specifier: ^1.0.23
+        specifier: ^1.0.24
         version: link:../path-is-network-drive
       tslib:
         specifier: '>=2'
@@ -414,16 +414,16 @@ importers:
   packages/upath2:
     dependencies:
       '@lazy-node/types-path':
-        specifier: ^1.0.2
+        specifier: ^1.0.3
         version: link:../@lazy-node/types-path
       '@types/node':
         specifier: '*'
         version: 25.3.3
       path-is-network-drive:
-        specifier: ^1.0.23
+        specifier: ^1.0.24
         version: link:../path-is-network-drive
       path-strip-sep:
-        specifier: ^1.0.20
+        specifier: ^1.0.21
         version: link:../path-strip-sep
       tslib:
         specifier: ^2

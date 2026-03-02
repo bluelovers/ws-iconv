@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.17](https://github.com/bluelovers/ws-iconv/compare/fs-hardlink-win@1.0.16...fs-hardlink-win@1.0.17) (2026-03-02)
+
+
+
+### 🛠　Build System
+
+* update build ([842c8ed](https://github.com/bluelovers/ws-iconv/commit/842c8edb48b11e163ad688df4f5791ab2e26993f))
+
+
+
 ## [1.0.16](https://github.com/bluelovers/ws-iconv/compare/fs-hardlink-win@1.0.15...fs-hardlink-win@1.0.16) (2026-03-01)
 
 **Note:** Version bump only for package fs-hardlink-win

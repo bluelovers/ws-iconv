@@ -1,6 +1,6 @@
 {
   "name": "path-is-network-drive",
-  "version": "1.0.23",
+  "version": "1.0.24",
   "description": "網路磁碟機路徑檢查工具 - 檢查和解析網路磁碟機路徑",
   "homepage": "https://github.com/bluelovers/ws-iconv/tree/master/packages/path-is-network-drive#readme",
   "bugs": {

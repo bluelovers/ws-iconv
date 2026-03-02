@@ -1,6 +1,6 @@
 {
   "name": "@lazy-node/types-path",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "路徑處理類型定義模組 - 提供完整的路徑處理相關類型定義，支援多種平台和路徑處理庫",
   "keywords": [
     "create-by-yarn-tool",

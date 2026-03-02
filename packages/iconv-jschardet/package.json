@@ -1,6 +1,6 @@
 {
   "name": "iconv-jschardet",
-  "version": "2.0.35",
+  "version": "2.0.36",
   "description": "JavaScript 字符編碼轉換與自動檢測工具 (支援 iconv-lite, jschardet) / Character encoding conversion and auto-detection tool in JavaScript (supports iconv-lite, jschardet)",
   "keywords": [
     "big-5",

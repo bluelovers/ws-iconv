@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.21](https://github.com/bluelovers/ws-iconv/compare/@lazy-node/is-writeable-path@1.0.20...@lazy-node/is-writeable-path@1.0.21) (2026-03-02)
+
+
+
+### 🛠　Build System
+
+* update build ([842c8ed](https://github.com/bluelovers/ws-iconv/commit/842c8edb48b11e163ad688df4f5791ab2e26993f))
+
+
+
 ## [1.0.20](https://github.com/bluelovers/ws-iconv/compare/@lazy-node/is-writeable-path@1.0.19...@lazy-node/is-writeable-path@1.0.20) (2026-03-01)
 
 **Note:** Version bump only for package @lazy-node/is-writeable-path

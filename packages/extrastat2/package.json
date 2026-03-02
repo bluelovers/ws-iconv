@@ -1,6 +1,6 @@
 {
   "name": "extrastat2",
-  "version": "4.2.39",
+  "version": "4.2.40",
   "description": "解析 fs.Stat 提供 MIME 類型、擁有者名稱、群組名稱和可讀權限 (Resolve fs.Stat to mimetype, ownername, groupname, and human-readable permissions)",
   "keywords": [
     "MIME",
@@ -49,7 +49,7 @@
   "dependencies": {
     "lodash": "^4.17.21",
     "mime-types": "^2.1.35",
-    "path-parents": "^1.0.35",
+    "path-parents": "^1.0.36",
     "stat-mode": "^1.0.0",
     "ts-type": "^3.0.1",
     "tslib": "^2"

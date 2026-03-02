@@ -1,6 +1,6 @@
 {
   "name": "@lazy-node/sanitize-filename",
-  "version": "1.0.14",
+  "version": "1.0.15",
   "description": "檔案名稱安全化模組 - 將字串轉換為安全的檔案名稱，移除或替換不安全的字元，支援多種選項來自訂處理方式",
   "keywords": [
     "create-by-yarn-tool",
@@ -52,7 +52,7 @@
     "tsc:showConfig": "ynpx get-current-tsconfig -p"
   },
   "dependencies": {
-    "@lazy-node/windows-unsafe-filename": "^1.0.15",
+    "@lazy-node/windows-unsafe-filename": "^1.0.16",
     "filenamify": "<5 >=4",
     "tslib": "^2",
     "zero-width": "^1.0.29"

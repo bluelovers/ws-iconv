@@ -1,6 +1,6 @@
 {
   "name": "path-parents",
-  "version": "1.0.35",
+  "version": "1.0.36",
   "description": "父目錄路徑處理工具 - 獲取所有父目錄路徑",
   "keywords": [
     "directory",
@@ -39,9 +39,9 @@
     "tsc:showConfig": "ynpx get-current-tsconfig -p"
   },
   "dependencies": {
-    "path-is-same": "^1.0.28",
+    "path-is-same": "^1.0.29",
     "tslib": "^2",
-    "upath2": "^3.1.22"
+    "upath2": "^3.1.23"
   },
   "gitHead": "e6dea90eaa22e331d180711d3ec4c4d430fce071"
 }
