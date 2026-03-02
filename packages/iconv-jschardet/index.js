@@ -21,6 +21,13 @@ Object.defineProperty(exports, "disableCodecDataWarn", { enumerable: true, get: 
 const const_1 = require("./lib/const");
 /**
  * 停用編碼檢測警告
+ * Disable encoding detection warning
+ *
+ * 設定是否停用 iconv-lite 的解碼警告功能
+ * Set whether to disable the decoding warning feature in iconv-lite
+ *
+ * @param {boolean} bool - 是否停用警告 / Whether to disable warnings (default: true)
+ * @returns {boolean} - 設定後的狀態 / The set status
  */
 function skipDecodeWarning(bool = true) {
     // @ts-ignore
@@ -28,6 +35,16 @@ function skipDecodeWarning(bool = true) {
 }
 /**
  * 將輸入內容轉換為 Buffer
+ * Convert input content to Buffer
+ *
+ * 支援多種輸入格式的 Buffer 轉換，包括字串、ArrayBuffer、TypedArray 等
+ * Support Buffer conversion for various input formats, including strings, ArrayBuffer, TypedArray, etc.
+ *
+ * @param {unknown} str - 輸入內容 / Input content (string, ArrayBuffer, TypedArray, etc.)
+ * @param {vEncoding} encoding - 目標編碼 / Target encoding (default: 'utf8')
+ * @param {vEncoding} [from] - 原始編碼 / Original encoding (optional)
+ * @param {IOptionsIconvLite} [options] - iconv-lite 選項 / iconv-lite options (optional)
+ * @returns {Buffer} - 轉換後的 Buffer / Converted Buffer
  */
 function BufferFrom(str, encoding = 'utf8', from, options) {
     let data;
@@ -49,6 +66,14 @@ function BufferFrom(str, encoding = 'utf8', from, options) {
 }
 /**
  * 檢測輸入內容編碼
+ * Detect input content encoding
+ *
+ * 使用 jschardet 庫來自動檢測輸入內容的字符編碼
+ * Use the jschardet library to automatically detect the character encoding of input content
+ *
+ * @param {any} str - 要檢測的輸入內容 / Input content to detect
+ * @param {boolean} [plus] - 是否包含額外的編碼資訊 / Whether to include additional encoding information (optional)
+ * @returns {IDetectData} - 檢測結果，包含編碼名稱和置信度 / Detection result, including encoding name and confidence
  */
 function detect(str, plus) {
     let ret = jschardet_1.default.detect(str);
@@ -68,6 +93,14 @@ function detect(str, plus) {
 }
 /**
  * 檢測輸入內容編碼並且轉換為 字串
+ * Detect input content encoding and convert to string
+ *
+ * 自動檢測輸入內容的編碼並轉換為 UTF-8 字串
+ * Automatically detect the encoding of input content and convert it to a UTF-8 string
+ *
+ * @param {any} str - 要解碼的輸入內容 / Input content to decode
+ * @param {vEncoding} [from] - 指定的原始編碼 / Specified original encoding (optional)
+ * @returns {string} - 解碼後的字串 / Decoded string
  */
 function decode(str, from = null) {
     let c;
@@ -124,6 +157,16 @@ function decode(str, from = null) {
 }
 /**
  * 檢測輸入內容編碼並且轉換為 Buffer
+ * Detect input content encoding and convert to Buffer
+ *
+ * 將輸入內容轉換為指定編碼的 Buffer
+ * Convert input content to a Buffer with the specified encoding
+ *
+ * @param {any} str - 要編碼的輸入內容 / Input content to encode
+ * @param {vEncoding} [to] - 目標編碼 / Target encoding (default: UTF8)
+ * @param {vEncoding} [from] - 原始編碼 / Original encoding (optional)
+ * @param {IOptionsIconvLite} [options] - iconv-lite 選項 / iconv-lite options (optional)
+ * @returns {Buffer} - 編碼後的 Buffer / Encoded Buffer
  */
 function encode(str, to = "utf8" /* ENUM_NODE_ENCODING.UTF8 */, from = null, options) {
     let buf = BufferFrom(str, "utf8" /* ENUM_NODE_ENCODING.UTF8 */, from);
