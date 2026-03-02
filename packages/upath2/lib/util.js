@@ -15,17 +15,10 @@ function _replace_sep(who, input) {
     if (who.name !== 'posix' && (0, path_is_network_drive_1.pathIsNetworkDrive)(input)) {
         sep = '\\';
         input = sep + sep + input
-            .slice(2)
-            .replace(/[/\\]/g, sep);
+            .slice(2);
     }
-    else {
-        input = input
-            .replace(/[/\\]/g, sep);
-    }
-    //	if (/^\w:[/\\]$/.test(input))
-    //	{
-    //		return input
-    //	}
+    input = input
+        .replace(/[/\\]/g, sep);
     return input;
 }
 function getStatic(who) {
