@@ -14,6 +14,10 @@ publicHoistPattern:
 
 linkWorkspacePackages: true
 saveWorkspaceProtocol: false
+allowBuilds:
+  '@parcel/watcher': false
+  nx: false
+  unrs-resolver: false
 
 # ignoreWorkspaceRootCheck: true
 

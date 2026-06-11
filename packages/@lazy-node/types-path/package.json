@@ -67,7 +67,7 @@
   },
   "dependencies": {
     "@types/node": "*",
-    "ts-type": "^3.0.1",
+    "ts-type": "^3.0.13",
     "tslib": ">=2"
   },
   "publishConfig": {

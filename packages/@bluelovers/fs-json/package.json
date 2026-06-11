@@ -47,10 +47,10 @@
     "tsc:showConfig": "ynpx get-current-tsconfig -p"
   },
   "dependencies": {
-    "@types/jsonfile": "^6",
-    "fs-extra": "^11.2.0",
-    "jsonfile": "^6.1.0",
-    "tslib": "^2"
+    "@types/jsonfile": "^6.1.4",
+    "fs-extra": "^11.3.5",
+    "jsonfile": "^6.2.1",
+    "tslib": "^2.8.1"
   },
   "publishConfig": {
     "access": "public"

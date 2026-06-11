@@ -37,7 +37,7 @@
   },
   "dependencies": {
     "path-strip-sep": "^1.0.21",
-    "tslib": "^2",
+    "tslib": "^2.8.1",
     "upath2": "^3.1.23"
   },
   "gitHead": "6c258437d14e2d37d1fb08068fa60833ce6d389b"

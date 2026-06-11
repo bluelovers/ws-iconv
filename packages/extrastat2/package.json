@@ -47,12 +47,12 @@
     "tsc:showConfig": "ynpx get-current-tsconfig -p"
   },
   "dependencies": {
-    "lodash": "^4.17.21",
-    "mime-types": "^2.1.35",
+    "lodash": "^4.18.1",
+    "mime-types": "^3.0.2",
     "path-parents": "^1.0.36",
     "stat-mode": "^1.0.0",
-    "ts-type": "^3.0.1",
-    "tslib": "^2"
+    "ts-type": "^3.0.13",
+    "tslib": "^2.8.1"
   },
   "gitHead": "e6dea90eaa22e331d180711d3ec4c4d430fce071"
 }
