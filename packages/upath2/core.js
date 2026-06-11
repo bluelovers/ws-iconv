@@ -40,7 +40,7 @@ class PathWrap {
         let _static = (0, util_1.getStatic)(this);
         // 設置函數別名
         // @ts-ignore
-        this.fn = (0, util_1.defaults)(this.__proto__, _static.fn, path);
+        this.fn = (0, util_1.defaults)(Object.getPrototypeOf(this), _static.fn, path);
         // 設置分隔符
         this.delimiter = (_a = path.delimiter) !== null && _a !== void 0 ? _a : _static.fn.delimiter;
         // 綁定所有路徑操作方法

@@ -32,7 +32,7 @@ export function _replace_sep(who: Pick<IPath, 'sep' | 'name'>, input: string): s
 
 export function getStatic(who): PathWrap
 {
-	return who.__proto__.constructor;
+	return Object.getPrototypeOf(who).constructor;
 }
 
 export function defaults(destination, ...input)

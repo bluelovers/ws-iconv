@@ -22,7 +22,7 @@ function _replace_sep(who, input) {
     return input;
 }
 function getStatic(who) {
-    return who.__proto__.constructor;
+    return Object.getPrototypeOf(who).constructor;
 }
 function defaults(destination, ...input) {
     destination = destination || {};

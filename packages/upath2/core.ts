@@ -1,9 +1,9 @@
 /**
  * upath2 - 跨平台路徑處理工具
- * 
+ *
  * 這個模組提供了一個 `path` 的代理，將所有結果中的反斜線 (`\`) 替換為正斜線 (`/`)，
  * 從而實現跨平台的路徑處理。
- * 
+ *
  * @module upath2
  * @author bluelovers
  * @since 2017/12/9
@@ -22,7 +22,7 @@ export type { IPathNode, IPath, IParse, IPathType }
 
 /**
  * 路徑包裝類 - 實現跨平台路徑處理的核心邏輯
- * 
+ *
  * @class PathWrap
  * @implements IPath
  */
@@ -62,7 +62,7 @@ export class PathWrap implements IPath
 
 	/**
 	 * 構造函數
-	 * 
+	 *
 	 * @param {IPath} path 要包裝的路徑庫
 	 * @param {string} id 實例ID（'posix'、'win32' 或 'upath'）
 	 */
@@ -71,8 +71,7 @@ export class PathWrap implements IPath
 		let _static = getStatic(this);
 
 		// 設置函數別名
-		// @ts-ignore
-		this.fn = defaults(this.__proto__, _static.fn, path);
+		this.fn = defaults(Object.getPrototypeOf(this), _static.fn, path);
 
 		// 設置分隔符
 		this.delimiter = path.delimiter ?? _static.fn.delimiter;
@@ -118,7 +117,7 @@ export class PathWrap implements IPath
 
 	/**
 	 * 連接多個路徑片段
-	 * 
+	 *
 	 * @template T 第一個路徑類型
 	 * @template U 後續路徑類型
 	 * @param {T} path 第一個路徑
@@ -137,7 +136,7 @@ export class PathWrap implements IPath
 
 	/**
 	 * 規範化路徑
-	 * 
+	 *
 	 * @template T 路徑類型
 	 * @param {T} path 要規範化的路徑
 	 * @returns {string} 規範化後的路徑
@@ -158,7 +157,7 @@ export class PathWrap implements IPath
 
 	/**
 	 * 計算相對路徑
-	 * 
+	 *
 	 * @template T 源路徑類型
 	 * @template U 目標路徑類型
 	 * @param {T} from 源路徑
@@ -177,7 +176,7 @@ export class PathWrap implements IPath
 
 	/**
 	 * 解析路徑
-	 * 
+	 *
 	 * @template T 第一個路徑類型
 	 * @template U 後續路徑類型
 	 * @param {T} path 第一個路徑
@@ -196,7 +195,7 @@ export class PathWrap implements IPath
 
 	/**
 	 * 解析路徑物件
-	 * 
+	 *
 	 * @template T 路徑類型
 	 * @param {T} path 要解析的路徑
 	 * @returns {ParsedPath} 解析後的路徑物件
@@ -218,7 +217,7 @@ export class PathWrap implements IPath
 
 	/**
 	 * 格式化路徑物件
-	 * 
+	 *
 	 * @template T 路徑物件類型
 	 * @param {T} pathObject 要格式化的路徑物件
 	 * @returns {string} 格式化後的路徑
@@ -233,7 +232,7 @@ export class PathWrap implements IPath
 
 	/**
 	 * 獲取路徑的最後一個部分
-	 * 
+	 *
 	 * @template T 路徑類型
 	 * @template U 擴展名類型
 	 * @param {T} path 路徑
@@ -247,7 +246,7 @@ export class PathWrap implements IPath
 
 	/**
 	 * 獲取路徑的目錄部分
-	 * 
+	 *
 	 * @template T 路徑類型
 	 * @param {T} path 路徑
 	 * @returns {string} 目錄部分
@@ -292,7 +291,7 @@ export class PathWrap implements IPath
 
 	/**
 	 * 獲取路徑的擴展名
-	 * 
+	 *
 	 * @template T 路徑類型
 	 * @param {T} path 路徑
 	 * @returns {string} 擴展名
@@ -304,7 +303,7 @@ export class PathWrap implements IPath
 
 	/**
 	 * 檢查路徑是否為絕對路徑
-	 * 
+	 *
 	 * @template T 路徑類型
 	 * @param {T} path 路徑
 	 * @returns {boolean} 是否為絕對路徑
@@ -316,7 +315,7 @@ export class PathWrap implements IPath
 
 	/**
 	 * 轉換為命名空間路徑
-	 * 
+	 *
 	 * @param {string} path 路徑
 	 * @returns {string} 命名空間路徑
 	 */
@@ -415,7 +414,7 @@ export default upath;
 
 /**
  * 獲取原始路徑庫
- * 
+ *
  * @param {IPath} who 要檢查的實例
  * @returns {Pick<PathWrap, keyof IPathNode>} 原始路徑庫
  */
