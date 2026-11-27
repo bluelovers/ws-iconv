@@ -27,7 +27,10 @@
   "scripts": {
     "test": "node --run test:since",
     "test:all": "yarn-tool ws run test --concurrency 1",
+    "test:jest:clearCache": "jest --clearCache",
     "test:since": "node --run test:all -- --since",
+    "test:snapshot:all": "yarn-tool ws run test:snapshot --concurrency 1",
+    "test:snapshot:since": "node --run test:snapshot:all -- --since",
     "install:frozenLockfile": "yarn-tool install --frozen-lockfile",
     "install:reset-lockfile": "yarn-tool install --reset-lockfile",
     "install:resetLockfile": "yarn-tool install --reset-lockfile",
