@@ -1,0 +1,112 @@
+exports[`MOJIBAKE_ENCODINGS > 六種編碼且標籤唯一 1`] = `
+[
+  {
+    "label": "utf-8",
+    "name": "UTF-8"
+  },
+  {
+    "label": "big5",
+    "name": "Big5（繁中 Windows）"
+  },
+  {
+    "label": "gbk",
+    "name": "GBK（簡中 Windows）"
+  },
+  {
+    "label": "shift_jis",
+    "name": "Shift_JIS（日文）"
+  },
+  {
+    "label": "euc-kr",
+    "name": "EUC-KR（韓文）"
+  },
+  {
+    "label": "windows-1252",
+    "name": "Latin-1／Windows-1252"
+  }
+]
+`;
+
+exports[`generateMojibake：正向產生亂碼 > 繁中樣本的候選皆異於原文，情境標籤指向兩種不同編碼 1`] = `
+{
+  "input": "你好，這是亂碼測試。",
+  "candidates": [
+    {
+      "label": "以 UTF-8 存檔，用 Big5（繁中 Windows） 開啟",
+      "text": "雿末嚗鈭Ⅳ皜祈岫��"
+    },
+    {
+      "label": "以 UTF-8 存檔，用 GBK（簡中 Windows） 開啟",
+      "text": "浣犲ソ锛岄€欐槸浜傜⒓娓│銆�"
+    },
+    {
+      "label": "以 UTF-8 存檔，用 Shift_JIS（日文） 開啟",
+      "text": "菴�螂ｽ�碁�呎弍莠ら｢ｼ貂ｬ隧ｦ縲�"
+    },
+    {
+      "label": "以 UTF-8 存檔，用 EUC-KR（韓文） 開啟",
+      "text": "鵝�也쏙�����閻쇗릍屋╉"
+    },
+    {
+      "label": "以 UTF-8 存檔，用 Latin-1／Windows-1252 開啟",
+      "text": "ä½ å¥½ï¼Œé€™æ˜¯äº‚ç¢¼æ¸¬è©¦ã€‚"
+    },
+    {
+      "label": "以 Big5（繁中 Windows） 存檔，用 UTF-8 開啟",
+      "text": "�A�n�A�o�O�ýX���աC"
+    },
+    {
+      "label": "以 Big5（繁中 Windows） 存檔，用 GBK（簡中 Windows） 開啟",
+      "text": "硂琌睹絏代刚"
+    },
+    {
+      "label": "以 Big5（繁中 Windows） 存檔，用 Shift_JIS（日文） 開啟",
+      "text": "ｧAｦn｡AｳoｬOｶﾃｽXｴ弴ﾕ｡C"
+    },
+    {
+      "label": "以 Big5（繁中 Windows） 存檔，用 EUC-KR（韓文） 開啟",
+      "text": "�A�n�A�o�O뗐�X덜먼�C"
+    },
+    {
+      "label": "以 Big5（繁中 Windows） 存檔，用 Latin-1／Windows-1252 開啟",
+      "text": "§A¦n¡A³o¬O¶Ã½X´ú¸Õ¡C"
+    },
+    {
+      "label": "以 GBK（簡中 Windows） 存檔，用 UTF-8 開啟",
+      "text": "��ã��@�ǁy�a�yԇ��"
+    },
+    {
+      "label": "以 GBK（簡中 Windows） 存檔，用 Big5（繁中 Windows） 開啟",
+      "text": "斕疑ㄛ稛岆徨�﹝"
+    },
+    {
+      "label": "以 GBK（簡中 Windows） 存檔，用 Shift_JIS（日文） 開啟",
+      "text": "ﾄ羲ﾃ｣ｬﾟ@ﾊﾇ【ｴa忱ﾔ�｣"
+    },
+    {
+      "label": "以 GBK（簡中 Windows） 存檔，用 EUC-KR（韓文） 開啟",
+      "text": "콱봤，�@角y�ay�。"
+    },
+    {
+      "label": "以 GBK（簡中 Windows） 存檔，用 Latin-1／Windows-1252 開啟",
+      "text": "ÄãºÃ£¬ß@ÊÇy´aœyÔ‡¡£"
+    }
+  ]
+}
+`;
+
+exports[`repairMojibakeByEncodings：反向還原 > 還原候選契約：無 U+FFFD、異於輸入、漢字數遞減、上限 8 1`] = `
+{
+  "input": "ä½ å¥½ï¼Œé€™æ˜¯äº‚ç¢¼æ¸¬è©¦ã€‚",
+  "candidates": [
+    {
+      "label": "原本是 UTF-8，被誤當 Latin-1／Windows-1252 讀取",
+      "text": "你好，這是亂碼測試。"
+    },
+    {
+      "label": "原本是 Latin-1／Windows-1252，被誤當 UTF-8 讀取",
+      "text": "Ã¤Â½Â Ã¥Â¥Â½Ã¯Â¼Å’Ã©â‚¬â„¢Ã¦ËœÂ¯Ã¤Âºâ€šÃ§Â¢Â¼Ã¦Â¸Â¬Ã¨Â©Â¦Ã£â‚¬â€š"
+    }
+  ]
+}
+`;
