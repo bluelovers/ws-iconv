@@ -1,0 +1,61 @@
+exports[`codec_data > UTF-8 與 ASCII 1`] = `
+{
+  "utf8": {
+    "name": "UTF-8",
+    "key": "utf8",
+    "id": "utf8",
+    "input": "utf8"
+  },
+  "ascii": null
+}
+`;
+
+exports[`codec_data > 樣本編碼 1`] = `
+{
+  "big5": {
+    "id": "big5",
+    "name": "Big5",
+    "key": "big5hkscs",
+    "input": "big5"
+  },
+  "gbk": {
+    "name": "GBK",
+    "key": "gbk",
+    "id": "gbk",
+    "input": "gbk"
+  },
+  "shift_jis": {
+    "name": "SHIFT_JIS",
+    "key": "shiftjis",
+    "id": "shiftjis",
+    "input": "shift_jis"
+  },
+  "euc-jp": {
+    "name": "EUC-JP",
+    "key": "eucjp",
+    "id": "eucjp",
+    "input": "euc-jp"
+  },
+  "euc-kr": {
+    "key": "euckr",
+    "key2": "cp949",
+    "input": "euc-kr",
+    "error": true,
+    "not": false
+  }
+}
+`;
+
+exports[`isNodeEncoding > Node.js 原生編碼回傳標準化名稱 1`] = `
+{
+  "ascii": "ascii",
+  "utf8": "utf8",
+  "utf-8": "utf8",
+  "utf16le": "utf16le",
+  "ucs2": "ucs2",
+  "base64": "base64",
+  "latin1": "latin1",
+  "binary": "binary",
+  "hex": "hex"
+}
+`;
