@@ -1,12 +1,12 @@
 import type { ITSTypeAndStringLiteral } from 'ts-type'
 import {
-    BEAM_WIDTH,
-    COMMON_CHAR_SET,
-    COMMON_PUNCT, COMMON_WORD_BONUS, COMMON_WORDS,
-    CP1252_BYTE_BY_CODEPOINT, MAX_CANDIDATES_PER_GAP,
-    STRIPPED_CONT_HI,
-    STRIPPED_CONT_LO,
-    UTF8_DECODER, WORD_RESCUE_BONUS,
+	BEAM_WIDTH,
+	COMMON_CHAR_SET,
+	COMMON_PUNCT, COMMON_WORD_BONUS, COMMON_WORDS,
+	CP1252_BYTE_BY_CODEPOINT, MAX_CANDIDATES_PER_GAP,
+	STRIPPED_CONT_HI,
+	STRIPPED_CONT_LO,
+	UTF8_DECODER, WORD_RESCUE_BONUS,
 } from './data/const'
 
 /**
@@ -17,10 +17,11 @@ import {
  * gap-fill  — 最佳努力：部分續接位元組（0x80–0x9F，Latin-1 下為不可見 C1 控制字元）在傳輸中被丟棄，
  *             以候選枚舉 + 詞典評分重建缺口；結果為推測，信心分數較低
  */
-export const enum EnumMojibakeRepairMethod {
-    none = 'none',
-    roundTrip = 'round-trip',
-    gapFill = 'gap-fill',
+export const enum EnumMojibakeRepairMethod
+{
+	none = 'none',
+	roundTrip = 'round-trip',
+	gapFill = 'gap-fill',
 }
 
 /**
@@ -31,42 +32,46 @@ export type IMojibakeRepairMethod = ITSTypeAndStringLiteral<EnumMojibakeRepairMe
 /**
  * 還原結果。
  */
-export interface IMojibakeRepairResult {
-    /** 還原後的文字；未還原時為原文字 */
-    text: string
-    /** 套用的還原方法 */
-    method: EnumMojibakeRepairMethod
-    /** 信心 0–1：round-trip 為確定性還原（≥0.8）；gap-fill 為推測（≤0.8） */
-    confidence: number
-    /** 是否有變動 */
-    changed: boolean
+export interface IMojibakeRepairResult
+{
+	/** 還原後的文字；未還原時為原文字 */
+	text: string
+	/** 套用的還原方法 */
+	method: EnumMojibakeRepairMethod
+	/** 信心 0–1：round-trip 為確定性還原（≥0.8）；gap-fill 為推測（≤0.8） */
+	confidence: number
+	/** 是否有變動 */
+	changed: boolean
 }
 
 /** 缺口描述：lead 位元組後所需的續接位元組不足，差額即被剝除的數量 */
-export interface IGap {
-    /** lead 位元組在 bytes 陣列中的位置 */
-    index: number
-    /** UTF-8 lead byte（0xE0–0xEF 或 0xF0–0xF4） */
-    lead: number
-    /** 該序列所需續接位元組總數 */
-    needed: number
-    /** 原地存活的續接位元組（0xA0–0xBF，已按原順序） */
-    present: readonly number[]
+export interface IGap
+{
+	/** lead 位元組在 bytes 陣列中的位置 */
+	index: number
+	/** UTF-8 lead byte（0xE0–0xEF 或 0xF0–0xF4） */
+	lead: number
+	/** 該序列所需續接位元組總數 */
+	needed: number
+	/** 原地存活的續接位元組（0xA0–0xBF，已按原順序） */
+	present: readonly number[]
 }
 
 /** 缺口候選：一組可填入的續接位元組及其解出的字元 */
-export interface IGapCandidate {
-    conts: readonly number[]
-    char: string
-    score: number
+export interface IGapCandidate
+{
+	conts: readonly number[]
+	char: string
+	score: number
 }
 
-export interface IBeamHyp {
-    /** 至目前為止各缺口選定的續接位元組 */
-    fills: (readonly number[])[]
-    /** 套用 fills 後、截至目前缺口的前綴文本（供詞評分） */
-    prefix: string
-    score: number
+export interface IBeamHyp
+{
+	/** 至目前為止各缺口選定的續接位元組 */
+	fills: (readonly number[])[]
+	/** 套用 fills 後、截至目前缺口的前綴文本（供詞評分） */
+	prefix: string
+	score: number
 }
 
 /**
@@ -79,12 +84,13 @@ export interface IBeamHyp {
  * @param {string} ch - 單一字元
  * @returns {number | null}
  */
-export function _charToByte(ch: string): number | null {
-    const cp = ch.codePointAt(0)
-    if (cp === undefined) return null
-    if (cp <= 0xFF) return cp
-    const mapped = CP1252_BYTE_BY_CODEPOINT.get(cp)
-    return mapped === undefined ? null : mapped
+export function _charToByte(ch: string): number | null
+{
+	const cp = ch.codePointAt(0)
+	if (cp === undefined) return null
+	if (cp <= 0xFF) return cp
+	const mapped = CP1252_BYTE_BY_CODEPOINT.get(cp)
+	return mapped === undefined ? null : mapped
 }
 
 /**
@@ -94,12 +100,16 @@ export function _charToByte(ch: string): number | null {
  * @param {readonly number[]} bytes - 待解碼位元組
  * @returns {string | null} 解碼文本；無效時為 null
  */
-export function _strictDecodeUtf8(bytes: readonly number[]): string | null {
-    try {
-        return UTF8_DECODER.decode(Uint8Array.from(bytes))
-    } catch {
-        return null
-    }
+export function _strictDecodeUtf8(bytes: readonly number[]): string | null
+{
+	try
+	{
+		return UTF8_DECODER.decode(Uint8Array.from(bytes))
+	}
+	catch
+	{
+		return null
+	}
 }
 
 /**
@@ -108,14 +118,16 @@ export function _strictDecodeUtf8(bytes: readonly number[]): string | null {
  * @param {string} line - 單行文字
  * @returns {number[] | null} byte 陣列；含無法對映字元時為 null
  */
-export function _lineToBytes(line: string): number[] | null {
-    const bytes: number[] = []
-    for (const ch of line) {
-        const byte = _charToByte(ch)
-        if (byte === null) return null
-        bytes.push(byte)
-    }
-    return bytes
+export function _lineToBytes(line: string): number[] | null
+{
+	const bytes: number[] = []
+	for (const ch of line)
+	{
+		const byte = _charToByte(ch)
+		if (byte === null) return null
+		bytes.push(byte)
+	}
+	return bytes
 }
 
 /**
@@ -126,14 +138,16 @@ export function _lineToBytes(line: string): number[] | null {
  * @param {number} [extraCodePoint] - 額外視為證據的 codepoint（如 mojibake 形態的 Ã）
  * @returns {boolean}
  */
-export function _hasMojibakeMarker(line: string, extraCodePoint?: number): boolean {
-    for (const ch of line) {
-        const cp = ch.codePointAt(0) ?? 0
-        if (cp >= 0x80 && cp <= 0x9F) return true
-        if (cp > 0xFF && CP1252_BYTE_BY_CODEPOINT.has(cp)) return true
-        if (extraCodePoint !== undefined && cp === extraCodePoint) return true
-    }
-    return false
+export function _hasMojibakeMarker(line: string, extraCodePoint?: number): boolean
+{
+	for (const ch of line)
+	{
+		const cp = ch.codePointAt(0) ?? 0
+		if (cp >= 0x80 && cp <= 0x9F) return true
+		if (cp > 0xFF && CP1252_BYTE_BY_CODEPOINT.has(cp)) return true
+		if (extraCodePoint !== undefined && cp === extraCodePoint) return true
+	}
+	return false
 }
 
 /**
@@ -143,8 +157,9 @@ export function _hasMojibakeMarker(line: string, extraCodePoint?: number): boole
  * @param {number} cp - codepoint
  * @returns {boolean}
  */
-export function _isLeadLike(cp: number): boolean {
-    return cp >= 0xC2 && cp <= 0xF4
+export function _isLeadLike(cp: number): boolean
+{
+	return cp >= 0xC2 && cp <= 0xF4
 }
 
 /**
@@ -154,11 +169,13 @@ export function _isLeadLike(cp: number): boolean {
  * @param {readonly number[]} bytes - byte 陣列
  * @returns {boolean}
  */
-export function _hasLeadContAdjacency(bytes: readonly number[]): boolean {
-    for (let i = 0; i + 1 < bytes.length; i++) {
-        if (_isLeadLike(bytes[i]) && bytes[i + 1] >= 0xA0 && bytes[i + 1] <= 0xBF) return true
-    }
-    return false
+export function _hasLeadContAdjacency(bytes: readonly number[]): boolean
+{
+	for (let i = 0; i + 1 < bytes.length; i++)
+	{
+		if (_isLeadLike(bytes[i]) && bytes[i + 1] >= 0xA0 && bytes[i + 1] <= 0xBF) return true
+	}
+	return false
 }
 
 /**
@@ -171,12 +188,14 @@ export function _hasLeadContAdjacency(bytes: readonly number[]): boolean {
  * @param {readonly number[]} bytes - byte 陣列
  * @returns {number} 相異 lead-like byte 數
  */
-export function _countDistinctLeadLike(bytes: readonly number[]): number {
-    const leads = new Set<number>()
-    for (const b of bytes) {
-        if (_isLeadLike(b)) leads.add(b)
-    }
-    return leads.size
+export function _countDistinctLeadLike(bytes: readonly number[]): number
+{
+	const leads = new Set<number>()
+	for (const b of bytes)
+	{
+		if (_isLeadLike(b)) leads.add(b)
+	}
+	return leads.size
 }
 
 /**
@@ -191,35 +210,52 @@ export function _countDistinctLeadLike(bytes: readonly number[]): number {
  * @param {readonly number[]} bytes - byte 陣列
  * @returns {IGap[] | null} 缺口清單；無可處理結構時為 null
  */
-export function _detectGaps(bytes: readonly number[]): IGap[] | null {
-    const gaps: IGap[] = []
-    let i = 0
-    while (i < bytes.length) {
-        const b = bytes[i]
-        if (b < 0x80) {
-            i++
-            continue
-        }
-        let needed = 0
-        if (b >= 0xC2 && b <= 0xDF) needed = 1
-        else if (b >= 0xE0 && b <= 0xEF) needed = 2
-        else if (b >= 0xF0 && b <= 0xF4) needed = 3
-        else return null
+export function _detectGaps(bytes: readonly number[]): IGap[] | null
+{
+	const gaps: IGap[] = []
+	let i = 0
+	while (i < bytes.length)
+	{
+		const b = bytes[i]
+		if (b < 0x80)
+		{
+			i++
+			continue
+		}
+		let needed = 0
+		if (b >= 0xC2 && b <= 0xDF)
+		{
+			needed = 1
+		}
+		else if (b >= 0xE0 && b <= 0xEF)
+		{
+			needed = 2
+		}
+		else if (b >= 0xF0 && b <= 0xF4)
+		{
+			needed = 3
+		}
+		else
+		{
+			return null
+		}
 
-        const present: number[] = []
-        let j = i + 1
-        while (j < bytes.length && bytes[j] >= 0x80 && bytes[j] <= 0xBF) {
-            present.push(bytes[j])
-            j++
-        }
-        if (present.length > needed) return null
-        if (present.length < needed) {
-            if (needed === 1) return null
-            gaps.push({ index: i, lead: b, needed, present })
-        }
-        i = j
-    }
-    return gaps
+		const present: number[] = []
+		let j = i + 1
+		while (j < bytes.length && bytes[j] >= 0x80 && bytes[j] <= 0xBF)
+		{
+			present.push(bytes[j])
+			j++
+		}
+		if (present.length > needed) return null
+		if (present.length < needed)
+		{
+			if (needed === 1) return null
+			gaps.push({ index: i, lead: b, needed, present })
+		}
+		i = j
+	}
+	return gaps
 }
 
 /**
@@ -235,15 +271,16 @@ export function _detectGaps(bytes: readonly number[]): IGap[] | null {
  * @param {number} cp - 候選字元 codepoint
  * @returns {number} 分數；0 表示拒絕
  */
-export function _charScore(cp: number): number {
-    if (cp >= 0x3040 && cp <= 0x30FF) return 3
-    if (cp >= 0x3000 && cp <= 0x303F) return 2
-    if (cp >= 0x4E00 && cp <= 0x9FFF) return COMMON_CHAR_SET.has(String.fromCodePoint(cp)) ? 4 : 1
-    if (cp >= 0x3400 && cp <= 0x4DBF) return 1
-    if (cp >= 0xFF00 && cp <= 0xFFEF) return 2
-    if (cp >= 0x2000 && cp <= 0x206F) return COMMON_PUNCT.includes(String.fromCodePoint(cp)) ? 3 : 1
-    if (cp >= 0x20A0 && cp <= 0x20BF) return 2
-    return 0
+export function _charScore(cp: number): number
+{
+	if (cp >= 0x3040 && cp <= 0x30FF) return 3
+	if (cp >= 0x3000 && cp <= 0x303F) return 2
+	if (cp >= 0x4E00 && cp <= 0x9FFF) return COMMON_CHAR_SET.has(String.fromCodePoint(cp)) ? 4 : 1
+	if (cp >= 0x3400 && cp <= 0x4DBF) return 1
+	if (cp >= 0xFF00 && cp <= 0xFFEF) return 2
+	if (cp >= 0x2000 && cp <= 0x206F) return COMMON_PUNCT.includes(String.fromCodePoint(cp)) ? 3 : 1
+	if (cp >= 0x20A0 && cp <= 0x20BF) return 2
+	return 0
 }
 
 /**
@@ -253,12 +290,14 @@ export function _charScore(cp: number): number {
  * @param {readonly number[]} conts - 全部續接位元組
  * @returns {number} codepoint
  */
-export function _codePointFrom(lead: number, conts: readonly number[]): number {
-    let cp = lead & (lead >= 0xF0 ? 0x07 : 0x0F)
-    for (const c of conts) {
-        cp = (cp << 6) | (c & 0x3F)
-    }
-    return cp
+export function _codePointFrom(lead: number, conts: readonly number[]): number
+{
+	let cp = lead & (lead >= 0xF0 ? 0x07 : 0x0F)
+	for (const c of conts)
+	{
+		cp = (cp << 6) | (c & 0x3F)
+	}
+	return cp
 }
 
 /**
@@ -267,9 +306,10 @@ export function _codePointFrom(lead: number, conts: readonly number[]): number {
  * @param {number} cp - codepoint（0x800–0xFFFF）
  * @returns {readonly number[] | null} 續接位元組；非三元組範圍時為 null
  */
-export function _contsFromCodePoint(cp: number): readonly number[] | null {
-    if (cp < 0x800 || cp > 0xFFFF) return null
-    return [0x80 | ((cp >> 6) & 0x3F), 0x80 | (cp & 0x3F)]
+export function _contsFromCodePoint(cp: number): readonly number[] | null
+{
+	if (cp < 0x800 || cp > 0xFFFF) return null
+	return [0x80 | ((cp >> 6) & 0x3F), 0x80 | (cp & 0x3F)]
 }
 
 /**
@@ -278,10 +318,11 @@ export function _contsFromCodePoint(cp: number): readonly number[] | null {
  * @param {number} cp - codepoint
  * @returns {number} lead byte
  */
-export function _leadFromCodePoint(cp: number): number {
-    if (cp < 0x800) return 0xC0 | (cp >> 6)
-    if (cp <= 0xFFFF) return 0xE0 | (cp >> 12)
-    return 0xF0 | (cp >> 18)
+export function _leadFromCodePoint(cp: number): number
+{
+	if (cp < 0x800) return 0xC0 | (cp >> 6)
+	if (cp <= 0xFFFF) return 0xE0 | (cp >> 12)
+	return 0xF0 | (cp >> 18)
 }
 
 /**
@@ -291,21 +332,26 @@ export function _leadFromCodePoint(cp: number): number {
  * @param {number} cp - 詞字元 codepoint
  * @returns {boolean}
  */
-export function _wordCandidateFits(gap: IGap, cp: number): boolean {
-    if (_leadFromCodePoint(cp) !== gap.lead) return false
-    const conts = _contsFromCodePoint(cp)
-    if (conts === null || conts.length !== gap.needed) return false
-    /** 存活錨點須全部保留；其餘槽位只能填可剝除值（0x80–0x9F），假設外的值不採 */
-    const remainingPresent = [...gap.present]
-    for (const c of conts) {
-        const at = remainingPresent.indexOf(c)
-        if (at >= 0) {
-            remainingPresent.splice(at, 1)
-        } else if (c < STRIPPED_CONT_LO || c > STRIPPED_CONT_HI) {
-            return false
-        }
-    }
-    return remainingPresent.length === 0
+export function _wordCandidateFits(gap: IGap, cp: number): boolean
+{
+	if (_leadFromCodePoint(cp) !== gap.lead) return false
+	const conts = _contsFromCodePoint(cp)
+	if (conts === null || conts.length !== gap.needed) return false
+	/** 存活錨點須全部保留；其餘槽位只能填可剝除值（0x80–0x9F），假設外的值不採 */
+	const remainingPresent = [...gap.present]
+	for (const c of conts)
+	{
+		const at = remainingPresent.indexOf(c)
+		if (at >= 0)
+		{
+			remainingPresent.splice(at, 1)
+		}
+		else if (c < STRIPPED_CONT_LO || c > STRIPPED_CONT_HI)
+		{
+			return false
+		}
+	}
+	return remainingPresent.length === 0
 }
 
 /**
@@ -315,59 +361,70 @@ export function _wordCandidateFits(gap: IGap, cp: number): boolean {
  * @param {IGap} gap - 缺口
  * @returns {IGapCandidate[]} 截斷至 MAX_CANDIDATES_PER_GAP 的候選（依分數降冪）
  */
-export function _enumerateGapCandidates(gap: IGap): IGapCandidate[] {
-    const present = gap.present
-    const candidates: IGapCandidate[] = []
-    const seen = new Set<string>()
+export function _enumerateGapCandidates(gap: IGap): IGapCandidate[]
+{
+	const present = gap.present
+	const candidates: IGapCandidate[] = []
+	const seen = new Set<string>()
 
-    /** 存活續接位元組佔據的槽位組合（保序；needed ≤ 3，組合數 ≤ 3） */
-    const presentSlotCombos: number[][] = []
-    const chooseSlots = (start: number, remaining: number, chosen: number[]): void => {
-        if (remaining === 0) {
-            presentSlotCombos.push([...chosen])
-            return
-        }
-        for (let slot = start; slot + remaining - 1 < gap.needed; slot++) {
-            chooseSlots(slot + 1, remaining - 1, [...chosen, slot])
-        }
-    }
-    chooseSlots(0, present.length, [])
+	/** 存活續接位元組佔據的槽位組合（保序；needed ≤ 3，組合數 ≤ 3） */
+	const presentSlotCombos: number[][] = []
+	const chooseSlots = (start: number, remaining: number, chosen: number[]): void =>
+	{
+		if (remaining === 0)
+		{
+			presentSlotCombos.push([...chosen])
+			return
+		}
+		for (let slot = start; slot + remaining - 1 < gap.needed; slot++)
+		{
+			chooseSlots(slot + 1, remaining - 1, [...chosen, slot])
+		}
+	}
+	chooseSlots(0, present.length, [])
 
-    for (const slots of presentSlotCombos) {
-        const fixed = new Map<number, number>()
-        slots.forEach((slot, i) => fixed.set(slot, present[i]))
-        const fillSlots: number[] = []
-        for (let slot = 0; slot < gap.needed; slot++) {
-            if (!fixed.has(slot)) fillSlots.push(slot)
-        }
+	for (const slots of presentSlotCombos)
+	{
+		const fixed = new Map<number, number>()
+		slots.forEach((slot, i) => fixed.set(slot, present[i]))
+		const fillSlots: number[] = []
+		for (let slot = 0; slot < gap.needed; slot++)
+		{
+			if (!fixed.has(slot)) fillSlots.push(slot)
+		}
 
-        const total = Math.pow(STRIPPED_CONT_HI - STRIPPED_CONT_LO + 1, fillSlots.length)
-        for (let n = 0; n < total; n++) {
-            const conts: number[] = []
-            let rest = n
-            for (let slot = 0; slot < gap.needed; slot++) {
-                if (fixed.has(slot)) {
-                    conts.push(fixed.get(slot) as number)
-                } else {
-                    const slotIndex = fillSlots.indexOf(slot)
-                    const divisor = Math.pow(STRIPPED_CONT_HI - STRIPPED_CONT_LO + 1, fillSlots.length - 1 - slotIndex)
-                    conts.push(STRIPPED_CONT_LO + Math.floor(rest / divisor))
-                    rest %= divisor
-                }
-            }
-            const cp = _codePointFrom(gap.lead, conts)
-            if (cp >= 0xD800 && cp <= 0xDFFF) continue
-            const score = _charScore(cp)
-            if (score <= 0) continue
-            const char = String.fromCodePoint(cp)
-            if (seen.has(char)) continue
-            seen.add(char)
-            candidates.push({ conts, char, score })
-        }
-    }
+		const total = Math.pow(STRIPPED_CONT_HI - STRIPPED_CONT_LO + 1, fillSlots.length)
+		for (let n = 0; n < total; n++)
+		{
+			const conts: number[] = []
+			let rest = n
+			for (let slot = 0; slot < gap.needed; slot++)
+			{
+				if (fixed.has(slot))
+				{
+					conts.push(fixed.get(slot) as number)
+				}
+				else
+				{
+					const slotIndex = fillSlots.indexOf(slot)
+					const divisor = Math.pow(STRIPPED_CONT_HI - STRIPPED_CONT_LO + 1, fillSlots.length - 1 - slotIndex)
+					conts.push(STRIPPED_CONT_LO + Math.floor(rest / divisor))
+					rest %= divisor
+				}
+			}
+			const cp = _codePointFrom(gap.lead, conts)
+			if (cp >= 0xD800 && cp <= 0xDFFF) continue
+			const score = _charScore(cp)
+			if (score <= 0) continue
+			const char = String.fromCodePoint(cp)
+			if (seen.has(char)) continue
+			seen.add(char)
+			candidates.push({ conts, char, score })
+		}
+	}
 
-    candidates.sort((a, b) => b.score - a.score)
-    return candidates.slice(0, MAX_CANDIDATES_PER_GAP)
+	candidates.sort((a, b) => b.score - a.score)
+	return candidates.slice(0, MAX_CANDIDATES_PER_GAP)
 }
 
 /**
@@ -385,24 +442,27 @@ export function _enumerateGapCandidates(gap: IGap): IGapCandidate[] {
  * @returns {number[]} byte 陣列
  */
 export function _buildPrefixBytes(
-    bytes: readonly number[],
-    gaps: readonly IGap[],
-    fills: readonly (readonly number[])[],
-    uptoGap: number,
-    includeTail: boolean,
-): number[] {
-    const out: number[] = []
-    let cursor = 0
-    for (let gi = 0; gi < uptoGap; gi++) {
-        const gap = gaps[gi]
-        out.push(...bytes.slice(cursor, gap.index + 1))
-        out.push(...(fills[gi] ?? gap.present))
-        cursor = gap.index + 1 + gap.present.length
-    }
-    if (includeTail) {
-        out.push(...bytes.slice(cursor))
-    }
-    return out
+	bytes: readonly number[],
+	gaps: readonly IGap[],
+	fills: readonly (readonly number[])[],
+	uptoGap: number,
+	includeTail: boolean,
+): number[]
+{
+	const out: number[] = []
+	let cursor = 0
+	for (let gi = 0; gi < uptoGap; gi++)
+	{
+		const gap = gaps[gi]
+		out.push(...bytes.slice(cursor, gap.index + 1))
+		out.push(...(fills[gi] ?? gap.present))
+		cursor = gap.index + 1 + gap.present.length
+	}
+	if (includeTail)
+	{
+		out.push(...bytes.slice(cursor))
+	}
+	return out
 }
 
 /**
@@ -411,18 +471,21 @@ export function _buildPrefixBytes(
  * @param {string} text - 待評分文本
  * @returns {number} 命中次數
  */
-export function _wordBonus(text: string): number {
-    let hits = 0
-    for (const word of COMMON_WORDS) {
-        let from = 0
-        for (;;) {
-            const at = text.indexOf(word, from)
-            if (at < 0) break
-            hits++
-            from = at + word.length
-        }
-    }
-    return hits
+export function _wordBonus(text: string): number
+{
+	let hits = 0
+	for (const word of COMMON_WORDS)
+	{
+		let from = 0
+		for (; ;)
+		{
+			const at = text.indexOf(word, from)
+			if (at < 0) break
+			hits++
+			from = at + word.length
+		}
+	}
+	return hits
 }
 
 /**
@@ -438,41 +501,47 @@ export function _wordBonus(text: string): number {
  * @param {boolean} hadMarker - 輸出行是否帶 C1 / Windows-1252 專屬符號等鏈證據（B 層接受閘用）
  * @returns {string | null} 還原文本；任一缺口無候選或解碼失敗時為 null
  */
-export function _beamFill(bytes: readonly number[], gaps: readonly IGap[], hadMarker: boolean): string | null {
-    const perGap: IGapCandidate[][] = gaps.map(gap => _enumerateGapCandidates(gap))
+export function _beamFill(bytes: readonly number[], gaps: readonly IGap[], hadMarker: boolean): string | null
+{
+	const perGap: IGapCandidate[][] = gaps.map(gap => _enumerateGapCandidates(gap))
 
-    /** 相鄰缺口視為一個 run，run 內嘗試詞典救援 */
-    let runStart = -1
-    for (let gi = 0; gi <= gaps.length; gi++) {
-        const adjacent = gi < gaps.length && runStart >= 0
-            && gaps[gi].index === gaps[gi - 1].index + 1 + gaps[gi - 1].present.length
-        if (adjacent) continue
-        if (runStart >= 0 && gi - runStart >= 2) {
-            _applyWordRescue(gaps, perGap, runStart, gi)
-        }
-        runStart = gi < gaps.length ? gi : -1
-    }
+	/** 相鄰缺口視為一個 run，run 內嘗試詞典救援 */
+	let runStart = -1
+	for (let gi = 0; gi <= gaps.length; gi++)
+	{
+		const adjacent = gi < gaps.length && runStart >= 0
+			&& gaps[gi].index === gaps[gi - 1].index + 1 + gaps[gi - 1].present.length
+		if (adjacent) continue
+		if (runStart >= 0 && gi - runStart >= 2)
+		{
+			_applyWordRescue(gaps, perGap, runStart, gi)
+		}
+		runStart = gi < gaps.length ? gi : -1
+	}
 
-    let hyps: IBeamHyp[] = [{ fills: [], prefix: '', score: 0 }]
-    for (let gi = 0; gi < gaps.length; gi++) {
-        if (perGap[gi].length === 0) return null
-        const next: IBeamHyp[] = []
-        for (const hyp of hyps) {
-            for (const cand of perGap[gi]) {
-                const fills = [...hyp.fills, cand.conts]
-                const prefix = _strictDecodeUtf8(_buildPrefixBytes(bytes, gaps, fills, gi + 1, false))
-                if (prefix === null) continue
-                next.push({ fills, prefix, score: hyp.score + cand.score + _wordBonus(prefix) * COMMON_WORD_BONUS })
-            }
-        }
-        next.sort((a, b) => b.score - a.score)
-        hyps = next.slice(0, BEAM_WIDTH)
-        if (hyps.length === 0) return null
-    }
+	let hyps: IBeamHyp[] = [{ fills: [], prefix: '', score: 0 }]
+	for (let gi = 0; gi < gaps.length; gi++)
+	{
+		if (perGap[gi].length === 0) return null
+		const next: IBeamHyp[] = []
+		for (const hyp of hyps)
+		{
+			for (const cand of perGap[gi])
+			{
+				const fills = [...hyp.fills, cand.conts]
+				const prefix = _strictDecodeUtf8(_buildPrefixBytes(bytes, gaps, fills, gi + 1, false))
+				if (prefix === null) continue
+				next.push({ fills, prefix, score: hyp.score + cand.score + _wordBonus(prefix) * COMMON_WORD_BONUS })
+			}
+		}
+		next.sort((a, b) => b.score - a.score)
+		hyps = next.slice(0, BEAM_WIDTH)
+		if (hyps.length === 0) return null
+	}
 
-    const full = _strictDecodeUtf8(_buildPrefixBytes(bytes, gaps, hyps[0].fills, gaps.length, true))
-    if (full === null) return null
-    return _repairGapFilledOutput(full, hadMarker) ? full : null
+	const full = _strictDecodeUtf8(_buildPrefixBytes(bytes, gaps, hyps[0].fills, gaps.length, true))
+	if (full === null) return null
+	return _repairGapFilledOutput(full, hadMarker) ? full : null
 }
 
 /**
@@ -487,30 +556,34 @@ export function _beamFill(bytes: readonly number[], gaps: readonly IGap[], hadMa
  * @returns {void}
  */
 export function _applyWordRescue(
-    gaps: readonly IGap[],
-    perGap: IGapCandidate[][],
-    runStart: number,
-    runEnd: number,
-): void {
-    const runLength = runEnd - runStart
-    for (const word of COMMON_WORDS) {
-        const chars = Array.from(word)
-        if (chars.length < 2 || chars.length > runLength) continue
-        for (let offset = 0; offset + chars.length <= runLength; offset++) {
-            for (let ci = 0; ci < chars.length; ci++) {
-                const gap = gaps[runStart + offset + ci]
-                const cp = chars[ci].codePointAt(0) ?? 0
-                if (!_wordCandidateFits(gap, cp)) continue
-                const conts = _contsFromCodePoint(cp)
-                if (conts === null) continue
-                const score = _charScore(cp)
-                if (score <= 0) continue
-                const bucket = perGap[runStart + offset + ci]
-                if (bucket.some(c => c.char === chars[ci])) continue
-                bucket.push({ conts, char: chars[ci], score: score + WORD_RESCUE_BONUS })
-            }
-        }
-    }
+	gaps: readonly IGap[],
+	perGap: IGapCandidate[][],
+	runStart: number,
+	runEnd: number,
+): void
+{
+	const runLength = runEnd - runStart
+	for (const word of COMMON_WORDS)
+	{
+		const chars = Array.from(word)
+		if (chars.length < 2 || chars.length > runLength) continue
+		for (let offset = 0; offset + chars.length <= runLength; offset++)
+		{
+			for (let ci = 0; ci < chars.length; ci++)
+			{
+				const gap = gaps[runStart + offset + ci]
+				const cp = chars[ci].codePointAt(0) ?? 0
+				if (!_wordCandidateFits(gap, cp)) continue
+				const conts = _contsFromCodePoint(cp)
+				if (conts === null) continue
+				const score = _charScore(cp)
+				if (score <= 0) continue
+				const bucket = perGap[runStart + offset + ci]
+				if (bucket.some(c => c.char === chars[ci])) continue
+				bucket.push({ conts, char: chars[ci], score: score + WORD_RESCUE_BONUS })
+			}
+		}
+	}
 }
 
 /**
@@ -522,8 +595,9 @@ export function _applyWordRescue(
  * @param {number} cp - codepoint
  * @returns {boolean}
  */
-export function _isCjkOrKana(cp: number): boolean {
-    return (cp >= 0x3000 && cp <= 0x30FF) || (cp >= 0x4E00 && cp <= 0x9FFF)
+export function _isCjkOrKana(cp: number): boolean
+{
+	return (cp >= 0x3000 && cp <= 0x30FF) || (cp >= 0x4E00 && cp <= 0x9FFF)
 }
 
 /**
@@ -542,15 +616,17 @@ export function _isCjkOrKana(cp: number): boolean {
  * @param {boolean} hadMarker - 輸出行是否帶 C1 / Windows-1252 專屬符號等鏈證據
  * @returns {boolean} 是否採用
  */
-export function _repairGapFilledOutput(output: string, hadMarker: boolean): boolean {
-    let cjkCount = 0
-    for (const ch of output) {
-        const cp = ch.codePointAt(0) ?? 0
-        if (cp >= 0x80 && cp <= 0x9F) return false
-        if (_isCjkOrKana(cp)) cjkCount++
-    }
-    if (cjkCount === 0) return hadMarker
-    return cjkCount >= 2 && _wordBonus(output) >= 1
+export function _repairGapFilledOutput(output: string, hadMarker: boolean): boolean
+{
+	let cjkCount = 0
+	for (const ch of output)
+	{
+		const cp = ch.codePointAt(0) ?? 0
+		if (cp >= 0x80 && cp <= 0x9F) return false
+		if (_isCjkOrKana(cp)) cjkCount++
+	}
+	if (cjkCount === 0) return hadMarker
+	return cjkCount >= 2 && _wordBonus(output) >= 1
 }
 
 /**
@@ -564,18 +640,21 @@ export function _repairGapFilledOutput(output: string, hadMarker: boolean): bool
  * @param {string} output - 嚴格解碼結果
  * @returns {boolean} 是否採用
  */
-export function _repairRoundTripOutput(input: string, output: string): boolean {
-    if (output === input) return false
-    /** mojibake 形態的 Ã：UTF-8 lead byte 0xC3 被當 Latin-1 讀出 */
-    const hadSuspicious = _hasMojibakeMarker(input, 0xC3)
-    let hasCjk = false
-    for (const ch of output) {
-        if (_isCjkOrKana(ch.codePointAt(0) ?? 0)) {
-            hasCjk = true
-            break
-        }
-    }
-    return hadSuspicious || hasCjk
+export function _repairRoundTripOutput(input: string, output: string): boolean
+{
+	if (output === input) return false
+	/** mojibake 形態的 Ã：UTF-8 lead byte 0xC3 被當 Latin-1 讀出 */
+	const hadSuspicious = _hasMojibakeMarker(input, 0xC3)
+	let hasCjk = false
+	for (const ch of output)
+	{
+		if (_isCjkOrKana(ch.codePointAt(0) ?? 0))
+		{
+			hasCjk = true
+			break
+		}
+	}
+	return hadSuspicious || hasCjk
 }
 
 /** 行 / 段級還原結果（內部使用） */
@@ -587,27 +666,29 @@ export type IRepairLineResult = { text: string; method: EnumMojibakeRepairMethod
  * @param {string} segment - 段內每字皆可對映為誤讀前 byte
  * @returns {IRepairLineResult | null} 還原結果；未還原時為 null
  */
-export function _repairRunSegment(segment: string): IRepairLineResult | null {
-    const bytes = _lineToBytes(segment)
-    if (bytes === null) return null
+export function _repairRunSegment(segment: string): IRepairLineResult | null
+{
+	const bytes = _lineToBytes(segment)
+	if (bytes === null) return null
 
-    const marker = _hasMojibakeMarker(segment)
+	const marker = _hasMojibakeMarker(segment)
 
-    /** round-trip：全 bytes 俱在時的確定性還原 */
-    const decoded = _strictDecodeUtf8(bytes)
-    if (decoded !== null && _repairRoundTripOutput(segment, decoded)) {
-        return { text: decoded, method: EnumMojibakeRepairMethod.roundTrip, confidence: marker ? 0.95 : 0.8 }
-    }
+	/** round-trip：全 bytes 俱在時的確定性還原 */
+	const decoded = _strictDecodeUtf8(bytes)
+	if (decoded !== null && _repairRoundTripOutput(segment, decoded))
+	{
+		return { text: decoded, method: EnumMojibakeRepairMethod.roundTrip, confidence: marker ? 0.95 : 0.8 }
+	}
 
-    /** gap-fill：C1 續接位元組被剝除時的最佳努力重建 */
-    const evidence = marker || _hasLeadContAdjacency(bytes) || _countDistinctLeadLike(bytes) >= 2
-    if (!evidence) return null
-    const gaps = _detectGaps(bytes)
-    if (gaps === null || gaps.length === 0) return null
-    const filled = _beamFill(bytes, gaps, marker)
-    if (filled === null) return null
-    const confidence = Math.min(0.8, Math.max(0.1, 0.35 + _wordBonus(filled) * 0.15 - Math.max(0, gaps.length - 1) * 0.03))
-    return { text: filled, method: EnumMojibakeRepairMethod.gapFill, confidence }
+	/** gap-fill：C1 續接位元組被剝除時的最佳努力重建 */
+	const evidence = marker || _hasLeadContAdjacency(bytes) || _countDistinctLeadLike(bytes) >= 2
+	if (!evidence) return null
+	const gaps = _detectGaps(bytes)
+	if (gaps === null || gaps.length === 0) return null
+	const filled = _beamFill(bytes, gaps, marker)
+	if (filled === null) return null
+	const confidence = Math.min(0.8, Math.max(0.1, 0.35 + _wordBonus(filled) * 0.15 - Math.max(0, gaps.length - 1) * 0.03))
+	return { text: filled, method: EnumMojibakeRepairMethod.gapFill, confidence }
 }
 
 /**
@@ -623,40 +704,50 @@ export function _repairRunSegment(segment: string): IRepairLineResult | null {
  * @returns {IRepairLineResult | null} 還原結果；無任何段被還原時為 null
  */
 export function _repairSplitBy(
-    source: string,
-    isBoundary: (ch: string) => boolean,
-    repairChunk: (chunk: string) => IRepairLineResult | null,
-): IRepairLineResult | null {
-    const pieces: string[] = []
-    const applied: IRepairLineResult[] = []
-    let cur = ''
-    const flush = (): void => {
-        if (cur === '') return
-        const r = repairChunk(cur)
-        if (r === null) pieces.push(cur)
-        else {
-            applied.push(r)
-            pieces.push(r.text)
-        }
-        cur = ''
-    }
-    for (const ch of source) {
-        if (isBoundary(ch)) {
-            flush()
-            pieces.push(ch)
-        } else {
-            cur += ch
-        }
-    }
-    flush()
-    if (applied.length === 0) return null
-    return {
-        text: pieces.join(''),
-        method: applied.some(a => a.method === EnumMojibakeRepairMethod.gapFill)
-            ? EnumMojibakeRepairMethod.gapFill
-            : EnumMojibakeRepairMethod.roundTrip,
-        confidence: Math.min(...applied.map(a => a.confidence)),
-    }
+	source: string,
+	isBoundary: (ch: string) => boolean,
+	repairChunk: (chunk: string) => IRepairLineResult | null,
+): IRepairLineResult | null
+{
+	const pieces: string[] = []
+	const applied: IRepairLineResult[] = []
+	let cur = ''
+	const flush = (): void =>
+	{
+		if (cur === '') return
+		const r = repairChunk(cur)
+		if (r === null)
+		{
+			pieces.push(cur)
+		}
+    else
+		{
+			applied.push(r)
+			pieces.push(r.text)
+		}
+		cur = ''
+	}
+	for (const ch of source)
+	{
+		if (isBoundary(ch))
+		{
+			flush()
+			pieces.push(ch)
+		}
+		else
+		{
+			cur += ch
+		}
+	}
+	flush()
+	if (applied.length === 0) return null
+	return {
+		text: pieces.join(''),
+		method: applied.some(a => a.method === EnumMojibakeRepairMethod.gapFill)
+			? EnumMojibakeRepairMethod.gapFill
+			: EnumMojibakeRepairMethod.roundTrip,
+		confidence: Math.min(...applied.map(a => a.confidence)),
+	}
 }
 
 /**
@@ -671,12 +762,13 @@ export function _repairSplitBy(
  * @param {string} segment - 已確認為全可對映但還原失敗的字串段
  * @returns {IRepairLineResult | null} 還原結果；細分後仍無一段可還原時為 null
  */
-export function _repairRunWithSpecialBoundaries(segment: string): IRepairLineResult | null {
-    return _repairSplitBy(
-        segment,
-        ch => (ch.codePointAt(0) ?? 0) > 0xFF,
-        _repairRunSegment,
-    )
+export function _repairRunWithSpecialBoundaries(segment: string): IRepairLineResult | null
+{
+	return _repairSplitBy(
+		segment,
+		ch => (ch.codePointAt(0) ?? 0) > 0xFF,
+		_repairRunSegment,
+	)
 }
 
 /**
@@ -690,26 +782,29 @@ export function _repairRunWithSpecialBoundaries(segment: string): IRepairLineRes
  * @param {string} line - 單行文字
  * @returns {IRepairLineResult | null} 還原結果；未還原時為 null（由呼叫端決定保留原樣）
  */
-export function _repairLine(line: string): IRepairLineResult | null {
-    let hasHigh = false
-    for (const ch of line) {
-        if ((ch.codePointAt(0) ?? 0) > 0x7F) {
-            hasHigh = true
-            break
-        }
-    }
-    if (!hasHigh) return null
+export function _repairLine(line: string): IRepairLineResult | null
+{
+	let hasHigh = false
+	for (const ch of line)
+	{
+		if ((ch.codePointAt(0) ?? 0) > 0x7F)
+		{
+			hasHigh = true
+			break
+		}
+	}
+	if (!hasHigh) return null
 
-    /** 快路：整行一次還原 */
-    const whole = _repairRunSegment(line)
-    if (whole !== null) return whole
+	/** 快路：整行一次還原 */
+	const whole = _repairRunSegment(line)
+	if (whole !== null) return whole
 
-    /** 混合路：真 Unicode 字元為硬邊界；失敗段再以 cp1252 符號細分 */
-    return _repairSplitBy(
-        line,
-        ch => _charToByte(ch) === null,
-        chunk => _repairRunSegment(chunk) ?? _repairRunWithSpecialBoundaries(chunk),
-    )
+	/** 混合路：真 Unicode 字元為硬邊界；失敗段再以 cp1252 符號細分 */
+	return _repairSplitBy(
+		line,
+		ch => _charToByte(ch) === null,
+		chunk => _repairRunSegment(chunk) ?? _repairRunWithSpecialBoundaries(chunk),
+	)
 }
 
 /**
@@ -734,41 +829,45 @@ export function _repairLine(line: string): IRepairLineResult | null {
  * @param {string} text - 疑似 mojibake 的文字
  * @returns {IMojibakeRepairResult} 還原結果（未還原時 text 為原文字、method 為 none）
  */
-export function repairMojibake(text: string): IMojibakeRepairResult {
-    const lines = text.split('\n')
-    const repaired: string[] = []
-    let anyChanged = false
-    let weakestMethod: EnumMojibakeRepairMethod = EnumMojibakeRepairMethod.none
-    let minConfidence = 1
+export function repairMojibake(text: string): IMojibakeRepairResult
+{
+	const lines = text.split('\n')
+	const repaired: string[] = []
+	let anyChanged = false
+	let weakestMethod: EnumMojibakeRepairMethod = EnumMojibakeRepairMethod.none
+	let minConfidence = 1
 
-    for (const line of lines) {
-        const result = _repairLine(line)
-        if (result === null) {
-            repaired.push(line)
-            continue
-        }
-        anyChanged = true
-        repaired.push(result.text)
-        weakestMethod = EnumMojibakeRepairMethod.gapFill === result.method
-            ? EnumMojibakeRepairMethod.gapFill
-            : (weakestMethod === EnumMojibakeRepairMethod.none ? result.method : weakestMethod)
-        minConfidence = Math.min(minConfidence, result.confidence)
-    }
+	for (const line of lines)
+	{
+		const result = _repairLine(line)
+		if (result === null)
+		{
+			repaired.push(line)
+			continue
+		}
+		anyChanged = true
+		repaired.push(result.text)
+		weakestMethod = EnumMojibakeRepairMethod.gapFill === result.method
+			? EnumMojibakeRepairMethod.gapFill
+			: (weakestMethod === EnumMojibakeRepairMethod.none ? result.method : weakestMethod)
+		minConfidence = Math.min(minConfidence, result.confidence)
+	}
 
-    if (!anyChanged) {
-        return {
-            text,
-            method: EnumMojibakeRepairMethod.none,
-            confidence: 0,
-            changed: false,
-        }
-    }
-    return {
-        text: repaired.join('\n'),
-        method: weakestMethod,
-        confidence: minConfidence,
-        changed: true,
-    }
+	if (!anyChanged)
+	{
+		return {
+			text,
+			method: EnumMojibakeRepairMethod.none,
+			confidence: 0,
+			changed: false,
+		}
+	}
+	return {
+		text: repaired.join('\n'),
+		method: weakestMethod,
+		confidence: minConfidence,
+		changed: true,
+	}
 }
 
 export default repairMojibake

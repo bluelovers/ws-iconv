@@ -11,31 +11,33 @@
 /**
  * 參與互轉的編碼組合：WHATWG 編碼標籤與其顯示名稱。
  */
-export interface IMojibakeEncoding {
-    /** WHATWG 編碼標籤，TextDecoder 可直接接受 */
-    label: string
-    /** 顯示名稱 */
-    name: string
+export interface IMojibakeEncoding
+{
+	/** WHATWG 編碼標籤，TextDecoder 可直接接受 */
+	label: string
+	/** 顯示名稱 */
+	name: string
 }
 
 /**
  * 一條候選結果：情境描述與對應文字。
  */
-export interface IMojibakeCandidate {
-    /** 情境描述，例如「以 Big5 存檔，用 UTF-8 開啟」 */
-    label: string
-    /** 該情境下的文字結果 */
-    text: string
+export interface IMojibakeCandidate
+{
+	/** 情境描述，例如「以 Big5 存檔，用 UTF-8 開啟」 */
+	label: string
+	/** 該情境下的文字結果 */
+	text: string
 }
 
 /** 參與互轉的編碼清單（順序決定候選的排列次序） */
 export const MOJIBAKE_ENCODINGS: readonly IMojibakeEncoding[] = [
-    { label: 'utf-8', name: 'UTF-8' },
-    { label: 'big5', name: 'Big5（繁中 Windows）' },
-    { label: 'gbk', name: 'GBK（簡中 Windows）' },
-    { label: 'shift_jis', name: 'Shift_JIS（日文）' },
-    { label: 'euc-kr', name: 'EUC-KR（韓文）' },
-    { label: 'windows-1252', name: 'Latin-1／Windows-1252' },
+	{ label: 'utf-8', name: 'UTF-8' },
+	{ label: 'big5', name: 'Big5（繁中 Windows）' },
+	{ label: 'gbk', name: 'GBK（簡中 Windows）' },
+	{ label: 'shift_jis', name: 'Shift_JIS（日文）' },
+	{ label: 'euc-kr', name: 'EUC-KR（韓文）' },
+	{ label: 'windows-1252', name: 'Latin-1／Windows-1252' },
 ]
 
 /** 單一編碼的解碼對映表快取；value 為 null 代表該標籤無法建表（環境不支援） */
@@ -51,31 +53,39 @@ const decodeTableCache = new Map<string, Map<string, number[]> | null>()
  * @param label - WHATWG 編碼標籤
  * @returns 解碼對映表；標籤不支援時為 null
  */
-export function getDecodeTable(label: string): ReadonlyMap<string, number[]> | null {
-    const cached = decodeTableCache.get(label)
-    if (cached !== undefined) return cached
+export function getDecodeTable(label: string): ReadonlyMap<string, number[]> | null
+{
+	const cached = decodeTableCache.get(label)
+	if (cached !== undefined) return cached
 
-    let table: Map<string, number[]> | null
-    try {
-        const dec = new TextDecoder(label)
-        table = new Map<string, number[]>()
-        for (let i = 0; i < 256; i++) {
-            const s = dec.decode(new Uint8Array([i]))
-            if (s.length === 1 && s !== '\ufffd' && !table.has(s)) table.set(s, [i])
-        }
-        if (label !== 'windows-1252') {
-            for (let hi = 0x81; hi <= 0xFE; hi++) {
-                for (let lo = 0x40; lo <= 0xFE; lo++) {
-                    const s = dec.decode(new Uint8Array([hi, lo]))
-                    if (s.length === 1 && s !== '\ufffd' && !table.has(s)) table.set(s, [hi, lo])
-                }
-            }
-        }
-    } catch {
-        table = null
-    }
-    decodeTableCache.set(label, table)
-    return table
+	let table: Map<string, number[]> | null
+	try
+	{
+		const dec = new TextDecoder(label)
+		table = new Map<string, number[]>()
+		for (let i = 0; i < 256; i++)
+		{
+			const s = dec.decode(new Uint8Array([i]))
+			if (s.length === 1 && s !== '\ufffd' && !table.has(s)) table.set(s, [i])
+		}
+		if (label !== 'windows-1252')
+		{
+			for (let hi = 0x81; hi <= 0xFE; hi++)
+			{
+				for (let lo = 0x40; lo <= 0xFE; lo++)
+				{
+					const s = dec.decode(new Uint8Array([hi, lo]))
+					if (s.length === 1 && s !== '\ufffd' && !table.has(s)) table.set(s, [hi, lo])
+				}
+			}
+		}
+	}
+	catch
+	{
+		table = null
+	}
+	decodeTableCache.set(label, table)
+	return table
 }
 
 /**
@@ -88,19 +98,21 @@ export function getDecodeTable(label: string): ReadonlyMap<string, number[]> | n
  * @param label - WHATWG 編碼標籤
  * @returns byte 陣列；有字元無法編碼時為 null
  */
-export function encodeToBytes(text: string, label: string): number[] | null {
-    if (label === 'utf-8') return Array.from(new TextEncoder().encode(text))
+export function encodeToBytes(text: string, label: string): number[] | null
+{
+	if (label === 'utf-8') return Array.from(new TextEncoder().encode(text))
 
-    const table = getDecodeTable(label)
-    if (table === null) return null
+	const table = getDecodeTable(label)
+	if (table === null) return null
 
-    const bytes: number[] = []
-    for (const ch of text) {
-        const seq = table.get(ch)
-        if (seq === undefined) return null
-        bytes.push(...seq)
-    }
-    return bytes
+	const bytes: number[] = []
+	for (const ch of text)
+	{
+		const seq = table.get(ch)
+		if (seq === undefined) return null
+		bytes.push(...seq)
+	}
+	return bytes
 }
 
 /**
@@ -113,8 +125,9 @@ export function encodeToBytes(text: string, label: string): number[] | null {
  * @param label - WHATWG 編碼標籤
  * @returns 解讀結果
  */
-export function decodeBytes(bytes: readonly number[], label: string): string {
-    return new TextDecoder(label).decode(Uint8Array.from(bytes))
+export function decodeBytes(bytes: readonly number[], label: string): string
+{
+	return new TextDecoder(label).decode(Uint8Array.from(bytes))
 }
 
 /**
@@ -128,21 +141,24 @@ export function decodeBytes(bytes: readonly number[], label: string): string {
  * @param visit - 逐組合呼叫；src 為編碼端、dst 為解讀端，result 為轉換結果
  */
 function forEachEncodingPair(
-    text: string,
-    visit: (src: IMojibakeEncoding, dst: IMojibakeEncoding, result: string) => void,
-): void {
-    for (const src of MOJIBAKE_ENCODINGS) {
-        for (const dst of MOJIBAKE_ENCODINGS) {
-            /** 同編碼互轉等於原樣輸出，不構成亂碼情境 */
-            if (src.label === dst.label) continue
-            const bytes = encodeToBytes(text, src.label)
-            if (bytes === null) continue
-            const result = decodeBytes(bytes, dst.label)
-            /** 與原文相同代表沒有資訊，不列入 */
-            if (result === text) continue
-            visit(src, dst, result)
-        }
-    }
+	text: string,
+	visit: (src: IMojibakeEncoding, dst: IMojibakeEncoding, result: string) => void,
+): void
+{
+	for (const src of MOJIBAKE_ENCODINGS)
+	{
+		for (const dst of MOJIBAKE_ENCODINGS)
+		{
+			/** 同編碼互轉等於原樣輸出，不構成亂碼情境 */
+			if (src.label === dst.label) continue
+			const bytes = encodeToBytes(text, src.label)
+			if (bytes === null) continue
+			const result = decodeBytes(bytes, dst.label)
+			/** 與原文相同代表沒有資訊，不列入 */
+			if (result === text) continue
+			visit(src, dst, result)
+		}
+	}
 }
 
 /**
@@ -153,13 +169,15 @@ function forEachEncodingPair(
  * @param text - 正常文字
  * @returns 候選清單（僅列出與原文不同者）
  */
-export function generateMojibake(text: string): IMojibakeCandidate[] {
-    const candidates: IMojibakeCandidate[] = []
+export function generateMojibake(text: string): IMojibakeCandidate[]
+{
+	const candidates: IMojibakeCandidate[] = []
 
-    forEachEncodingPair(text, (src, dst, result) => {
-        candidates.push({ label: `以 ${src.name} 存檔，用 ${dst.name} 開啟`, text: result })
-    })
-    return candidates
+	forEachEncodingPair(text, (src, dst, result) =>
+	{
+		candidates.push({ label: `以 ${src.name} 存檔，用 ${dst.name} 開啟`, text: result })
+	})
+	return candidates
 }
 
 /**
@@ -172,19 +190,21 @@ export function generateMojibake(text: string): IMojibakeCandidate[] {
  * @param limit - 最多回傳列數，預設 8
  * @returns 依可信度排序的候選清單
  */
-export function repairMojibakeByEncodings(text: string, limit = 8): IMojibakeCandidate[] {
-    const scored: { cjk: number; candidate: IMojibakeCandidate }[] = []
+export function repairMojibakeByEncodings(text: string, limit = 8): IMojibakeCandidate[]
+{
+	const scored: { cjk: number; candidate: IMojibakeCandidate }[] = []
 
-    forEachEncodingPair(text, (src, dst, result) => {
-        /** 含 U+FFFD 表示該組合解碼失敗 */
-        if (result.includes('\ufffd')) return
-        scored.push({
-            cjk: (result.match(/[\u4e00-\u9fff]/g) || []).length,
-            candidate: { label: `原本是 ${dst.name}，被誤當 ${src.name} 讀取`, text: result },
-        })
-    })
+	forEachEncodingPair(text, (src, dst, result) =>
+	{
+		/** 含 U+FFFD 表示該組合解碼失敗 */
+		if (result.includes('\ufffd')) return
+		scored.push({
+			cjk: (result.match(/[\u4e00-\u9fff]/g) || []).length,
+			candidate: { label: `原本是 ${dst.name}，被誤當 ${src.name} 讀取`, text: result },
+		})
+	})
 
-    /** 漢字最多的組合最可能是正確還原 */
-    scored.sort((x, y) => y.cjk - x.cjk)
-    return scored.slice(0, limit).map(item => item.candidate)
+	/** 漢字最多的組合最可能是正確還原 */
+	scored.sort((x, y) => y.cjk - x.cjk)
+	return scored.slice(0, limit).map(item => item.candidate)
 }
