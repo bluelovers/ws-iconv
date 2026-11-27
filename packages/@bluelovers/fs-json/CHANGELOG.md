@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.20](https://github.com/bluelovers/ws-iconv/compare/@bluelovers/fs-json@1.0.19...@bluelovers/fs-json@1.0.20) (2026-11-27)
+
+
+
+### 📦　Code Refactoring
+
+* **fs-json:** 強化 JSON 操作函數的型別安全性 ([1226b3a](https://github.com/bluelovers/ws-iconv/commit/1226b3a551f7f6e724dba7bac95d2b5b7fc340fd))
+
+
+### 🛠　Build System
+
+* update build ([34a9a22](https://github.com/bluelovers/ws-iconv/commit/34a9a225e235602737f01d09c4a9f3ae42e517aa))
+
+
 ## [1.0.19](https://github.com/bluelovers/ws-iconv/compare/@bluelovers/fs-json@1.0.18...@bluelovers/fs-json@1.0.19) (2026-11-27)
 
 
