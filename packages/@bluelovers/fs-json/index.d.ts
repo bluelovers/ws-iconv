@@ -45,7 +45,7 @@ export type IReadOptions = Exclude<JFReadOptions, string | null | undefined>;
  * @returns {IWriteOptions} - 處理後的選項 / Processed options
  * @private
  */
-export declare function _handleWriteOptions(options?: IWriteOptions): IWriteOptions;
+export declare function _handleWriteOptions(options?: IWriteOptions, override?: boolean): IWriteOptions;
 /**
  * 異步讀取 JSON 檔案
  * Read JSON file asynchronously

@@ -32,10 +32,18 @@ const utils_1 = require("jsonfile/utils");
  * @returns {IWriteOptions} - 處理後的選項 / Processed options
  * @private
  */
-function _handleWriteOptions(options) {
+function _handleWriteOptions(options, override) {
     var _a;
     options !== null && options !== void 0 ? options : (options = {});
+    if (!override) {
+        options = {
+            ...options,
+        };
+    }
     (_a = options.finalEOL) !== null && _a !== void 0 ? _a : (options.finalEOL = true);
+    if (typeof options.spaces === 'undefined') {
+        options.spaces = 2;
+    }
     return options;
 }
 /**
