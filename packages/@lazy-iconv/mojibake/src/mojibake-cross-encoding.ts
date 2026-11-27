@@ -118,9 +118,37 @@ export function decodeBytes(bytes: readonly number[], label: string): string {
 }
 
 /**
+ * 枚舉「以 src 編碼儲存、再以 dst 編碼解讀」的所有組合結果。
+ *
+ * 正向產生與反向還原共用的重複核心：兩層迴圈、略過同編碼、略過無法
+ * 編碼的組合、略過與原文相同（無資訊）的組合。各呼叫端只負責自己的
+ * 標籤文案與額外過濾。
+ *
+ * @param text - 輸入文字
+ * @param visit - 逐組合呼叫；src 為編碼端、dst 為解讀端，result 為轉換結果
+ */
+function forEachEncodingPair(
+    text: string,
+    visit: (src: IMojibakeEncoding, dst: IMojibakeEncoding, result: string) => void,
+): void {
+    for (const src of MOJIBAKE_ENCODINGS) {
+        for (const dst of MOJIBAKE_ENCODINGS) {
+            /** 同編碼互轉等於原樣輸出，不構成亂碼情境 */
+            if (src.label === dst.label) continue
+            const bytes = encodeToBytes(text, src.label)
+            if (bytes === null) continue
+            const result = decodeBytes(bytes, dst.label)
+            /** 與原文相同代表沒有資訊，不列入 */
+            if (result === text) continue
+            visit(src, dst, result)
+        }
+    }
+}
+
+/**
  * 正向產生：列出「以 A 編碼存檔、被以 B 編碼開啟」會看到的亂碼。
  *
- * 編碼相同的組合不具誤讀意義，直接略過；轉換後與原文相同者亦不列出。
+ * 與原文相同者不列出。
  *
  * @param text - 正常文字
  * @returns 候選清單（僅列出與原文不同者）
@@ -128,24 +156,16 @@ export function decodeBytes(bytes: readonly number[], label: string): string {
 export function generateMojibake(text: string): IMojibakeCandidate[] {
     const candidates: IMojibakeCandidate[] = []
 
-    for (const a of MOJIBAKE_ENCODINGS) {
-        for (const b of MOJIBAKE_ENCODINGS) {
-            /** 同編碼互轉等於原樣輸出，不構成亂碼情境 */
-            if (a.label === b.label) continue
-            const bytes = encodeToBytes(text, a.label)
-            if (bytes === null) continue
-            const result = decodeBytes(bytes, b.label)
-            if (result !== text) candidates.push({ label: `以 ${a.name} 存檔，用 ${b.name} 開啟`, text: result })
-        }
-    }
+    forEachEncodingPair(text, (src, dst, result) => {
+        candidates.push({ label: `以 ${src.name} 存檔，用 ${dst.name} 開啟`, text: result })
+    })
     return candidates
 }
 
 /**
  * 反向還原：枚舉所有編碼組合，回傳最可能讀得通的前若干列。
  *
- * 過濾含替代字元（解碼失敗）與與原文相同（無資訊）的組合，其餘依輸出
- * 中的漢字數量降冪排序——亂碼還原的正確結果通常是唯一含大量漢字的
+ * 過濾含替代字元（解碼失敗）的組合，其餘依輸出中的漢字數量降冪排序——亂碼還原的正確結果通常是唯一含大量漢字的
  * 那一列。回傳候選而非單一答案，交由呼叫端挑選。
  *
  * @param text - 疑似亂碼的文字
@@ -155,20 +175,14 @@ export function generateMojibake(text: string): IMojibakeCandidate[] {
 export function repairMojibakeByEncodings(text: string, limit = 8): IMojibakeCandidate[] {
     const scored: { cjk: number; candidate: IMojibakeCandidate }[] = []
 
-    for (const b of MOJIBAKE_ENCODINGS) {
-        for (const a of MOJIBAKE_ENCODINGS) {
-            if (a.label === b.label) continue
-            const bytes = encodeToBytes(text, b.label)
-            if (bytes === null) continue
-            const result = decodeBytes(bytes, a.label)
-            /** 含 U+FFFD 表示該組合解碼失敗；與原文相同則沒有還原資訊 */
-            if (result.includes('\ufffd') || result === text) continue
-            scored.push({
-                cjk: (result.match(/[\u4e00-\u9fff]/g) || []).length,
-                candidate: { label: `原本是 ${a.name}，被誤當 ${b.name} 讀取`, text: result },
-            })
-        }
-    }
+    forEachEncodingPair(text, (src, dst, result) => {
+        /** 含 U+FFFD 表示該組合解碼失敗 */
+        if (result.includes('\ufffd')) return
+        scored.push({
+            cjk: (result.match(/[\u4e00-\u9fff]/g) || []).length,
+            candidate: { label: `原本是 ${dst.name}，被誤當 ${src.name} 讀取`, text: result },
+        })
+    })
 
     /** 漢字最多的組合最可能是正確還原 */
     scored.sort((x, y) => y.cjk - x.cjk)

@@ -181,13 +181,15 @@ export function _lineToBytes(line: string): number[] | null {
  * round-trip 接受門檻用：純 Latin 字母文字（如合法法文）不具此類字元。
  *
  * @param {string} line - 單行文字
+ * @param {number} [extraCodePoint] - 額外視為證據的 codepoint（如 mojibake 形態的 Ã）
  * @returns {boolean}
  */
-export function _hasMojibakeMarker(line: string): boolean {
+export function _hasMojibakeMarker(line: string, extraCodePoint?: number): boolean {
     for (const ch of line) {
         const cp = ch.codePointAt(0) ?? 0
         if (cp >= 0x80 && cp <= 0x9F) return true
         if (cp > 0xFF && CP1252_BYTE_BY_CODEPOINT.has(cp)) return true
+        if (extraCodePoint !== undefined && cp === extraCodePoint) return true
     }
     return false
 }
@@ -570,6 +572,19 @@ export function _applyWordRescue(
 }
 
 /**
+ * 是否為 CJK 表意文字或假名（含 CJK 符號與標點）。
+ *
+ * gap-fill / round-trip 兩道接受閘共用的判定：輸出含此類字元即視為
+ * 「讀得通」的東亞文字證據。
+ *
+ * @param {number} cp - codepoint
+ * @returns {boolean}
+ */
+export function _isCjkOrKana(cp: number): boolean {
+    return (cp >= 0x3000 && cp <= 0x30FF) || (cp >= 0x4E00 && cp <= 0x9FFF)
+}
+
+/**
  * gap-fill 結果的接受檢核（兩層閘）。
  *
  *   A 層（日中重建）：輸出含 ≥2 個假名/CJK 且命中至少一個常用詞——
@@ -590,7 +605,7 @@ export function _repairGapFilledOutput(output: string, hadMarker: boolean): bool
     for (const ch of output) {
         const cp = ch.codePointAt(0) ?? 0
         if (cp >= 0x80 && cp <= 0x9F) return false
-        if ((cp >= 0x3000 && cp <= 0x30FF) || (cp >= 0x4E00 && cp <= 0x9FFF)) cjkCount++
+        if (_isCjkOrKana(cp)) cjkCount++
     }
     if (cjkCount === 0) return hadMarker
     return cjkCount >= 2 && _wordBonus(output) >= 1
@@ -609,18 +624,11 @@ export function _repairGapFilledOutput(output: string, hadMarker: boolean): bool
  */
 export function _repairRoundTripOutput(input: string, output: string): boolean {
     if (output === input) return false
-    let hadSuspicious = false
+    /** mojibake 形態的 Ã：UTF-8 lead byte 0xC3 被當 Latin-1 讀出 */
+    const hadSuspicious = _hasMojibakeMarker(input, 0xC3)
     let hasCjk = false
-    for (const ch of input) {
-        const cp = ch.codePointAt(0) ?? 0
-        if ((cp >= 0x80 && cp <= 0x9F) || (cp > 0xFF && CP1252_BYTE_BY_CODEPOINT.has(cp)) || cp === 0xC3) {
-            hadSuspicious = true
-            break
-        }
-    }
     for (const ch of output) {
-        const cp = ch.codePointAt(0) ?? 0
-        if ((cp >= 0x3000 && cp <= 0x30FF) || (cp >= 0x4E00 && cp <= 0x9FFF)) {
+        if (_isCjkOrKana(ch.codePointAt(0) ?? 0)) {
             hasCjk = true
             break
         }
@@ -661,24 +669,28 @@ export function _repairRunSegment(segment: string): IRepairLineResult | null {
 }
 
 /**
- * 以 cp1252 專屬符號（codepoint > 0xFF 且可對映者）為界細分後逐一還原。
+ * 以硬邊界切段、逐段還原後拼回（行內混合還原的共用骨架）。
  *
- * 整段反向對映會把「正確文字中的符號」（如正確的 em-dash —）轉成孤立
- * byte 破壞解碼，使整段失敗；細分後符號原樣保留，只剩 Latin/ASCII/C1
- * 子段參與還原，正確文字與 mojibake 殘骸得以共存於同一行。
- * 僅在整段嘗試失敗後才細分，故 â€™ 類由符號構成的 mojibake 仍在上一層
- * 被完整 round-trip，不會被誤拆。
+ * 邊界字元原樣保留並強制斷段；其餘字元累積成段交給 repairChunk 還原，
+ * 還原失敗的段以原樣保留。任一段被還原即視為整體有變動：方法取最弱者
+ * （gap-fill 優先於 round-trip），信心取各段最低值。
  *
- * @param {string} segment - 已確認為全可對映但還原失敗的字串段
- * @returns {IRepairLineResult | null} 還原結果；細分後仍無一段可還原時為 null
+ * @param {string} source - 待處理字串
+ * @param {(ch: string) => boolean} isBoundary - 該字元是否為硬邊界
+ * @param {(chunk: string) => IRepairLineResult | null} repairChunk - 段落還原器
+ * @returns {IRepairLineResult | null} 還原結果；無任何段被還原時為 null
  */
-export function _repairRunWithSpecialBoundaries(segment: string): IRepairLineResult | null {
+export function _repairSplitBy(
+    source: string,
+    isBoundary: (ch: string) => boolean,
+    repairChunk: (chunk: string) => IRepairLineResult | null,
+): IRepairLineResult | null {
     const pieces: string[] = []
     const applied: IRepairLineResult[] = []
     let cur = ''
     const flush = (): void => {
         if (cur === '') return
-        const r = _repairRunSegment(cur)
+        const r = repairChunk(cur)
         if (r === null) pieces.push(cur)
         else {
             applied.push(r)
@@ -686,8 +698,8 @@ export function _repairRunWithSpecialBoundaries(segment: string): IRepairLineRes
         }
         cur = ''
     }
-    for (const ch of segment) {
-        if ((ch.codePointAt(0) ?? 0) > 0xFF) {
+    for (const ch of source) {
+        if (isBoundary(ch)) {
             flush()
             pieces.push(ch)
         } else {
@@ -703,6 +715,26 @@ export function _repairRunWithSpecialBoundaries(segment: string): IRepairLineRes
             : EnumMojibakeRepairMethod.roundTrip,
         confidence: Math.min(...applied.map(a => a.confidence)),
     }
+}
+
+/**
+ * 以 cp1252 專屬符號（codepoint > 0xFF 且可對映者）為界細分後逐一還原。
+ *
+ * 整段反向對映會把「正確文字中的符號」（如正確的 em-dash —）轉成孤立
+ * byte 破壞解碼，使整段失敗；細分後符號原樣保留，只剩 Latin/ASCII/C1
+ * 子段參與還原，正確文字與 mojibake 殘骸得以共存於同一行。
+ * 僅在整段嘗試失敗後才細分，故 â€™ 類由符號構成的 mojibake 仍在上一層
+ * 被完整 round-trip，不會被誤拆。
+ *
+ * @param {string} segment - 已確認為全可對映但還原失敗的字串段
+ * @returns {IRepairLineResult | null} 還原結果；細分後仍無一段可還原時為 null
+ */
+export function _repairRunWithSpecialBoundaries(segment: string): IRepairLineResult | null {
+    return _repairSplitBy(
+        segment,
+        ch => (ch.codePointAt(0) ?? 0) > 0xFF,
+        _repairRunSegment,
+    )
 }
 
 /**
@@ -731,36 +763,11 @@ export function _repairLine(line: string): IRepairLineResult | null {
     if (whole !== null) return whole
 
     /** 混合路：真 Unicode 字元為硬邊界；失敗段再以 cp1252 符號細分 */
-    const pieces: string[] = []
-    const applied: IRepairLineResult[] = []
-    let cur = ''
-    const flush = (): void => {
-        if (cur === '') return
-        const r = _repairRunSegment(cur) ?? _repairRunWithSpecialBoundaries(cur)
-        if (r === null) pieces.push(cur)
-        else {
-            applied.push(r)
-            pieces.push(r.text)
-        }
-        cur = ''
-    }
-    for (const ch of line) {
-        if (_charToByte(ch) === null) {
-            flush()
-            pieces.push(ch)
-        } else {
-            cur += ch
-        }
-    }
-    flush()
-    if (applied.length === 0) return null
-    return {
-        text: pieces.join(''),
-        method: applied.some(a => a.method === EnumMojibakeRepairMethod.gapFill)
-            ? EnumMojibakeRepairMethod.gapFill
-            : EnumMojibakeRepairMethod.roundTrip,
-        confidence: Math.min(...applied.map(a => a.confidence)),
-    }
+    return _repairSplitBy(
+        line,
+        ch => _charToByte(ch) === null,
+        chunk => _repairRunSegment(chunk) ?? _repairRunWithSpecialBoundaries(chunk),
+    )
 }
 
 /**
