@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.1.26](https://github.com/bluelovers/ws-iconv/compare/upath2@3.1.23...upath2@3.1.26) (2026-11-27)
+
+
+
+### 📦　Code Refactoring
+
+* **test:** migrate from jest to node:test ([3bcee37](https://github.com/bluelovers/ws-iconv/commit/3bcee37780bed2d7d289ed6dd42f23d3ee4766c8))
+
+
+### 📌　Dependencies
+
+* update deps ([4f06360](https://github.com/bluelovers/ws-iconv/commit/4f06360d4f20960b68ea77b6a209276166b5385d))
+
+
+### 🔖　Miscellaneous
+
+* . ([d04a6e8](https://github.com/bluelovers/ws-iconv/commit/d04a6e849cde91eca10daaa6c9d14ef5d794521e))
+* . ([a0c981d](https://github.com/bluelovers/ws-iconv/commit/a0c981d2e12bdaf151ccdb159ca38f3ce5ea12b1))
+* 🔖 (upath2) Bump patch version. ([7262cba](https://github.com/bluelovers/ws-iconv/commit/7262cba45019c643d77669d59b38a884ac0b8a1a))
+* 🔒️ (__proto__) Remove usage of insecure &#x60;__proto__&#x60;. ([60b7637](https://github.com/bluelovers/ws-iconv/commit/60b763752670659e8e0c01d155b4a07f374d2306))
+
+
 ## [3.1.23](https://github.com/bluelovers/ws-iconv/compare/upath2@3.1.22...upath2@3.1.23) (2026-03-02)
 
 

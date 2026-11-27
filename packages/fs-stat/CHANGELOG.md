@@ -3,6 +3,30 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.30](https://github.com/bluelovers/ws-iconv/compare/fs-stat@1.0.29...fs-stat@1.0.30) (2026-11-27)
+
+
+
+### 📦　Code Refactoring
+
+* **test:** migrate from jest to node:test ([3bcee37](https://github.com/bluelovers/ws-iconv/commit/3bcee37780bed2d7d289ed6dd42f23d3ee4766c8))
+
+
+### 🛠　Build System
+
+* **monorepo:** 優化 Lerna 配置與調整套件依賴 ([49a8bf5](https://github.com/bluelovers/ws-iconv/commit/49a8bf5ae4ce532d7f4d4170c318575231362058))
+
+
+### 📌　Dependencies
+
+* update deps ([4f06360](https://github.com/bluelovers/ws-iconv/commit/4f06360d4f20960b68ea77b6a209276166b5385d))
+
+
+### 🔖　Miscellaneous
+
+* . ([d04a6e8](https://github.com/bluelovers/ws-iconv/commit/d04a6e849cde91eca10daaa6c9d14ef5d794521e))
+
+
 ## [1.0.29](https://github.com/bluelovers/ws-iconv/compare/fs-stat@1.0.28...fs-stat@1.0.29) (2026-03-02)
 
 

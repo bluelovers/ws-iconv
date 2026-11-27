@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.4](https://github.com/bluelovers/ws-iconv/compare/path-sep-replace@1.0.3...path-sep-replace@1.0.4) (2026-11-27)
+
+
+
+### 📦　Code Refactoring
+
+* **test:** migrate from jest to node:test ([3bcee37](https://github.com/bluelovers/ws-iconv/commit/3bcee37780bed2d7d289ed6dd42f23d3ee4766c8))
+
+
+### 🔖　Miscellaneous
+
+* . ([d04a6e8](https://github.com/bluelovers/ws-iconv/commit/d04a6e849cde91eca10daaa6c9d14ef5d794521e))
+
+
 ## [1.0.3](https://github.com/bluelovers/ws-iconv/compare/path-sep-replace@1.0.2...path-sep-replace@1.0.3) (2026-03-02)
 
 

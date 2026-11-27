@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.25](https://github.com/bluelovers/ws-iconv/compare/path-is-network-drive@1.0.24...path-is-network-drive@1.0.25) (2026-11-27)
+
+
+
+### 📦　Code Refactoring
+
+* **test:** migrate from jest to node:test ([3bcee37](https://github.com/bluelovers/ws-iconv/commit/3bcee37780bed2d7d289ed6dd42f23d3ee4766c8))
+
+
+### 📌　Dependencies
+
+* update deps ([4f06360](https://github.com/bluelovers/ws-iconv/commit/4f06360d4f20960b68ea77b6a209276166b5385d))
+
+
+### 🔖　Miscellaneous
+
+* . ([d04a6e8](https://github.com/bluelovers/ws-iconv/commit/d04a6e849cde91eca10daaa6c9d14ef5d794521e))
+
+
 ## [1.0.24](https://github.com/bluelovers/ws-iconv/compare/path-is-network-drive@1.0.23...path-is-network-drive@1.0.24) (2026-03-02)
 
 

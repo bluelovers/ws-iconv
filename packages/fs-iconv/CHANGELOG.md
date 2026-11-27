@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.1.22](https://github.com/bluelovers/ws-iconv/compare/fs-iconv@3.1.21...fs-iconv@3.1.22) (2026-11-27)
+
+
+
+### 📦　Code Refactoring
+
+* **test:** migrate from jest to node:test ([3bcee37](https://github.com/bluelovers/ws-iconv/commit/3bcee37780bed2d7d289ed6dd42f23d3ee4766c8))
+
+
+### 📌　Dependencies
+
+* update deps ([4f06360](https://github.com/bluelovers/ws-iconv/commit/4f06360d4f20960b68ea77b6a209276166b5385d))
+
+
+### 🔖　Miscellaneous
+
+* . ([45e9744](https://github.com/bluelovers/ws-iconv/commit/45e9744ab5bc33032a0490d7bcca102f19abc917))
+* . ([d04a6e8](https://github.com/bluelovers/ws-iconv/commit/d04a6e849cde91eca10daaa6c9d14ef5d794521e))
+
+
 ## [3.1.21](https://github.com/bluelovers/ws-iconv/compare/fs-iconv@3.1.20...fs-iconv@3.1.21) (2026-03-02)
 
 **Note:** Version bump only for package fs-iconv
