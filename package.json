@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "private": true,
   "keywords": [
+    "iconv",
+    "chardet",
+    "encoding",
+    "cjk",
     "create-by-yarn-tool"
   ],
   "homepage": "https://github.com/bluelovers/ws-iconv#readme",

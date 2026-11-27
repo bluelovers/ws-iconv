@@ -106,6 +106,12 @@ importers:
         specifier: ^3.1.1
         version: 3.1.1
 
+  packages/@lazy-iconv/mojibake:
+    dependencies:
+      ts-type:
+        specifier: ^3.0.21
+        version: 3.0.21(ts-toolbelt@9.6.0)
+
   packages/@lazy-node/is-writeable-path:
     dependencies:
       fs-stat:
@@ -2149,11 +2155,6 @@ packages:
       '@types/node': '*'
       ts-toolbelt: ^9.6.0
 
-  ts-type@3.0.13:
-    resolution: {integrity: sha512-8SVH7wqDH06PA44UyzwyR3S6NGlweQ/U87glgxpwgn5Kr/xHOm1iljfrlBWQrpyIDYdCbHUFmK3a5lTINTq7xg==}
-    peerDependencies:
-      ts-toolbelt: ^9.6.0
-
   ts-type@3.0.21:
     resolution: {integrity: sha512-lJhnfmCN1mffL0wGFVkWjdbPODevNNBsVaii9JG5EGLTud2OQshIV4N9hBt9gW8GHxzBROtG2sMz7hS+2S3uYg==}
     peerDependencies:
@@ -2475,7 +2476,7 @@ snapshots:
       compare-func: 2.0.0
       emoji-regex: 10.6.0
       q: 1.5.1
-      ts-type: 3.0.13(ts-toolbelt@9.6.0)
+      ts-type: 3.0.21(ts-toolbelt@9.6.0)
     transitivePeerDependencies:
       - ts-toolbelt
 
@@ -2489,7 +2490,7 @@ snapshots:
       jest-cache-directory: 1.0.10
       jest-chain-transform: 0.0.8(@jest/transform@30.5.2(supports-color@8.1.1))
       regexp-helper-core: 2.0.13
-      ts-type: 3.0.13(ts-toolbelt@9.6.0)
+      ts-type: 3.0.21(ts-toolbelt@9.6.0)
     transitivePeerDependencies:
       - '@jest/transform'
       - '@types/bluebird'
@@ -2760,7 +2761,7 @@ snapshots:
   '@lazy-node/types-path@1.0.3(ts-toolbelt@9.6.0)':
     dependencies:
       '@types/node': 26.6.11
-      ts-type: 3.0.13(ts-toolbelt@9.6.0)
+      ts-type: 3.0.21(ts-toolbelt@9.6.0)
       tslib: 2.9.1
     transitivePeerDependencies:
       - ts-toolbelt
@@ -3264,7 +3265,7 @@ snapshots:
 
   crlf-normalize@1.0.26(ts-toolbelt@9.6.0):
     dependencies:
-      ts-type: 3.0.13(ts-toolbelt@9.6.0)
+      ts-type: 3.0.21(ts-toolbelt@9.6.0)
     transitivePeerDependencies:
       - ts-toolbelt
 
@@ -4293,13 +4294,6 @@ snapshots:
   ts-type@2.1.10(@types/bluebird@3.5.42)(@types/node@26.6.11)(ts-toolbelt@9.6.0):
     dependencies:
       '@types/bluebird': 3.5.42
-      '@types/node': 26.6.11
-      ts-toolbelt: 9.6.0
-      tslib: 2.9.1
-      typedarray-dts: 1.0.0
-
-  ts-type@3.0.13(ts-toolbelt@9.6.0):
-    dependencies:
       '@types/node': 26.6.11
       ts-toolbelt: 9.6.0
       tslib: 2.9.1

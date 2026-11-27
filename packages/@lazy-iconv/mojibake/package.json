@@ -1,0 +1,80 @@
+{
+  "name": "@lazy-iconv/mojibake",
+  "version": "1.0.0",
+  "description": "",
+  "keywords": [
+    "create-by-yarn-tool",
+    "create-by-tsdx"
+  ],
+  "homepage": "https://github.com/bluelovers/ws-iconv/tree/master/packages/@lazy-iconv/mojibake#readme",
+  "bugs": {
+    "url": "https://github.com/bluelovers/ws-iconv/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bluelovers/ws-iconv.git",
+    "directory": "packages/@lazy-iconv/mojibake"
+  },
+  "license": "ISC",
+  "author": "",
+  "sideEffects": false,
+  "type": "commonjs",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.esm.mjs"
+    },
+    "./package.json": "./package.json",
+    "./src/*": "./src/*"
+  },
+  "main": "dist/index.cjs",
+  "unpkg": "dist/index.umd.production.min.cjs",
+  "module": "dist/index.esm.mjs",
+  "types": "dist/index.d.ts",
+  "typings": "dist/index.d.ts",
+  "scripts": {
+    "coverage": "pnpm run test --coverage",
+    "pretest": "node --run test:tsc",
+    "test": "node --run test:node",
+    "test:jest": "jest --passWithNoTests",
+    "test:jest:coverage": "node --run test:jest -- --coverage",
+    "test:jest:snapshot": "node --run test:jest -- -u",
+    "test:mocha": "ynpx --quiet -p ts-node -p mocha mocha -- --require ts-node/register \"!(node_modules)/**/*.{test,spec}.{ts,tsx}\"",
+    "test:node": "node --run test:node:bin -- **/*.node-spec.ts **/*.node-test.ts **/*.spec.ts **/*.test.ts",
+    "test:node:bin": "tsx --test --test-update-snapshots --",
+    "test:node:bin:coverage": "node --run test:node:bin -- --experimental-test-coverage --",
+    "test:node:coverage": "node --run test:node:bin:coverage -- **/*.node-spec.ts **/*.node-test.ts **/*.spec.ts **/*.test.ts",
+    "test:playwright": "playwright test playwright-spec.ts",
+    "test:playwright:headed": "node --run test:playwright -- --headed",
+    "test:playwright:ui": "node --run test:playwright -- --ui",
+    "test:snapshot": "pnpm run test -u",
+    "test:tsc": "tsc --noEmit & echo Type checking completed (main)",
+    "test:tsc:all": "node --run test:tsc && node --run test:tsc:sub",
+    "test:tsc:sub": "cd test && tsc --noEmit & echo Type checking completed (test)",
+    "test:tsd": "ynpx tsd",
+    "test:tsdx": "ynpx @bluelovers/tsdx test --passWithNoTests",
+    "posttest": "pnpm run build",
+    "build": "node --run build:tsdx && node --run build:dts:bundle",
+    "build:dts:bundle": "ynpx @bluelovers/dts-bundle-generator -o ./dist/index.d.ts ./src/index.ts --no-banner --inline-declare-global & echo build:dts:bundle",
+    "build:dts:copy": "copy .\\src\\index.d.ts .\\dist\\index.d.ts & echo build:dts",
+    "build:dts:tsc": "node --run build:dts:tsc:emit & node --run build:dts:copy",
+    "build:dts:tsc:emit": "tsc --emitDeclarationOnly --declaration --noEmit false",
+    "build:microbundle": "ynpx microbundle --target node",
+    "build:tsdx": "ynpx @bluelovers/tsdx build --target node --name index",
+    "ci:install": "echo ci:install",
+    "ci:build": "echo ci:build",
+    "preversion": "echo preversion && pnpm run test",
+    "version": "node --run prepublishOnly:lerna",
+    "prepublishOnly:lerna": "echo prepublishOnly:lerna",
+    "sort-package-json": "yarn-tool sort",
+    "tsc:default": "tsc -p tsconfig.json",
+    "tsc:showConfig": "ynpx get-current-tsconfig -p"
+  },
+  "dependencies": {
+    "ts-type": "^3.0.21"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
