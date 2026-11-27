@@ -1,0 +1,203 @@
+exports[`cross-encoding → repairMojibake 整合 > 正向產生的每一列亂碼交給 repairMojibake：回傳契約成立 1`] = `
+{
+  "input": "雿末嚗鈭Ⅳ皜祈岫��",
+  "result": {
+    "text": "雿末嚗鈭Ⅳ皜祈岫��",
+    "method": "none",
+    "confidence": 0,
+    "changed": false
+  }
+}
+`;
+
+exports[`cross-encoding → repairMojibake 整合 > 正向產生的每一列亂碼交給 repairMojibake：回傳契約成立 10`] = `
+{
+  "input": "§A¦n¡A³o¬O¶Ã½X´ú¸Õ¡C",
+  "result": {
+    "text": "§A¦n¡A³o¬O¶Ã½X´ú¸Õ¡C",
+    "method": "none",
+    "confidence": 0,
+    "changed": false
+  }
+}
+`;
+
+exports[`cross-encoding → repairMojibake 整合 > 正向產生的每一列亂碼交給 repairMojibake：回傳契約成立 11`] = `
+{
+  "input": "��ã��@�ǁy�a�yԇ��",
+  "result": {
+    "text": "��ã��@�ǁy�a�yԇ��",
+    "method": "none",
+    "confidence": 0,
+    "changed": false
+  }
+}
+`;
+
+exports[`cross-encoding → repairMojibake 整合 > 正向產生的每一列亂碼交給 repairMojibake：回傳契約成立 12`] = `
+{
+  "input": "斕疑ㄛ稛岆徨�﹝",
+  "result": {
+    "text": "斕疑ㄛ稛岆徨�﹝",
+    "method": "none",
+    "confidence": 0,
+    "changed": false
+  }
+}
+`;
+
+exports[`cross-encoding → repairMojibake 整合 > 正向產生的每一列亂碼交給 repairMojibake：回傳契約成立 13`] = `
+{
+  "input": "ﾄ羲ﾃ｣ｬﾟ@ﾊﾇ【ｴa忱ﾔ�｣",
+  "result": {
+    "text": "ﾄ羲ﾃ｣ｬﾟ@ﾊﾇ【ｴa忱ﾔ�｣",
+    "method": "none",
+    "confidence": 0,
+    "changed": false
+  }
+}
+`;
+
+exports[`cross-encoding → repairMojibake 整合 > 正向產生的每一列亂碼交給 repairMojibake：回傳契約成立 14`] = `
+{
+  "input": "콱봤，�@角y�ay�。",
+  "result": {
+    "text": "콱봤，�@角y�ay�。",
+    "method": "none",
+    "confidence": 0,
+    "changed": false
+  }
+}
+`;
+
+exports[`cross-encoding → repairMojibake 整合 > 正向產生的每一列亂碼交給 repairMojibake：回傳契約成立 15`] = `
+{
+  "input": "ÄãºÃ£¬ß@ÊÇy´aœyÔ‡¡£",
+  "result": {
+    "text": "ÄãºÃ£¬ß@ÊÇy´aœyÔ‡¡£",
+    "method": "none",
+    "confidence": 0,
+    "changed": false
+  }
+}
+`;
+
+exports[`cross-encoding → repairMojibake 整合 > 正向產生的每一列亂碼交給 repairMojibake：回傳契約成立 2`] = `
+{
+  "input": "浣犲ソ锛岄€欐槸浜傜⒓娓│銆�",
+  "result": {
+    "text": "浣犲ソ锛岄€欐槸浜傜⒓娓│銆�",
+    "method": "none",
+    "confidence": 0,
+    "changed": false
+  }
+}
+`;
+
+exports[`cross-encoding → repairMojibake 整合 > 正向產生的每一列亂碼交給 repairMojibake：回傳契約成立 3`] = `
+{
+  "input": "菴�螂ｽ�碁�呎弍莠ら｢ｼ貂ｬ隧ｦ縲�",
+  "result": {
+    "text": "菴�螂ｽ�碁�呎弍莠ら｢ｼ貂ｬ隧ｦ縲�",
+    "method": "none",
+    "confidence": 0,
+    "changed": false
+  }
+}
+`;
+
+exports[`cross-encoding → repairMojibake 整合 > 正向產生的每一列亂碼交給 repairMojibake：回傳契約成立 4`] = `
+{
+  "input": "鵝�也쏙�����閻쇗릍屋╉",
+  "result": {
+    "text": "鵝�也쏙�����閻쇗릍屋╉",
+    "method": "none",
+    "confidence": 0,
+    "changed": false
+  }
+}
+`;
+
+exports[`cross-encoding → repairMojibake 整合 > 正向產生的每一列亂碼交給 repairMojibake：回傳契約成立 5`] = `
+{
+  "input": "ä½ å¥½ï¼Œé€™æ˜¯äº‚ç¢¼æ¸¬è©¦ã€‚",
+  "result": {
+    "text": "你好，這是亂碼測試。",
+    "method": "round-trip",
+    "confidence": 0.95,
+    "changed": true
+  }
+}
+`;
+
+exports[`cross-encoding → repairMojibake 整合 > 正向產生的每一列亂碼交給 repairMojibake：回傳契約成立 6`] = `
+{
+  "input": "�A�n�A�o�O�ýX���աC",
+  "result": {
+    "text": "�A�n�A�o�O�ýX���աC",
+    "method": "none",
+    "confidence": 0,
+    "changed": false
+  }
+}
+`;
+
+exports[`cross-encoding → repairMojibake 整合 > 正向產生的每一列亂碼交給 repairMojibake：回傳契約成立 7`] = `
+{
+  "input": "硂琌睹絏代刚",
+  "result": {
+    "text": "硂琌睹絏代刚",
+    "method": "none",
+    "confidence": 0,
+    "changed": false
+  }
+}
+`;
+
+exports[`cross-encoding → repairMojibake 整合 > 正向產生的每一列亂碼交給 repairMojibake：回傳契約成立 8`] = `
+{
+  "input": "ｧAｦn｡AｳoｬOｶﾃｽXｴ弴ﾕ｡C",
+  "result": {
+    "text": "ｧAｦn｡AｳoｬOｶﾃｽXｴ弴ﾕ｡C",
+    "method": "none",
+    "confidence": 0,
+    "changed": false
+  }
+}
+`;
+
+exports[`cross-encoding → repairMojibake 整合 > 正向產生的每一列亂碼交給 repairMojibake：回傳契約成立 9`] = `
+{
+  "input": "�A�n�A�o�O뗐�X덜먼�C",
+  "result": {
+    "text": "�A�n�A�o�O뗐�X덜먼�C",
+    "method": "none",
+    "confidence": 0,
+    "changed": false
+  }
+}
+`;
+
+exports[`cross-encoding → repairMojibake 整合 > 誤讀鏈樣本端到端還原為原文 1`] = `
+{
+  "input": "ä½ å¥½ï¼Œé€™æ˜¯äº‚ç¢¼æ¸¬è©¦ã€‚",
+  "result": {
+    "text": "你好，這是亂碼測試。",
+    "method": "round-trip",
+    "confidence": 0.95,
+    "changed": true
+  }
+}
+`;
+
+exports[`cross-encoding → repairMojibake 整合 > 誤讀鏈樣本端到端還原為原文 2`] = `
+{
+  "input": "ä½ å¥½ï¼Œé€™æ˜¯äº‚ç¢¼æ¸¬è©¦ã€‚",
+  "result": {
+    "text": "你好，這是亂碼測試。",
+    "method": "round-trip",
+    "confidence": 0.95,
+    "changed": true
+  }
+}
+`;

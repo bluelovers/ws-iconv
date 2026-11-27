@@ -8,20 +8,15 @@ import {
 	MOJIBAKE_ENCODINGS,
 	repairMojibakeByEncodings,
 } from '../src/mojibake-cross-encoding'
-
-/** 與線上工具預設輸入相同的繁中樣本句 */
-const SAMPLE_TEXT = '你好，這是亂碼測試。'
+import {
+	generatedMojibake,
+	misreadSample,
+	repairCandidates,
+	SAMPLE_TEXT,
+} from './fixtures/cross-encoding-cases'
 
 /** 輸出中的漢字數（排序契約檢查用） */
 const countCjk = (text: string): number => (text.match(/[\u4e00-\u9fff]/g) ?? []).length
-
-/** 以模組自身的編碼鏈產生亂碼：UTF-8 bytes 被以 windows-1252 解讀 */
-function makeMojibake(text: string): string
-{
-	const bytes = encodeToBytes(text, 'utf-8')
-	if (bytes === null) throw new Error('UTF-8 編碼失敗，樣本句必須可編碼')
-	return decodeBytes(bytes, 'windows-1252')
-}
 
 describe('MOJIBAKE_ENCODINGS', () =>
 {
@@ -85,7 +80,7 @@ describe('generateMojibake：正向產生亂碼', () =>
 
 	test('繁中樣本的候選皆異於原文，情境標籤指向兩種不同編碼', (t: TestContext) =>
 	{
-		const candidates = generateMojibake(SAMPLE_TEXT)
+		const candidates = generatedMojibake
 
 		t.assert.ok(candidates.length > 0, '繁中樣本必須產生候選')
 		for (const c of candidates)
@@ -102,11 +97,11 @@ describe('generateMojibake：正向產生亂碼', () =>
 
 describe('repairMojibakeByEncodings：反向還原', () =>
 {
-	const mojibake = makeMojibake(SAMPLE_TEXT)
+	const mojibake = misreadSample
 
 	test('還原候選契約：無 U+FFFD、異於輸入、漢字數遞減、上限 8', (t: TestContext) =>
 	{
-		const candidates = repairMojibakeByEncodings(mojibake)
+		const candidates = repairCandidates
 
 		t.assert.ok(candidates.length > 0, '必須產生候選')
 		t.assert.ok(candidates.length <= 8, '預設上限為 8')

@@ -1,3 +1,39 @@
+exports[`cross-encoding 候選解析：交由 repairMojibake 判讀 > 候選中的正確原文不被二次修改 1`] = `
+{
+  "input": "你好，這是亂碼測試。",
+  "result": {
+    "text": "你好，這是亂碼測試。",
+    "method": "none",
+    "confidence": 0,
+    "changed": false
+  }
+}
+`;
+
+exports[`cross-encoding 候選解析：交由 repairMojibake 判讀 > 還原候選逐列解析：回傳契約成立且不注入替代字元 1`] = `
+{
+  "input": "你好，這是亂碼測試。",
+  "result": {
+    "text": "你好，這是亂碼測試。",
+    "method": "none",
+    "confidence": 0,
+    "changed": false
+  }
+}
+`;
+
+exports[`cross-encoding 候選解析：交由 repairMojibake 判讀 > 還原候選逐列解析：回傳契約成立且不注入替代字元 2`] = `
+{
+  "input": "Ã¤Â½Â Ã¥Â¥Â½Ã¯Â¼Å’Ã©â‚¬â„¢Ã¦ËœÂ¯Ã¤Âºâ€šÃ§Â¢Â¼Ã¦Â¸Â¬Ã¨Â©Â¦Ã£â‚¬â€š",
+  "result": {
+    "text": "ä½ å¥½ï¼Œé€™æ˜¯äº‚ç¢¼æ¸¬è©¦ã€‚",
+    "method": "round-trip",
+    "confidence": 0.95,
+    "changed": true
+  }
+}
+`;
+
 exports[`gap-fill 全缺缺口契約 > tier B 純標點重建：保留前綴且輸出無 C1 殘留 1`] = `
 {
   "text": "queen–s",

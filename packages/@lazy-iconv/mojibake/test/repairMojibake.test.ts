@@ -2,6 +2,11 @@
 import { describe, test, type TestContext } from 'node:test'
 import repairMojibakeDefault, { EnumMojibakeRepairMethod, repairMojibake } from '../src/mojibake-repair'
 import { SAMPLE_INPUT, testGroups } from './fixtures/mojibake-test-cases'
+import {
+	assertRepairContract,
+	repairCandidates,
+	SAMPLE_TEXT,
+} from './fixtures/cross-encoding-cases'
 
 describe('repairMojibake：資料驅動案例', () =>
 {
@@ -74,6 +79,42 @@ describe('gap-fill 全缺缺口契約', () =>
 			'輸出不得殘留 C1 控制字元',
 		)
 		t.assert.snapshot(r)
+	})
+})
+
+describe('cross-encoding 候選解析：交由 repairMojibake 判讀', () =>
+{
+	test('還原候選逐列解析：回傳契約成立且不注入替代字元', (t: TestContext) =>
+	{
+		/**
+		 * cross-encoding 模組的反向還原候選交給 repairMojibake 再判讀一次：
+		 * 後者走 strict UTF-8 解碼，回傳值不得出現替代字元（U+FFFD）
+		 */
+		t.assert.ok(repairCandidates.length > 0, '必須有還原候選')
+
+		const replacement = String.fromCharCode(0xFFFD)
+		for (const c of repairCandidates)
+		{
+			const r = repairMojibake(c.text)
+
+			assertRepairContract(t, c.text, r)
+			t.assert.ok(!r.text.includes(replacement), `不得含替代字元: ${JSON.stringify(r.text)}`)
+		}
+	})
+
+	test('候選中的正確原文不被二次修改', (t: TestContext) =>
+	{
+		t.assert.ok(
+			repairCandidates.some(c => c.text === SAMPLE_TEXT),
+			'還原候選須包含正確原文',
+		)
+
+		const r = repairMojibake(SAMPLE_TEXT)
+
+		assertRepairContract(t, SAMPLE_TEXT, r)
+		t.assert.strictEqual(r.method, EnumMojibakeRepairMethod.none, '正確原文不具誤讀鏈證據，保守不動')
+		t.assert.strictEqual(r.changed, false)
+		t.assert.strictEqual(r.text, SAMPLE_TEXT)
 	})
 })
 
