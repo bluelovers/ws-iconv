@@ -249,3 +249,5 @@ test-results/.last-run.json
 !__root-core.d.mts
 !__root-core.d.ts
 !__root-core.ts
+
+!test/tool/mojibake-tool.js
