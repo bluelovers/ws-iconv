@@ -62,10 +62,20 @@ export type IReadOptions = Exclude<JFReadOptions, string | null | undefined>;
  * @returns {IWriteOptions} - 處理後的選項 / Processed options
  * @private
  */
-export function _handleWriteOptions(options?: IWriteOptions): IWriteOptions
+export function _handleWriteOptions(options?: IWriteOptions, override?: boolean): IWriteOptions
 {
 	options ??= {};
+	if (!override)
+	{
+		options = {
+			...options,
+		};
+	}
 	options.finalEOL ??= true;
+	if (typeof options.spaces === 'undefined')
+	{
+		options.spaces = 2;
+	}
 	return options
 }
 
