@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.22](https://github.com/bluelovers/ws-iconv/compare/@bluelovers/fs-json@1.0.21...@bluelovers/fs-json@1.0.22) (2026-11-27)
+
+
+
+### 🐛　Bug Fixes
+
+* **fs-json:** 修正 WriteOptions 型別定義並更新依賴 ([664cb10](https://github.com/bluelovers/ws-iconv/commit/664cb108e328d419eb25977ef63690da20b35721))
+
+
 ## [1.0.21](https://github.com/bluelovers/ws-iconv/compare/@bluelovers/fs-json@1.0.20...@bluelovers/fs-json@1.0.21) (2026-11-27)
 
 
