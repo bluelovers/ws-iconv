@@ -10,8 +10,9 @@
  * @author bluelovers
  */
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.readJSONSync = exports.readJSON = void 0;
 exports._handleWriteOptions = _handleWriteOptions;
+exports.readJSON = readJSON;
+exports.readJSONSync = readJSONSync;
 exports.outputJSON = outputJSON;
 exports.outputJSONSync = outputJSONSync;
 exports.writeJSON = writeJSON;
@@ -19,8 +20,6 @@ exports.writeJSONSync = writeJSONSync;
 exports.stringifyJSON = stringifyJSON;
 exports.parseJSON = parseJSON;
 const fs_extra_1 = require("fs-extra");
-Object.defineProperty(exports, "readJSON", { enumerable: true, get: function () { return fs_extra_1.readJSON; } });
-Object.defineProperty(exports, "readJSONSync", { enumerable: true, get: function () { return fs_extra_1.readJSONSync; } });
 const utils_1 = require("jsonfile/utils");
 /**
  * 處理寫入選項
@@ -38,6 +37,20 @@ function _handleWriteOptions(options) {
     options !== null && options !== void 0 ? options : (options = {});
     (_a = options.finalEOL) !== null && _a !== void 0 ? _a : (options.finalEOL = true);
     return options;
+}
+/**
+ * 異步讀取 JSON 檔案
+ * Read JSON file asynchronously
+ */
+function readJSON(file, options) {
+    return (0, fs_extra_1.readJSON)(file, options);
+}
+/**
+ * 同步讀取 JSON 檔案
+ * Read JSON file synchronously
+ */
+function readJSONSync(file, options) {
+    return (0, fs_extra_1.readJSONSync)(file, options);
 }
 /**
  * 輸出 JSON 檔案（異步）

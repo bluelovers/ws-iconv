@@ -2,12 +2,6 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-let EnumMojibakeRepairMethod = /*#__PURE__*/function (EnumMojibakeRepairMethod) {
-  EnumMojibakeRepairMethod["none"] = "none";
-  EnumMojibakeRepairMethod["roundTrip"] = "round-trip";
-  EnumMojibakeRepairMethod["gapFill"] = "gap-fill";
-  return EnumMojibakeRepairMethod;
-}({});
 const CP1252_BYTE_BY_CODEPOINT = /*#__PURE__*/new Map([[0x20AC, 0x80], [0x201A, 0x82], [0x0192, 0x83], [0x201E, 0x84], [0x2026, 0x85], [0x2020, 0x86], [0x2021, 0x87], [0x02C6, 0x88], [0x2030, 0x89], [0x0160, 0x8A], [0x2039, 0x8B], [0x0152, 0x8C], [0x017D, 0x8E], [0x2018, 0x91], [0x2019, 0x92], [0x201C, 0x93], [0x201D, 0x94], [0x2022, 0x95], [0x2013, 0x96], [0x2014, 0x97], [0x02DC, 0x98], [0x2122, 0x99], [0x0161, 0x9A], [0x203A, 0x9B], [0x0153, 0x9C], [0x017E, 0x9E], [0x0178, 0x9F]]);
 const COMMON_CHARS = '的一是了人我不在有他這这中大來来上國国個个到說说們们為为子和你地出道也時时年得就那要下以生會会自著着去之過过家學学對对她她裡里後后小天心多好都然沒没日於于起發发成事只作當当想看文無无開开手十用主行明經经頭头方又如前所本見见長长間门問问理月半安點点實实內内全表機机太海車车白兒儿爭争北才領领切呢活爾尔反特許许建先像做女真写東东業业電話电话攝影摄影撮影動画动画音楽音乐風景风景美人美女世界日本中国時間时间写真集電車电车新幹線天気天气料理会社学生先生機場机场感謝谢谢';
 const COMMON_CHAR_SET = /*#__PURE__*/new Set(/*#__PURE__*/Array.from(COMMON_CHARS));
@@ -22,6 +16,13 @@ const COMMON_WORD_BONUS = 5;
 const UTF8_DECODER = /*#__PURE__*/new TextDecoder('utf-8', {
   fatal: true
 });
+
+let EnumMojibakeRepairMethod = /*#__PURE__*/function (EnumMojibakeRepairMethod) {
+  EnumMojibakeRepairMethod["none"] = "none";
+  EnumMojibakeRepairMethod["roundTrip"] = "round-trip";
+  EnumMojibakeRepairMethod["gapFill"] = "gap-fill";
+  return EnumMojibakeRepairMethod;
+}({});
 /**
  * 字元 → 誤讀前的 byte。
  *
@@ -73,14 +74,16 @@ function _lineToBytes(line) {
  * round-trip 接受門檻用：純 Latin 字母文字（如合法法文）不具此類字元。
  *
  * @param {string} line - 單行文字
+ * @param {number} [extraCodePoint] - 額外視為證據的 codepoint（如 mojibake 形態的 Ã）
  * @returns {boolean}
  */
-function _hasMojibakeMarker(line) {
+function _hasMojibakeMarker(line, extraCodePoint) {
   for (const ch of line) {
     var _ch$codePointAt;
     const cp = (_ch$codePointAt = ch.codePointAt(0)) !== null && _ch$codePointAt !== void 0 ? _ch$codePointAt : 0;
     if (cp >= 0x80 && cp <= 0x9F) return true;
     if (cp > 0xFF && CP1252_BYTE_BY_CODEPOINT.has(cp)) return true;
+    if (extraCodePoint !== undefined && cp === extraCodePoint) return true;
   }
   return false;
 }
@@ -146,7 +149,15 @@ function _detectGaps(bytes) {
       continue;
     }
     let needed = 0;
-    if (b >= 0xC2 && b <= 0xDF) needed = 1;else if (b >= 0xE0 && b <= 0xEF) needed = 2;else if (b >= 0xF0 && b <= 0xF4) needed = 3;else return null;
+    if (b >= 0xC2 && b <= 0xDF) {
+      needed = 1;
+    } else if (b >= 0xE0 && b <= 0xEF) {
+      needed = 2;
+    } else if (b >= 0xF0 && b <= 0xF4) {
+      needed = 3;
+    } else {
+      return null;
+    }
     const present = [];
     let j = i + 1;
     while (j < bytes.length && bytes[j] >= 0x80 && bytes[j] <= 0xBF) {
@@ -445,6 +456,18 @@ function _applyWordRescue(gaps, perGap, runStart, runEnd) {
   }
 }
 /**
+ * 是否為 CJK 表意文字或假名（含 CJK 符號與標點）。
+ *
+ * gap-fill / round-trip 兩道接受閘共用的判定：輸出含此類字元即視為
+ * 「讀得通」的東亞文字證據。
+ *
+ * @param {number} cp - codepoint
+ * @returns {boolean}
+ */
+function _isCjkOrKana(cp) {
+  return cp >= 0x3000 && cp <= 0x30FF || cp >= 0x4E00 && cp <= 0x9FFF;
+}
+/**
  * gap-fill 結果的接受檢核（兩層閘）。
  *
  *   A 層（日中重建）：輸出含 ≥2 個假名/CJK 且命中至少一個常用詞——
@@ -466,7 +489,7 @@ function _repairGapFilledOutput(output, hadMarker) {
     var _ch$codePointAt2;
     const cp = (_ch$codePointAt2 = ch.codePointAt(0)) !== null && _ch$codePointAt2 !== void 0 ? _ch$codePointAt2 : 0;
     if (cp >= 0x80 && cp <= 0x9F) return false;
-    if (cp >= 0x3000 && cp <= 0x30FF || cp >= 0x4E00 && cp <= 0x9FFF) cjkCount++;
+    if (_isCjkOrKana(cp)) cjkCount++;
   }
   if (cjkCount === 0) return hadMarker;
   return cjkCount >= 2 && _wordBonus(output) >= 1;
@@ -484,20 +507,11 @@ function _repairGapFilledOutput(output, hadMarker) {
  */
 function _repairRoundTripOutput(input, output) {
   if (output === input) return false;
-  let hadSuspicious = false;
+  const hadSuspicious = _hasMojibakeMarker(input, 0xC3);
   let hasCjk = false;
-  for (const ch of input) {
-    var _ch$codePointAt3;
-    const cp = (_ch$codePointAt3 = ch.codePointAt(0)) !== null && _ch$codePointAt3 !== void 0 ? _ch$codePointAt3 : 0;
-    if (cp >= 0x80 && cp <= 0x9F || cp > 0xFF && CP1252_BYTE_BY_CODEPOINT.has(cp) || cp === 0xC3) {
-      hadSuspicious = true;
-      break;
-    }
-  }
   for (const ch of output) {
-    var _ch$codePointAt4;
-    const cp = (_ch$codePointAt4 = ch.codePointAt(0)) !== null && _ch$codePointAt4 !== void 0 ? _ch$codePointAt4 : 0;
-    if (cp >= 0x3000 && cp <= 0x30FF || cp >= 0x4E00 && cp <= 0x9FFF) {
+    var _ch$codePointAt3;
+    if (_isCjkOrKana((_ch$codePointAt3 = ch.codePointAt(0)) !== null && _ch$codePointAt3 !== void 0 ? _ch$codePointAt3 : 0)) {
       hasCjk = true;
       break;
     }
@@ -536,33 +550,34 @@ function _repairRunSegment(segment) {
   };
 }
 /**
- * 以 cp1252 專屬符號（codepoint > 0xFF 且可對映者）為界細分後逐一還原。
+ * 以硬邊界切段、逐段還原後拼回（行內混合還原的共用骨架）。
  *
- * 整段反向對映會把「正確文字中的符號」（如正確的 em-dash —）轉成孤立
- * byte 破壞解碼，使整段失敗；細分後符號原樣保留，只剩 Latin/ASCII/C1
- * 子段參與還原，正確文字與 mojibake 殘骸得以共存於同一行。
- * 僅在整段嘗試失敗後才細分，故 â€™ 類由符號構成的 mojibake 仍在上一層
- * 被完整 round-trip，不會被誤拆。
+ * 邊界字元原樣保留並強制斷段；其餘字元累積成段交給 repairChunk 還原，
+ * 還原失敗的段以原樣保留。任一段被還原即視為整體有變動：方法取最弱者
+ * （gap-fill 優先於 round-trip），信心取各段最低值。
  *
- * @param {string} segment - 已確認為全可對映但還原失敗的字串段
- * @returns {IRepairLineResult | null} 還原結果；細分後仍無一段可還原時為 null
+ * @param {string} source - 待處理字串
+ * @param {(ch: string) => boolean} isBoundary - 該字元是否為硬邊界
+ * @param {(chunk: string) => IRepairLineResult | null} repairChunk - 段落還原器
+ * @returns {IRepairLineResult | null} 還原結果；無任何段被還原時為 null
  */
-function _repairRunWithSpecialBoundaries(segment) {
+function _repairSplitBy(source, isBoundary, repairChunk) {
   const pieces = [];
   const applied = [];
   let cur = '';
   const flush = () => {
     if (cur === '') return;
-    const r = _repairRunSegment(cur);
-    if (r === null) pieces.push(cur);else {
+    const r = repairChunk(cur);
+    if (r === null) {
+      pieces.push(cur);
+    } else {
       applied.push(r);
       pieces.push(r.text);
     }
     cur = '';
   };
-  for (const ch of segment) {
-    var _ch$codePointAt5;
-    if (((_ch$codePointAt5 = ch.codePointAt(0)) !== null && _ch$codePointAt5 !== void 0 ? _ch$codePointAt5 : 0) > 0xFF) {
+  for (const ch of source) {
+    if (isBoundary(ch)) {
       flush();
       pieces.push(ch);
     } else {
@@ -578,6 +593,24 @@ function _repairRunWithSpecialBoundaries(segment) {
   };
 }
 /**
+ * 以 cp1252 專屬符號（codepoint > 0xFF 且可對映者）為界細分後逐一還原。
+ *
+ * 整段反向對映會把「正確文字中的符號」（如正確的 em-dash —）轉成孤立
+ * byte 破壞解碼，使整段失敗；細分後符號原樣保留，只剩 Latin/ASCII/C1
+ * 子段參與還原，正確文字與 mojibake 殘骸得以共存於同一行。
+ * 僅在整段嘗試失敗後才細分，故 â€™ 類由符號構成的 mojibake 仍在上一層
+ * 被完整 round-trip，不會被誤拆。
+ *
+ * @param {string} segment - 已確認為全可對映但還原失敗的字串段
+ * @returns {IRepairLineResult | null} 還原結果；細分後仍無一段可還原時為 null
+ */
+function _repairRunWithSpecialBoundaries(segment) {
+  return _repairSplitBy(segment, ch => {
+    var _ch$codePointAt4;
+    return ((_ch$codePointAt4 = ch.codePointAt(0)) !== null && _ch$codePointAt4 !== void 0 ? _ch$codePointAt4 : 0) > 0xFF;
+  }, _repairRunSegment);
+}
+/**
  * 單行 mojibake 還原。
  *
  * 快路：整行單段一次還原（單純 mojibake 的常態）。
@@ -591,8 +624,8 @@ function _repairRunWithSpecialBoundaries(segment) {
 function _repairLine(line) {
   let hasHigh = false;
   for (const ch of line) {
-    var _ch$codePointAt6;
-    if (((_ch$codePointAt6 = ch.codePointAt(0)) !== null && _ch$codePointAt6 !== void 0 ? _ch$codePointAt6 : 0) > 0x7F) {
+    var _ch$codePointAt5;
+    if (((_ch$codePointAt5 = ch.codePointAt(0)) !== null && _ch$codePointAt5 !== void 0 ? _ch$codePointAt5 : 0) > 0x7F) {
       hasHigh = true;
       break;
     }
@@ -600,34 +633,10 @@ function _repairLine(line) {
   if (!hasHigh) return null;
   const whole = _repairRunSegment(line);
   if (whole !== null) return whole;
-  const pieces = [];
-  const applied = [];
-  let cur = '';
-  const flush = () => {
+  return _repairSplitBy(line, ch => _charToByte(ch) === null, chunk => {
     var _repairRunSegment2;
-    if (cur === '') return;
-    const r = (_repairRunSegment2 = _repairRunSegment(cur)) !== null && _repairRunSegment2 !== void 0 ? _repairRunSegment2 : _repairRunWithSpecialBoundaries(cur);
-    if (r === null) pieces.push(cur);else {
-      applied.push(r);
-      pieces.push(r.text);
-    }
-    cur = '';
-  };
-  for (const ch of line) {
-    if (_charToByte(ch) === null) {
-      flush();
-      pieces.push(ch);
-    } else {
-      cur += ch;
-    }
-  }
-  flush();
-  if (applied.length === 0) return null;
-  return {
-    text: pieces.join(''),
-    method: applied.some(a => a.method === EnumMojibakeRepairMethod.gapFill) ? EnumMojibakeRepairMethod.gapFill : EnumMojibakeRepairMethod.roundTrip,
-    confidence: Math.min(...applied.map(a => a.confidence))
-  };
+    return (_repairRunSegment2 = _repairRunSegment(chunk)) !== null && _repairRunSegment2 !== void 0 ? _repairRunSegment2 : _repairRunWithSpecialBoundaries(chunk);
+  });
 }
 /**
  * mojibake 還原：把「被以 Latin-1 / Windows-1252 誤讀的 UTF-8 文字」
@@ -684,30 +693,169 @@ function repairMojibake(text) {
   };
 }
 
+const MOJIBAKE_ENCODINGS = [{
+  label: 'utf-8',
+  name: 'UTF-8'
+}, {
+  label: 'big5',
+  name: 'Big5（繁中 Windows）'
+}, {
+  label: 'gbk',
+  name: 'GBK（簡中 Windows）'
+}, {
+  label: 'shift_jis',
+  name: 'Shift_JIS（日文）'
+}, {
+  label: 'euc-kr',
+  name: 'EUC-KR（韓文）'
+}, {
+  label: 'windows-1252',
+  name: 'Latin-1／Windows-1252'
+}];
+const decodeTableCache = /*#__PURE__*/new Map();
+/**
+ * 建立（並快取）「單一字元 → 誤讀前 byte」的解碼對映表。
+ *
+ * 表由 TextDecoder 反推而來：逐一餵入 1 byte 與 2 byte 序列，能解出單一
+ * 可見字元者即為該編碼的合法組成。替代字元（U+FFFD）代表序列無效，
+ * 不列入表中；windows-1252 為單 byte 編碼，不嘗試二元組。
+ *
+ * @param label - WHATWG 編碼標籤
+ * @returns 解碼對映表；標籤不支援時為 null
+ */
+function getDecodeTable(label) {
+  const cached = decodeTableCache.get(label);
+  if (cached !== undefined) return cached;
+  let table;
+  try {
+    const dec = new TextDecoder(label);
+    table = new Map();
+    for (let i = 0; i < 256; i++) {
+      const s = dec.decode(new Uint8Array([i]));
+      if (s.length === 1 && s !== '\ufffd' && !table.has(s)) table.set(s, [i]);
+    }
+    if (label !== 'windows-1252') {
+      for (let hi = 0x81; hi <= 0xFE; hi++) {
+        for (let lo = 0x40; lo <= 0xFE; lo++) {
+          const s = dec.decode(new Uint8Array([hi, lo]));
+          if (s.length === 1 && s !== '\ufffd' && !table.has(s)) table.set(s, [hi, lo]);
+        }
+      }
+    }
+  } catch {
+    table = null;
+  }
+  decodeTableCache.set(label, table);
+  return table;
+}
+/**
+ * 文字 → 指定編碼的 byte 陣列。
+ *
+ * UTF-8 直接由 TextEncoder 產生；其餘編碼須逐一查表，任一字元無法對映
+ * 即整筆放棄（例如 Big5 對不上日文假名）。
+ *
+ * @param text - 待編碼文字
+ * @param label - WHATWG 編碼標籤
+ * @returns byte 陣列；有字元無法編碼時為 null
+ */
+function encodeToBytes(text, label) {
+  if (label === 'utf-8') return Array.from(new TextEncoder().encode(text));
+  const table = getDecodeTable(label);
+  if (table === null) return null;
+  const bytes = [];
+  for (const ch of text) {
+    const seq = table.get(ch);
+    if (seq === undefined) return null;
+    bytes.push(...seq);
+  }
+  return bytes;
+}
+/**
+ * byte 陣列 → 以指定編碼解讀的文字。
+ *
+ * 與原 Tool 行為一致：無效序列以替代字元（U+FFFD）呈現，由呼叫端
+ * 決定是否視為失敗。
+ *
+ * @param bytes - 待解碼 byte 陣列
+ * @param label - WHATWG 編碼標籤
+ * @returns 解讀結果
+ */
+function decodeBytes(bytes, label) {
+  return new TextDecoder(label).decode(Uint8Array.from(bytes));
+}
+/**
+ * 枚舉「以 src 編碼儲存、再以 dst 編碼解讀」的所有組合結果。
+ *
+ * 正向產生與反向還原共用的重複核心：兩層迴圈、略過同編碼、略過無法
+ * 編碼的組合、略過與原文相同（無資訊）的組合。各呼叫端只負責自己的
+ * 標籤文案與額外過濾。
+ *
+ * @param text - 輸入文字
+ * @param visit - 逐組合呼叫；src 為編碼端、dst 為解讀端，result 為轉換結果
+ */
+function forEachEncodingPair(text, visit) {
+  for (const src of MOJIBAKE_ENCODINGS) {
+    for (const dst of MOJIBAKE_ENCODINGS) {
+      if (src.label === dst.label) continue;
+      const bytes = encodeToBytes(text, src.label);
+      if (bytes === null) continue;
+      const result = decodeBytes(bytes, dst.label);
+      if (result === text) continue;
+      visit(src, dst, result);
+    }
+  }
+}
+/**
+ * 正向產生：列出「以 A 編碼存檔、被以 B 編碼開啟」會看到的亂碼。
+ *
+ * 與原文相同者不列出。
+ *
+ * @param text - 正常文字
+ * @returns 候選清單（僅列出與原文不同者）
+ */
+function generateMojibake(text) {
+  const candidates = [];
+  forEachEncodingPair(text, (src, dst, result) => {
+    candidates.push({
+      label: `以 ${src.name} 存檔，用 ${dst.name} 開啟`,
+      text: result
+    });
+  });
+  return candidates;
+}
+/**
+ * 反向還原：枚舉所有編碼組合，回傳最可能讀得通的前若干列。
+ *
+ * 過濾含替代字元（解碼失敗）的組合，其餘依輸出中的漢字數量降冪排序——亂碼還原的正確結果通常是唯一含大量漢字的
+ * 那一列。回傳候選而非單一答案，交由呼叫端挑選。
+ *
+ * @param text - 疑似亂碼的文字
+ * @param limit - 最多回傳列數，預設 8
+ * @returns 依可信度排序的候選清單
+ */
+function repairMojibakeByEncodings(text, limit = 8) {
+  const scored = [];
+  forEachEncodingPair(text, (src, dst, result) => {
+    if (result.includes('\ufffd')) return;
+    scored.push({
+      cjk: (result.match(/[\u4e00-\u9fff]/g) || []).length,
+      candidate: {
+        label: `原本是 ${dst.name}，被誤當 ${src.name} 讀取`,
+        text: result
+      }
+    });
+  });
+  scored.sort((x, y) => y.cjk - x.cjk);
+  return scored.slice(0, limit).map(item => item.candidate);
+}
+
 exports.EnumMojibakeRepairMethod = EnumMojibakeRepairMethod;
-exports._applyWordRescue = _applyWordRescue;
-exports._beamFill = _beamFill;
-exports._buildPrefixBytes = _buildPrefixBytes;
-exports._charScore = _charScore;
-exports._charToByte = _charToByte;
-exports._codePointFrom = _codePointFrom;
-exports._contsFromCodePoint = _contsFromCodePoint;
-exports._countDistinctLeadLike = _countDistinctLeadLike;
-exports._detectGaps = _detectGaps;
-exports._enumerateGapCandidates = _enumerateGapCandidates;
-exports._hasLeadContAdjacency = _hasLeadContAdjacency;
-exports._hasMojibakeMarker = _hasMojibakeMarker;
-exports._isLeadLike = _isLeadLike;
-exports._leadFromCodePoint = _leadFromCodePoint;
-exports._lineToBytes = _lineToBytes;
-exports._repairGapFilledOutput = _repairGapFilledOutput;
-exports._repairLine = _repairLine;
-exports._repairRoundTripOutput = _repairRoundTripOutput;
-exports._repairRunSegment = _repairRunSegment;
-exports._repairRunWithSpecialBoundaries = _repairRunWithSpecialBoundaries;
-exports._strictDecodeUtf8 = _strictDecodeUtf8;
-exports._wordBonus = _wordBonus;
-exports._wordCandidateFits = _wordCandidateFits;
+exports.MOJIBAKE_ENCODINGS = MOJIBAKE_ENCODINGS;
+exports.decodeBytes = decodeBytes;
 exports.default = repairMojibake;
+exports.encodeToBytes = encodeToBytes;
+exports.generateMojibake = generateMojibake;
+exports.getDecodeTable = getDecodeTable;
 exports.repairMojibake = repairMojibake;
+exports.repairMojibakeByEncodings = repairMojibakeByEncodings;
 //# sourceMappingURL=index.cjs.development.cjs.map

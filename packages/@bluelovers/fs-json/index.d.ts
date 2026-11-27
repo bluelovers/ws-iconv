@@ -8,8 +8,9 @@
  * @module @bluelovers/fs-json
  * @author bluelovers
  */
-import { readJSON, readJSONSync, WriteOptions } from 'fs-extra';
-import { JFWriteOptions } from 'jsonfile';
+import { WriteOptions } from 'fs-extra';
+import { JFReadOptions, JFWriteOptions } from 'jsonfile';
+export type IJSONRecord = Record<string, any>;
 /**
  * 擴充 fs-extra 的 WriteOptions 介面
  * Extend fs-extra WriteOptions interface
@@ -31,7 +32,8 @@ declare module 'fs-extra' {
  * 結合 fs-extra 和 jsonfile 的寫入選項
  * Combines fs-extra and jsonfile write options
  */
-export type IWriteOptions = WriteOptions & Exclude<JFWriteOptions, string | null>;
+export type IWriteOptions = WriteOptions & Exclude<JFWriteOptions, string | null | undefined>;
+export type IReadOptions = Exclude<JFReadOptions, string | null | undefined>;
 /**
  * 處理寫入選項
  * Handle write options
@@ -45,20 +47,15 @@ export type IWriteOptions = WriteOptions & Exclude<JFWriteOptions, string | null
  */
 export declare function _handleWriteOptions(options?: IWriteOptions): IWriteOptions;
 /**
- * 從 fs-extra 導出的讀取函數
- * Read functions exported from fs-extra
- */
-export { 
-/**
  * 異步讀取 JSON 檔案
  * Read JSON file asynchronously
  */
-readJSON, 
+export declare function readJSON<T = IJSONRecord>(file: string, options?: IReadOptions): Promise<T>;
 /**
  * 同步讀取 JSON 檔案
  * Read JSON file synchronously
  */
-readJSONSync, };
+export declare function readJSONSync<T = IJSONRecord>(file: string, options?: IReadOptions): T;
 /**
  * 輸出 JSON 檔案（異步）
  * Output JSON file (async)
@@ -76,7 +73,7 @@ readJSONSync, };
  * await outputJSON('config.json', { key: 'value' });
  * ```
  */
-export declare function outputJSON(file: string, data: any, options?: IWriteOptions): Promise<void>;
+export declare function outputJSON<T = IJSONRecord>(file: string, data: T, options?: IWriteOptions): Promise<void>;
 /**
  * 輸出 JSON 檔案（同步）
  * Output JSON file (sync)
@@ -94,7 +91,7 @@ export declare function outputJSON(file: string, data: any, options?: IWriteOpti
  * outputJSONSync('config.json', { key: 'value' });
  * ```
  */
-export declare function outputJSONSync(file: string, data: any, options?: IWriteOptions): void;
+export declare function outputJSONSync<T = IJSONRecord>(file: string, data: T, options?: IWriteOptions): void;
 /**
  * 寫入 JSON 檔案（異步）
  * Write JSON file (async)
@@ -112,7 +109,7 @@ export declare function outputJSONSync(file: string, data: any, options?: IWrite
  * await writeJSON('data.json', { users: [] });
  * ```
  */
-export declare function writeJSON(file: string, data: any, options?: IWriteOptions): Promise<void>;
+export declare function writeJSON<T = IJSONRecord>(file: string, data: T, options?: IWriteOptions): Promise<void>;
 /**
  * 寫入 JSON 檔案（同步）
  * Write JSON file (sync)
@@ -130,7 +127,7 @@ export declare function writeJSON(file: string, data: any, options?: IWriteOptio
  * writeJSONSync('data.json', { users: [] });
  * ```
  */
-export declare function writeJSONSync(file: string, data: any, options?: IWriteOptions): void;
+export declare function writeJSONSync<T = IJSONRecord>(file: string, data: T, options?: IWriteOptions): void;
 /**
  * 將資料字串化為 JSON
  * Stringify data to JSON
@@ -148,7 +145,7 @@ export declare function writeJSONSync(file: string, data: any, options?: IWriteO
  * console.log(json); // '{"key":"value"}\n'
  * ```
  */
-export declare function stringifyJSON(data: any, options?: IWriteOptions): string;
+export declare function stringifyJSON<T = IJSONRecord>(data: T, options?: IWriteOptions): string;
 /**
  * 解析 JSON 字串
  * Parse JSON string
@@ -166,4 +163,4 @@ export declare function stringifyJSON(data: any, options?: IWriteOptions): strin
  * const obj2 = parseJSON(new Uint8Array([123, 34, 107, 101, 121, 34, 58, 34, 118, 97, 108, 117, 101, 34, 125]));
  * ```
  */
-export declare function parseJSON(stringOrUint8Array: string | Uint8Array, reviver?: (this: any, key: string, value: any) => any): string;
+export declare function parseJSON<T = IJSONRecord>(stringOrUint8Array: string | Uint8Array, reviver?: (this: any, key: string, value: any) => any): T;
