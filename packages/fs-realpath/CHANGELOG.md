@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.8](https://github.com/bluelovers/ws-iconv/compare/fs-realpath-native@1.0.7...fs-realpath-native@1.0.8) (2026-11-27)
+
+
+
+### 🔖　Miscellaneous
+
+* . ([e576328](https://github.com/bluelovers/ws-iconv/commit/e57632831dc7f1cc074346e61b979d9c48ad9290))
+
+
 ## [1.0.7](https://github.com/bluelovers/ws-iconv/compare/fs-realpath-native@1.0.6...fs-realpath-native@1.0.7) (2026-11-27)
 
 

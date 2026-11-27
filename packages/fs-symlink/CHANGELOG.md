@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.29](https://github.com/bluelovers/ws-iconv/compare/fs-symlink-extra@1.0.28...fs-symlink-extra@1.0.29) (2026-11-27)
+
+
+
+### 🔖　Miscellaneous
+
+* . ([e576328](https://github.com/bluelovers/ws-iconv/commit/e57632831dc7f1cc074346e61b979d9c48ad9290))
+
+
 ## [1.0.28](https://github.com/bluelovers/ws-iconv/compare/fs-symlink-extra@1.0.27...fs-symlink-extra@1.0.28) (2026-11-27)
 
 **Note:** Version bump only for package fs-symlink-extra
