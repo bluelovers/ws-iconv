@@ -60,4 +60,8 @@ export function notUTF8(buf: Buffer | string)
 	return notUTF8Buffer(buf)
 }
 
-export default exports as typeof import('./not-utf8');
+export default {
+	detectEncoding,
+	notUTF8Buffer,
+	notUTF8,
+}

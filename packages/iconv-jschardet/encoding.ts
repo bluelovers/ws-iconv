@@ -3,7 +3,7 @@ import console from 'debug-color2/logger';
 import { _enc, codec_table, ENUM_NODE_ENCODING, IEncodingCodec, NodeEncoding, vEncoding } from './lib/const';
 import { getIconvLiteCodec } from './lib/util';
 
-export * from './lib/const';
+// export * from './lib/const';
 //export { console }
 
 /**
@@ -107,4 +107,8 @@ export function codec_data(encoding: vEncoding): IEncodingCodec
 	}
 }
 
-export default exports as typeof import('./encoding');
+export default {
+	isNodeEncoding,
+	disableCodecDataWarn,
+	codec_data,
+};
