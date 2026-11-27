@@ -1,4 +1,4 @@
-import { EnumMojibakeRepairMethod } from '../../src/index'
+import { EnumMojibakeRepairMethod } from '../../src/mojibake-repair'
 
 /**
  * 單一測試個案：輸入、預期還原結果與信心分數 (confidence) 區間

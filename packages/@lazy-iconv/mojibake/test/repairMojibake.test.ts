@@ -1,6 +1,6 @@
 /// <reference types="node" />
 import { describe, test, type TestContext } from 'node:test'
-import repairMojibakeDefault, { EnumMojibakeRepairMethod, repairMojibake } from '../src/index'
+import repairMojibakeDefault, { EnumMojibakeRepairMethod, repairMojibake } from '../src/mojibake-repair'
 import { SAMPLE_INPUT, testGroups } from './fixtures/mojibake-test-cases'
 
 describe('repairMojibake：資料驅動案例', () =>
