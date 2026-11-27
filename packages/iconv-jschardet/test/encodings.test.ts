@@ -1,9 +1,8 @@
 /// <reference types="node" />
-import { describe, it, test } from 'node:test';
 /**
- * 針對 fixtures/data.ts 的各編碼樣本進行快照
- * Snapshot each encoding sample from fixtures/data.ts
+ * 針對 fixtures/data.ts 的各編碼樣本，快照 (Snapshot) 各 API 的回傳值
  */
+import { describe, it, test } from 'node:test';
 
 import * as self from '../';
 import { getIconvLiteCodec } from '../lib/util';
@@ -17,21 +16,18 @@ import {
 
 self.skipDecodeWarning();
 
-/**
- * 測試樣本
- * Test sample
- */
+/** 測試樣本 */
 interface IFixture
 {
-	/** 樣本代號 / Sample id */
+	/** 樣本代號 */
 	id: string;
-	/** 原編碼的 latin1 字串 / Latin1 string of the original encoding */
+	/** 以 latin1 表示的原編碼字串 */
 	str: string;
-	/** 原編碼位元組 / Bytes of the original encoding */
+	/** 原編碼位元組 */
 	buf: Buffer;
-	/** UTF-8 位元組 / UTF-8 bytes */
+	/** UTF-8 位元組 */
 	utf8: Buffer;
-	/** iconv-lite 編碼名稱 / iconv-lite encoding name */
+	/** iconv-lite 編碼名稱 */
 	codec: string;
 }
 
@@ -43,10 +39,7 @@ const fixtures: IFixture[] = [
 	{ id: 'EUCKR', str: EUCKR_STR, buf: EUCKR_BUF, utf8: EUCKR_UTF8_BUF, codec: 'euc-kr' },
 ];
 
-/**
- * 將 getIconvLiteCodec 回傳值簡化為可快照的純資料
- * Reduce getIconvLiteCodec result to snapshot-friendly plain data
- */
+/** 將 getIconvLiteCodec 回傳值簡化為可快照的純資料 */
 function codecSnapshot(encoding: string)
 {
 	let r = getIconvLiteCodec(encoding as any);
