@@ -22,6 +22,10 @@ describe('repairMojibake：資料驅動案例', () =>
 						r.confidence >= c.minConfidence && r.confidence <= c.maxConfidence,
 						`信心分數 ${r.confidence} 應落在 [${c.minConfidence}, ${c.maxConfidence}]`,
 					)
+					t.assert.snapshot({
+						input: c.input,
+						result: r,
+					})
 				})
 			}
 		})
@@ -47,6 +51,7 @@ describe('gap-fill 全缺缺口契約', () =>
 			const isTarget = (cp >= 0x3000 && cp <= 0x30FF) || (cp >= 0x4E00 && cp <= 0x9FFF)
 			t.assert.ok(isTarget, `輸出應全為日中字元: ${JSON.stringify(r.text)}`)
 		}
+		t.assert.snapshot(r)
 	})
 
 	test('tier B 純標點重建：保留前綴且輸出無 C1 殘留', (t: TestContext) =>
@@ -68,6 +73,7 @@ describe('gap-fill 全缺缺口契約', () =>
 			}),
 			'輸出不得殘留 C1 控制字元',
 		)
+		t.assert.snapshot(r)
 	})
 })
 

@@ -1,0 +1,197 @@
+exports[`gap-fill 全缺缺口契約 > tier B 純標點重建：保留前綴且輸出無 C1 殘留 1`] = `
+{
+  "text": "queen–s",
+  "method": "gap-fill",
+  "confidence": 0.35,
+  "changed": true
+}
+`;
+
+exports[`gap-fill 全缺缺口契約 > 多解重建只鎖契約：輸出全為日中字元 1`] = `
+{
+  "text": "先生理",
+  "method": "gap-fill",
+  "confidence": 0.44,
+  "changed": true
+}
+`;
+
+exports[`repairMojibake：資料驅動案例 > gap-fill：C1 續接位元組被剝除的缺口重建 > 存活錨點重建 東京 1`] = `
+{
+  "input": "æ±äº¬",
+  "result": {
+    "text": "東京",
+    "method": "gap-fill",
+    "confidence": 0.5,
+    "changed": true
+  }
+}
+`;
+
+exports[`repairMojibake：資料驅動案例 > none：證據不足，保守不動 > 北歐文 Ångström（混合高位字元仍不動） 1`] = `
+{
+  "input": "Ångström",
+  "result": {
+    "text": "Ångström",
+    "method": "none",
+    "confidence": 0,
+    "changed": false
+  }
+}
+`;
+
+exports[`repairMojibake：資料驅動案例 > none：證據不足，保守不動 > 合法法文（無誤讀鏈證據） 1`] = `
+{
+  "input": "café",
+  "result": {
+    "text": "café",
+    "method": "none",
+    "confidence": 0,
+    "changed": false
+  }
+}
+`;
+
+exports[`repairMojibake：資料驅動案例 > none：證據不足，保守不動 > 真正的中文 Unicode 文字 1`] = `
+{
+  "input": "你好，世界",
+  "result": {
+    "text": "你好，世界",
+    "method": "none",
+    "confidence": 0,
+    "changed": false
+  }
+}
+`;
+
+exports[`repairMojibake：資料驅動案例 > none：證據不足，保守不動 > 真正的日文 Unicode 文字 1`] = `
+{
+  "input": "日本語のテキスト",
+  "result": {
+    "text": "日本語のテキスト",
+    "method": "none",
+    "confidence": 0,
+    "changed": false
+  }
+}
+`;
+
+exports[`repairMojibake：資料驅動案例 > none：證據不足，保守不動 > 空字串 1`] = `
+{
+  "input": "",
+  "result": {
+    "text": "",
+    "method": "none",
+    "confidence": 0,
+    "changed": false
+  }
+}
+`;
+
+exports[`repairMojibake：資料驅動案例 > none：證據不足，保守不動 > 純 ASCII 文字 1`] = `
+{
+  "input": "hello world",
+  "result": {
+    "text": "hello world",
+    "method": "none",
+    "confidence": 0,
+    "changed": false
+  }
+}
+`;
+
+exports[`repairMojibake：資料驅動案例 > round-trip：bytes 俱在的確定性還原 > Latin-1 讀法的法文 café 1`] = `
+{
+  "input": "cafÃ©",
+  "result": {
+    "text": "café",
+    "method": "round-trip",
+    "confidence": 0.8,
+    "changed": true
+  }
+}
+`;
+
+exports[`repairMojibake：資料驅動案例 > round-trip：bytes 俱在的確定性還原 > Windows-1252 讀法的 東京（C1 續接位元組仍在） 1`] = `
+{
+  "input": "æ±äº¬",
+  "result": {
+    "text": "東京",
+    "method": "round-trip",
+    "confidence": 0.95,
+    "changed": true
+  }
+}
+`;
+
+exports[`repairMojibake：資料驅動案例 > round-trip：bytes 俱在的確定性還原 > 日文假名整串殘骸 1`] = `
+{
+  "input": "ããã«ã¡ã¯",
+  "result": {
+    "text": "こんにちは",
+    "method": "round-trip",
+    "confidence": 0.95,
+    "changed": true
+  }
+}
+`;
+
+exports[`repairMojibake：資料驅動案例 > round-trip：bytes 俱在的確定性還原 > 英文彎引號殘骸 â€™ 1`] = `
+{
+  "input": "â€™",
+  "result": {
+    "text": "’",
+    "method": "round-trip",
+    "confidence": 0.95,
+    "changed": true
+  }
+}
+`;
+
+exports[`repairMojibake：資料驅動案例 > 混合路：cp1252 專屬符號分段與多行處理 > 多行混合（最弱方法取 gap-fill、信心取最低） 1`] = `
+{
+  "input": "cafÃ©\\nhello\\næ±äº¬",
+  "result": {
+    "text": "café\\nhello\\n東京",
+    "method": "gap-fill",
+    "confidence": 0.5,
+    "changed": true
+  }
+}
+`;
+
+exports[`repairMojibake：資料驅動案例 > 混合路：cp1252 專屬符號分段與多行處理 > 多行皆不還原 1`] = `
+{
+  "input": "hello\\ncafé",
+  "result": {
+    "text": "hello\\ncafé",
+    "method": "none",
+    "confidence": 0,
+    "changed": false
+  }
+}
+`;
+
+exports[`repairMojibake：資料驅動案例 > 混合路：cp1252 專屬符號分段與多行處理 > 多行逐行 round-trip 還原且保留換行結構 1`] = `
+{
+  "input": "æ±äº¬\\ncafÃ©",
+  "result": {
+    "text": "東京\\ncafé",
+    "method": "round-trip",
+    "confidence": 0.8,
+    "changed": true
+  }
+}
+`;
+
+exports[`repairMojibake：資料驅動案例 > 混合路：cp1252 專屬符號分段與多行處理 > 正確 em-dash 與 mojibake 殘骸共存於同一行 1`] = `
+{
+  "input": "— cafÃ©",
+  "result": {
+    "text": "— café",
+    "method": "round-trip",
+    "confidence": 0.8,
+    "changed": true
+  }
+}
+`;
