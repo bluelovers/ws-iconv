@@ -9,6 +9,7 @@
     "allowUnusedLabels": true,
     "noUnusedLocals": false,
     "noPropertyAccessFromIndexSignature": false,
+    "rootDir": "../",
     "types": [
       "jest",
       "node"
