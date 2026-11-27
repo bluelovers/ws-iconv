@@ -8,6 +8,7 @@ import * as self from '../';
 import { BIG5_STR, BIG5_BUF, BIG5_UTF8_BUF } from './fixtures/data';
 import { EnumEncoding } from '../lib/const';
 import { disableCodecDataWarn, skipDecodeWarning } from '../';
+import { _bufForSnapshot } from './lib/helper';
 
 skipDecodeWarning();
 disableCodecDataWarn();
@@ -60,7 +61,7 @@ describe(`iconv`, () =>
 		t.assert.strictEqual(c.encoding, EnumEncoding.BIG5);
 
 		t.assert.snapshot(c);
-		t.assert.snapshot(data);
+		t.assert.snapshot(_bufForSnapshot(data));
 
 	});
 	// @ts-ignore
@@ -80,7 +81,7 @@ describe(`iconv`, () =>
 		t.assert.strictEqual(c.encoding, EnumEncoding.BIG5);
 
 		t.assert.snapshot(c);
-		t.assert.snapshot(data);
+		t.assert.snapshot(_bufForSnapshot(data));
 
 	});
 
@@ -97,7 +98,7 @@ describe(`iconv`, () =>
 		t.assert.deepStrictEqual(data, BIG5_UTF8_BUF);
 
 		t.assert.snapshot(c);
-		t.assert.snapshot(data);
+		t.assert.snapshot(_bufForSnapshot(data));
 
 	});
 
@@ -120,7 +121,7 @@ describe(`iconv`, () =>
 		t.assert.deepStrictEqual(data, BIG5_UTF8_BUF);
 
 		t.assert.snapshot(c);
-		t.assert.snapshot(data);
+		t.assert.snapshot(_bufForSnapshot(data));
 
 	});
 });
