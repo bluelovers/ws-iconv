@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.21](https://github.com/bluelovers/ws-iconv/compare/@bluelovers/fs-json@1.0.20...@bluelovers/fs-json@1.0.21) (2026-11-27)
+
+
+### BREAKING CHANGES
+
+* **fs-json:** 優化寫入選項處理邏輯與預設值設定
+
+
+
+### 📦　Code Refactoring
+
+* **fs-json:** 優化寫入選項處理邏輯與預設值設定 ([145de7c](https://github.com/bluelovers/ws-iconv/commit/145de7c85fc4054ca0357a635b70fc3ad9e64d60))
+
+
+### 🛠　Build System
+
+* update build ([8dfc391](https://github.com/bluelovers/ws-iconv/commit/8dfc3915b4f5adf99dca15a688f03fd4f49d5a73))
+
+
 ## [1.0.20](https://github.com/bluelovers/ws-iconv/compare/@bluelovers/fs-json@1.0.19...@bluelovers/fs-json@1.0.20) (2026-11-27)
 
 
