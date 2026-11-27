@@ -1,4 +1,4 @@
-import iconvLite, { encodingExists, Options as IOptionsIconvLite } from 'iconv-lite';
+import iconvLite, { encodingExists, EncodeOptions as IOptionsIconvLite } from 'iconv-lite';
 import jschardet from 'jschardet';
 import console from 'debug-color2/logger';
 
