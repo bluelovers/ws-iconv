@@ -12,14 +12,16 @@
 import {
 	outputJSON as _outputJSON,
 	outputJSONSync as _outputJSONSync,
-	readJSON,
-	readJSONSync,
+	readJSON as _readJSON,
+	readJSONSync as _readJSONSync,
 	writeJSON as _writeJSON,
 	writeJSONSync as _writeJSONSync,
 	WriteOptions,
 } from 'fs-extra';
 import { stringify } from 'jsonfile/utils';
-import { JFWriteOptions } from 'jsonfile';
+import { JFReadOptions, JFWriteOptions } from 'jsonfile';
+
+export type IJSONRecord = Record<string, any>;
 
 /**
  * 擴充 fs-extra 的 WriteOptions 介面
@@ -45,7 +47,9 @@ declare module 'fs-extra'
  * 結合 fs-extra 和 jsonfile 的寫入選項
  * Combines fs-extra and jsonfile write options
  */
-export type IWriteOptions = WriteOptions & Exclude<JFWriteOptions, string | null>;
+export type IWriteOptions = WriteOptions & Exclude<JFWriteOptions, string | null | undefined>;
+
+export type IReadOptions = Exclude<JFReadOptions, string | null | undefined>;
 
 /**
  * 處理寫入選項
@@ -66,20 +70,21 @@ export function _handleWriteOptions(options?: IWriteOptions): IWriteOptions
 }
 
 /**
- * 從 fs-extra 導出的讀取函數
- * Read functions exported from fs-extra
+ * 異步讀取 JSON 檔案
+ * Read JSON file asynchronously
  */
-export {
-	/**
-	 * 異步讀取 JSON 檔案
-	 * Read JSON file asynchronously
-	 */
-	readJSON,
-	/**
-	 * 同步讀取 JSON 檔案
-	 * Read JSON file synchronously
-	 */
-	readJSONSync,
+export function readJSON<T = IJSONRecord>(file: string, options?: IReadOptions)
+{
+	return _readJSON(file, options) as Promise<T>
+}
+
+/**
+ * 同步讀取 JSON 檔案
+ * Read JSON file synchronously
+ */
+export function readJSONSync<T = IJSONRecord>(file: string, options?: IReadOptions)
+{
+	return _readJSONSync(file, options as any) as T
 }
 
 /**
@@ -99,7 +104,7 @@ export {
  * await outputJSON('config.json', { key: 'value' });
  * ```
  */
-export function outputJSON(file: string, data: any, options?: IWriteOptions)
+export function outputJSON<T = IJSONRecord>(file: string, data: T, options?: IWriteOptions)
 {
 	options = _handleWriteOptions(options);
 	return _outputJSON(file, data, options as any)
@@ -122,7 +127,7 @@ export function outputJSON(file: string, data: any, options?: IWriteOptions)
  * outputJSONSync('config.json', { key: 'value' });
  * ```
  */
-export function outputJSONSync(file: string, data: any, options?: IWriteOptions)
+export function outputJSONSync<T = IJSONRecord>(file: string, data: T, options?: IWriteOptions)
 {
 	options = _handleWriteOptions(options);
 	return _outputJSONSync(file, data, options as any)
@@ -145,7 +150,7 @@ export function outputJSONSync(file: string, data: any, options?: IWriteOptions)
  * await writeJSON('data.json', { users: [] });
  * ```
  */
-export function writeJSON(file: string, data: any, options?: IWriteOptions)
+export function writeJSON<T = IJSONRecord>(file: string, data: T, options?: IWriteOptions)
 {
 	options = _handleWriteOptions(options);
 	return _writeJSON(file, data, options)
@@ -168,7 +173,7 @@ export function writeJSON(file: string, data: any, options?: IWriteOptions)
  * writeJSONSync('data.json', { users: [] });
  * ```
  */
-export function writeJSONSync(file: string, data: any, options?: IWriteOptions)
+export function writeJSONSync<T = IJSONRecord>(file: string, data: T, options?: IWriteOptions)
 {
 	options = _handleWriteOptions(options);
 	return _writeJSONSync(file, data, options)
@@ -191,7 +196,7 @@ export function writeJSONSync(file: string, data: any, options?: IWriteOptions)
  * console.log(json); // '{"key":"value"}\n'
  * ```
  */
-export function stringifyJSON(data: any, options?: IWriteOptions): string
+export function stringifyJSON<T = IJSONRecord>(data: T, options?: IWriteOptions): string
 {
 	options = _handleWriteOptions(options);
 	return stringify(data, options as any)
@@ -214,9 +219,9 @@ export function stringifyJSON(data: any, options?: IWriteOptions): string
  * const obj2 = parseJSON(new Uint8Array([123, 34, 107, 101, 121, 34, 58, 34, 118, 97, 108, 117, 101, 34, 125]));
  * ```
  */
-export function parseJSON(stringOrUint8Array: string | Uint8Array,
+export function parseJSON<T = IJSONRecord>(stringOrUint8Array: string | Uint8Array,
 	reviver?: (this: any, key: string, value: any) => any,
-): string
+): T
 {
 	return JSON.parse(stringOrUint8Array.toString(), reviver)
 }
