@@ -81,6 +81,9 @@ importers:
 
   packages/@bluelovers/fs-json:
     dependencies:
+      '@types/fs-extra':
+        specifier: ^11.0.4
+        version: 11.0.4
       '@types/jsonfile':
         specifier: ^6.1.4
         version: 6.1.4

@@ -29,7 +29,7 @@ export type IJSONRecord = Record<string, any>;
  */
 declare module 'fs-extra'
 {
-	interface WriteOptions extends Exclude<JFWriteOptions, string | null>
+	interface WriteOptions extends Exclude<JFWriteOptions, string | null | undefined>
 	{
 		/**
 		 * 是否在 JSON 結尾添加換行符號
@@ -72,10 +72,12 @@ export function _handleWriteOptions(options?: IWriteOptions, override?: boolean)
 		};
 	}
 	options.finalEOL ??= true;
+
 	if (typeof options.spaces === 'undefined')
 	{
 		options.spaces = 2;
 	}
+
 	return options
 }
 

@@ -16,7 +16,7 @@ export type IJSONRecord = Record<string, any>;
  * Extend fs-extra WriteOptions interface
  */
 declare module 'fs-extra' {
-    interface WriteOptions extends Exclude<JFWriteOptions, string | null> {
+    interface WriteOptions extends Exclude<JFWriteOptions, string | null | undefined> {
         /**
          * 是否在 JSON 結尾添加換行符號
          * Whether to add final newline to JSON
