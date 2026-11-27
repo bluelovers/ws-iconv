@@ -33,3 +33,17 @@ export const EUCJP_UTF8_BUF = Buffer.from('e6 97 a5 e6 9c ac e8 aa 9e e3 81 ae e
 export const EUCKR_STR = "\xc7\xd1\xb1\xb9\xbe\xee\x20\xc0\xce\xc4\xda\xb5\xf9\x20\xc5\xd7\xbd\xba\xc6\xae";
 export const EUCKR_BUF = Buffer.from('c7d1b1b9beee20c0cec4dab5f920c5d7bdbac6ae', 'hex');
 export const EUCKR_UTF8_BUF = Buffer.from('ed 95 9c ea b5 ad ec 96 b4 20 ec 9d b8 ec bd 94 eb 94 a9 20 ed 85 8c ec 8a a4 ed 8a b8'.replace(/\s/g, ''), 'hex');
+
+/**
+ * 次常用國字標準字體表 (UTF-8)
+ */
+export const UTF8_STR = "次常用國字標準字體表";
+export const UTF8_BUF = Buffer.from('e6aca1e5b8b8e794a8e59c8be5ad97e6a899e6ba96e5ad97e9ab94e8a1a8', 'hex');
+export const UTF8_UTF8_BUF = Buffer.from('e6 ac a1 e5 b8 b8 e7 94 a8 e5 9c 8b e5 ad 97 e6 a8 99 e6 ba 96 e5 ad 97 e9 ab 94 e8 a1 a8'.replace(/\s/g, ''), 'hex');
+
+/**
+ * HelloWorld0123456789 (ASCII)
+ */
+export const ASCII_STR = "HelloWorld0123456789";
+export const ASCII_BUF = Buffer.from('48656c6c6f576f726c6430313233343536373839', 'hex');
+export const ASCII_UTF8_BUF = Buffer.from('48 65 6c 6c 6f 57 6f 72 6c 64 30 31 32 33 34 35 36 37 38 39'.replace(/\s/g, ''), 'hex');

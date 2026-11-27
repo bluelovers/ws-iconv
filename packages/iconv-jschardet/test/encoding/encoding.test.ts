@@ -4,7 +4,7 @@
  */
 import { describe, it, test } from 'node:test';
 import { codec_data, disableCodecDataWarn, isNodeEncoding } from '../..';
-import { fixtures } from '../fixtures/test-case';
+import { nonUtf8Fixtures } from '../fixtures/test-case';
 
 disableCodecDataWarn(true);
 
@@ -36,7 +36,7 @@ describe(`isNodeEncoding`, () =>
 	// @ts-ignore
 	it(`非 Node.js 編碼回傳 null`, function (t: test.TestContext)
 	{
-		for (const f of fixtures)
+		for (const f of nonUtf8Fixtures)
 		{
 			t.assert.strictEqual(isNodeEncoding(f.codec), null, f.codec);
 		}
@@ -51,7 +51,7 @@ describe(`codec_data`, () =>
 	{
 		let actual: Record<string, unknown> = {};
 
-		for (const f of fixtures)
+		for (const f of nonUtf8Fixtures)
 		{
 			let cd = codec_data(f.codec);
 
@@ -61,16 +61,14 @@ describe(`codec_data`, () =>
 			actual[f.codec] = cd;
 		}
 
-		t.assert.snapshot(actual);
-	});
+		/** ascii 不在 codec_table，回傳 null */
+		t.assert.ok(codec_data('utf8'));
+		t.assert.strictEqual(codec_data('ascii'), null);
 
-	// @ts-ignore
-	it(`UTF-8 與 ASCII`, function (t: test.TestContext)
-	{
-		t.assert.snapshot({
-			utf8: codec_data('utf8'),
-			ascii: codec_data('ascii'),
-		});
+		actual.utf8 = codec_data('utf8');
+		actual.ascii = codec_data('ascii');
+
+		t.assert.snapshot(actual);
 	});
 
 	// @ts-ignore

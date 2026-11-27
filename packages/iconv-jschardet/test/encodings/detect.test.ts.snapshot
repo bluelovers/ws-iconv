@@ -1,3 +1,33 @@
+exports[`detect > ASCII detect buf 1`] = `
+{
+  "detect": {
+    "encoding": "ascii",
+    "confidence": 1,
+    "name": "ascii"
+  },
+  "detect:plus": {
+    "encoding": "ascii",
+    "confidence": 1,
+    "name": "ascii"
+  }
+}
+`;
+
+exports[`detect > ASCII detect str 1`] = `
+{
+  "detect": {
+    "encoding": "ascii",
+    "confidence": 1,
+    "name": "ascii"
+  },
+  "detect:plus": {
+    "encoding": "ascii",
+    "confidence": 1,
+    "name": "ascii"
+  }
+}
+`;
+
 exports[`detect > BIG5 detect buf 1`] = `
 {
   "detect": {
@@ -152,6 +182,37 @@ exports[`detect > SJIS detect str 1`] = `
     "confidence": 0.99,
     "name": "SHIFT_JIS",
     "id": "shiftjis"
+  }
+}
+`;
+
+exports[`detect > UTF8 detect buf 1`] = `
+{
+  "detect": {
+    "encoding": "UTF-8",
+    "confidence": 0.99,
+    "name": "UTF-8"
+  },
+  "detect:plus": {
+    "encoding": "UTF-8",
+    "confidence": 0.99,
+    "name": "UTF-8",
+    "id": "utf8"
+  }
+}
+`;
+
+exports[`detect > UTF8 detect str 1`] = `
+{
+  "detect": {
+    "encoding": "ascii",
+    "confidence": 1,
+    "name": "ascii"
+  },
+  "detect:plus": {
+    "encoding": "ascii",
+    "confidence": 1,
+    "name": "ascii"
   }
 }
 `;

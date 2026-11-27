@@ -1,3 +1,28 @@
+exports[`encode > ASCII encode buf to ascii 1`] = `
+[
+  "72 101 108 108 111 87 111 114 108 100 48 49 50 51 52 53"
+]
+`;
+
+exports[`encode > ASCII encode to ascii 1`] = `
+[
+  "72 101 108 108 111 87 111 114 108 100 48 49 50 51 52 53"
+]
+`;
+
+exports[`encode > ASCII encode to utf8 1`] = `
+{
+  "detect": {
+    "encoding": "ascii",
+    "confidence": 1,
+    "name": "ascii"
+  },
+  "buf": [
+    "72 101 108 108 111 87 111 114 108 100 48 49 50 51 52 53"
+  ]
+}
+`;
+
 exports[`encode > BIG5 encode buf to big5 1`] = `
 [
   "166 184 177 96 165 206 176 234 166 114 188 208 183 199 166 114"
@@ -119,6 +144,31 @@ exports[`encode > SJIS encode to utf8 1`] = `
   },
   "buf": [
     "230 151 165 230 156 172 232 170 158 227 129 174 227 131 134 227"
+  ]
+}
+`;
+
+exports[`encode > UTF8 encode buf to utf8 1`] = `
+[
+  "230 172 161 229 184 184 231 148 168 229 156 139 229 173 151 230"
+]
+`;
+
+exports[`encode > UTF8 encode to utf8 1`] = `
+[
+  "230 172 161 229 184 184 231 148 168 229 156 139 229 173 151 230"
+]
+`;
+
+exports[`encode > UTF8 encode to utf8 2`] = `
+{
+  "detect": {
+    "encoding": "UTF-8",
+    "confidence": 0.99,
+    "name": "UTF-8"
+  },
+  "buf": [
+    "230 172 161 229 184 184 231 148 168 229 156 139 229 173 151 230"
   ]
 }
 `;

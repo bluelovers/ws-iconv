@@ -4,13 +4,11 @@
  */
 import { describe, it, test } from 'node:test';
 import { detectEncoding, notUTF8, notUTF8Buffer } from '../../not-utf8';
-import { fixtures } from '../fixtures/test-case';
-import { BIG5_UTF8_BUF } from '../fixtures/data';
+import { fixtures, nonUtf8Fixtures, utf8Fixtures } from '../fixtures/test-case';
+import { UTF8_STR } from '../fixtures/data';
 
-/** ASCII 純文字 */
-const ASCII_BUF = Buffer.from('hello world', 'ascii');
-/** UTF-8 繁體中文字串 */
-const UTF8_STR = '次常用國字標準字體表';
+/** ASCII 純英數字串 */
+const ASCII_STR = 'HelloWorld0123456789';
 
 // @ts-ignore
 describe(`detectEncoding`, () =>
@@ -26,18 +24,12 @@ describe(`detectEncoding`, () =>
 			t.assert.snapshot(actual);
 		});
 	}
-
-	// @ts-ignore
-	it(`UTF-8`, function (t: test.TestContext)
-	{
-		t.assert.strictEqual(detectEncoding(BIG5_UTF8_BUF), 'utf8');
-	});
 });
 
 // @ts-ignore
 describe(`notUTF8Buffer`, () =>
 {
-	for (const f of fixtures)
+	for (const f of nonUtf8Fixtures)
 	{
 		// @ts-ignore
 		it(`${f.id} notUTF8Buffer`, function (t: test.TestContext)
@@ -49,29 +41,35 @@ describe(`notUTF8Buffer`, () =>
 		});
 	}
 
-	// @ts-ignore
-	it(`UTF-8 回傳 null`, function (t: test.TestContext)
+	for (const f of utf8Fixtures)
 	{
-		t.assert.strictEqual(notUTF8Buffer(BIG5_UTF8_BUF), null);
-	});
-
-	// @ts-ignore
-	it(`ASCII 回傳 null`, function (t: test.TestContext)
-	{
-		t.assert.strictEqual(notUTF8Buffer(ASCII_BUF), null);
-	});
+		// @ts-ignore
+		it(`${f.id} notUTF8Buffer 回傳 null`, function (t: test.TestContext)
+		{
+			t.assert.strictEqual(notUTF8Buffer(f.buf), null);
+		});
+	}
 });
 
 // @ts-ignore
 describe(`notUTF8`, () =>
 {
-	for (const f of fixtures)
+	for (const f of nonUtf8Fixtures)
 	{
 		// @ts-ignore
 		it(`${f.id} notUTF8 buf`, function (t: test.TestContext)
 		{
 			t.assert.deepStrictEqual(notUTF8(f.buf), notUTF8Buffer(f.buf));
 			t.assert.ok(notUTF8(f.buf), f.codec);
+		});
+	}
+
+	for (const f of utf8Fixtures)
+	{
+		// @ts-ignore
+		it(`${f.id} notUTF8 buf 回傳 null`, function (t: test.TestContext)
+		{
+			t.assert.strictEqual(notUTF8(f.buf), null);
 		});
 	}
 
@@ -84,6 +82,6 @@ describe(`notUTF8`, () =>
 	// @ts-ignore
 	it(`ASCII 字串回傳 null`, function (t: test.TestContext)
 	{
-		t.assert.strictEqual(notUTF8('hello world'), null);
+		t.assert.strictEqual(notUTF8(ASCII_STR), null);
 	});
 });

@@ -1,3 +1,7 @@
+exports[`detectEncoding > ASCII detectEncoding 1`] = `
+"ascii"
+`;
+
 exports[`detectEncoding > BIG5 detectEncoding 1`] = `
 "big5"
 `;
@@ -16,6 +20,10 @@ exports[`detectEncoding > GBK detectEncoding 1`] = `
 
 exports[`detectEncoding > SJIS detectEncoding 1`] = `
 "shiftjis"
+`;
+
+exports[`detectEncoding > UTF8 detectEncoding 1`] = `
+"utf8"
 `;
 
 exports[`notUTF8Buffer > BIG5 notUTF8Buffer 1`] = `

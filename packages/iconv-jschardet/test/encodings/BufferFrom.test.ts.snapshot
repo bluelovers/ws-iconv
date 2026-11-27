@@ -1,3 +1,21 @@
+exports[`BufferFrom > ASCII BufferFrom buf utf8 1`] = `
+[
+  "72 101 108 108 111 87 111 114 108 100 48 49 50 51 52 53"
+]
+`;
+
+exports[`BufferFrom > ASCII BufferFrom str ascii 1`] = `
+[
+  "72 101 108 108 111 87 111 114 108 100 48 49 50 51 52 53"
+]
+`;
+
+exports[`BufferFrom > ASCII BufferFrom str utf8 1`] = `
+[
+  "72 101 108 108 111 87 111 114 108 100 48 49 50 51 52 53"
+]
+`;
+
 exports[`BufferFrom > BIG5 BufferFrom buf utf8 1`] = `
 [
   "230 172 161 229 184 184 231 148 168 229 156 139 229 173 151 230"
@@ -85,5 +103,23 @@ exports[`BufferFrom > SJIS BufferFrom str shift_jis 1`] = `
 exports[`BufferFrom > SJIS BufferFrom str utf8 1`] = `
 [
   "230 151 165 230 156 172 232 170 158 227 129 174 227 131 134 227"
+]
+`;
+
+exports[`BufferFrom > UTF8 BufferFrom buf utf8 1`] = `
+[
+  "230 172 161 229 184 184 231 148 168 229 156 139 229 173 151 230"
+]
+`;
+
+exports[`BufferFrom > UTF8 BufferFrom str utf8 1`] = `
+[
+  "230 172 161 229 184 184 231 148 168 229 156 139 229 173 151 230"
+]
+`;
+
+exports[`BufferFrom > UTF8 BufferFrom str utf8 2`] = `
+[
+  "230 172 161 229 184 184 231 148 168 229 156 139 229 173 151 230"
 ]
 `;

@@ -1,3 +1,35 @@
+exports[`decode > ASCII decode buf 1`] = `
+{
+  "type": "Buffer",
+  "data": [
+    72,
+    101,
+    108,
+    108,
+    111,
+    87,
+    111,
+    114,
+    108,
+    100,
+    48,
+    49,
+    50,
+    51,
+    52,
+    53,
+    54,
+    55,
+    56,
+    57
+  ]
+}
+`;
+
+exports[`decode > ASCII decode str 1`] = `
+"HelloWorld0123456789"
+`;
+
 exports[`decode > BIG5 decode buf 1`] = `
 "次常用國字標準字體表"
 `;
@@ -36,4 +68,46 @@ exports[`decode > SJIS decode buf 1`] = `
 
 exports[`decode > SJIS decode str 1`] = `
 "日本語のテスト文"
+`;
+
+exports[`decode > UTF8 decode buf 1`] = `
+{
+  "type": "Buffer",
+  "data": [
+    230,
+    172,
+    161,
+    229,
+    184,
+    184,
+    231,
+    148,
+    168,
+    229,
+    156,
+    139,
+    229,
+    173,
+    151,
+    230,
+    168,
+    153,
+    230,
+    186,
+    150,
+    229,
+    173,
+    151,
+    233,
+    171,
+    148,
+    232,
+    161,
+    168
+  ]
+}
+`;
+
+exports[`decode > UTF8 decode str 1`] = `
+"次常用國字標準字體表"
 `;

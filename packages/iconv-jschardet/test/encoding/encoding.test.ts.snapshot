@@ -1,15 +1,3 @@
-exports[`codec_data > UTF-8 與 ASCII 1`] = `
-{
-  "utf8": {
-    "name": "UTF-8",
-    "key": "utf8",
-    "id": "utf8",
-    "input": "utf8"
-  },
-  "ascii": null
-}
-`;
-
 exports[`codec_data > 樣本編碼 1`] = `
 {
   "big5": {
@@ -42,7 +30,14 @@ exports[`codec_data > 樣本編碼 1`] = `
     "input": "euc-kr",
     "error": true,
     "not": false
-  }
+  },
+  "utf8": {
+    "name": "UTF-8",
+    "key": "utf8",
+    "id": "utf8",
+    "input": "utf8"
+  },
+  "ascii": null
 }
 `;
 
