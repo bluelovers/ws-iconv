@@ -1,3 +1,5 @@
+/// <reference types="node" />
+import { describe, test } from 'node:test';
 import { relative } from '../';
 
 describe(`drive`, () =>
@@ -15,12 +17,12 @@ describe(`drive`, () =>
 	list.forEach(target =>
 	{
 
-		test(target, () =>
+		test(target, (t: test.TestContext) =>
 		{
 
-			expect(relative(list[0], target)).toStrictEqual('');
+			t.assert.deepStrictEqual(relative(list[0], target), '');
 
-			expect(relative(list[0], target + 'kk')).not.toStrictEqual('');
+			t.assert.notDeepStrictEqual(relative(list[0], target + 'kk'), '');
 
 		})
 
@@ -28,13 +30,13 @@ describe(`drive`, () =>
 
 })
 
-test(`__dirname`, () =>
+test(`__dirname`, (t: test.TestContext) =>
 {
 
-	expect(relative(__dirname, __dirname)).toStrictEqual('');
+	t.assert.deepStrictEqual(relative(__dirname, __dirname), '');
 
-	expect(relative(__dirname, __dirname + '/')).toStrictEqual('');
+	t.assert.deepStrictEqual(relative(__dirname, __dirname + '/'), '');
 
-	expect(relative(__dirname, __dirname + '\\')).toStrictEqual('');
+	t.assert.deepStrictEqual(relative(__dirname, __dirname + '\\'), '');
 
 })

@@ -1,24 +1,32 @@
+/// <reference types="node" />
+import { test } from 'node:test';
 import { basename, extname } from 'path';
 import { fsStat, fsStatSync } from '../index';
 
-test(`fsStatSync:no-exists`, () =>
+test(`fsStatSync:no-exists`, (t: test.TestContext) =>
 {
 
-	expect(fsStatSync('./no-exists.js')).toBeUndefined();
+	t.assert.strictEqual(fsStatSync('./no-exists.js'), undefined);
 
-	expect(() => fsStatSync('./no-exists.js', {
+	t.assert.throws(() => fsStatSync('./no-exists.js', {
 		throwIfNoEntry: true,
-	})).toThrowErrorMatchingSnapshot()
+	}), (err) => {
+		t.assert.snapshot(`${err.name}: ${err.message}`);
+		return true;
+	});
 
 });
 
-test(`fsStat:no-exists`, () =>
+test(`fsStat:no-exists`, async (t: test.TestContext) =>
 {
 
-	expect(fsStat('./no-exists.js')).resolves.toBeUndefined()
+	t.assert.strictEqual(await fsStat('./no-exists.js'), undefined)
 
-	expect(fsStat('./no-exists.js', {
+	await t.assert.rejects(fsStat('./no-exists.js', {
 		throwIfNoEntry: true,
-	})).rejects.toThrowErrorMatchingSnapshot()
+	}), (err) => {
+		t.assert.snapshot(`${err.name}: ${err.message}`);
+		return true;
+	});
 
 });

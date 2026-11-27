@@ -1,0 +1,157 @@
+exports[`splitBufferByBuffer 1`] = `
+[
+  "0\\n",
+  "1\\n",
+  "2\\n",
+  "3\\n",
+  "4\\n",
+  "5\\n",
+  "6\\n",
+  "7\\n",
+  "8\\n",
+  "9"
+]
+`;
+
+exports[`splitBufferByBuffer 2`] = `
+"0\\n1\\n2\\n3\\n4\\n5\\n6\\n7\\n8\\n9"
+`;
+
+exports[`splitBufferByBuffer 3`] = `
+[
+  {
+    "type": "Buffer",
+    "data": [
+      48,
+      10
+    ]
+  },
+  {
+    "type": "Buffer",
+    "data": [
+      49,
+      10
+    ]
+  },
+  {
+    "type": "Buffer",
+    "data": [
+      50,
+      10
+    ]
+  },
+  {
+    "type": "Buffer",
+    "data": [
+      51,
+      10
+    ]
+  },
+  {
+    "type": "Buffer",
+    "data": [
+      52,
+      10
+    ]
+  },
+  {
+    "type": "Buffer",
+    "data": [
+      53,
+      10
+    ]
+  },
+  {
+    "type": "Buffer",
+    "data": [
+      54,
+      10
+    ]
+  },
+  {
+    "type": "Buffer",
+    "data": [
+      55,
+      10
+    ]
+  },
+  {
+    "type": "Buffer",
+    "data": [
+      56,
+      10
+    ]
+  },
+  {
+    "type": "Buffer",
+    "data": [
+      57
+    ]
+  }
+]
+`;
+
+exports[`splitBufferByBuffer 4`] = `
+[
+  {
+    "type": "Buffer",
+    "data": [
+      48
+    ]
+  },
+  {
+    "type": "Buffer",
+    "data": [
+      49
+    ]
+  },
+  {
+    "type": "Buffer",
+    "data": [
+      50
+    ]
+  },
+  {
+    "type": "Buffer",
+    "data": [
+      51
+    ]
+  },
+  {
+    "type": "Buffer",
+    "data": [
+      52
+    ]
+  },
+  {
+    "type": "Buffer",
+    "data": [
+      53
+    ]
+  },
+  {
+    "type": "Buffer",
+    "data": [
+      54
+    ]
+  },
+  {
+    "type": "Buffer",
+    "data": [
+      55
+    ]
+  },
+  {
+    "type": "Buffer",
+    "data": [
+      56
+    ]
+  },
+  {
+    "type": "Buffer",
+    "data": [
+      57
+    ]
+  }
+]
+`;

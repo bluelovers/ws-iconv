@@ -1,21 +1,23 @@
+/// <reference types="node" />
+import { test } from 'node:test';
 import iconvLite from 'iconv-lite';
 
-test(`iconvLite`, () =>
+test(`iconvLite`, (t: test.TestContext) =>
 {
 
-	expect(iconvLite).toMatchSnapshot();
+	t.assert.snapshot(iconvLite);
 
 });
 
-test(`getCodec`, () =>
+test(`getCodec`, (t: test.TestContext) =>
 {
 
 	let actual;
 	let expected;
 
-	expect(iconvLite).toHaveProperty('getCodec');
+	t.assert.ok('getCodec' in iconvLite);
 
 	// @ts-ignore
-	expect(typeof iconvLite.getCodec).toStrictEqual('function');
+	t.assert.deepStrictEqual(typeof iconvLite.getCodec, 'function');
 
 });

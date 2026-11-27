@@ -1,0 +1,41 @@
+exports[`normalize > (unbind) normalize > '//windows\\\\unix/mixed' 1`] = `
+{
+  "upath2": "\\\\\\\\windows\\\\unix\\\\mixed"
+}
+`;
+
+exports[`normalize > (unbind) normalize > '\\\\\\\\storageserver01\\\\Active Projects\\\\ProjectA' 1`] = `
+{
+  "upath2": "\\\\\\\\storageserver01\\\\Active Projects\\\\ProjectA"
+}
+`;
+
+exports[`normalize > (unbind) normalize > '\\\\windows//unix/mixed' 1`] = `
+{
+  "upath2": "/windows/unix/mixed"
+}
+`;
+
+exports[`normalize > normalize > '//windows\\\\unix/mixed' 1`] = `
+{
+  "upath2": "\\\\\\\\windows\\\\unix\\\\mixed",
+  "upath": "//windows/unix/mixed",
+  "path": "\\\\\\\\windows\\\\unix\\\\mixed"
+}
+`;
+
+exports[`normalize > normalize > '\\\\\\\\storageserver01\\\\Active Projects\\\\ProjectA' 1`] = `
+{
+  "upath2": "\\\\\\\\storageserver01\\\\Active Projects\\\\ProjectA",
+  "upath": "//storageserver01/Active Projects/ProjectA",
+  "path": "\\\\\\\\storageserver01\\\\Active Projects\\\\ProjectA"
+}
+`;
+
+exports[`normalize > normalize > '\\\\windows//unix/mixed' 1`] = `
+{
+  "upath2": "/windows/unix/mixed",
+  "upath": "/windows/unix/mixed",
+  "path": "\\\\windows\\\\unix\\\\mixed"
+}
+`;

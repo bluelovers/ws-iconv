@@ -1,7 +1,9 @@
+/// <reference types="node" />
+import { test } from 'node:test';
 import upath from '../core';
 import path from 'path';
 
-test(`normalize`, () =>
+test(`normalize`, (t: test.TestContext) =>
 {
 	[
 		'c:/',
@@ -17,14 +19,14 @@ test(`normalize`, () =>
 			b,
 		})
 
-		expect(a).toStrictEqual(b)
+		t.assert.deepStrictEqual(a, b)
 
 		return a
 	})
 
 });
 
-test(`dirname`, () =>
+test(`dirname`, (t: test.TestContext) =>
 {
 	[
 		'c:/',
@@ -40,7 +42,7 @@ test(`dirname`, () =>
 			b,
 		})
 
-		expect(b).toStrictEqual(a)
+		t.assert.deepStrictEqual(b, a)
 
 		return a
 	})

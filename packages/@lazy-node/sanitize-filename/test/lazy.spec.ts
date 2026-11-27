@@ -1,3 +1,5 @@
+/// <reference types="node" />
+import { describe, test } from 'node:test';
 import { inspect } from 'util';
 import sanitizeFilename from '../index';
 import getRandomString from 'get-random-string';
@@ -22,11 +24,11 @@ describe(`describe`, () =>
 		'\uD800\uDC00' + 'a'.repeat(253),
 	].forEach(input =>
 	{
-		test(inspect(input), () =>
+		test(inspect(input), (t: test.TestContext) =>
 		{
 			let actual = sanitizeFilename(input);
 
-			expect(actual).toMatchSnapshot();
+			t.assert.snapshot(actual);
 
 			console.log(inspect(input) , '=>', inspect(actual))
 		})
@@ -57,13 +59,13 @@ describe(`random`, () =>
 		]
 	}).flat().forEach(input =>
 	{
-		test(inspect(input), () =>
+		test(inspect(input), (t: test.TestContext) =>
 		{
 			let actual = sanitizeFilename(input);
 
 			console.log(inspect(input) , '=>', inspect(actual))
 
-			expect(actual.length > 0).toBeTruthy()
+			t.assert.ok(actual.length > 0)
 		})
 	});
 

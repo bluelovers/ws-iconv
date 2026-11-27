@@ -1,12 +1,13 @@
+/// <reference types="node" />
+import { test } from 'node:test';
 import { stringifyJSON } from '../index';
 
-test(`stringify`, () =>
+test(`stringify`, (t: test.TestContext) =>
 {
 
 	let actual = stringifyJSON({});
 
-	expect(actual).toMatch(/\n$/);
-	expect(actual).toMatchSnapshot();
+	t.assert.match(actual, /\n$/);
+	t.assert.snapshot(actual);
 
 });
-

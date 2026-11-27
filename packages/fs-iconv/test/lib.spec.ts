@@ -1,3 +1,5 @@
+/// <reference types="node" />
+import { describe, it, test } from 'node:test';
 import * as self from '../';
 import selfDefault from '../';
 import iconv from 'iconv-jschardet';
@@ -10,29 +12,29 @@ describe(`fs-extra`, () =>
 	Object
 		.entries(_fs)
 		.forEach(([k, v]) => {
-			it(k, () => {
-				expect(typeof self[k]).toStrictEqual(typeof _fs[k])
-				expect(typeof selfDefault[k]).toStrictEqual(typeof _fs[k])
+			it(k, (t: test.TestContext) => {
+				t.assert.deepStrictEqual(typeof self[k], typeof _fs[k])
+				t.assert.deepStrictEqual(typeof selfDefault[k], typeof _fs[k])
 			})
 		})
 	;
 
 })
 
-it(`trimFilename`, () => {
+it(`trimFilename`, (t: test.TestContext) => {
 	const k = `trimFilename` as const;
 
-	expect(typeof self.trimFilename).toStrictEqual('function')
+	t.assert.deepStrictEqual(typeof self.trimFilename, 'function')
 
-	expect(self[k]).toStrictEqual(trimFilename)
-	expect(selfDefault[k]).toStrictEqual(trimFilename)
+	t.assert.deepStrictEqual(self[k], trimFilename)
+	t.assert.deepStrictEqual(selfDefault[k], trimFilename)
 })
 
-it(`iconv`, () => {
+it(`iconv`, (t: test.TestContext) => {
 	const k = `iconv` as const;
 
-	expect(self[k]).toStrictEqual(iconv)
-	expect(selfDefault[k]).toStrictEqual(iconv)
+	t.assert.deepStrictEqual(self[k], iconv)
+	t.assert.deepStrictEqual(selfDefault[k], iconv)
 })
 
 /*

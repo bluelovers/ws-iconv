@@ -1,9 +1,11 @@
+/// <reference types="node" />
+import { test } from 'node:test';
 import pathParents from '../';
 
-test('dirname', function ()
+test('dirname', function (t: test.TestContext)
 {
 	let dirs = pathParents('/foo/bar/baz/quux');
-	expect(dirs).toStrictEqual([
+	t.assert.deepStrictEqual(dirs, [
 		'/foo/bar/baz',
 		'/foo/bar',
 		'/foo',
@@ -11,8 +13,8 @@ test('dirname', function ()
 	]);
 });
 
-test('root', function ()
+test('root', function (t: test.TestContext)
 {
 	let dirs = pathParents('/');
-	expect(dirs).toStrictEqual([]);
+	t.assert.deepStrictEqual(dirs, []);
 });

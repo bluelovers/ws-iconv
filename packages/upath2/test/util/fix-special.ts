@@ -1,3 +1,5 @@
+/// <reference types="node" />
+import { describe, test } from 'node:test';
 import { IPathNode } from '../../lib/type';
 
 export function _fix_special(path: IPathNode)
@@ -13,15 +15,15 @@ export function _fix_special(path: IPathNode)
 		] as const).forEach(fn =>
 		{
 
-			test(fn, () =>
+			test(fn, (t: test.TestContext) =>
 			{
 
-				expect(path[fn]('c:')).toMatchSnapshot();
-				expect(path[fn]('c:/')).toMatchSnapshot();
-				expect(path[fn]('c:\\')).toMatchSnapshot();
-				expect(path[fn]('c:.')).toMatchSnapshot();
-				expect(path[fn]('c:./')).toMatchSnapshot();
-				expect(path[fn]('c:.\\')).toMatchSnapshot();
+				t.assert.snapshot(path[fn]('c:'));
+				t.assert.snapshot(path[fn]('c:/'));
+				t.assert.snapshot(path[fn]('c:\\'));
+				t.assert.snapshot(path[fn]('c:.'));
+				t.assert.snapshot(path[fn]('c:./'));
+				t.assert.snapshot(path[fn]('c:.\\'));
 
 			});
 
@@ -33,15 +35,15 @@ export function _fix_special(path: IPathNode)
 		] as const).forEach(fn =>
 		{
 
-			test(fn, () =>
+			test(fn, (t: test.TestContext) =>
 			{
 
-				expect(path[fn]('c:', 'kk')).toMatchSnapshot();
-				expect(path[fn]('c:/', 'kk')).toMatchSnapshot();
-				expect(path[fn]('c:\\', 'kk')).toMatchSnapshot();
-				expect(path[fn]('c:.', 'kk')).toMatchSnapshot();
-				expect(path[fn]('c:./', 'kk')).toMatchSnapshot();
-				expect(path[fn]('c:.\\', 'kk')).toMatchSnapshot();
+				t.assert.snapshot(path[fn]('c:', 'kk'));
+				t.assert.snapshot(path[fn]('c:/', 'kk'));
+				t.assert.snapshot(path[fn]('c:\\', 'kk'));
+				t.assert.snapshot(path[fn]('c:.', 'kk'));
+				t.assert.snapshot(path[fn]('c:./', 'kk'));
+				t.assert.snapshot(path[fn]('c:.\\', 'kk'));
 
 			});
 

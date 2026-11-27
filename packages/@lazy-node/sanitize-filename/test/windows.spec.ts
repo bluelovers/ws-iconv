@@ -1,3 +1,5 @@
+/// <reference types="node" />
+import { describe, test } from 'node:test';
 import { inspect } from 'util';
 import sanitizeFilename from '../index';
 
@@ -13,11 +15,11 @@ describe(`describe`, () =>
 		"LPT10.txt",
 	].forEach(input =>
 	{
-		test(inspect(input), () =>
+		test(inspect(input), (t: test.TestContext) =>
 		{
 			let actual = sanitizeFilename(input);
 
-			expect(actual).toMatchSnapshot();
+			t.assert.snapshot(actual);
 
 			console.log(inspect(input) , '=>', inspect(actual))
 		})

@@ -1,3 +1,5 @@
+/// <reference types="node" />
+import { describe, test } from 'node:test';
 import pathStripSep from '../index';
 
 describe(`no change`, () =>
@@ -13,13 +15,13 @@ describe(`no change`, () =>
 	].forEach(input =>
 	{
 
-		test(input, () =>
+		test(input, (t: test.TestContext) =>
 		{
 
 			let actual = pathStripSep(input);
 			let expected = input;
 
-			expect(actual).toStrictEqual(expected);
+			t.assert.deepStrictEqual(actual, expected);
 
 		});
 
@@ -27,47 +29,47 @@ describe(`no change`, () =>
 
 })
 
-test(`__dirname`, () =>
+test(`__dirname`, (t: test.TestContext) =>
 {
 
 	let actual = pathStripSep(__dirname + '/');
 	let expected = __dirname;
 
-	expect(actual).toStrictEqual(expected);
+	t.assert.deepStrictEqual(actual, expected);
 
 	actual = pathStripSep(__dirname + '\\');
 	expected = __dirname;
 
-	expect(actual).toStrictEqual(expected);
+	t.assert.deepStrictEqual(actual, expected);
 
 	actual = pathStripSep(__dirname + '\\\\');
 	expected = __dirname;
 
-	expect(actual).toStrictEqual(expected);
+	t.assert.deepStrictEqual(actual, expected);
 
 	actual = pathStripSep(__dirname + '\\\\\\');
 	expected = __dirname;
 
-	expect(actual).toStrictEqual(expected);
+	t.assert.deepStrictEqual(actual, expected);
 
 });
 
-test(`/ x 3`, () =>
+test(`/ x 3`, (t: test.TestContext) =>
 {
 
 	let actual = pathStripSep('///');
 	let expected = '/';
 
-	expect(actual).toStrictEqual(expected);
+	t.assert.deepStrictEqual(actual, expected);
 
 });
 
-test(`\\ x 3`, () =>
+test(`\\ x 3`, (t: test.TestContext) =>
 {
 
 	let actual = pathStripSep('\\\\\\');
 	let expected = '\\';
 
-	expect(actual).toStrictEqual(expected);
+	t.assert.deepStrictEqual(actual, expected);
 
 });

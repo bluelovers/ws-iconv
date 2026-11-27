@@ -1,3 +1,5 @@
+/// <reference types="node" />
+import { describe, test } from 'node:test';
 import {
 	makeRePathSepSlash,
 	rePathSepSlashAll,
@@ -9,172 +11,172 @@ import {
 
 describe('makeRePathSepSlash', () =>
 {
-	test('default options', () =>
+	test('default options', (t: test.TestContext) =>
 	{
 		const re = makeRePathSepSlash();
-		expect(re).toBeInstanceOf(RegExp);
-		expect(re.source).toBe('[/\\\\]');
-		expect(re.flags).toBe('');
+		t.assert.ok(re instanceof RegExp);
+		t.assert.strictEqual(re.source, '[/\\\\]');
+		t.assert.strictEqual(re.flags, '');
 	});
 
-	test('with win32 sep', () =>
+	test('with win32 sep', (t: test.TestContext) =>
 	{
 		const re = makeRePathSepSlash({ sep: EnumPathSep.win32 });
-		expect(re.source).toBe(/\\/.source);
-		expect('\\').toMatch(re);
+		t.assert.strictEqual(re.source, /\\/.source);
+		t.assert.match('\\', re);
 	});
 
-	test('with posix sep', () =>
+	test('with posix sep', (t: test.TestContext) =>
 	{
 		const re = makeRePathSepSlash({ sep: EnumPathSep.posix });
-		expect(re.source).toBe(/\//.source);
-		expect('/').toMatch(re);
+		t.assert.strictEqual(re.source, /\//.source);
+		t.assert.match('/', re);
 	});
 
-	test('with all option true', () =>
+	test('with all option true', (t: test.TestContext) =>
 	{
 		const re = makeRePathSepSlash({ all: true });
-		expect(re.source).toBe('[/\\\\]');
+		t.assert.strictEqual(re.source, '[/\\\\]');
 	});
 
-	test('with global flag', () =>
+	test('with global flag', (t: test.TestContext) =>
 	{
 		const re = makeRePathSepSlash({ global: true });
-		expect(re.flags).toBe('g');
+		t.assert.strictEqual(re.flags, 'g');
 	});
 
-	test('with match option', () =>
+	test('with match option', (t: test.TestContext) =>
 	{
 		const re = makeRePathSepSlash({ match: true });
-		expect(re.source).toBe('([/\\\\])');
+		t.assert.strictEqual(re.source, '([/\\\\])');
 	});
 
-	test('with matchFull option', () =>
+	test('with matchFull option', (t: test.TestContext) =>
 	{
 		const re = makeRePathSepSlash({ matchFull: true });
-		expect(re.source).toBe('^[/\\\\]$');
+		t.assert.strictEqual(re.source, '^[/\\\\]$');
 	});
 
-	test('with repeat option positive', () =>
+	test('with repeat option positive', (t: test.TestContext) =>
 	{
 		const re = makeRePathSepSlash({ repeat: 2 });
-		expect(re.source).toBe('[/\\\\]{2}');
+		t.assert.strictEqual(re.source, '[/\\\\]{2}');
 	});
 
-	test('with repeat option negative', () =>
+	test('with repeat option negative', (t: test.TestContext) =>
 	{
 		const re = makeRePathSepSlash({ repeat: -1 });
-		expect(re.source).toBe('[/\\\\]+');
+		t.assert.strictEqual(re.source, '[/\\\\]+');
 	});
 
-	test('combining options', () =>
+	test('combining options', (t: test.TestContext) =>
 	{
 		const re = makeRePathSepSlash({
 			match: true,
 			global: true,
 			repeat: 1,
 		});
-		expect(re.source).toBe('([/\\\\]{1})');
-		expect(re.flags).toBe('g');
+		t.assert.strictEqual(re.source, '([/\\\\]{1})');
+		t.assert.strictEqual(re.flags, 'g');
 	});
 
-	test('regex matches forward slash', () =>
+	test('regex matches forward slash', (t: test.TestContext) =>
 	{
 		const re = makeRePathSepSlash({ global: true });
-		expect('/path/to/file'.replace(re, '-')).toBe('-path-to-file');
+		t.assert.strictEqual('/path/to/file'.replace(re, '-'), '-path-to-file');
 	});
 
-	test('regex matches backslash', () =>
+	test('regex matches backslash', (t: test.TestContext) =>
 	{
 		const re = makeRePathSepSlash({ global: true });
-		expect('\\path\\to\\file'.replace(re, '-')).toBe('-path-to-file');
+		t.assert.strictEqual('\\path\\to\\file'.replace(re, '-'), '-path-to-file');
 	});
 
-	test('regex matches mixed separators', () =>
+	test('regex matches mixed separators', (t: test.TestContext) =>
 	{
 		const re = makeRePathSepSlash({ global: true });
-		expect('/path\\to/file'.replace(re, '-')).toBe('-path-to-file');
+		t.assert.strictEqual('/path\\to/file'.replace(re, '-'), '-path-to-file');
 	});
 });
 
 describe('rePathSepSlashAll', () =>
 {
-	test('is a RegExp', () =>
+	test('is a RegExp', (t: test.TestContext) =>
 	{
-		expect(rePathSepSlashAll).toBeInstanceOf(RegExp);
+		t.assert.ok(rePathSepSlashAll instanceof RegExp);
 	});
 
-	test('matches forward slash', () =>
+	test('matches forward slash', (t: test.TestContext) =>
 	{
-		expect(rePathSepSlashAll.test('/')).toBe(true);
+		t.assert.strictEqual(rePathSepSlashAll.test('/'), true);
 	});
 
-	test('matches backslash', () =>
+	test('matches backslash', (t: test.TestContext) =>
 	{
-		expect(rePathSepSlashAll.test('\\')).toBe(true);
+		t.assert.strictEqual(rePathSepSlashAll.test('\\'), true);
 	});
 
-	test('replaces first path separator only (no global flag)', () =>
+	test('replaces first path separator only (no global flag)', (t: test.TestContext) =>
 	{
 		const result = 'path/to\\file'.replace(rePathSepSlashAll, '-');
 		// rePathSepSlashAll doesn't have global flag, so only first match is replaced
-		expect(result).toBe('path-to\\file');
+		t.assert.strictEqual(result, 'path-to\\file');
 	});
 
-	test('replaces all with global flag', () =>
+	test('replaces all with global flag', (t: test.TestContext) =>
 	{
 		const re = makeRePathSepSlash({ global: true });
 		const result = 'path/to\\file'.replace(re, '-');
-		expect(result).toBe('path-to-file');
+		t.assert.strictEqual(result, 'path-to-file');
 	});
 });
 
 describe('EnumPathSep', () =>
 {
-	test('win32 separator', () =>
+	test('win32 separator', (t: test.TestContext) =>
 	{
-		expect(EnumPathSep.win32).toBe('\\');
-		expect(EnumPathSep.backslash).toBe('\\');
+		t.assert.strictEqual(EnumPathSep.win32, '\\');
+		t.assert.strictEqual(EnumPathSep.backslash, '\\');
 	});
 
-	test('posix separator', () =>
+	test('posix separator', (t: test.TestContext) =>
 	{
-		expect(EnumPathSep.posix).toBe('/');
-		expect(EnumPathSep.forwardslash).toBe('/');
-		expect(EnumPathSep.slash).toBe('/');
+		t.assert.strictEqual(EnumPathSep.posix, '/');
+		t.assert.strictEqual(EnumPathSep.forwardslash, '/');
+		t.assert.strictEqual(EnumPathSep.slash, '/');
 	});
 });
 
 describe('EnumPathDelimiter', () =>
 {
-	test('win32 delimiter', () =>
+	test('win32 delimiter', (t: test.TestContext) =>
 	{
-		expect(EnumPathDelimiter.win32).toBe(';');
+		t.assert.strictEqual(EnumPathDelimiter.win32, ';');
 	});
 
-	test('posix delimiter', () =>
+	test('posix delimiter', (t: test.TestContext) =>
 	{
-		expect(EnumPathDelimiter.posix).toBe(':');
+		t.assert.strictEqual(EnumPathDelimiter.posix, ':');
 	});
 });
 
 describe('EnumPathPlatformOrigin', () =>
 {
-	test('win32 platform', () =>
+	test('win32 platform', (t: test.TestContext) =>
 	{
-		expect(EnumPathPlatformOrigin.win32).toBe('win32');
+		t.assert.strictEqual(EnumPathPlatformOrigin.win32, 'win32');
 	});
 
-	test('posix platform', () =>
+	test('posix platform', (t: test.TestContext) =>
 	{
-		expect(EnumPathPlatformOrigin.posix).toBe('posix');
+		t.assert.strictEqual(EnumPathPlatformOrigin.posix, 'posix');
 	});
 });
 
 describe('ORIGIN_KEY', () =>
 {
-	test('is a symbol', () =>
+	test('is a symbol', (t: test.TestContext) =>
 	{
-		expect(typeof ORIGIN_KEY).toBe('symbol');
+		t.assert.strictEqual(typeof ORIGIN_KEY, 'symbol');
 	});
 });

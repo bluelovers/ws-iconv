@@ -1,0 +1,96 @@
+exports[`iconv > encode big5 1`] = `
+{
+  "encoding": "Big5",
+  "confidence": 0.0786048765162851,
+  "language": "zh",
+  "mimeType": "text/plain",
+  "name": "Big5"
+}
+`;
+
+exports[`iconv > encode big5 2`] = `
+{
+  "type": "Buffer",
+  "data": [
+    166,
+    184,
+    177,
+    96,
+    165,
+    206,
+    176,
+    234,
+    166,
+    114,
+    188,
+    208,
+    183,
+    199,
+    166,
+    114,
+    197,
+    233,
+    170,
+    237
+  ]
+}
+`;
+
+exports[`iconv > encode big5 3`] = `
+{
+  "encoding": "Big5",
+  "confidence": 0.0786048765162851,
+  "language": "zh",
+  "mimeType": "text/plain",
+  "name": "Big5",
+  "id": "big5"
+}
+`;
+
+exports[`iconv > encode big5 4`] = `
+{
+  "type": "Buffer",
+  "data": [
+    166,
+    184,
+    177,
+    96,
+    165,
+    206,
+    176,
+    234,
+    166,
+    114,
+    188,
+    208,
+    183,
+    199,
+    166,
+    114,
+    197,
+    233,
+    170,
+    237
+  ]
+}
+`;
+
+exports[`init > BIG5_BUF 1`] = `
+{
+  "encoding": "Big5",
+  "confidence": 0.0786048765162851,
+  "language": "zh",
+  "mimeType": "text/plain",
+  "name": "Big5"
+}
+`;
+
+exports[`init > BIG5_STR 1`] = `
+{
+  "encoding": "Big5",
+  "confidence": 0.0786048765162851,
+  "language": "zh",
+  "mimeType": "text/plain",
+  "name": "Big5"
+}
+`;

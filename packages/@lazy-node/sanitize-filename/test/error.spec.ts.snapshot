@@ -1,0 +1,103 @@
+exports[`throw > '' 1`] = `
+"RangeError: Invalid filename: {'' => ''} length 0 => 0"
+`;
+
+exports[`throw > '' 2`] = `
+"RangeError: Invalid filename: {'' => ''} length 0 => 0"
+`;
+
+exports[`throw > '' 3`] = `
+"RangeError: Invalid filename: {'' => ''} length 0 => 0"
+`;
+
+exports[`throw > '.' 1`] = `
+"RangeError: Invalid filename: {'.' => ''} length 1 => 0"
+`;
+
+exports[`throw > '.' 2`] = `
+"RangeError: Invalid filename: {'.' => ''} length 1 => 0"
+`;
+
+exports[`throw > '..' 1`] = `
+"RangeError: Invalid filename: {'..' => ''} length 2 => 0"
+`;
+
+exports[`throw > '..' 2`] = `
+"RangeError: Invalid filename: {'..' => ''} length 2 => 0"
+`;
+
+exports[`throw > '../' 1`] = `
+"RangeError: Invalid filename: {'../' => ''} length 3 => 0"
+`;
+
+exports[`throw > '../' 2`] = `
+"RangeError: Invalid filename: {'../' => ''} length 3 => 0"
+`;
+
+exports[`throw > './' 1`] = `
+"RangeError: Invalid filename: {'./' => ''} length 2 => 0"
+`;
+
+exports[`throw > './' 2`] = `
+"RangeError: Invalid filename: {'./' => ''} length 2 => 0"
+`;
+
+exports[`throw > false 1`] = `
+"TypeError: str.replace is not a function"
+`;
+
+exports[`throw > false 2`] = `
+"TypeError: str.replace is not a function"
+`;
+
+exports[`throw > false 3`] = `
+"TypeError: str.replace is not a function"
+`;
+
+exports[`throw > null 1`] = `
+"TypeError: Cannot read properties of null (reading 'replace')"
+`;
+
+exports[`throw > null 2`] = `
+"TypeError: Cannot read properties of null (reading 'replace')"
+`;
+
+exports[`throw > null 3`] = `
+"TypeError: Cannot read properties of null (reading 'replace')"
+`;
+
+exports[`throw > true 1`] = `
+"TypeError: str.replace is not a function"
+`;
+
+exports[`throw > true 2`] = `
+"TypeError: str.replace is not a function"
+`;
+
+exports[`throw > true 3`] = `
+"TypeError: str.replace is not a function"
+`;
+
+exports[`throw > undefined 1`] = `
+"TypeError: Cannot read properties of undefined (reading 'replace')"
+`;
+
+exports[`throw > undefined 2`] = `
+"TypeError: Cannot read properties of undefined (reading 'replace')"
+`;
+
+exports[`throw > undefined 3`] = `
+"TypeError: Cannot read properties of undefined (reading 'replace')"
+`;
+
+exports[`throw > {} 1`] = `
+"TypeError: str.replace is not a function"
+`;
+
+exports[`throw > {} 2`] = `
+"TypeError: str.replace is not a function"
+`;
+
+exports[`throw > {} 3`] = `
+"TypeError: str.replace is not a function"
+`;

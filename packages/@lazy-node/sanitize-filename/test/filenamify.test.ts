@@ -1,3 +1,5 @@
+/// <reference types="node" />
+import { describe, test } from 'node:test';
 import { basename } from "path";
 import sanitizeFilename from '../index';
 import { inspect } from 'util';
@@ -27,29 +29,29 @@ describe('filnamify()', () =>
 		'',
 	].forEach(input =>
 	{
-		test(inspect(input), () =>
+		test(inspect(input), (t: test.TestContext) =>
 		{
-			expect(sanitizeFilename(input)).toMatchSnapshot();
+			t.assert.snapshot(sanitizeFilename(input));
 
-			expect(sanitizeFilename(input, {replacement: '🐴🐴'})).toMatchSnapshot();
+			t.assert.snapshot(sanitizeFilename(input, {replacement: '🐴🐴'}));
 
-			expect(sanitizeFilename(input, {replacement: 'con'})).toMatchSnapshot();
+			t.assert.snapshot(sanitizeFilename(input, {replacement: 'con'}));
 
-			expect(sanitizeFilename(input, {replacement: ''})).toMatchSnapshot();
+			t.assert.snapshot(sanitizeFilename(input, {replacement: ''}));
 
-			expect(sanitizeFilename(input, {replacement: ' '})).toMatchSnapshot();
+			t.assert.snapshot(sanitizeFilename(input, {replacement: ' '}));
 		})
 	})
 });
 
-test('length', () =>
+test('length', (t: test.TestContext) =>
 {
 	// Basename length: 152
 	const filename = 'this/is/a/very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_long_filename.txt';
 
-	expect(sanitizeFilename(basename(filename)))
-		.toStrictEqual('very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_');
+	t.assert.deepStrictEqual(sanitizeFilename(basename(filename)),
+		'very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_');
 
-	expect(sanitizeFilename(basename(filename), { maxLength: 180 }))
-		.toStrictEqual('very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_long_filename.txt');
+	t.assert.deepStrictEqual(sanitizeFilename(basename(filename), { maxLength: 180 }),
+		'very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_long_filename.txt');
 });

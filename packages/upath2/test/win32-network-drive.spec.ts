@@ -1,11 +1,13 @@
+/// <reference types="node" />
+import { describe, test } from 'node:test';
 import { win32 } from '..';
 import { IPath } from '../lib/type';
 
-test('win32 network drive', function ()
+test('win32 network drive', function (t: test.TestContext)
 {
 	var dirs = win32.dirname(
 		'\\\\storageserver01\\Active Projects\\ProjectA');
-	expect(dirs).toStrictEqual('\\\\storageserver01\\Active Projects');
+	t.assert.deepStrictEqual(dirs, '\\\\storageserver01\\Active Projects');
 });
 
 describe(`win32 network drive root`, () => {
@@ -35,13 +37,13 @@ describe(`win32 network drive root`, () => {
 
 			list.forEach(source => {
 
-				test(source, function ()
+				test(source, function (t: test.TestContext)
 				{
 
 					let dirs = win32[fn](
 						source);
 
-					expect(dirs).toStrictEqual(expected);
+					t.assert.deepStrictEqual(dirs, expected);
 
 				});
 
@@ -63,13 +65,13 @@ describe(`win32 network drive root`, () => {
 		{
 			list.forEach(source => {
 
-				test(source, function ()
+				test(source, function (t: test.TestContext)
 				{
 
 					let dirs = win32[fn](
 						source, '..');
 
-					expect(dirs).toStrictEqual(expected);
+					t.assert.deepStrictEqual(dirs, expected);
 
 				});
 

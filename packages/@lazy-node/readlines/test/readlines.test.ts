@@ -1,131 +1,134 @@
+/// <reference types="node" />
+import { test } from 'node:test';
+
 'use strict';
 
 import { LineByLine } from '../src';
 
 import path from 'path';
 
-test('should get all lines', () =>
+test('should get all lines', (t: test.TestContext) =>
 {
 	const liner = new LineByLine(path.resolve(__dirname, 'fixtures/twoLineFile.txt'));
 
-	expect(liner.next().toString('ascii')).toBe('hello');
-	expect(liner.next().toString('ascii')).toBe('hello2');
-	expect(liner.next()).toBeUndefined();
-	expect(liner.next()).toBeUndefined();
-	expect(liner.fd).toBe(null);
+	t.assert.strictEqual(liner.next().toString('ascii'), 'hello');
+	t.assert.strictEqual(liner.next().toString('ascii'), 'hello2');
+	t.assert.strictEqual(liner.next(), undefined);
+	t.assert.strictEqual(liner.next(), undefined);
+	t.assert.strictEqual(liner.fd, null);
 });
 
-test('should get all lines even if the file doesnt end with new line', () =>
+test('should get all lines even if the file doesnt end with new line', (t: test.TestContext) =>
 {
 	const liner = new LineByLine(path.resolve(__dirname, 'fixtures/badEndFile.txt'));
 
-	expect(liner.next().toString('ascii')).toBe('google.com');
-	expect(liner.next().toString('ascii')).toBe('yahoo.com');
-	expect(liner.next()).toBeUndefined();
-	expect(liner.fd).toBe(null);
+	t.assert.strictEqual(liner.next().toString('ascii'), 'google.com');
+	t.assert.strictEqual(liner.next().toString('ascii'), 'yahoo.com');
+	t.assert.strictEqual(liner.next(), undefined);
+	t.assert.strictEqual(liner.fd, null);
 });
 
-test('should get all lines if there is no new lines', () =>
+test('should get all lines if there is no new lines', (t: test.TestContext) =>
 {
 	const liner = new LineByLine(path.resolve(__dirname, 'fixtures/noNewLinesFile.txt'));
 
-	expect(liner.next().toString('ascii')).toBe('no new line');
-	expect(liner.next()).toBeUndefined();
-	expect(liner.fd).toBe(null);
+	t.assert.strictEqual(liner.next().toString('ascii'), 'no new line');
+	t.assert.strictEqual(liner.next(), undefined);
+	t.assert.strictEqual(liner.fd, null);
 });
 
-test('should handle empty files', () =>
+test('should handle empty files', (t: test.TestContext) =>
 {
 	const liner = new LineByLine(path.resolve(__dirname, 'fixtures/emptyFile.txt'));
 
-	expect(liner.next()).toBeUndefined();
-	expect(liner.fd).toBe(null);
+	t.assert.strictEqual(liner.next(), undefined);
+	t.assert.strictEqual(liner.fd, null);
 });
 
-test('should read right between two chunks', () =>
+test('should read right between two chunks', (t: test.TestContext) =>
 {
 	const liner = new LineByLine(path.resolve(__dirname, 'fixtures/normalFile.txt'), {
 		readChunk: 16,
 	});
 
-	expect(liner.next().toString('ascii')).toBe('google.com');
-	expect(liner.next().toString('ascii')).toBe('yahoo.com');
-	expect(liner.next().toString('ascii')).toBe('yandex.ru');
-	expect(liner.next()).toBeUndefined();
-	expect(liner.fd).toBe(null);
+	t.assert.strictEqual(liner.next().toString('ascii'), 'google.com');
+	t.assert.strictEqual(liner.next().toString('ascii'), 'yahoo.com');
+	t.assert.strictEqual(liner.next().toString('ascii'), 'yandex.ru');
+	t.assert.strictEqual(liner.next(), undefined);
+	t.assert.strictEqual(liner.fd, null);
 });
 
-test('should read empty lines', () =>
+test('should read empty lines', (t: test.TestContext) =>
 {
 	const liner = new LineByLine(path.resolve(__dirname, 'fixtures/withEmptyLines.txt'));
 
-	expect(liner.next().toString('ascii')).toBe('hello');
-	expect(liner.next().toString('ascii')).toBe('hello4');
-	expect(liner.next().toString('ascii')).toBe('');
-	expect(liner.next().toString('ascii')).toBe('hello2');
-	expect(liner.next().toString('ascii')).toBe('hello3');
-	expect(liner.next()).toBeUndefined();
-	expect(liner.fd).toBe(null);
+	t.assert.strictEqual(liner.next().toString('ascii'), 'hello');
+	t.assert.strictEqual(liner.next().toString('ascii'), 'hello4');
+	t.assert.strictEqual(liner.next().toString('ascii'), '');
+	t.assert.strictEqual(liner.next().toString('ascii'), 'hello2');
+	t.assert.strictEqual(liner.next().toString('ascii'), 'hello3');
+	t.assert.strictEqual(liner.next(), undefined);
+	t.assert.strictEqual(liner.fd, null);
 });
 
-test('should reset and start from the beggining', () =>
+test('should reset and start from the beggining', (t: test.TestContext) =>
 {
 	const liner = new LineByLine(path.resolve(__dirname, 'fixtures/normalFile.txt'), {
 		readChunk: 16,
 	});
 
-	expect(liner.next().toString('ascii')).toBe('google.com');
-	expect(liner.next().toString('ascii')).toBe('yahoo.com');
+	t.assert.strictEqual(liner.next().toString('ascii'), 'google.com');
+	t.assert.strictEqual(liner.next().toString('ascii'), 'yahoo.com');
 
 	liner.reset()
 
-	expect(liner.next().toString('ascii')).toBe('google.com');
-	expect(liner.next().toString('ascii')).toBe('yahoo.com');
-	expect(liner.next().toString('ascii')).toBe('yandex.ru');
-	expect(liner.next()).toBeUndefined();
-	expect(liner.fd).toBe(null);
+	t.assert.strictEqual(liner.next().toString('ascii'), 'google.com');
+	t.assert.strictEqual(liner.next().toString('ascii'), 'yahoo.com');
+	t.assert.strictEqual(liner.next().toString('ascii'), 'yandex.ru');
+	t.assert.strictEqual(liner.next(), undefined);
+	t.assert.strictEqual(liner.fd, null);
 });
 
-test('should read big lines', () =>
+test('should read big lines', (t: test.TestContext) =>
 {
 	const liner = new LineByLine(path.resolve(__dirname, 'fixtures/bigLines.json'));
 
-	expect(JSON.parse(liner.next() as any)).toBeTruthy();
-	expect(JSON.parse(liner.next() as any)).toBeTruthy();
-	expect(JSON.parse(liner.next() as any)).toBeTruthy();
+	t.assert.ok(JSON.parse(liner.next() as any));
+	t.assert.ok(JSON.parse(liner.next() as any));
+	t.assert.ok(JSON.parse(liner.next() as any));
 
-	expect(liner.next()).toBeUndefined();
-	expect(liner.fd).toBe(null);
+	t.assert.strictEqual(liner.next(), undefined);
+	t.assert.strictEqual(liner.fd, null);
 });
 
-test('Non-Latin Char JSON', () =>
+test('Non-Latin Char JSON', (t: test.TestContext) =>
 {
 	const liner = new LineByLine(path.resolve(__dirname, 'fixtures/eiffel.geojson'));
 
-	expect(JSON.parse(liner.next().toString())).toBeTruthy();
+	t.assert.ok(JSON.parse(liner.next().toString()));
 
-	expect(liner.fd).toBe(null);
+	t.assert.strictEqual(liner.fd, null);
 });
 
-test('Manually Close', () =>
+test('Manually Close', (t: test.TestContext) =>
 {
 	const liner = new LineByLine(path.resolve(__dirname, 'fixtures/normalFile.txt'));
 
-	expect(liner.next().toString()).toBe('google.com');
+	t.assert.strictEqual(liner.next().toString(), 'google.com');
 
 	liner.close();
-	expect(liner.fd).toBe(null);
+	t.assert.strictEqual(liner.fd, null);
 
-	expect(liner.next()).toBeUndefined();
+	t.assert.strictEqual(liner.next(), undefined);
 });
 
-test('should correctly processes NULL character in lines', () =>
+test('should correctly processes NULL character in lines', (t: test.TestContext) =>
 {
 	const liner = new LineByLine(path.resolve(__dirname, 'fixtures/withNULL.txt'));
 
-	expect(liner.next().toString()).toBe('line without null');
-	expect(liner.next().toString()).toBe('line wi' + String.fromCharCode(0) + 'th null');
-	expect(liner.next().toString()).toBe('another line without null');
+	t.assert.strictEqual(liner.next().toString(), 'line without null');
+	t.assert.strictEqual(liner.next().toString(), 'line wi' + String.fromCharCode(0) + 'th null');
+	t.assert.strictEqual(liner.next().toString(), 'another line without null');
 
-	expect(liner.fd).toBe(null);
+	t.assert.strictEqual(liner.fd, null);
 })

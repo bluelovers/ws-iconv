@@ -3,7 +3,10 @@
   "compilerOptions": {
     "importHelpers": true,
     "moduleResolution": "bundler",
-    "rootDir": "src"
+    "rootDir": "src",
+    "types": [
+      "node"
+    ]
   },
   "exclude": [
     "dist",

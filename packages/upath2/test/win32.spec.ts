@@ -1,3 +1,5 @@
+/// <reference types="node" />
+import { describe } from 'node:test';
 import { inspect } from "util";
 import upath from "upath";
 import { win32 as path } from '../index';

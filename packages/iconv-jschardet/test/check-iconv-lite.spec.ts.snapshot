@@ -1,0 +1,9 @@
+exports[`iconvLite 1`] = `
+{
+  "encodings": null,
+  "defaultCharUnicode": "�",
+  "defaultCharSingleByte": "?",
+  "_codecDataCache": {},
+  "supportsStreams": true
+}
+`;

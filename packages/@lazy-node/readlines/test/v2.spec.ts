@@ -1,3 +1,5 @@
+/// <reference types="node" />
+import { describe, test } from 'node:test';
 import { LineByLine } from '../src/index';
 import { join } from 'path';
 import { openSync, outputFileSync } from 'fs-extra';
@@ -15,29 +17,29 @@ describe('v2', () =>
 
 	outputFileSync(file, content);
 
-	test(`content`, () =>
+	test(`content`, (t: test.TestContext) =>
 	{
-		expect(content).toMatchSnapshot();
+		t.assert.snapshot(content);
 	})
 
-	test(`prop`, () =>
+	test(`prop`, (t: test.TestContext) =>
 	{
 		const liner = new LineByLine(file, {
 			newLineCharacter,
 		});
 
-		expect(liner).toHaveProperty('file')
-		expect(liner).toHaveProperty('fd')
-		expect(liner).toHaveProperty('options')
-		expect(liner).toHaveProperty('fdPosition')
-		expect(liner).toHaveProperty('newLineCharacter')
-		expect(liner).toHaveProperty('eofReached')
-		expect(liner).toHaveProperty('lineNumber')
+		t.assert.ok('file' in liner)
+		t.assert.ok('fd' in liner)
+		t.assert.ok('options' in liner)
+		t.assert.ok('fdPosition' in liner)
+		t.assert.ok('newLineCharacter' in liner)
+		t.assert.ok('eofReached' in liner)
+		t.assert.ok('lineNumber' in liner)
 
 		liner.close();
 	})
 
-	test(`fd`, () =>
+	test(`fd`, (t: test.TestContext) =>
 	{
 
 		let fd = openSync(file, 'r');
@@ -46,13 +48,13 @@ describe('v2', () =>
 			newLineCharacter,
 		});
 
-		expect(liner).toHaveProperty('fd', fd);
-		expect(liner).toHaveProperty('file', fd);
+		t.assert.strictEqual(liner.fd, fd);
+		t.assert.strictEqual(liner.file, fd);
 
 		liner.close();
 	})
 
-	test(`lineNumber`, () =>
+	test(`lineNumber`, (t: test.TestContext) =>
 	{
 		const liner = new LineByLine(file, {
 			newLineCharacter,
@@ -62,23 +64,23 @@ describe('v2', () =>
 		let line: Buffer;
 		let lineNumber = 0;
 
-		expect(liner.lineNumber).toStrictEqual(-1);
-		expect(liner.lineNumber).toMatchSnapshot();
+		t.assert.deepStrictEqual(liner.lineNumber, -1);
+		t.assert.snapshot(liner.lineNumber);
 
 		while (line = liner.next())
 		{
-			expect(liner.lineNumber).toStrictEqual(lineNumber);
-			expect(liner.lineNumber).toMatchSnapshot();
+			t.assert.deepStrictEqual(liner.lineNumber, lineNumber);
+			t.assert.snapshot(liner.lineNumber);
 
 			lineNumber++;
 		}
 
-		expect(liner.lineNumber).toStrictEqual(totalLines - 1)
-		expect(liner.lineNumber).toMatchSnapshot();
+		t.assert.deepStrictEqual(liner.lineNumber, totalLines - 1)
+		t.assert.snapshot(liner.lineNumber);
 
 	});
 
-	test(`string`, () =>
+	test(`string`, (t: test.TestContext) =>
 	{
 		const liner = new LineByLine(file, {
 			newLineCharacter,
@@ -89,13 +91,13 @@ describe('v2', () =>
 		while (line = liner.next())
 		{
 			let s = line.toString();
-			expect(s).not.toMatch(/\r|\n/);
-			expect(s).toMatchSnapshot();
+			t.assert.doesNotMatch(s, /\r|\n/);
+			t.assert.snapshot(s);
 		}
 
 	});
 
-	test(`generator`, () =>
+	test(`generator`, (t: test.TestContext) =>
 	{
 		const liner = new LineByLine(file, {
 			newLineCharacter,
@@ -106,15 +108,15 @@ describe('v2', () =>
 		for (line of liner.generator())
 		{
 			let s = line.toString();
-			expect(s).not.toMatch(/\r|\n/);
-			expect(s).toMatchSnapshot();
+			t.assert.doesNotMatch(s, /\r|\n/);
+			t.assert.snapshot(s);
 		}
 
-		expect(liner.lineNumber).toStrictEqual(totalLines - 1)
+		t.assert.deepStrictEqual(liner.lineNumber, totalLines - 1)
 
 	});
 
-	test(`generator static`, () =>
+	test(`generator static`, (t: test.TestContext) =>
 	{
 		let line: Buffer;
 		let lineNumber = 0;
@@ -126,17 +128,17 @@ describe('v2', () =>
 		for (line of liner)
 		{
 			let s = line.toString();
-			expect(s).not.toMatch(/\r|\n/);
-			expect(s).toMatchSnapshot();
+			t.assert.doesNotMatch(s, /\r|\n/);
+			t.assert.snapshot(s);
 
 			lineNumber++;
 		}
 
-		expect(lineNumber).toStrictEqual(totalLines)
+		t.assert.deepStrictEqual(lineNumber, totalLines)
 
 	});
 
-	test(`generator static v2`, () =>
+	test(`generator static v2`, (t: test.TestContext) =>
 	{
 		let line: Buffer;
 		let lineNumber = 0;
@@ -146,15 +148,14 @@ describe('v2', () =>
 		}))
 		{
 			let s = line.toString();
-			expect(s).not.toMatch(/\r|\n/);
-			expect(s).toMatchSnapshot();
+			t.assert.doesNotMatch(s, /\r|\n/);
+			t.assert.snapshot(s);
 
 			lineNumber++;
 		}
 
-		expect(lineNumber).toStrictEqual(totalLines)
+		t.assert.deepStrictEqual(lineNumber, totalLines)
 
 	});
 
 })
-

@@ -1,3 +1,5 @@
+/// <reference types="node" />
+import { describe, test } from 'node:test';
 import upath2 from '..';
 import * as upath from 'upath';
 import * as pathNodeJs from 'path';
@@ -48,22 +50,22 @@ function _setup(name: string, path: typeof upath2)
 	})
 }
 
-test(`\\`, () => {
+test(`\\`, (t: test.TestContext) => {
 
 	let c = `\\`
 
-	expect(upath2.normalize(c)).toHaveLength(1)
+	t.assert.strictEqual(upath2.normalize(c).length, 1)
 
-	expect(upath2.dirname(c)).toHaveLength(1)
+	t.assert.strictEqual(upath2.dirname(c).length, 1)
 
 })
 
-test(`/`, () => {
+test(`/`, (t: test.TestContext) => {
 
 	let c = `/`
 
-	expect(upath2.normalize(c)).toHaveLength(1)
+	t.assert.strictEqual(upath2.normalize(c).length, 1)
 
-	expect(upath2.dirname(c)).toHaveLength(1)
+	t.assert.strictEqual(upath2.dirname(c).length, 1)
 
 })

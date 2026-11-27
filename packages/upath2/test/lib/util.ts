@@ -1,3 +1,5 @@
+/// <reference types="node" />
+import { describe, test } from 'node:test';
 import { ITestCaseRow } from "../data/testcases";
 import { inspect } from 'util';
 import upath2 from '../..';
@@ -11,7 +13,7 @@ export function _expectTestCases(fn, name: string, testCases: ITestCaseRow[])
 		testCases
 			.forEach(testCase =>
 			{
-				testCase && test(inspect(testCase[0]), () => {
+				testCase && test(inspect(testCase[0]), (t: test.TestContext) => {
 					let actual;
 					let expected;
 					let expected2;
@@ -36,14 +38,14 @@ export function _expectTestCases(fn, name: string, testCases: ITestCaseRow[])
 
 					if (typeof expected !== "undefined")
 					{
-						expect(actual).toStrictEqual(expected)
+						t.assert.deepStrictEqual(actual, expected)
 					}
 
-					expect({
+					t.assert.snapshot({
 						upath2: actual,
 						upath: expected2,
 						path: expected3,
-					}).toMatchSnapshot();
+					});
 				});
 			})
 		;

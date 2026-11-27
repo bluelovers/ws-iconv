@@ -1,32 +1,40 @@
+/// <reference types="node" />
+import { describe, test } from 'node:test';
 import pathIsSame, { fsSameRealpath } from '../index';
 
 const isWin = process.platform === "win32";
 
-test(`sep`, () =>
+test(`sep`, (t: test.TestContext) =>
 {
 
-	expect(pathIsSame(__dirname, __dirname + '/')).toBeTruthy()
-	expect(pathIsSame(__dirname, __dirname + '\\')).toBeTruthy()
+	t.assert.ok(pathIsSame(__dirname, __dirname + '/'))
+	t.assert.ok(pathIsSame(__dirname, __dirname + '\\'))
 
 });
 
-test(`argv`, () =>
+test(`argv`, (t: test.TestContext) =>
 {
 
 	// @ts-ignore
-	expect(() => pathIsSame(__dirname)).toThrowErrorMatchingSnapshot()
+	t.assert.throws(() => pathIsSame(__dirname), (err) => {
+		t.assert.snapshot(`${err.name}: ${err.message}`);
+		return true;
+	});
 	// @ts-ignore
-	expect(() => fsSameRealpath(__dirname)).toThrowErrorMatchingSnapshot()
+	t.assert.throws(() => fsSameRealpath(__dirname), (err) => {
+		t.assert.snapshot(`${err.name}: ${err.message}`);
+		return true;
+	});
 
 	// @ts-ignore
-	expect(() => pathIsSame(void 0, void 0)).not.toThrow()
+	t.assert.doesNotThrow(() => pathIsSame(void 0, void 0))
 	// @ts-ignore
-	expect(() => fsSameRealpath(void 0, void 0)).not.toThrow()
+	t.assert.doesNotThrow(() => fsSameRealpath(void 0, void 0))
 
 	// @ts-ignore
-	expect(() => pathIsSame(null, null)).not.toThrow()
+	t.assert.doesNotThrow(() => pathIsSame(null, null))
 	// @ts-ignore
-	expect(() => fsSameRealpath(null, null)).not.toThrow()
+	t.assert.doesNotThrow(() => fsSameRealpath(null, null))
 
 });
 
@@ -45,12 +53,12 @@ describe(`drive`, () =>
 	list.forEach(target =>
 	{
 
-		target && test(target, () =>
+		target && test(target, (t: test.TestContext) =>
 		{
 
-			expect(pathIsSame(list[0], target)).toBeTruthy()
+			t.assert.ok(pathIsSame(list[0], target))
 
-			expect(pathIsSame(list[0], target + 'kk')).toBeFalsy()
+			t.assert.ok(!pathIsSame(list[0], target + 'kk'))
 
 		})
 

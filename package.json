@@ -107,7 +107,8 @@
     "fs-extra": "^11.4.1",
     "jest": "^30.5.2",
     "ts-jest": "^29.4.15",
-    "typescript": "^6.0.3"
+    "typescript": "^6.0.3",
+    "undici-types": "^8.13.1"
   },
   "peerDependencies": {
     "lerna": ">=6 <7"

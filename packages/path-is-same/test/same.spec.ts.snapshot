@@ -1,0 +1,7 @@
+exports[`argv 1`] = `
+"TypeError: p2 must be provide. p1: D:\\\\Users\\\\WebstormProjects\\\\nodejs-yarn\\\\ws-iconv\\\\packages\\\\path-is-same\\\\test"
+`;
+
+exports[`argv 2`] = `
+"TypeError: p2 must be provide. p1: D:\\\\Users\\\\WebstormProjects\\\\nodejs-yarn\\\\ws-iconv\\\\packages\\\\path-is-same\\\\test"
+`;

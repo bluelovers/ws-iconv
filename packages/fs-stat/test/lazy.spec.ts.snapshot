@@ -1,0 +1,7 @@
+exports[`fsStat:no-exists 1`] = `
+"Error: ENOENT: no such file or directory, lstat 'D:\\\\Users\\\\WebstormProjects\\\\nodejs-yarn\\\\ws-iconv\\\\packages\\\\fs-stat\\\\no-exists.js'"
+`;
+
+exports[`fsStatSync:no-exists 1`] = `
+"Error: ENOENT: no such file or directory, lstat 'D:\\\\Users\\\\WebstormProjects\\\\nodejs-yarn\\\\ws-iconv\\\\packages\\\\fs-stat\\\\no-exists.js'"
+`;

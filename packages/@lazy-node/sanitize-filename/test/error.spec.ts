@@ -1,3 +1,5 @@
+/// <reference types="node" />
+import { describe, test } from 'node:test';
 import { inspect } from 'util';
 import sanitizeFilename from '../index';
 
@@ -16,16 +18,25 @@ describe('throw', () =>
 		{},
 	] as any[]).forEach(input =>
 	{
-		test(inspect(input), () =>
+		test(inspect(input), (t: test.TestContext) =>
 		{
 			if (!input?.length)
 			{
-				expect(() => sanitizeFilename(input, { throwEmpty: true })).toThrowErrorMatchingSnapshot();
+				t.assert.throws(() => sanitizeFilename(input, { throwEmpty: true }), (err) => {
+					t.assert.snapshot(`${err.name}: ${err.message}`);
+					return true;
+				});
 			}
 
-			expect(() => sanitizeFilename(input, { replacement: '', throwEmpty: true })).toThrowErrorMatchingSnapshot();
+			t.assert.throws(() => sanitizeFilename(input, { replacement: '', throwEmpty: true }), (err) => {
+				t.assert.snapshot(`${err.name}: ${err.message}`);
+				return true;
+			});
 
-			expect(() => sanitizeFilename(input, { replacement: ' ', throwEmpty: true })).toThrowErrorMatchingSnapshot();
+			t.assert.throws(() => sanitizeFilename(input, { replacement: ' ', throwEmpty: true }), (err) => {
+				t.assert.snapshot(`${err.name}: ${err.message}`);
+				return true;
+			});
 		})
 	})
 });

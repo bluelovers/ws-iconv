@@ -12,7 +12,7 @@ var utilBuffer = require('@lazy-node/util-buffer');
  */
 function handleOptionNewLineCharacter(newLineCharacter) {
   if (!newLineCharacter) {
-    return [10 /* EnumNewLineCharacter.LF */];
+    return [EnumNewLineCharacter.LF];
   } else if (typeof newLineCharacter !== 'number') {
     const ls = [];
     for (let i = 0; i < newLineCharacter.length; i++) {
@@ -28,11 +28,11 @@ function handleOptionNewLineCharacter(newLineCharacter) {
   return [newLineCharacter];
 }
 
-var EnumNewLineCharacter;
-(function (EnumNewLineCharacter) {
+let EnumNewLineCharacter = /*#__PURE__*/function (EnumNewLineCharacter) {
   EnumNewLineCharacter[EnumNewLineCharacter["LF"] = 10] = "LF";
   EnumNewLineCharacter[EnumNewLineCharacter["CR"] = 13] = "CR";
-})(EnumNewLineCharacter || (EnumNewLineCharacter = {}));
+  return EnumNewLineCharacter;
+}({});
 class LineByLine {
   #file;
   #fd;

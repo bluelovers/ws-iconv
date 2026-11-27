@@ -3,7 +3,7 @@ import { openSync as e, closeSync as t, readSync as i } from "fs";
 import { splitBufferByBuffer as n, bufferEndWithByBuffer as h, bufferStripEndWithByBuffer as r } from "@lazy-node/util-buffer";
 
 function handleOptionNewLineCharacter(e) {
-  if (!e) return [ 10 ];
+  if (!e) return [ s.LF ];
   if ("number" != typeof e) {
     const t = [];
     for (let i = 0; i < e.length; i++) {
@@ -15,11 +15,9 @@ function handleOptionNewLineCharacter(e) {
   return [ e ];
 }
 
-var s;
-
-!function(e) {
-  e[e.LF = 10] = "LF", e[e.CR = 13] = "CR";
-}(s || (s = {}));
+let s = /*#__PURE__*/ function(e) {
+  return e[e.LF = 10] = "LF", e[e.CR = 13] = "CR", e;
+}({});
 
 class LineByLine {
   #e;

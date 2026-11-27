@@ -1,22 +1,23 @@
+/// <reference types="node" />
+import { test } from 'node:test';
 import { isWritableDirectoryAsync, isWritableFileAsync, isWritableDirectorySync, isWritableFileSync } from '../index';
 
-test(`isWritableDirectoryAsync`, () =>
+test(`isWritableDirectoryAsync`, async (t: test.TestContext) =>
 {
-	return expect(isWritableDirectoryAsync(__dirname)).resolves.toStrictEqual(true);
+	t.assert.deepStrictEqual(await isWritableDirectoryAsync(__dirname), true);
 });
 
-test(`isWritableFileAsync`, () =>
+test(`isWritableFileAsync`, async (t: test.TestContext) =>
 {
-	return expect(isWritableFileAsync(__filename)).resolves.toStrictEqual(true);
+	t.assert.deepStrictEqual(await isWritableFileAsync(__filename), true);
 });
 
-test(`isWritableDirectorySync`, () =>
+test(`isWritableDirectorySync`, (t: test.TestContext) =>
 {
-	return expect(isWritableDirectorySync(__dirname)).toStrictEqual(true);
+	t.assert.deepStrictEqual(isWritableDirectorySync(__dirname), true);
 });
 
-test(`isWritableFileSync`, () =>
+test(`isWritableFileSync`, (t: test.TestContext) =>
 {
-	return expect(isWritableFileSync(__filename)).toStrictEqual(true);
+	t.assert.deepStrictEqual(isWritableFileSync(__filename), true);
 });
-

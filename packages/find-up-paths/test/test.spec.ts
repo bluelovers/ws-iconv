@@ -1,17 +1,19 @@
+/// <reference types="node" />
+import { before, test } from 'node:test';
 //@noUnusedParameters:false
 
 import { findUpPaths } from '../index';
 
-beforeAll(async () =>
+before(async () =>
 {
 
 });
 
-test(`.git`, () =>
+test(`.git`, (t: test.TestContext) =>
 {
 
 	let actual = findUpPaths('.git');
 
-	expect(actual.result).toContain('.git');
+	t.assert.ok(actual.result.includes('.git'));
 
 });

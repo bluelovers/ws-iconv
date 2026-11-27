@@ -20,7 +20,7 @@ export type IBufferValueInput = string | number | Uint8Array | Buffer;
  * @param {IBufferValueInput} value 要計算長度的值
  * @returns {number} 值的長度
  */
-export declare function _valueLength(value: IBufferValueInput): any;
+export declare function _valueLength(value: IBufferValueInput): number;
 /**
  * 在 Buffer 中尋找最後出現的位置
  *
@@ -32,8 +32,8 @@ export declare function _valueLength(value: IBufferValueInput): any;
  * @returns {{len: number, i: number}} 包含長度和索引的物件
  */
 export declare function _bufferLastIndexOf(buf: Buffer, value: IBufferValueInput, byteOffset?: number, encoding?: BufferEncoding): {
-    len: any;
-    i: any;
+    len: number;
+    i: number;
 };
 /**
  * 檢查 Buffer 是否以指定值結尾
@@ -79,7 +79,7 @@ export { bufferEndWith as bufferEndWithByBuffer };
  * @param {BufferEncoding} [encoding] 字串編碼格式
  * @returns {Buffer} 處理後的 Buffer
  */
-export declare function bufferStripEndWith(buf: Buffer, value: IBufferValueInput, byteOffset?: number, encoding?: BufferEncoding): any;
+export declare function bufferStripEndWith(buf: Buffer, value: IBufferValueInput, byteOffset?: number, encoding?: BufferEncoding): Buffer<ArrayBufferLike>;
 /**
  * @deprecated 使用 bufferStripEndWith 替代
  */
@@ -107,4 +107,4 @@ export { bufferIndexWith as bufferIndexWithByBuffer };
  * @param {Uint8Array} value 分隔值
  * @returns {Buffer[]} 分割後的 Buffer 陣列
  */
-export declare function splitBufferByBuffer(buffer: Buffer, value: Uint8Array): Buffer[];
+export declare function splitBufferByBuffer(buffer: Buffer, value: Uint8Array): Buffer<ArrayBufferLike>[];

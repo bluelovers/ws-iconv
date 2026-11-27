@@ -1,3 +1,5 @@
+/// <reference types="node" />
+import { describe, it, test } from 'node:test';
 /**
  * Created by user on 2017/12/9/009.
  */
@@ -10,16 +12,16 @@ describe(`win32`, () =>
 	const file = 'c.txt';
 	const full = dir + '/.\\' + file;
 
-	it(`join`, () =>
+	it(`join`, (t: test.TestContext) =>
 	{
 		let r = slash(nodePath.join(dir, file));
 
 		console.log(r);
 
-		expect(r).toBeFalsy();
+		t.assert.ok(!r);
 	});
 
-	it(`dirname`, () =>
+	it(`dirname`, (t: test.TestContext) =>
 	{
 		let r = nodePath.dirname(full);
 
@@ -27,10 +29,10 @@ describe(`win32`, () =>
 
 		console.log(r);
 
-		expect(b).toBeFalsy();
+		t.assert.ok(!b);
 	});
 
-	it(`normalize`, () =>
+	it(`normalize`, (t: test.TestContext) =>
 	{
 		let r = nodePath.normalize(full);
 
@@ -38,10 +40,10 @@ describe(`win32`, () =>
 
 		console.log(r);
 
-		expect(b).toBeFalsy();
+		t.assert.ok(!b);
 	});
 
-	it(`relative`, () =>
+	it(`relative`, (t: test.TestContext) =>
 	{
 		let r = nodePath.relative(full, './b');
 
@@ -49,10 +51,10 @@ describe(`win32`, () =>
 
 		console.log(r);
 
-		expect(b).toBeFalsy();
+		t.assert.ok(!b);
 	});
 
-	it(`resolve`, () =>
+	it(`resolve`, (t: test.TestContext) =>
 	{
 		let r = nodePath.resolve(full, './b');
 
@@ -60,7 +62,7 @@ describe(`win32`, () =>
 
 		console.log(r);
 
-		expect(b).toBeFalsy();
+		t.assert.ok(!b);
 	});
 });
 
@@ -72,16 +74,16 @@ describe(`upath`, () =>
 	const file = 'c.txt';
 	const full = dir + '/.\\' + file;
 
-	it(`join`, () =>
+	it(`join`, (t: test.TestContext) =>
 	{
 		let r = slash(nodePath.join(dir, file));
 
 		console.log(r);
 
-		expect(r).toBeFalsy();
+		t.assert.ok(!r);
 	});
 
-	it(`dirname`, () =>
+	it(`dirname`, (t: test.TestContext) =>
 	{
 		let r = nodePath.dirname(full);
 
@@ -89,10 +91,10 @@ describe(`upath`, () =>
 
 		console.log(r);
 
-		expect(b).toBeFalsy();
+		t.assert.ok(!b);
 	});
 
-	it(`normalize`, () =>
+	it(`normalize`, (t: test.TestContext) =>
 	{
 		let r = nodePath.normalize(full);
 
@@ -100,10 +102,10 @@ describe(`upath`, () =>
 
 		console.log(r);
 
-		expect(b).toBeFalsy();
+		t.assert.ok(!b);
 	});
 
-	it(`relative`, () =>
+	it(`relative`, (t: test.TestContext) =>
 	{
 		let r = nodePath.relative(full, './b');
 
@@ -111,10 +113,10 @@ describe(`upath`, () =>
 
 		console.log(r);
 
-		expect(b).toBeFalsy();
+		t.assert.ok(!b);
 	});
 
-	it(`resolve`, () =>
+	it(`resolve`, (t: test.TestContext) =>
 	{
 		let r = nodePath.resolve(full, './b');
 
@@ -122,7 +124,7 @@ describe(`upath`, () =>
 
 		console.log(r);
 
-		expect(b).toBeFalsy();
+		t.assert.ok(!b);
 	});
 });
 

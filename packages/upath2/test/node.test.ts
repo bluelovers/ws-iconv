@@ -1,3 +1,5 @@
+/// <reference types="node" />
+import { describe, it, test } from 'node:test';
 /**
  * Created by user on 2017/12/9/009.
  */
@@ -9,7 +11,7 @@ describe(`path`, () =>
 	const file = 'c.txt';
 	const full = dir + '/.\\' + file;
 
-	it(`join`, () =>
+	it(`join`, (t: test.TestContext) =>
 	{
 		//console.log(Object.assign({}, this.test));
 
@@ -17,10 +19,10 @@ describe(`path`, () =>
 
 		console.log(r);
 
-		expect(r).toBeTruthy();
+		t.assert.ok(r);
 	});
 
-	it(`dirname`, () =>
+	it(`dirname`, (t: test.TestContext) =>
 	{
 		let r = nodePath.dirname(full);
 
@@ -28,10 +30,10 @@ describe(`path`, () =>
 
 		console.log(r);
 
-		expect(b).toBeFalsy();
+		t.assert.ok(!b);
 	});
 
-	it(`normalize`, () =>
+	it(`normalize`, (t: test.TestContext) =>
 	{
 		let r = nodePath.normalize(full);
 
@@ -39,10 +41,10 @@ describe(`path`, () =>
 
 		console.log(r);
 
-		expect(b).toBeTruthy();
+		t.assert.ok(b);
 	});
 
-	it(`relative`, () =>
+	it(`relative`, (t: test.TestContext) =>
 	{
 		let r = nodePath.relative(full, './b');
 
@@ -50,10 +52,10 @@ describe(`path`, () =>
 
 		console.log(r);
 
-		expect(b).toBeTruthy();
+		t.assert.ok(b);
 	});
 
-	it(`resolve`, () =>
+	it(`resolve`, (t: test.TestContext) =>
 	{
 		let r = nodePath.resolve(full, './b');
 
@@ -61,7 +63,7 @@ describe(`path`, () =>
 
 		console.log(r);
 
-		expect(b).toBeTruthy();
+		t.assert.ok(b);
 	});
 
 });
