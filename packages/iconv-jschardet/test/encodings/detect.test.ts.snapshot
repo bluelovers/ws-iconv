@@ -1,0 +1,157 @@
+exports[`detect > BIG5 detect buf 1`] = `
+{
+  "detect": {
+    "encoding": "Big5",
+    "confidence": 0.99,
+    "name": "Big5"
+  },
+  "detect:plus": {
+    "encoding": "Big5",
+    "confidence": 0.99,
+    "name": "Big5",
+    "id": "big5"
+  }
+}
+`;
+
+exports[`detect > BIG5 detect str 1`] = `
+{
+  "detect": {
+    "encoding": "Big5",
+    "confidence": 0.99,
+    "name": "Big5"
+  },
+  "detect:plus": {
+    "encoding": "Big5",
+    "confidence": 0.99,
+    "name": "Big5",
+    "id": "big5"
+  }
+}
+`;
+
+exports[`detect > EUCJP detect buf 1`] = `
+{
+  "detect": {
+    "encoding": "EUC-JP",
+    "confidence": 0.99,
+    "name": "EUC-JP"
+  },
+  "detect:plus": {
+    "encoding": "EUC-JP",
+    "confidence": 0.99,
+    "name": "EUC-JP",
+    "id": "eucjp"
+  }
+}
+`;
+
+exports[`detect > EUCJP detect str 1`] = `
+{
+  "detect": {
+    "encoding": "EUC-JP",
+    "confidence": 0.99,
+    "name": "EUC-JP"
+  },
+  "detect:plus": {
+    "encoding": "EUC-JP",
+    "confidence": 0.99,
+    "name": "EUC-JP",
+    "id": "eucjp"
+  }
+}
+`;
+
+exports[`detect > EUCKR detect buf 1`] = `
+{
+  "detect": {
+    "encoding": "EUC-KR",
+    "confidence": 0.99,
+    "name": "EUC-KR"
+  },
+  "detect:plus": {
+    "encoding": "EUC-KR",
+    "confidence": 0.99,
+    "name": "EUC-KR"
+  }
+}
+`;
+
+exports[`detect > EUCKR detect str 1`] = `
+{
+  "detect": {
+    "encoding": "EUC-KR",
+    "confidence": 0.99,
+    "name": "EUC-KR"
+  },
+  "detect:plus": {
+    "encoding": "EUC-KR",
+    "confidence": 0.99,
+    "name": "EUC-KR"
+  }
+}
+`;
+
+exports[`detect > GBK detect buf 1`] = `
+{
+  "detect": {
+    "encoding": "GB2312",
+    "confidence": 0.99,
+    "name": "GB2312"
+  },
+  "detect:plus": {
+    "encoding": "GB2312",
+    "confidence": 0.99,
+    "name": "GB2312",
+    "id": "cp936"
+  }
+}
+`;
+
+exports[`detect > GBK detect str 1`] = `
+{
+  "detect": {
+    "encoding": "GB2312",
+    "confidence": 0.99,
+    "name": "GB2312"
+  },
+  "detect:plus": {
+    "encoding": "GB2312",
+    "confidence": 0.99,
+    "name": "GB2312",
+    "id": "cp936"
+  }
+}
+`;
+
+exports[`detect > SJIS detect buf 1`] = `
+{
+  "detect": {
+    "encoding": "SHIFT_JIS",
+    "confidence": 0.99,
+    "name": "SHIFT_JIS"
+  },
+  "detect:plus": {
+    "encoding": "SHIFT_JIS",
+    "confidence": 0.99,
+    "name": "SHIFT_JIS",
+    "id": "shiftjis"
+  }
+}
+`;
+
+exports[`detect > SJIS detect str 1`] = `
+{
+  "detect": {
+    "encoding": "SHIFT_JIS",
+    "confidence": 0.99,
+    "name": "SHIFT_JIS"
+  },
+  "detect:plus": {
+    "encoding": "SHIFT_JIS",
+    "confidence": 0.99,
+    "name": "SHIFT_JIS",
+    "id": "shiftjis"
+  }
+}
+`;

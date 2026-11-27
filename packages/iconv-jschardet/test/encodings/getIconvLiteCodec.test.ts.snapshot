@@ -1,0 +1,106 @@
+exports[`getIconvLiteCodec > BIG5 getIconvLiteCodec big5 1`] = `
+{
+  "enc": "big5hkscs",
+  "enc2": "big5hkscs",
+  "codec": {
+    "encodingName": "big5hkscs",
+    "decodeTables": "<table:121>",
+    "decodeTableSeq": [
+      [
+        202,
+        772
+      ],
+      [
+        202,
+        780
+      ],
+      [
+        234,
+        772
+      ],
+      [
+        234,
+        780
+      ]
+    ],
+    "defaultCharUnicode": "�",
+    "encodeTable": "<table:762>",
+    "encodeTableSeq": [
+      {
+        "772": 34914,
+        "780": 34916,
+        "-1": 34918
+      },
+      {
+        "772": 34979,
+        "780": 34981,
+        "-1": 34983
+      }
+    ],
+    "defCharSB": 63
+  }
+}
+`;
+
+exports[`getIconvLiteCodec > EUCJP getIconvLiteCodec euc-jp 1`] = `
+{
+  "enc": "eucjp",
+  "enc2": "eucjp",
+  "codec": {
+    "encodingName": "eucjp",
+    "decodeTables": "<table:153>",
+    "decodeTableSeq": [],
+    "defaultCharUnicode": "�",
+    "encodeTable": "<table:256>",
+    "encodeTableSeq": [],
+    "defCharSB": 63
+  }
+}
+`;
+
+exports[`getIconvLiteCodec > EUCKR getIconvLiteCodec euc-kr 1`] = `
+{
+  "enc2": "cp949",
+  "codec": {
+    "encodingName": "cp949",
+    "decodeTables": "<table:125>",
+    "decodeTableSeq": [],
+    "defaultCharUnicode": "�",
+    "encodeTable": "<table:256>",
+    "encodeTableSeq": [],
+    "defCharSB": 63
+  }
+}
+`;
+
+exports[`getIconvLiteCodec > GBK getIconvLiteCodec gbk 1`] = `
+{
+  "enc": "gbk",
+  "enc2": "gbk",
+  "codec": {
+    "encodingName": "gbk",
+    "decodeTables": "<table:129>",
+    "decodeTableSeq": [],
+    "defaultCharUnicode": "�",
+    "encodeTable": "<table:256>",
+    "encodeTableSeq": [],
+    "defCharSB": 63
+  }
+}
+`;
+
+exports[`getIconvLiteCodec > SJIS getIconvLiteCodec shift_jis 1`] = `
+{
+  "enc": "shiftjis",
+  "enc2": "shiftjis",
+  "codec": {
+    "encodingName": "shiftjis",
+    "decodeTables": "<table:56>",
+    "decodeTableSeq": [],
+    "defaultCharUnicode": "�",
+    "encodeTable": "<table:256>",
+    "encodeTableSeq": [],
+    "defCharSB": 63
+  }
+}
+`;

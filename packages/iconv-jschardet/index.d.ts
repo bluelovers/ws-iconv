@@ -1,4 +1,4 @@
-import iconvLite, { encodingExists, Options as IOptionsIconvLite } from 'iconv-lite';
+import iconvLite, { encodingExists, EncodeOptions as IOptionsIconvLite } from 'iconv-lite';
 import jschardet from 'jschardet';
 export * from './lib/const';
 export * from './encoding';

@@ -7,8 +7,10 @@ import { describe, it, test } from 'node:test';
 import * as self from '../';
 import { BIG5_STR, BIG5_BUF, BIG5_UTF8_BUF } from './fixtures/data';
 import { EnumEncoding } from '../lib/const';
+import { disableCodecDataWarn, skipDecodeWarning } from '../';
 
-self.skipDecodeWarning();
+skipDecodeWarning();
+disableCodecDataWarn();
 
 // @ts-ignore
 describe(`check encoding`, () =>

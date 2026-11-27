@@ -1,5 +1,4 @@
 import { IEncodingCodec, vEncoding } from './lib/const';
-export * from './lib/const';
 /**
  * 檢查是否為 Node.js 支援的編碼
  * Check if encoding is supported by Node.js
@@ -34,5 +33,9 @@ export declare function disableCodecDataWarn(bool?: boolean): boolean;
  * @throws {Error} - 當編碼為 null 或 undefined 時拋出錯誤 / Throws error when encoding is null or undefined
  */
 export declare function codec_data(encoding: vEncoding): IEncodingCodec;
-declare const _default: typeof import("./encoding");
+declare const _default: {
+    isNodeEncoding: typeof isNodeEncoding;
+    disableCodecDataWarn: typeof disableCodecDataWarn;
+    codec_data: typeof codec_data;
+};
 export default _default;

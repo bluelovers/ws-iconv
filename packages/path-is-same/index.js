@@ -24,9 +24,11 @@ const fs_1 = require("fs");
  * @returns {boolean} 如果路徑相同則返回 true，否則返回 false
  */
 function _pathIsSame(p1, p2) {
-    // 使用 upath2 的 relative 函數來比較路徑
-    // 如果相對路徑為空字串，則表示兩個路徑相同
-    return (0, upath2_1.relative)(p1, p2) === '';
+    /**
+     * 使用 upath2 的 relative 函數來比較路徑
+     * 如果相對路徑為空字串，則表示兩個路徑相同
+     */
+    return typeof p2 === 'string' && (p1 === p2 || (0, upath2_1.relative)(p1, p2) === '');
 }
 /**
  * 檢查輸入參數是否有效
@@ -44,37 +46,37 @@ function _assertInputArgv(p1, ...ps) {
 }
 function fsSameRealpath(p1, ...ps) {
     var _a;
-    // 檢查輸入參數
+    /** 檢查輸入參數 */
     _assertInputArgv(p1, ...ps);
-    // 檢查路徑是否為空
+    /** 檢查路徑是否為空 */
     if (!(p1 === null || p1 === void 0 ? void 0 : p1.length) || !((_a = ps[0]) === null || _a === void 0 ? void 0 : _a.length)) {
         return false;
     }
-    // 解析第一個路徑的實體路徑
+    /** 解析第一個路徑的實體路徑 */
     p1 = fs_1.realpathSync.native(p1);
-    // 檢查所有路徑是否指向相同的實體檔案
+    /** 檢查所有路徑是否指向相同的實體檔案 */
     return ps.every(p2 => {
         try {
-            // 解析第二個路徑的實體路徑
+            /** 解析第二個路徑的實體路徑 */
             p2 = fs_1.realpathSync.native(p2);
         }
         catch (e) {
-            // 如果解析失敗，則返回 false
+            /** 如果解析失敗，則返回 false */
             return false;
         }
-        // 檢查兩個實體路徑是否相同
+        /** 檢查兩個實體路徑是否相同 */
         return _pathIsSame(p1, p2);
     });
 }
 function pathIsSame(p1, ...ps) {
     var _a;
-    // 檢查輸入參數
+    /** 檢查輸入參數 */
     _assertInputArgv(p1, ...ps);
-    // 檢查路徑是否為空
+    /** 檢查路徑是否為空 */
     if (!(p1 === null || p1 === void 0 ? void 0 : p1.length) || !((_a = ps[0]) === null || _a === void 0 ? void 0 : _a.length)) {
         return false;
     }
-    // 檢查所有路徑是否相同
+    /** 檢查所有路徑是否相同 */
     return ps.every(p2 => _pathIsSame(p1, p2));
 }
 /** 預設導出 - pathIsSame 函數 */

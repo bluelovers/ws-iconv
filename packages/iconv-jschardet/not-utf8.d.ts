@@ -21,7 +21,7 @@ export declare function detectEncoding<T extends CODEC_DATA_ENCODING_ID | string
  * @param {Buffer} buf - 要檢測的 Buffer / Buffer to detect
  * @returns {IDetectData | null} - 如果不是 UTF-8 或 ASCII 則返回檢測結果，否則返回 null / Returns detection result if not UTF-8 or ASCII, otherwise returns null
  */
-export declare function notUTF8Buffer(buf: Buffer): import("./index").IDetectData;
+export declare function notUTF8Buffer(buf: Buffer): import("./encoding").IDetectData;
 /**
  * 當 Buffer | string 編碼不屬於 UTF-8 或者 ascii 時
  * 返回編碼資訊
@@ -33,6 +33,10 @@ export declare function notUTF8Buffer(buf: Buffer): import("./index").IDetectDat
  * @param {Buffer | string} buf - 要檢測的 Buffer 或字串 / Buffer or string to detect
  * @returns {IDetectData | null} - 如果不是 UTF-8 或 ASCII 則返回檢測結果，否則返回 null / Returns detection result if not UTF-8 or ASCII, otherwise returns null
  */
-export declare function notUTF8(buf: Buffer | string): import("./index").IDetectData;
-declare const _default: typeof import("./not-utf8");
+export declare function notUTF8(buf: Buffer | string): import("./encoding").IDetectData;
+declare const _default: {
+    detectEncoding: typeof detectEncoding;
+    notUTF8Buffer: typeof notUTF8Buffer;
+    notUTF8: typeof notUTF8;
+};
 export default _default;

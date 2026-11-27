@@ -55,5 +55,9 @@ function notUTF8(buf) {
     }
     return notUTF8Buffer(buf);
 }
-exports.default = exports;
+exports.default = {
+    detectEncoding,
+    notUTF8Buffer,
+    notUTF8,
+};
 //# sourceMappingURL=not-utf8.js.map

@@ -1,0 +1,39 @@
+exports[`decode > BIG5 decode buf 1`] = `
+"次常用國字標準字體表"
+`;
+
+exports[`decode > BIG5 decode str 1`] = `
+"次常用國字標準字體表"
+`;
+
+exports[`decode > EUCJP decode buf 1`] = `
+"日本語のテスト文"
+`;
+
+exports[`decode > EUCJP decode str 1`] = `
+"日本語のテスト文"
+`;
+
+exports[`decode > EUCKR decode buf 1`] = `
+"한국어 인코딩 테스트"
+`;
+
+exports[`decode > EUCKR decode str 1`] = `
+"한국어 인코딩 테스트"
+`;
+
+exports[`decode > GBK decode buf 1`] = `
+"简体中文编码测试文本"
+`;
+
+exports[`decode > GBK decode str 1`] = `
+"简体中文编码测试文本"
+`;
+
+exports[`decode > SJIS decode buf 1`] = `
+"日本語のテスト文"
+`;
+
+exports[`decode > SJIS decode str 1`] = `
+"日本語のテスト文"
+`;

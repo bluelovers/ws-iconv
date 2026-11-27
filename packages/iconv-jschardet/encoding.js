@@ -7,7 +7,7 @@ const tslib_1 = require("tslib");
 const logger_1 = tslib_1.__importDefault(require("debug-color2/logger"));
 const const_1 = require("./lib/const");
 const util_1 = require("./lib/util");
-tslib_1.__exportStar(require("./lib/const"), exports);
+// export * from './lib/const';
 //export { console }
 /**
  * 檢查是否為 Node.js 支援的編碼
@@ -84,5 +84,9 @@ function codec_data(encoding) {
         return null;
     }
 }
-exports.default = exports;
+exports.default = {
+    isNodeEncoding,
+    disableCodecDataWarn,
+    codec_data,
+};
 //# sourceMappingURL=encoding.js.map

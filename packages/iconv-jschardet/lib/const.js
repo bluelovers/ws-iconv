@@ -242,12 +242,20 @@ exports.codec_table = {
  */
 var EnumEncoding;
 (function (EnumEncoding) {
-    /** Big5 編碼 / Big5 encoding */
+    /** Big5 encoding */
     EnumEncoding["BIG5"] = "Big5";
-    /** UTF-8 編碼 / UTF-8 encoding */
+    /** UTF-8 encoding */
     EnumEncoding["UTF8"] = "UTF-8";
-    /** GBK 編碼 / GBK encoding */
+    /** GBK encoding */
     EnumEncoding["GBK"] = "Gbk";
+    /** GB2312 encoding */
+    EnumEncoding["GB2312"] = "GB2312";
+    /** Shift_JIS encoding */
+    EnumEncoding["SHIFT_JIS"] = "Shift_JIS";
+    /** EUC-JP encoding */
+    EnumEncoding["EUC_JP"] = "EUC-JP";
+    /** EUC-KR encoding */
+    EnumEncoding["EUC_KR"] = "EUC-KR";
 })(EnumEncoding || (exports.EnumEncoding = EnumEncoding = {}));
 function codecDataNameToUpperCase(key) {
     return key.toUpperCase();

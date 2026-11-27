@@ -1,0 +1,124 @@
+exports[`encode > BIG5 encode buf to big5 1`] = `
+[
+  "166 184 177 96 165 206 176 234 166 114 188 208 183 199 166 114"
+]
+`;
+
+exports[`encode > BIG5 encode to big5 1`] = `
+[
+  "166 184 177 96 165 206 176 234 166 114 188 208 183 199 166 114"
+]
+`;
+
+exports[`encode > BIG5 encode to utf8 1`] = `
+{
+  "detect": {
+    "encoding": "UTF-8",
+    "confidence": 0.99,
+    "name": "UTF-8"
+  },
+  "buf": [
+    "230 172 161 229 184 184 231 148 168 229 156 139 229 173 151 230"
+  ]
+}
+`;
+
+exports[`encode > EUCJP encode buf to euc-jp 1`] = `
+[
+  "198 252 203 220 184 236 164 206 165 198 165 185 165 200 202 184"
+]
+`;
+
+exports[`encode > EUCJP encode to euc-jp 1`] = `
+[
+  "198 252 203 220 184 236 164 206 165 198 165 185 165 200 202 184"
+]
+`;
+
+exports[`encode > EUCJP encode to utf8 1`] = `
+{
+  "detect": {
+    "encoding": "UTF-8",
+    "confidence": 0.99,
+    "name": "UTF-8"
+  },
+  "buf": [
+    "230 151 165 230 156 172 232 170 158 227 129 174 227 131 134 227"
+  ]
+}
+`;
+
+exports[`encode > EUCKR encode buf to euc-kr 1`] = `
+[
+  "199 209 177 185 190 238 32 192 206 196 218 181 249 32 197 215"
+]
+`;
+
+exports[`encode > EUCKR encode to euc-kr 1`] = `
+[
+  "199 209 177 185 190 238 32 192 206 196 218 181 249 32 197 215"
+]
+`;
+
+exports[`encode > EUCKR encode to utf8 1`] = `
+{
+  "detect": {
+    "encoding": "UTF-8",
+    "confidence": 0.99,
+    "name": "UTF-8"
+  },
+  "buf": [
+    "237 149 156 234 181 173 236 150 180 32 236 157 184 236 189 148"
+  ]
+}
+`;
+
+exports[`encode > GBK encode buf to gbk 1`] = `
+[
+  "188 242 204 229 214 208 206 196 177 224 194 235 178 226 202 212"
+]
+`;
+
+exports[`encode > GBK encode to gbk 1`] = `
+[
+  "188 242 204 229 214 208 206 196 177 224 194 235 178 226 202 212"
+]
+`;
+
+exports[`encode > GBK encode to utf8 1`] = `
+{
+  "detect": {
+    "encoding": "UTF-8",
+    "confidence": 0.99,
+    "name": "UTF-8"
+  },
+  "buf": [
+    "231 174 128 228 189 147 228 184 173 230 150 135 231 188 150 231"
+  ]
+}
+`;
+
+exports[`encode > SJIS encode buf to shift_jis 1`] = `
+[
+  "147 250 150 123 140 234 130 204 131 101 131 88 131 103 149 182"
+]
+`;
+
+exports[`encode > SJIS encode to shift_jis 1`] = `
+[
+  "147 250 150 123 140 234 130 204 131 101 131 88 131 103 149 182"
+]
+`;
+
+exports[`encode > SJIS encode to utf8 1`] = `
+{
+  "detect": {
+    "encoding": "UTF-8",
+    "confidence": 0.99,
+    "name": "UTF-8"
+  },
+  "buf": [
+    "230 151 165 230 156 172 232 170 158 227 129 174 227 131 134 227"
+  ]
+}
+`;

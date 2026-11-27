@@ -259,12 +259,20 @@ export declare const codec_table: IEncodingCodecTable;
  * Short enum form of commonly used encodings
  */
 export declare enum EnumEncoding {
-    /** Big5 編碼 / Big5 encoding */
+    /** Big5 encoding */
     BIG5 = "Big5",
-    /** UTF-8 編碼 / UTF-8 encoding */
+    /** UTF-8 encoding */
     UTF8 = "UTF-8",
-    /** GBK 編碼 / GBK encoding */
-    GBK = "Gbk"
+    /** GBK encoding */
+    GBK = "Gbk",
+    /** GB2312 encoding */
+    GB2312 = "GB2312",
+    /** Shift_JIS encoding */
+    SHIFT_JIS = "Shift_JIS",
+    /** EUC-JP encoding */
+    EUC_JP = "EUC-JP",
+    /** EUC-KR encoding */
+    EUC_KR = "EUC-KR"
 }
 /**
  * Node.js 編碼類型
