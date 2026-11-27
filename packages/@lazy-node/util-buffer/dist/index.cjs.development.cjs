@@ -3,6 +3,21 @@
 Object.defineProperty(exports, '__esModule', { value: true });
 
 /**
+ * @lazy-node/util-buffer - Buffer 工具函數模組
+ *
+ * 這個模組提供了多種 Buffer 處理的工具函數，包括字串搜尋、截取、分割等功能。
+ *
+ * @module @lazy-node/util-buffer
+ * @author bluelovers
+ */
+/**
+ * Buffer 值輸入類型
+ *
+ * @description 支援多種類型的 Buffer 輸入值
+ * @type {string | number | Uint8Array | Buffer}
+ */
+
+/**
  * 獲取值的長度
  *
  * @description 計算輸入值的位元組長度，數字類型固定為 1

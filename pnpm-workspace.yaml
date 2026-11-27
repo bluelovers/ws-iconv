@@ -23,3 +23,6 @@ allowBuilds:
 
 # onlyBuiltDependencies: []
 # ignoredBuiltDependencies: []
+minimumReleaseAgeExclude:
+  - "@yarn-tool/find-root"
+  - "@yarn-tool/ws-find-up-paths"

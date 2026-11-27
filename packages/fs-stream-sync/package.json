@@ -31,24 +31,30 @@
     "lib": "lib"
   },
   "scripts": {
-    "coverage": "yarn run test -- --coverage",
-    "test": "echo \"Error: no test specified\"",
+    "coverage": "pnpm run test -- --coverage",
+    "test": "node --run test:node --",
     "test:jest": "jest --passWithNoTests",
-    "test:jest:coverage": "yarn run test:jest -- --coverage",
-    "test:jest:snapshot": "yarn run test:jest -- -u",
-    "test:snapshot": "yarn run test -- -u",
+    "test:jest:coverage": "pnpm run test:jest -- --coverage",
+    "test:jest:snapshot": "pnpm run test:jest -- -u",
+    "test:node": "node --run test:node:bin -- **/*.node-spec.ts **/*.node-test.ts **/*.spec.ts **/*.test.ts",
+    "test:node:bin": "tsx --test --test-update-snapshots --",
+    "test:node:bin:coverage": "node --run test:node:bin -- --experimental-test-coverage --",
+    "test:snapshot": "pnpm run test -- -u",
+    "test:tsc": "tsc --noEmit & echo Type checking completed (main)",
+    "test:tsc:all": "node --run test:tsc && node --run test:tsc:sub",
+    "test:tsc:sub": "cd test && tsc --noEmit & echo Type checking completed (test)",
     "test:tsd": "ynpx tsd",
-    "preversion": "yarn run test",
-    "prepublishOnly_": "yarn run prepublishOnly:check-bin && yarn run test",
+    "preversion": "pnpm run test",
+    "prepublishOnly_": "pnpm run prepublishOnly:check-bin && pnpm run test",
     "prepublishOnly:check-bin": "ynpx --quiet @yarn-tool/check-pkg-bin",
-    "prepublishOnly:update": "yarn run ncu && yarn run sort-package-json",
+    "prepublishOnly:update": "pnpm run ncu && pnpm run sort-package-json",
     "ncu": "ynpx --quiet yarn-tool -- ncu -u",
     "sort-package-json": "ynpx --quiet yarn-tool -- sort",
     "tsc:showConfig": "ynpx get-current-tsconfig -p"
   },
   "dependencies": {
     "@types/node": "*",
-    "tslib": "^2.8.1"
+    "tslib": "^2.9.1"
   },
   "gitHead": "6c258437d14e2d37d1fb08068fa60833ce6d389b"
 }
