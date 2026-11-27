@@ -1,6 +1,6 @@
 {
   "name": "path-is-same",
-  "version": "1.0.30",
+  "version": "1.0.31",
   "description": "路徑比較工具 - 檢查多個路徑是否指向相同的檔案或目錄",
   "homepage": "https://github.com/bluelovers/ws-iconv/tree/master/packages/path-is-same#readme",
   "bugs": {

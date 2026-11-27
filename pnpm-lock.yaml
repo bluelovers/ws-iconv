@@ -100,7 +100,7 @@ importers:
         specifier: ^7.0.0
         version: 7.0.0
       iconv-jschardet:
-        specifier: ^2.0.37
+        specifier: ^2.0.38
         version: link:../../iconv-jschardet
       tslib:
         specifier: ^2.9.1
@@ -169,7 +169,7 @@ importers:
   packages/array-buffer-to-string:
     dependencies:
       iconv-jschardet:
-        specifier: ^2.0.37
+        specifier: ^2.0.38
         version: link:../iconv-jschardet
       tslib:
         specifier: ^2.9.1
@@ -196,7 +196,7 @@ importers:
         specifier: ^3.0.2
         version: 3.0.2
       path-parents:
-        specifier: ^1.0.37
+        specifier: ^1.0.38
         version: link:../path-parents
       stat-mode:
         specifier: ^1.0.0
@@ -217,7 +217,7 @@ importers:
         specifier: ^1.0.30
         version: link:../fs-stat
       path-parents:
-        specifier: ^1.0.37
+        specifier: ^1.0.38
         version: link:../path-parents
       tslib:
         specifier: ^2.9.1
@@ -247,7 +247,7 @@ importers:
         specifier: ^11.4.1
         version: 11.4.1
       iconv-jschardet:
-        specifier: ^2.0.37
+        specifier: ^2.0.38
         version: link:../iconv-jschardet
       lodash:
         specifier: ^4.18.1
@@ -295,7 +295,7 @@ importers:
         specifier: ^1.0.30
         version: link:../fs-stat
       path-is-same:
-        specifier: ^1.0.30
+        specifier: ^1.0.31
         version: link:../path-is-same
       ts-type:
         specifier: ^3.0.21
@@ -326,7 +326,7 @@ importers:
         specifier: ^7.0.0
         version: 7.0.0
       iconv-jschardet:
-        specifier: ^2.0.37
+        specifier: ^2.0.38
         version: link:../iconv-jschardet
       tslib:
         specifier: ^2.9.1
@@ -392,7 +392,7 @@ importers:
   packages/path-parents:
     dependencies:
       path-is-same:
-        specifier: ^1.0.30
+        specifier: ^1.0.31
         version: link:../path-is-same
       tslib:
         specifier: ^2.9.1

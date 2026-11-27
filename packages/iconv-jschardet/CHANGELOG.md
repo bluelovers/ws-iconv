@@ -3,6 +3,31 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.38](https://github.com/bluelovers/ws-iconv/compare/iconv-jschardet@2.0.37...iconv-jschardet@2.0.38) (2026-11-27)
+
+
+
+### 📦　Code Refactoring
+
+* **iconv-jschardet:** 重構匯出方式並模組化測試工具 ([11bca53](https://github.com/bluelovers/ws-iconv/commit/11bca53ab104801adce1cf80ae95dd70af3fcd6a))
+* **iconv-jschardet:** 更新編碼枚舉與優化測試檔案註解 ([93cb81c](https://github.com/bluelovers/ws-iconv/commit/93cb81cf8c6f9afc08e43facfeeba4df62f7909b))
+* **iconv-jschardet:** 重構測試數據以進行模組化管理 ([2614f86](https://github.com/bluelovers/ws-iconv/commit/2614f86b94607ce03320d40ec277760a429e9fbf))
+
+
+### 🚨　Tests
+
+* **iconv-jschardet:** 優化測試資料結構與分類邏輯 ([ed34c9b](https://github.com/bluelovers/ws-iconv/commit/ed34c9b81bd67c5149cdd7f2f916520bf0716a06))
+* **iconv-jschardet:** 新增編碼判斷與非 UTF-8 檢測相關測試 ([ff00cfa](https://github.com/bluelovers/ws-iconv/commit/ff00cfaf0d4559d848c8e436c87bfc081e4f894d))
+* **iconv-jschardet:** 優化 BIG5 編碼測試的快照格式 ([3f7813e](https://github.com/bluelovers/ws-iconv/commit/3f7813ef3a88b223e1bceee713722b4ca586be6e))
+* **iconv-jschardet:** 新增多種編碼格式的快照測試 ([141e422](https://github.com/bluelovers/ws-iconv/commit/141e42224bc437c06b82a3bfc58958549a712ad7))
+* **iconv-jschardet:** 使用 EnumEncoding 替換測試中的硬編碼字串 ([853b4a9](https://github.com/bluelovers/ws-iconv/commit/853b4a9731f9af5bf4066a715086e5a64eecdb29))
+
+
+### 🔖　Miscellaneous
+
+* . ([9b09db4](https://github.com/bluelovers/ws-iconv/commit/9b09db4320b47bb35810c5ed5d89f3197d7ac79e))
+
+
 ## [2.0.37](https://github.com/bluelovers/ws-iconv/compare/iconv-jschardet@2.0.36...iconv-jschardet@2.0.37) (2026-11-27)
 
 

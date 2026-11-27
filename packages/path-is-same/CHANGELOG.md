@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.31](https://github.com/bluelovers/ws-iconv/compare/path-is-same@1.0.30...path-is-same@1.0.31) (2026-11-27)
+
+
+
+### 🐛　Bug Fixes
+
+* **path-is-same:** 優化路徑比較邏輯並修正註解格式 ([66f2db5](https://github.com/bluelovers/ws-iconv/commit/66f2db530806678157aa0328de30ca5bd1d5d340))
+
+
+### 🔖　Miscellaneous
+
+* . ([9b09db4](https://github.com/bluelovers/ws-iconv/commit/9b09db4320b47bb35810c5ed5d89f3197d7ac79e))
+
+
 ## [1.0.30](https://github.com/bluelovers/ws-iconv/compare/path-is-same@1.0.29...path-is-same@1.0.30) (2026-11-27)
 
 

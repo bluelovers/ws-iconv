@@ -1,6 +1,6 @@
 {
   "name": "iconv-html-sniffer",
-  "version": "1.0.35",
+  "version": "1.0.36",
   "description": "HTML 編碼嗅探工具 - 結合 HTML 編碼檢測和字符編碼轉換",
   "keywords": [
     "iconv",
@@ -49,7 +49,7 @@
   },
   "dependencies": {
     "html-encoding-sniffer": "^7.0.0",
-    "iconv-jschardet": "^2.0.37",
+    "iconv-jschardet": "^2.0.38",
     "tslib": "^2.9.1"
   },
   "gitHead": "6c258437d14e2d37d1fb08068fa60833ce6d389b"

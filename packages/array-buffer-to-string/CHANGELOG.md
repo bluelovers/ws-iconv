@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.42](https://github.com/bluelovers/ws-iconv/compare/@bluelovers/array-buffer-to-string@1.0.41...@bluelovers/array-buffer-to-string@1.0.42) (2026-11-27)
+
+**Note:** Version bump only for package @bluelovers/array-buffer-to-string
+
+
+
+
+
 ## [1.0.41](https://github.com/bluelovers/ws-iconv/compare/@bluelovers/array-buffer-to-string@1.0.40...@bluelovers/array-buffer-to-string@1.0.41) (2026-11-27)
 
 

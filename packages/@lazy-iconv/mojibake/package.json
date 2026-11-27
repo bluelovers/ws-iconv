@@ -1,6 +1,6 @@
 {
   "name": "@lazy-iconv/mojibake",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Repair mojibake text caused by misreading UTF-8 bytes as Latin-1 / Windows-1252",
   "keywords": [
     "mojibake",
