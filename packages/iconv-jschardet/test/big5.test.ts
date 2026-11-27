@@ -6,6 +6,7 @@ import { describe, it, test } from 'node:test';
 
 import * as self from '../';
 import { BIG5_STR, BIG5_BUF, BIG5_UTF8_BUF } from './fixtures/data';
+import { EnumEncoding } from '../lib/const';
 
 self.skipDecodeWarning();
 
@@ -17,8 +18,8 @@ describe(`check encoding`, () =>
 	{
 		let c = self.detect(BIG5_STR);
 
-		t.assert.strictEqual(c.name, 'Big5');
-		t.assert.strictEqual(c.encoding, 'Big5');
+		t.assert.strictEqual(c.name, EnumEncoding.BIG5);
+		t.assert.strictEqual(c.encoding, EnumEncoding.BIG5);
 
 		t.assert.snapshot(c);
 
@@ -29,8 +30,8 @@ describe(`check encoding`, () =>
 	{
 		let c = self.detect(BIG5_BUF);
 
-		t.assert.strictEqual(c.name, 'Big5');
-		t.assert.strictEqual(c.encoding, 'Big5');
+		t.assert.strictEqual(c.name, EnumEncoding.BIG5);
+		t.assert.strictEqual(c.encoding, EnumEncoding.BIG5);
 
 		t.assert.snapshot(c);
 
@@ -53,8 +54,8 @@ describe(`iconv`, () =>
 
 		let c = self.detect(data);
 
-		t.assert.strictEqual(c.name, 'Big5');
-		t.assert.strictEqual(c.encoding, 'Big5');
+		t.assert.strictEqual(c.name, EnumEncoding.BIG5);
+		t.assert.strictEqual(c.encoding, EnumEncoding.BIG5);
 
 		t.assert.snapshot(c);
 		t.assert.snapshot(data);
@@ -73,8 +74,8 @@ describe(`iconv`, () =>
 
 		let c = self.detect(data, true);
 
-		t.assert.strictEqual(c.name, 'Big5');
-		t.assert.strictEqual(c.encoding, 'Big5');
+		t.assert.strictEqual(c.name, EnumEncoding.BIG5);
+		t.assert.strictEqual(c.encoding, EnumEncoding.BIG5);
 
 		t.assert.snapshot(c);
 		t.assert.snapshot(data);
@@ -88,8 +89,8 @@ describe(`iconv`, () =>
 
 		let c = self.detect(data);
 
-		t.assert.strictEqual(c.name, 'UTF-8');
-		t.assert.strictEqual(c.encoding, 'UTF-8');
+		t.assert.strictEqual(c.name, EnumEncoding.UTF8);
+		t.assert.strictEqual(c.encoding, EnumEncoding.UTF8);
 
 		t.assert.deepStrictEqual(data, BIG5_UTF8_BUF);
 
@@ -111,8 +112,8 @@ describe(`iconv`, () =>
 
 		let c = self.detect(data);
 
-		t.assert.strictEqual(c.name, 'UTF-8');
-		t.assert.strictEqual(c.encoding, 'UTF-8');
+		t.assert.strictEqual(c.name, EnumEncoding.UTF8);
+		t.assert.strictEqual(c.encoding, EnumEncoding.UTF8);
 
 		t.assert.deepStrictEqual(data, BIG5_UTF8_BUF);
 
