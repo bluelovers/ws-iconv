@@ -21,21 +21,9 @@
     "!**/test/**"
   ],
   "scripts": {
-    "review:all": "yarn-tool ws run review --concurrency 1",
-    "review:since": "pnpm run review:all -- --since",
-    "coverage:all": "yarn-tool ws run coverage --concurrency 1",
-    "coverage:since": "pnpm run coverage:all -- --since",
-    "lint:all": "yarn-tool ws run lint --concurrency 1",
-    "lint:since": "pnpm run lint:all -- --since",
-    "pretest": "echo pretest",
-    "test": "pnpm run test:since",
+    "test": "node --run test:since",
     "test:all": "yarn-tool ws run test --concurrency 1",
-    "test:jest:clearCache": "jest --clearCache",
-    "test:since": "pnpm run test:all -- --since",
-    "test:snapshot:all": "yarn-tool ws run test:snapshot --concurrency 1",
-    "test:snapshot:since": "pnpm run test:snapshot:all -- --since",
-    "test:tsd:all": "yarn-tool ws run test:tsd --concurrency 1",
-    "test:tsd:since": "pnpm run test:tsd:all -- --since",
+    "test:since": "node --run test:all -- --since",
     "install:frozenLockfile": "yarn-tool install --frozen-lockfile",
     "install:reset-lockfile": "yarn-tool install --reset-lockfile",
     "install:resetLockfile": "yarn-tool install --reset-lockfile",
@@ -83,7 +71,6 @@
     "sort-package-json:ws": "yarn-tool ws sort",
     "tsc:showConfig": "ynpx get-current-tsconfig -p"
   },
-  "resolutions": {},
   "dependencies": {
     "@bluelovers/conventional-changelog-bluelovers": "^5.0.30",
     "@bluelovers/jest-config": "^1.1.20",
@@ -109,8 +96,5 @@
     "ts-jest": "^29.4.15",
     "typescript": "^6.0.3",
     "undici-types": "^8.13.1"
-  },
-  "peerDependencies": {
-    "lerna": ">=6 <7"
   }
 }

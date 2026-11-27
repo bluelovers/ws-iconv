@@ -52,6 +52,5 @@
     }
   },
   "npmClient": "pnpm",
-  "useWorkspaces": true,
   "version": "independent"
 }
