@@ -1,0 +1,1213 @@
+exports[`BufferFrom > BIG5 BufferFrom buf utf8 1`] = `
+{
+  "type": "Buffer",
+  "data": [
+    230,
+    172,
+    161,
+    229,
+    184,
+    184,
+    231,
+    148,
+    168,
+    229,
+    156,
+    139,
+    229,
+    173,
+    151,
+    230,
+    168,
+    153,
+    230,
+    186,
+    150,
+    229,
+    173,
+    151,
+    233,
+    171,
+    148,
+    232,
+    161,
+    168
+  ]
+}
+`;
+
+exports[`BufferFrom > BIG5 BufferFrom str big5 1`] = `
+{
+  "type": "Buffer",
+  "data": [
+    166,
+    184,
+    177,
+    96,
+    165,
+    206,
+    176,
+    234,
+    166,
+    114,
+    188,
+    208,
+    183,
+    199,
+    166,
+    114,
+    197,
+    233,
+    170,
+    237
+  ]
+}
+`;
+
+exports[`BufferFrom > BIG5 BufferFrom str utf8 1`] = `
+{
+  "type": "Buffer",
+  "data": [
+    230,
+    172,
+    161,
+    229,
+    184,
+    184,
+    231,
+    148,
+    168,
+    229,
+    156,
+    139,
+    229,
+    173,
+    151,
+    230,
+    168,
+    153,
+    230,
+    186,
+    150,
+    229,
+    173,
+    151,
+    233,
+    171,
+    148,
+    232,
+    161,
+    168
+  ]
+}
+`;
+
+exports[`BufferFrom > EUCJP BufferFrom buf utf8 1`] = `
+{
+  "type": "Buffer",
+  "data": [
+    230,
+    151,
+    165,
+    230,
+    156,
+    172,
+    232,
+    170,
+    158,
+    227,
+    129,
+    174,
+    227,
+    131,
+    134,
+    227,
+    130,
+    185,
+    227,
+    131,
+    136,
+    230,
+    150,
+    135
+  ]
+}
+`;
+
+exports[`BufferFrom > EUCJP BufferFrom str euc-jp 1`] = `
+{
+  "type": "Buffer",
+  "data": [
+    198,
+    252,
+    203,
+    220,
+    184,
+    236,
+    164,
+    206,
+    165,
+    198,
+    165,
+    185,
+    165,
+    200,
+    202,
+    184
+  ]
+}
+`;
+
+exports[`BufferFrom > EUCJP BufferFrom str utf8 1`] = `
+{
+  "type": "Buffer",
+  "data": [
+    230,
+    151,
+    165,
+    230,
+    156,
+    172,
+    232,
+    170,
+    158,
+    227,
+    129,
+    174,
+    227,
+    131,
+    134,
+    227,
+    130,
+    185,
+    227,
+    131,
+    136,
+    230,
+    150,
+    135
+  ]
+}
+`;
+
+exports[`BufferFrom > EUCKR BufferFrom buf utf8 1`] = `
+{
+  "type": "Buffer",
+  "data": [
+    237,
+    149,
+    156,
+    234,
+    181,
+    173,
+    236,
+    150,
+    180,
+    32,
+    236,
+    157,
+    184,
+    236,
+    189,
+    148,
+    235,
+    148,
+    169,
+    32,
+    237,
+    133,
+    140,
+    236,
+    138,
+    164,
+    237,
+    138,
+    184
+  ]
+}
+`;
+
+exports[`BufferFrom > EUCKR BufferFrom str euc-kr 1`] = `
+{
+  "type": "Buffer",
+  "data": [
+    199,
+    209,
+    177,
+    185,
+    190,
+    238,
+    32,
+    192,
+    206,
+    196,
+    218,
+    181,
+    249,
+    32,
+    197,
+    215,
+    189,
+    186,
+    198,
+    174
+  ]
+}
+`;
+
+exports[`BufferFrom > EUCKR BufferFrom str utf8 1`] = `
+{
+  "type": "Buffer",
+  "data": [
+    237,
+    149,
+    156,
+    234,
+    181,
+    173,
+    236,
+    150,
+    180,
+    32,
+    236,
+    157,
+    184,
+    236,
+    189,
+    148,
+    235,
+    148,
+    169,
+    32,
+    237,
+    133,
+    140,
+    236,
+    138,
+    164,
+    237,
+    138,
+    184
+  ]
+}
+`;
+
+exports[`BufferFrom > GBK BufferFrom buf utf8 1`] = `
+{
+  "type": "Buffer",
+  "data": [
+    231,
+    174,
+    128,
+    228,
+    189,
+    147,
+    228,
+    184,
+    173,
+    230,
+    150,
+    135,
+    231,
+    188,
+    150,
+    231,
+    160,
+    129,
+    230,
+    181,
+    139,
+    232,
+    175,
+    149,
+    230,
+    150,
+    135,
+    230,
+    156,
+    172
+  ]
+}
+`;
+
+exports[`BufferFrom > GBK BufferFrom str gbk 1`] = `
+{
+  "type": "Buffer",
+  "data": [
+    188,
+    242,
+    204,
+    229,
+    214,
+    208,
+    206,
+    196,
+    177,
+    224,
+    194,
+    235,
+    178,
+    226,
+    202,
+    212,
+    206,
+    196,
+    177,
+    190
+  ]
+}
+`;
+
+exports[`BufferFrom > GBK BufferFrom str utf8 1`] = `
+{
+  "type": "Buffer",
+  "data": [
+    231,
+    174,
+    128,
+    228,
+    189,
+    147,
+    228,
+    184,
+    173,
+    230,
+    150,
+    135,
+    231,
+    188,
+    150,
+    231,
+    160,
+    129,
+    230,
+    181,
+    139,
+    232,
+    175,
+    149,
+    230,
+    150,
+    135,
+    230,
+    156,
+    172
+  ]
+}
+`;
+
+exports[`BufferFrom > SJIS BufferFrom buf utf8 1`] = `
+{
+  "type": "Buffer",
+  "data": [
+    230,
+    151,
+    165,
+    230,
+    156,
+    172,
+    232,
+    170,
+    158,
+    227,
+    129,
+    174,
+    227,
+    131,
+    134,
+    227,
+    130,
+    185,
+    227,
+    131,
+    136,
+    230,
+    150,
+    135
+  ]
+}
+`;
+
+exports[`BufferFrom > SJIS BufferFrom str shift_jis 1`] = `
+{
+  "type": "Buffer",
+  "data": [
+    147,
+    250,
+    150,
+    123,
+    140,
+    234,
+    130,
+    204,
+    131,
+    101,
+    131,
+    88,
+    131,
+    103,
+    149,
+    182
+  ]
+}
+`;
+
+exports[`BufferFrom > SJIS BufferFrom str utf8 1`] = `
+{
+  "type": "Buffer",
+  "data": [
+    230,
+    151,
+    165,
+    230,
+    156,
+    172,
+    232,
+    170,
+    158,
+    227,
+    129,
+    174,
+    227,
+    131,
+    134,
+    227,
+    130,
+    185,
+    227,
+    131,
+    136,
+    230,
+    150,
+    135
+  ]
+}
+`;
+
+exports[`decode > BIG5 decode buf 1`] = `
+"次常用國字標準字體表"
+`;
+
+exports[`decode > BIG5 decode str 1`] = `
+"次常用國字標準字體表"
+`;
+
+exports[`decode > EUCJP decode buf 1`] = `
+"日本語のテスト文"
+`;
+
+exports[`decode > EUCJP decode str 1`] = `
+"日本語のテスト文"
+`;
+
+exports[`decode > EUCKR decode buf 1`] = `
+"한국어 인코딩 테스트"
+`;
+
+exports[`decode > EUCKR decode str 1`] = `
+"한국어 인코딩 테스트"
+`;
+
+exports[`decode > GBK decode buf 1`] = `
+"简体中文编码测试文本"
+`;
+
+exports[`decode > GBK decode str 1`] = `
+"简体中文编码测试文本"
+`;
+
+exports[`decode > SJIS decode buf 1`] = `
+"日本語のテスト文"
+`;
+
+exports[`decode > SJIS decode str 1`] = `
+"日本語のテスト文"
+`;
+
+exports[`detect > BIG5 detect buf 1`] = `
+{
+  "encoding": "Big5",
+  "confidence": 0.99,
+  "name": "Big5"
+}
+`;
+
+exports[`detect > BIG5 detect buf 2`] = `
+{
+  "encoding": "Big5",
+  "confidence": 0.99,
+  "name": "Big5",
+  "id": "big5"
+}
+`;
+
+exports[`detect > BIG5 detect str 1`] = `
+{
+  "encoding": "Big5",
+  "confidence": 0.99,
+  "name": "Big5"
+}
+`;
+
+exports[`detect > BIG5 detect str 2`] = `
+{
+  "encoding": "Big5",
+  "confidence": 0.99,
+  "name": "Big5",
+  "id": "big5"
+}
+`;
+
+exports[`detect > EUCJP detect buf 1`] = `
+{
+  "encoding": "EUC-JP",
+  "confidence": 0.99,
+  "name": "EUC-JP"
+}
+`;
+
+exports[`detect > EUCJP detect buf 2`] = `
+{
+  "encoding": "EUC-JP",
+  "confidence": 0.99,
+  "name": "EUC-JP",
+  "id": "eucjp"
+}
+`;
+
+exports[`detect > EUCJP detect str 1`] = `
+{
+  "encoding": "EUC-JP",
+  "confidence": 0.99,
+  "name": "EUC-JP"
+}
+`;
+
+exports[`detect > EUCJP detect str 2`] = `
+{
+  "encoding": "EUC-JP",
+  "confidence": 0.99,
+  "name": "EUC-JP",
+  "id": "eucjp"
+}
+`;
+
+exports[`detect > EUCKR detect buf 1`] = `
+{
+  "encoding": "EUC-KR",
+  "confidence": 0.99,
+  "name": "EUC-KR"
+}
+`;
+
+exports[`detect > EUCKR detect buf 2`] = `
+{
+  "encoding": "EUC-KR",
+  "confidence": 0.99,
+  "name": "EUC-KR"
+}
+`;
+
+exports[`detect > EUCKR detect str 1`] = `
+{
+  "encoding": "EUC-KR",
+  "confidence": 0.99,
+  "name": "EUC-KR"
+}
+`;
+
+exports[`detect > EUCKR detect str 2`] = `
+{
+  "encoding": "EUC-KR",
+  "confidence": 0.99,
+  "name": "EUC-KR"
+}
+`;
+
+exports[`detect > GBK detect buf 1`] = `
+{
+  "encoding": "GB2312",
+  "confidence": 0.99,
+  "name": "GB2312"
+}
+`;
+
+exports[`detect > GBK detect buf 2`] = `
+{
+  "encoding": "GB2312",
+  "confidence": 0.99,
+  "name": "GB2312",
+  "id": "cp936"
+}
+`;
+
+exports[`detect > GBK detect str 1`] = `
+{
+  "encoding": "GB2312",
+  "confidence": 0.99,
+  "name": "GB2312"
+}
+`;
+
+exports[`detect > GBK detect str 2`] = `
+{
+  "encoding": "GB2312",
+  "confidence": 0.99,
+  "name": "GB2312",
+  "id": "cp936"
+}
+`;
+
+exports[`detect > SJIS detect buf 1`] = `
+{
+  "encoding": "SHIFT_JIS",
+  "confidence": 0.99,
+  "name": "SHIFT_JIS"
+}
+`;
+
+exports[`detect > SJIS detect buf 2`] = `
+{
+  "encoding": "SHIFT_JIS",
+  "confidence": 0.99,
+  "name": "SHIFT_JIS",
+  "id": "shiftjis"
+}
+`;
+
+exports[`detect > SJIS detect str 1`] = `
+{
+  "encoding": "SHIFT_JIS",
+  "confidence": 0.99,
+  "name": "SHIFT_JIS"
+}
+`;
+
+exports[`detect > SJIS detect str 2`] = `
+{
+  "encoding": "SHIFT_JIS",
+  "confidence": 0.99,
+  "name": "SHIFT_JIS",
+  "id": "shiftjis"
+}
+`;
+
+exports[`encode > BIG5 encode buf to big5 1`] = `
+{
+  "type": "Buffer",
+  "data": [
+    166,
+    184,
+    177,
+    96,
+    165,
+    206,
+    176,
+    234,
+    166,
+    114,
+    188,
+    208,
+    183,
+    199,
+    166,
+    114,
+    197,
+    233,
+    170,
+    237
+  ]
+}
+`;
+
+exports[`encode > BIG5 encode to big5 1`] = `
+{
+  "type": "Buffer",
+  "data": [
+    166,
+    184,
+    177,
+    96,
+    165,
+    206,
+    176,
+    234,
+    166,
+    114,
+    188,
+    208,
+    183,
+    199,
+    166,
+    114,
+    197,
+    233,
+    170,
+    237
+  ]
+}
+`;
+
+exports[`encode > BIG5 encode to utf8 1`] = `
+{
+  "encoding": "UTF-8",
+  "confidence": 0.99,
+  "name": "UTF-8"
+}
+`;
+
+exports[`encode > BIG5 encode to utf8 2`] = `
+{
+  "type": "Buffer",
+  "data": [
+    230,
+    172,
+    161,
+    229,
+    184,
+    184,
+    231,
+    148,
+    168,
+    229,
+    156,
+    139,
+    229,
+    173,
+    151,
+    230,
+    168,
+    153,
+    230,
+    186,
+    150,
+    229,
+    173,
+    151,
+    233,
+    171,
+    148,
+    232,
+    161,
+    168
+  ]
+}
+`;
+
+exports[`encode > EUCJP encode buf to euc-jp 1`] = `
+{
+  "type": "Buffer",
+  "data": [
+    198,
+    252,
+    203,
+    220,
+    184,
+    236,
+    164,
+    206,
+    165,
+    198,
+    165,
+    185,
+    165,
+    200,
+    202,
+    184
+  ]
+}
+`;
+
+exports[`encode > EUCJP encode to euc-jp 1`] = `
+{
+  "type": "Buffer",
+  "data": [
+    198,
+    252,
+    203,
+    220,
+    184,
+    236,
+    164,
+    206,
+    165,
+    198,
+    165,
+    185,
+    165,
+    200,
+    202,
+    184
+  ]
+}
+`;
+
+exports[`encode > EUCJP encode to utf8 1`] = `
+{
+  "encoding": "UTF-8",
+  "confidence": 0.99,
+  "name": "UTF-8"
+}
+`;
+
+exports[`encode > EUCJP encode to utf8 2`] = `
+{
+  "type": "Buffer",
+  "data": [
+    230,
+    151,
+    165,
+    230,
+    156,
+    172,
+    232,
+    170,
+    158,
+    227,
+    129,
+    174,
+    227,
+    131,
+    134,
+    227,
+    130,
+    185,
+    227,
+    131,
+    136,
+    230,
+    150,
+    135
+  ]
+}
+`;
+
+exports[`encode > EUCKR encode buf to euc-kr 1`] = `
+{
+  "type": "Buffer",
+  "data": [
+    199,
+    209,
+    177,
+    185,
+    190,
+    238,
+    32,
+    192,
+    206,
+    196,
+    218,
+    181,
+    249,
+    32,
+    197,
+    215,
+    189,
+    186,
+    198,
+    174
+  ]
+}
+`;
+
+exports[`encode > EUCKR encode to euc-kr 1`] = `
+{
+  "type": "Buffer",
+  "data": [
+    199,
+    209,
+    177,
+    185,
+    190,
+    238,
+    32,
+    192,
+    206,
+    196,
+    218,
+    181,
+    249,
+    32,
+    197,
+    215,
+    189,
+    186,
+    198,
+    174
+  ]
+}
+`;
+
+exports[`encode > EUCKR encode to utf8 1`] = `
+{
+  "encoding": "UTF-8",
+  "confidence": 0.99,
+  "name": "UTF-8"
+}
+`;
+
+exports[`encode > EUCKR encode to utf8 2`] = `
+{
+  "type": "Buffer",
+  "data": [
+    237,
+    149,
+    156,
+    234,
+    181,
+    173,
+    236,
+    150,
+    180,
+    32,
+    236,
+    157,
+    184,
+    236,
+    189,
+    148,
+    235,
+    148,
+    169,
+    32,
+    237,
+    133,
+    140,
+    236,
+    138,
+    164,
+    237,
+    138,
+    184
+  ]
+}
+`;
+
+exports[`encode > GBK encode buf to gbk 1`] = `
+{
+  "type": "Buffer",
+  "data": [
+    188,
+    242,
+    204,
+    229,
+    214,
+    208,
+    206,
+    196,
+    177,
+    224,
+    194,
+    235,
+    178,
+    226,
+    202,
+    212,
+    206,
+    196,
+    177,
+    190
+  ]
+}
+`;
+
+exports[`encode > GBK encode to gbk 1`] = `
+{
+  "type": "Buffer",
+  "data": [
+    188,
+    242,
+    204,
+    229,
+    214,
+    208,
+    206,
+    196,
+    177,
+    224,
+    194,
+    235,
+    178,
+    226,
+    202,
+    212,
+    206,
+    196,
+    177,
+    190
+  ]
+}
+`;
+
+exports[`encode > GBK encode to utf8 1`] = `
+{
+  "encoding": "UTF-8",
+  "confidence": 0.99,
+  "name": "UTF-8"
+}
+`;
+
+exports[`encode > GBK encode to utf8 2`] = `
+{
+  "type": "Buffer",
+  "data": [
+    231,
+    174,
+    128,
+    228,
+    189,
+    147,
+    228,
+    184,
+    173,
+    230,
+    150,
+    135,
+    231,
+    188,
+    150,
+    231,
+    160,
+    129,
+    230,
+    181,
+    139,
+    232,
+    175,
+    149,
+    230,
+    150,
+    135,
+    230,
+    156,
+    172
+  ]
+}
+`;
+
+exports[`encode > SJIS encode buf to shift_jis 1`] = `
+{
+  "type": "Buffer",
+  "data": [
+    147,
+    250,
+    150,
+    123,
+    140,
+    234,
+    130,
+    204,
+    131,
+    101,
+    131,
+    88,
+    131,
+    103,
+    149,
+    182
+  ]
+}
+`;
+
+exports[`encode > SJIS encode to shift_jis 1`] = `
+{
+  "type": "Buffer",
+  "data": [
+    147,
+    250,
+    150,
+    123,
+    140,
+    234,
+    130,
+    204,
+    131,
+    101,
+    131,
+    88,
+    131,
+    103,
+    149,
+    182
+  ]
+}
+`;
+
+exports[`encode > SJIS encode to utf8 1`] = `
+{
+  "encoding": "UTF-8",
+  "confidence": 0.99,
+  "name": "UTF-8"
+}
+`;
+
+exports[`encode > SJIS encode to utf8 2`] = `
+{
+  "type": "Buffer",
+  "data": [
+    230,
+    151,
+    165,
+    230,
+    156,
+    172,
+    232,
+    170,
+    158,
+    227,
+    129,
+    174,
+    227,
+    131,
+    134,
+    227,
+    130,
+    185,
+    227,
+    131,
+    136,
+    230,
+    150,
+    135
+  ]
+}
+`;
+
+exports[`getIconvLiteCodec > BIG5 getIconvLiteCodec big5 1`] = `
+{
+  "enc": "big5hkscs",
+  "enc2": "big5hkscs",
+  "encodingName": "big5hkscs"
+}
+`;
+
+exports[`getIconvLiteCodec > EUCJP getIconvLiteCodec euc-jp 1`] = `
+{
+  "enc": "eucjp",
+  "enc2": "eucjp",
+  "encodingName": "eucjp"
+}
+`;
+
+exports[`getIconvLiteCodec > EUCKR getIconvLiteCodec euc-kr 1`] = `
+{
+  "enc2": "cp949",
+  "encodingName": "cp949"
+}
+`;
+
+exports[`getIconvLiteCodec > GBK getIconvLiteCodec gbk 1`] = `
+{
+  "enc": "gbk",
+  "enc2": "gbk",
+  "encodingName": "gbk"
+}
+`;
+
+exports[`getIconvLiteCodec > SJIS getIconvLiteCodec shift_jis 1`] = `
+{
+  "enc": "shiftjis",
+  "enc2": "shiftjis",
+  "encodingName": "shiftjis"
+}
+`;
